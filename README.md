@@ -1,160 +1,112 @@
 # AI Trend Radar
 
-面向 AI 内容运营和产品调研的热点选题监控工具。它会每天抓取公开 AI 信号，生成一份中文“值得写、值得测、值得深挖”的选题池，并通过 HTML、Web UI、RSS、Telegram、飞书和 GitHub Actions 分发。
+面向 AI 内容运营和产品调研的热点选题监控工具。它会每天抓取公开 AI 信号（国内外共 15+ 数据源），生成一份中文"值得写、值得测、值得深挖"的选题池，并通过 HTML、Web UI、RSS、Telegram、飞书和 GitHub Actions 分发。
 
 它不是一个简单的信息搬运脚本，而是把分散的 AI 行业信号转成可排序、可解释、可交付的选题决策流：先采集公开证据，再用评分框架判断优先级，最后沉淀成报告、结构化数据和自动化分发链路。
 
 本项目基于 [`duanyytop/agents-radar`](https://github.com/duanyytop/agents-radar) 改造。
 
+> **RAG 版本**：本项目还有一个 [AI-TREND-RADAR-RAG](https://github.com/Conradgui/AI-TREND-RADAR-RAG) 版本，基于 Neo4j 知识图谱 + ChromaDB 向量搜索构建了 Agentic RAG 系统，支持通过自然语言对话查询历史选题数据。
+
 ## 5 分钟理解
 
 ### 它解决什么问题？
 
-每天 AI 信息源很多：新模型、新产品、开源项目、论文、Hacker News 讨论、大厂官网发布、社区文章。AI Topic Radar 把这些公开信号聚合成一个可操作的内容选题池，帮助你判断：
+每天 AI 信息源很多：新模型、新产品、开源项目、论文、Hacker News 讨论、大厂官网发布、国内外社区文章。AI Topic Radar 把这些公开信号聚合成一个可操作的内容选题池，帮助你判断：
 
 - 今天哪些 AI 话题值得优先深挖？
 - 哪些产品或开源项目值得进入选题池？
-- 哪些信号还不够成熟，只需要观察？
+- 中英文社区对同一话题的讨论有何异同？
 - 哪些数据源失败了，应该怎么修？
-
-它更关注“下一步该做什么”，而不是只回答“今天发生了什么”。每条候选选题都会保留来源、理由、分类、分数和建议动作，方便继续写日报、做竞品观察、准备选题会或沉淀产品研究素材。
 
 ### 最终会产出什么？
 
-默认运行后会生成：
-
 | 文件 | 用途 |
 | --- | --- |
-| `digests/YYYY-MM-DD/ai-topic-radar.html` | 主报告，可双击打开，也适合通过 GitHub Pages 分享 |
-| `digests/YYYY-MM-DD/ai-topic-radar.md` | Markdown 版本，便于复制到文档、社群或编辑器 |
-| `digests/YYYY-MM-DD/topic-pool.json` | 结构化选题池，保留分数、分类、动作、理由和证据 |
+| `digests/YYYY-MM-DD/ai-topic-radar.html` | 主报告，可双击打开 |
+| `digests/YYYY-MM-DD/ai-topic-radar.md` | Markdown 版本 |
+| `digests/YYYY-MM-DD/topic-pool.json` | 结构化选题池（分数、分类、动作、理由、证据） |
+| `digests/YYYY-MM-DD/ai-china-tech.md` | 中文科技社区 AI 动态日报（36kr + InfoQ + Gitee + OSChina + 掘金） |
 | `manifest.json` | 历史 Web UI 索引 |
 | `feed.xml` | RSS 订阅源 |
 
-默认只生成中文主报告。英文报告和源级报告仍然支持，但需要显式开启。
-
 ### 适合谁？
 
-- AI 内容运营：每天做热点日报、社群内容、选题池。
-- AI 产品研究：跟踪新产品、新模型和竞品动态。
-- 技术/开源观察者：追踪 GitHub、Hacker News、arXiv、Hugging Face 信号。
-
-### 产品化思路
-
-这个项目把“每天看很多 AI 信息”拆成一个稳定的工作流：先发现公开信号，再筛选和排序，最后输出可以继续讨论、分发和复盘的选题资产。
-
-| 设计点 | 在项目中的体现 |
-| --- | --- |
-| 问题定义 | 把 AI 信息过载拆成“发现、筛选、排序、分发、复盘”的具体流程 |
-| 产品判断 | 用商业影响、热度、新鲜度、可写性构建选题评分和动作阈值 |
-| 数据意识 | 同时接入产品发布、开源趋势、论文、社区讨论和官网动态等公开信号 |
-| 交付能力 | 产出 HTML、Markdown、JSON、RSS、Web UI，并支持自动日报、周报、月报 |
-| 风险边界 | 明确区分公开资料、API token、失败数据源和需要真实 token / 线上环境验证的能力 |
+- AI 内容运营：每天做热点日报、社群内容、选题池
+- AI 产品研究：跟踪新产品、新模型和竞品动态
+- 技术/开源观察者：追踪 GitHub、Hacker News、arXiv、国内外社区信号
 
 ## 最快跑通
 
-你只需要 Node 22、pnpm 和一个 DeepSeek API key。
-
 ```bash
+# 1. 安装依赖
 pnpm install --frozen-lockfile
 
-export LLM_PROVIDER=deepseek
-printf "DeepSeek API key: "
-read -r -s DEEPSEEK_API_KEY
-printf "\n"
-export DEEPSEEK_API_KEY
+# 2. 配置 API Key
+cp .env.example .env
+# 编辑 .env，填入 LLM_PROVIDER 和对应 API_KEY
 
+# 3. 运行
 pnpm digest
 ```
 
-成功后打开：
+成功后打开 `digests/YYYY-MM-DD/ai-topic-radar.html`。
 
-```text
-digests/YYYY-MM-DD/ai-topic-radar.html
-```
+查看历史看板：`pnpm serve` → http://localhost:8080
 
-如果想看历史看板：
+## 数据源（15+ 个）
 
-```bash
-pnpm serve
-```
-
-然后访问：
-
-```text
-http://localhost:8080
-```
-
-更完整的新手步骤见 [新手启用指南](docs/getting-started.zh.md)。
-
-## 功能模块总览
-
-| 模块 | 当前能力 | 默认是否启用 |
-| --- | --- | --- |
-| 数据采集 | GitHub Trending / Search、HN、Product Hunt、arXiv、Hugging Face、OpenAI / Anthropic 官网、Dev.to、Lobsters | 是，Product Hunt 需 token |
-| LLM 摘要 | 支持 DeepSeek、Anthropic、OpenAI-compatible、OpenRouter、GitHub Copilot provider | 是，默认建议 DeepSeek |
-| 选题评分 | 商业影响 40、热度 30、新鲜度 20、可写性 10 | 是 |
-| 内容分类 | 政策监管、模型突破、AI 产品、行业落地、标杆企业与商业格局 | 是 |
-| 主报告 | `ai-topic-radar.html`、`.md`、`topic-pool.json` | 是 |
-| 源级报告 | `ai-web.md`、`ai-hn.md`、`ai-arxiv.md` 等 | 默认关闭，`SAVE_SOURCE_REPORTS=1` 开启 |
-| 英文报告 | `*-en.md` | 默认关闭，`REPORT_LANGS=zh,en` 开启 |
-| 历史 Web UI | `index.html` + `manifest.json` 浏览历史 Markdown | 是 |
-| RSS | `feed.xml`，默认指向主报告 HTML | 是 |
-| Telegram | 发送主报告、Web UI、RSS 链接和 highlights | 支持，需 token |
-| 飞书 | 发送主报告、Web UI、RSS 链接和 highlights | 支持，需 webhook |
-| GitHub Actions | 每日自动日报、周报、月报、CI | 是，需配置 Secrets |
-| MCP server | `mcp/` 目录包含可部署的 MCP 服务代码 | 保留代码，不默认部署 |
-
-## 数据源
-
-默认链路会尝试抓取这些公开来源：
+### 国际数据源
 
 | 来源 | 内容 | 配置 |
 | --- | --- | --- |
 | GitHub Trending | 每日热门开源仓库 | 无需 token |
-| GitHub Search | `llm`、`ai-agent`、`rag` 等关键词新 repo | 推荐 `GITHUB_TOKEN` 提高限流 |
-| Hacker News | AI / LLM / Agent 相关社区讨论 | 无需 token |
-| Product Hunt | AI 产品发布和投票讨论 | 需要 `PRODUCTHUNT_TOKEN` |
+| GitHub Search | `llm`、`ai-agent`、`rag` 等关键词 | 推荐 `GITHUB_TOKEN` |
+| Hacker News | AI / LLM 社区讨论 | 无需 token |
+| Product Hunt | AI 产品发布 | 需要 `PRODUCTHUNT_TOKEN` |
 | arXiv | `cs.AI`、`cs.CL`、`cs.LG` 论文 | 无需 token |
 | Hugging Face | 热门模型和下载/点赞信号 | 无需 token |
-| OpenAI 官网 | 官方发布、产品更新、安全说明 | 无需 token |
-| Anthropic 官网 | Claude、模型、安全和合作动态 | 无需 token |
+| OpenAI 官网 | 官方发布、产品更新 | 无需 token |
+| Anthropic 官网 | Claude、模型、安全动态 | 无需 token |
+| **Google DeepMind** | 研究博客、论文、产品发布 | 无需 token |
 | Dev.to | 技术社区文章 | 无需 token |
 | Lobsters | 技术社区讨论 | 无需 token |
 
-某个来源失败不会中断日报，主报告会在“数据源状态与修复提示”里说明原因。
+### 国内数据源
+
+| 来源 | 内容 | 访问方式 |
+| --- | --- | --- |
+| 36kr | AI 行业新闻 | RSS feed |
+| InfoQ 中国 | 技术深度文章 | 内部 API |
+| Gitee | 热门 AI 开源项目 | REST API v5 |
+| 开源中国 | 技术资讯 | RSS feed |
+| 稀土掘金 | 开发者技术文章 | 内部 API |
+
+五个国内源合并为一份 `ai-china-tech.md` 报告（中英文版本），并同时纳入选题评分。
+
+某个来源失败不会中断日报，主报告会在"数据源状态与修复提示"里说明原因。
+
+## 功能模块总览
+
+| 模块 | 能力 | 默认 |
+| --- | --- | --- |
+| 数据采集 | 15+ 国内外源（GitHub、HN、arXiv、HF、官网、36kr、掘金等） | 是 |
+| LLM 摘要 | DeepSeek / Anthropic / OpenAI / OpenRouter / GitHub Copilot | 是 |
+| 选题评分 | 商业影响 40、热度 30、新鲜度 20、可写性 10 | 是 |
+| 内容分类 | 政策监管、模型突破、AI 产品、行业落地、标杆企业与商业格局 | 是 |
+| 中文科技社区报告 | `ai-china-tech.md`（36kr + InfoQ + Gitee + OSChina + 掘金） | 是 |
+| 源级报告 | `ai-web.md`、`ai-hn.md`、`ai-arxiv.md` 等 | 默认关闭 |
+| 英文报告 | `*-en.md` | 默认关闭 |
+| 历史 Web UI | `index.html` + `manifest.json` | 是 |
+| RSS | `feed.xml` | 是 |
+| Telegram / 飞书 | 通知推送 | 需 token |
+| GitHub Actions | 每日 / 每周 / 每月自动运行 | 是 |
 
 ## 选题评分
-
-每条候选选题按 0-100 分评分：
 
 ```text
 总分 = 商业影响（40）+ 热度（30）+ 新鲜度（20）+ 可写性（10）
 ```
-
-这套权重故意把商业影响放在最高优先级，避免日报变成单纯的流量榜。热度用于吸收公开社区反馈，但会按来源归一化；新鲜度和可写性则保证选题适合当天产出，并且有足够材料继续深挖。
-
-| 维度 | 权重 | 含义 |
-| --- | ---: | --- |
-| 商业影响 | 40 | 是否影响产品、用户、企业、定价、落地或竞争格局 |
-| 热度 | 30 | stars、votes、comments、likes、downloads 等来源热度 |
-| 新鲜度 | 20 | 是否适合作为今日选题 |
-| 可写性 | 10 | 是否有公开材料、明确标签和内容切入角度 |
-
-热度信号会先取同一条信息中的最大公开反馈值，再按来源换算成 0-30 分：
-
-| 来源类型 | 原始热度信号 | 热度分 |
-| --- | --- | --- |
-| Product Hunt | `votesCount`、`commentsCount` 中的最大值 | `min(round(最大值 / 8), 30)` |
-| Hacker News | `points`、`comments` 中的最大值 | `min(round(最大值 / 12), 30)` |
-| GitHub | stars 相关信号中的最大值 | `min(round(最大值 / 15), 30)` |
-| Hugging Face | `likes`、`downloads` 中的最大值 | `min(round(最大值 / 20), 30)` |
-| OpenAI / Anthropic 官网 | 无社区热度信号 | 固定 24 |
-| arXiv | 无社区热度信号 | 固定 16 |
-
-报告证据里的 `热度信号：485 / 16` 是原始信号展示，最终热度分会取其中最大值再按上表归一化。
-
-动作阈值：
 
 | 分数 | 动作 |
 | ---: | --- |
@@ -164,7 +116,6 @@ http://localhost:8080
 | < 50 | 归档 |
 
 五类分类：
-
 - 政策监管、社会影响与 AI 安全
 - 模型与技术突破
 - AI 产品与用户入口
@@ -175,98 +126,32 @@ http://localhost:8080
 
 ### 方式一：本地使用
 
-适合先跑通工具，生成一份本地 HTML 报告。
-
 ```bash
 pnpm digest
-```
-
-打开：
-
-```text
-digests/YYYY-MM-DD/ai-topic-radar.html
+# 打开 digests/YYYY-MM-DD/ai-topic-radar.html
 ```
 
 ### 方式二：GitHub Actions 自动日报
 
-适合每天自动生成报告并提交回仓库。
-
-1. 在 GitHub 仓库配置 `DEEPSEEK_API_KEY`。
-2. 进入 `Actions -> Daily AI Topic Radar`。
-3. 点击 `Run workflow`。
-4. 成功后仓库会出现新的 `digests/YYYY-MM-DD/`、`manifest.json`、`feed.xml`。
+1. 配置 `DEEPSEEK_API_KEY` 为仓库 Secret
+2. 进入 `Actions -> Daily AI Topic Radar -> Run workflow`
+3. 成功后仓库自动生成新的 digest 文件
 
 ### 方式三：GitHub Pages 公开分享
 
-适合把 HTML 报告、历史 Web UI 和 RSS 公开给别人看。
+1. `Settings -> Pages` → Source 选择 `GitHub Actions`
+2. 等待日报 workflow 成功后自动部署
+3. 访问 https://conradgui.github.io/AI-TREND-RADAR
 
-1. 进入 `Settings -> Pages`。
-2. Source 选择 `GitHub Actions`。
-3. 手动运行一次 `Actions -> Deploy GitHub Pages -> Run workflow`，或等待日报 / 周报 / 月报 workflow 成功后自动部署。
-4. 访问：
+## 自动化
 
-```text
-https://conradgui.github.io/AI-TREND-RADAR
-```
+| Workflow | 时间 |
+| --- | --- |
+| Daily | 每天 08:00 CST |
+| Weekly | 每周一 09:00 CST |
+| Monthly | 每月 1 日 10:00 CST |
 
-主报告地址形如：
-
-```text
-https://conradgui.github.io/AI-TREND-RADAR/digests/YYYY-MM-DD/ai-topic-radar.html
-```
-
-Pages 只在日报、周报、月报成功后自动部署，普通代码或 README push 不会触发发布，避免开发过程中的测试产物误上站。
-
-如果 Web UI 或 RSS 返回 404，先确认 `Deploy GitHub Pages` workflow 已成功完成，并等待 1-3 分钟让 GitHub Pages CDN 生效。仓库需要包含并发布 `index.html`、`feed.xml`、`manifest.json`、`.nojekyll` 和 `digests/`。
-
-## 自动化与通知
-
-本仓库包含三条自动化 workflow：
-
-| Workflow | 文件 | 默认时间 |
-| --- | --- | --- |
-| Daily AI Topic Radar | `.github/workflows/daily-digest.yml` | 每天 08:00 CST |
-| Weekly AI Topic Radar | `.github/workflows/weekly-digest.yml` | 每周一 09:00 CST |
-| Monthly AI Topic Radar | `.github/workflows/monthly-digest.yml` | 每月 1 日 10:00 CST |
-
-Daily workflow 默认：
-
-```yaml
-LLM_PROVIDER: deepseek
-REPORT_LANGS: zh
-SAVE_SOURCE_REPORTS: "0"
-```
-
-通知能力：
-
-- Telegram：`pnpm notify`，需要 `TELEGRAM_BOT_TOKEN` 和 `TELEGRAM_CHAT_ID`。
-- 飞书：`pnpm notify:feishu`，需要 `FEISHU_WEBHOOK_URLS`。
-- 邮箱早报：daily workflow 内置 SMTP 发送，需要 `SMTP_HOST`、`SMTP_USERNAME`、`SMTP_PASSWORD`、`EMAIL_TO`。
-- 未配置 token 时会跳过，不会让日报失败。
-
-配置细节见 [配置帮助文档](docs/configuration.zh.md)。
-
-## 输出模式
-
-默认模式：
-
-```bash
-pnpm digest
-```
-
-生成中文主报告、Markdown、JSON、manifest 和 RSS。
-
-恢复源级中文报告：
-
-```bash
-SAVE_SOURCE_REPORTS=1 pnpm digest
-```
-
-同时生成中文和英文源级报告：
-
-```bash
-REPORT_LANGS=zh,en SAVE_SOURCE_REPORTS=1 pnpm digest
-```
+通知：Telegram / 飞书 / SMTP 邮箱。未配置 token 时自动跳过。
 
 ## 常用命令
 
@@ -274,60 +159,23 @@ REPORT_LANGS=zh,en SAVE_SOURCE_REPORTS=1 pnpm digest
 | --- | --- |
 | `pnpm digest` | 生成主报告 + manifest + RSS |
 | `pnpm start` | 只生成日报文件 |
-| `pnpm manifest` | 更新 `manifest.json` 和 `feed.xml` |
+| `pnpm manifest` | 更新 manifest.json 和 feed.xml |
 | `pnpm serve` | 本地查看历史 Web UI |
-| `pnpm notify` | 发送 Telegram 通知 |
-| `pnpm notify:feishu` | 发送飞书通知 |
 | `pnpm weekly` | 生成周报 |
 | `pnpm monthly` | 生成月报 |
-| `pnpm test` | 单元测试 |
-| `pnpm typecheck` | TypeScript 检查 |
-| `pnpm lint` | ESLint |
-| `pnpm format:check` | Prettier 检查 |
+| `pnpm test` | 单元测试（224 个） |
+| `pnpm typecheck` | TypeScript 类型检查 |
 
-## 当前已验证模块
+## 验证状态
 
-本地已验证：
-
-- `pnpm typecheck`
-- `pnpm test`：213 passed
-- `pnpm lint`
-- `pnpm format:check`
-- `pnpm manifest`
-- `pnpm notify`：无 Telegram token 时正常跳过
-- `pnpm notify:feishu`：无飞书 webhook 时正常跳过
-
-需要真实 token 或线上环境进一步验证：
-
-- DeepSeek 真实摘要生成
-- Product Hunt 数据源
-- Telegram 实际发送
-- 飞书实际发送
-- GitHub Actions 线上定时运行
-- GitHub Pages 首次部署
-
-## FAQ
-
-### 我只想最快看到一份报告，应该做什么？
-
-配置 DeepSeek key 后运行 `pnpm digest`，打开 `digests/YYYY-MM-DD/ai-topic-radar.html`。
-
-### 为什么浏览器访问 localhost 会失败？
-
-历史 Web UI 需要先启动静态服务。运行 `pnpm serve` 后再打开 `http://localhost:8080`。单日 HTML 主报告不需要服务。
-
-### GitHub API 403 是什么？
-
-未配置 `GITHUB_TOKEN` 时会使用匿名 GitHub API，限流较低。本地可配置 `GITHUB_TOKEN`，Actions 中会自动提供 `${{ secrets.GITHUB_TOKEN }}`。
-
-### Product Hunt 被跳过怎么办？
-
-配置 `PRODUCTHUNT_TOKEN` 后重新运行。未配置时不会阻断主报告。
-
-### 可以提交 `.env` 吗？
-
-不可以。`.gitignore` 已忽略 `.env` 和 `.env.*`。请用环境变量或 GitHub Secrets。
+- TypeScript typecheck: 通过
+- ESLint: 通过
+- 单元测试: 224/224 通过
 
 ## 作品集边界
 
 本仓库只使用公开信息源和可复现代码，不包含公司内部资料、私有社群内容、API key 或未公开报告。它用于展示一个可公开复现的 AI 热点监控、选题评分、日报生成和自动分发工作流。
+
+## License
+
+MIT

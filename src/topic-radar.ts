@@ -11,6 +11,7 @@ import type { PhData } from "./ph.ts";
 import type { ArxivData } from "./arxiv.ts";
 import type { HfData } from "./hf.ts";
 import type { WebFetchResult } from "./web.ts";
+import type { ChinaSourcesData } from "./china-sources.ts";
 import fs from "node:fs";
 import path from "node:path";
 
@@ -66,6 +67,7 @@ export interface TopicRadarInput {
   arxivData: ArxivData;
   hfData: HfData;
   webResults: WebFetchResult[];
+  chinaSourcesData?: ChinaSourcesData;
   dateStr: string;
   utcStr: string;
   now?: Date;
@@ -398,6 +400,71 @@ function collectRawTopics(input: TopicRadarInput): RawTopic[] {
     }
   }
 
+  // Chinese data sources
+  if (input.chinaSourcesData) {
+    const cn = input.chinaSourcesData;
+    for (const article of cn.kr36.articles) {
+      topics.push({
+        title: article.title,
+        url: article.url,
+        source: "36kr",
+        sourceType: "community",
+        summary: article.summary,
+        publishedAt: article.publishedAt,
+        heatSignals: [],
+        tags: ["36kr", "中国AI"],
+      });
+    }
+    for (const article of cn.infoqCn.articles) {
+      topics.push({
+        title: article.title,
+        url: article.url,
+        source: "InfoQ 中国",
+        sourceType: "community",
+        summary: article.summary,
+        publishedAt: article.publishTime,
+        heatSignals: [],
+        tags: ["infoq-cn", ...article.topics],
+      });
+    }
+    for (const project of cn.gitee.projects) {
+      topics.push({
+        title: project.fullName,
+        url: project.url,
+        source: "Gitee",
+        sourceType: "github",
+        summary: project.description,
+        publishedAt: project.updatedAt,
+        heatSignals: [project.stars, project.forks],
+        tags: ["gitee", project.language].filter(Boolean),
+      });
+    }
+    for (const news of cn.oschina.news) {
+      topics.push({
+        title: news.title,
+        url: news.url,
+        source: "开源中国",
+        sourceType: "community",
+        summary: news.body,
+        publishedAt: news.pubDate,
+        heatSignals: [],
+        tags: ["oschina", "中国AI"],
+      });
+    }
+    for (const article of cn.juejin.articles) {
+      topics.push({
+        title: article.title,
+        url: article.url,
+        source: "掘金",
+        sourceType: "community",
+        summary: article.brief,
+        publishedAt: article.publishTime,
+        heatSignals: [article.diggCount, article.viewCount],
+        tags: ["juejin", ...article.tags],
+      });
+    }
+  }
+
   return topics;
 }
 
@@ -420,6 +487,14 @@ function collectWarnings(input: TopicRadarInput): string[] {
     warnings.push("Hugging Face 获取失败；可检查 huggingface.co API 是否可访问。");
   if (!input.webResults.some((result) => result.newItems.length > 0)) {
     warnings.push("官方内容源今日没有检测到新内容；首次运行后这是正常情况。");
+  }
+  if (input.chinaSourcesData) {
+    const cn = input.chinaSourcesData;
+    if (!cn.kr36.fetchSuccess) warnings.push("36kr 获取失败；可检查网络或 RSS 源是否可用。");
+    if (!cn.infoqCn.fetchSuccess) warnings.push("InfoQ 中国获取失败；可检查 infoq.cn API 是否可用。");
+    if (!cn.gitee.fetchSuccess) warnings.push("Gitee 获取失败；可检查 gitee.com API 是否可访问。");
+    if (!cn.oschina.fetchSuccess) warnings.push("开源中国获取失败；可检查 oschina.net RSS 是否可用。");
+    if (!cn.juejin.fetchSuccess) warnings.push("掘金获取失败；可检查 juejin.com API 是否可用。");
   }
   return warnings;
 }

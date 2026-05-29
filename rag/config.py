@@ -25,7 +25,6 @@ NEO4J_PASSWORD = os.getenv("NEO4J_PASSWORD", "password")
 # Paths
 DIGESTS_DIR = str(_PROJECT_ROOT / "digests")
 CHROMA_DIR = str(Path(__file__).parent / "data" / "chroma")
-ARTIFACTS_DIR = str(Path(__file__).parent / "data" / "artifacts")
 
 # Server
 RAG_HOST = os.getenv("RAG_HOST", "0.0.0.0")

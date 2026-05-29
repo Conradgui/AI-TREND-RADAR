@@ -23,7 +23,7 @@ export interface WebPageItem {
   title: string;
   lastmod: string;
   content: string;
-  site: "anthropic" | "openai";
+  site: "anthropic" | "openai" | "deepmind";
   category: string;
 }
 
@@ -36,10 +36,11 @@ interface SiteState {
 export interface WebState {
   anthropic: SiteState;
   openai: SiteState;
+  deepmind: SiteState;
 }
 
 export interface WebFetchResult {
-  site: "anthropic" | "openai";
+  site: "anthropic" | "openai" | "deepmind";
   siteName: string;
   isFirstRun: boolean;
   newItems: WebPageItem[];
@@ -66,7 +67,7 @@ interface SiteConfig {
   metadataOnly?: boolean;
 }
 
-const SITE_CONFIGS: Record<"anthropic" | "openai", SiteConfig> = {
+const SITE_CONFIGS: Record<"anthropic" | "openai" | "deepmind", SiteConfig> = {
   anthropic: {
     name: "Anthropic (Claude)",
     sitemapUrl: "https://www.anthropic.com/sitemap.xml",
@@ -75,7 +76,6 @@ const SITE_CONFIGS: Record<"anthropic" | "openai", SiteConfig> = {
   openai: {
     name: "OpenAI",
     sitemapUrl: "https://openai.com/sitemap.xml",
-    // Fetch only content-focused sub-sitemaps; skip app-category and i18n sitemaps
     subSitemapNames: [
       "research",
       "publication",
@@ -88,9 +88,12 @@ const SITE_CONFIGS: Record<"anthropic" | "openai", SiteConfig> = {
       "product",
     ],
     subSitemapTemplate: "https://openai.com/sitemap.xml/{name}/",
-    // Article pages return 403 from datacenter IPs (Cloudflare WAF);
-    // sitemaps are accessible, so use metadata-only mode.
     metadataOnly: true,
+  },
+  deepmind: {
+    name: "Google DeepMind",
+    sitemapUrl: "https://deepmind.google/sitemap.xml",
+    prefixes: ["/blog/", "/research/", "/discover/"],
   },
 };
 
@@ -203,7 +206,7 @@ export function titleFromUrl(url: string): string {
 // URL discovery
 // ---------------------------------------------------------------------------
 
-async function discoverUrls(site: "anthropic" | "openai"): Promise<Array<{ loc: string; lastmod?: string }>> {
+async function discoverUrls(site: "anthropic" | "openai" | "deepmind"): Promise<Array<{ loc: string; lastmod?: string }>> {
   const cfg = SITE_CONFIGS[site];
   const results: Array<{ loc: string; lastmod?: string }> = [];
 
@@ -251,6 +254,7 @@ export function emptyState(): WebState {
   return {
     anthropic: { lastChecked: "", seenUrls: {} },
     openai: { lastChecked: "", seenUrls: {} },
+    deepmind: { lastChecked: "", seenUrls: {} },
   };
 }
 
@@ -272,7 +276,7 @@ export function saveWebState(state: WebState): void {
 // ---------------------------------------------------------------------------
 
 export async function fetchSiteContent(
-  site: "anthropic" | "openai",
+  site: "anthropic" | "openai" | "deepmind",
   state: WebState,
 ): Promise<WebFetchResult> {
   const cfg = SITE_CONFIGS[site];

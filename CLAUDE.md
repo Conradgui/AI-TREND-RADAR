@@ -75,6 +75,13 @@ The pipeline runs in four sequential phases, each implemented as a named async f
 | `src/hn.ts` | Hacker News top AI stories via Algolia HN Search API |
 | `src/generate-manifest.ts` | Generates `manifest.json` (sidebar data for Web UI) and `feed.xml` (RSS 2.0 feed) |
 | `src/topic-radar.ts` | Normalizes source data into an editorial topic pool, scores topics, and writes `ai-topic-radar.md` / `topic-pool.json` |
+| `src/kr36.ts` | 36kr AI news articles fetched via RSS feed |
+| `src/infoq-cn.ts` | InfoQ China AI articles fetched via internal API |
+| `src/gitee.ts` | Gitee popular AI projects fetched via REST API v5 |
+| `src/oschina.ts` | OSChina AI news fetched via RSS feed |
+| `src/juejin.ts` | Juejin (稀土掘金) AI articles fetched via internal API |
+| `src/china-sources.ts` | Unified wrapper for all Chinese data sources |
+| `src/rss-utils.ts` | Shared RSS/XML parsing utilities |
 
 ## Report outputs
 
@@ -95,9 +102,10 @@ Files written to `digests/YYYY-MM-DD/`:
 - **CLI_REPOS** (9): claude-code, codex, gemini-cli, copilot-cli, kimi-cli, opencode, pi, qwen-code, deepseek-tui
 - **OPENCLAW** + **OPENCLAW_PEERS** (13): openclaw/openclaw + 12 peer projects (sorted by stars)
 - **CLAUDE_SKILLS_REPO**: anthropics/skills — no date filter, sorted by popularity
-- **Web**: anthropic.com + openai.com via sitemap, state in `digests/web-state.json`
+- **Web**: anthropic.com + openai.com + deepmind.google via sitemap, state in `digests/web-state.json`
 - **Trending**: github.com/trending (HTML) + GitHub Search API (6 AI topics, 7-day window)
 - **HN**: Algolia HN Search API — 6 parallel queries, top-30 AI stories by points, last 24h
+- **Chinese sources**: 36kr (RSS), InfoQ China (API), Gitee (REST API), OSChina (RSS), Juejin (API) — combined into `ai-china-tech.md`
 
 ## Key conventions
 
@@ -130,3 +138,49 @@ Files written to `digests/YYYY-MM-DD/`:
 7. Add the report ID and label to `REPORT_LABELS` in `src/i18n.ts` and `LABELS` in `index.html`.
 8. Add the report file name to `REPORT_FILES` in `src/generate-manifest.ts`.
 9. Update both README files and this file.
+
+## RAG System (AI-TREND-RADAR-RAG)
+
+The project has a companion [AI-TREND-RADAR-RAG](https://github.com/Conradgui/AI-TREND-RADAR-RAG) repository with a full Agentic RAG + Graph RAG system. It reads the digest data produced by this pipeline and provides intelligent query capabilities.
+
+### RAG Architecture
+
+```
+pnpm digest (this repo) → digests/YYYY-MM-DD/*.md + topic-pool.json
+        ↓
+python -m rag.ingest → Neo4j knowledge graph + ChromaDB vector store
+        ↓
+python -m rag.server → http://localhost:8001 (Chat UI + API)
+        ↓
+LangGraph ReAct Agent with 4 tools:
+  ├── graph_search (Neo4j)
+  ├── vector_search (ChromaDB)
+  ├── trend_analysis (Neo4j time series)
+  └── topic_recommend (scoring + ranking)
+```
+
+### Setup
+
+```bash
+# In the RAG repo
+cp .env.example .env  # reuse same LLM_PROVIDER + API_KEY
+pnpm setup:rag        # pip install + docker neo4j
+pnpm digest           # generate data
+python -m rag.server  # http://localhost:8001
+```
+
+### Key files (in RAG repo)
+
+| File | Role |
+|------|------|
+| `rag/server.py` | FastAPI: /chat, /config, /health, /ingest |
+| `rag/ingest.py` | CLI: ingests digests into Neo4j + ChromaDB |
+| `rag/graphrag/builder.py` | Knowledge graph construction |
+| `rag/agent/agent.py` | LangGraph ReAct agent |
+| `rag/agent/tools.py` | 4 tool definitions |
+| `rag/web/chat.html` | Chat UI + config page |
+| `docker-compose.yml` | Neo4j 5 container |
+
+### Lightweight Chat (MCP Worker)
+
+For GitHub Pages deployment, the MCP Worker at `mcp/src/index.ts` provides a simpler `/chat` endpoint that does keyword-based RAG over the published digest data. Set `LLM_API_KEY` and `LLM_PROVIDER` as Cloudflare Worker secrets.

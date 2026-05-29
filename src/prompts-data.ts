@@ -13,6 +13,7 @@ import type { ArxivData } from "./arxiv.ts";
 import type { HfData } from "./hf.ts";
 import type { DevtoData } from "./devto.ts";
 import type { LobstersData } from "./lobsters.ts";
+import type { ChinaSourcesData } from "./china-sources.ts";
 import type { Lang } from "./i18n.ts";
 export function buildTrendingPrompt(data: TrendingData, dateStr: string, lang: Lang = "zh"): string {
   const trendingSection =
@@ -910,6 +911,191 @@ ${lobstersText}
    - 新兴的教程、模式或最佳实践
 
 5. **值得精读** — 2~3 篇最值得深入阅读的内容
+
+语言要求：中文，简洁专业，保留所有原文链接。
+`;
+}
+
+// ---------------------------------------------------------------------------
+// China Tech prompt (36kr + InfoQ + Gitee + OSChina + Juejin combined)
+// ---------------------------------------------------------------------------
+
+export function buildChinaTechPrompt(data: ChinaSourcesData, dateStr: string, lang: Lang = "zh"): string {
+  const kr36Text =
+    data.kr36.articles.length > 0
+      ? data.kr36.articles
+          .map(
+            (a, i) =>
+              `${i + 1}. **${a.title}**\n` +
+              `   链接: ${a.url}\n` +
+              `   作者: ${a.author} | 发布: ${a.publishedAt.slice(0, 16)}\n` +
+              `   ${a.summary}`,
+          )
+          .join("\n\n")
+      : "（无 36kr 文章）";
+
+  const infoqText =
+    data.infoqCn.articles.length > 0
+      ? data.infoqCn.articles
+          .map(
+            (a, i) =>
+              `${i + 1}. **${a.title}**\n` +
+              `   链接: ${a.url}\n` +
+              `   作者: ${a.author} | 话题: ${a.topics.join(", ")}\n` +
+              `   ${a.summary}`,
+          )
+          .join("\n\n")
+      : "（无 InfoQ 文章）";
+
+  const giteeText =
+    data.gitee.projects.length > 0
+      ? data.gitee.projects
+          .map(
+            (p, i) =>
+              `${i + 1}. **${p.fullName}** [${p.language}]\n` +
+              `   链接: ${p.url}\n` +
+              `   ⭐${p.stars.toLocaleString()} 🍴${p.forks.toLocaleString()}\n` +
+              `   ${p.description}`,
+          )
+          .join("\n\n")
+      : "（无 Gitee 项目）";
+
+  const oschinaText =
+    data.oschina.news.length > 0
+      ? data.oschina.news
+          .map(
+            (n, i) =>
+              `${i + 1}. **${n.title}**\n` +
+              `   链接: ${n.url}\n` +
+              `   作者: ${n.author} | 发布: ${n.pubDate.slice(0, 16)}\n` +
+              `   ${n.body}`,
+          )
+          .join("\n\n")
+      : "（无 OSChina 资讯）";
+
+  const juejinText =
+    data.juejin.articles.length > 0
+      ? data.juejin.articles
+          .map(
+            (a, i) =>
+              `${i + 1}. **${a.title}**\n` +
+              `   链接: ${a.url}\n` +
+              `   作者: ${a.author} | 👍${a.diggCount} 👀${a.viewCount} | 标签: ${a.tags.join(", ")}\n` +
+              `   ${a.brief}`,
+          )
+          .join("\n\n")
+      : "（无掘金文章）";
+
+  if (lang === "en") {
+    return `You are an AI industry analyst focused on the Chinese tech ecosystem. The following are AI-related content from Chinese tech platforms as of ${dateStr}:
+
+## 36kr (${data.kr36.articles.length} articles)
+
+${kr36Text}
+
+---
+
+## InfoQ China (${data.infoqCn.articles.length} articles)
+
+${infoqText}
+
+---
+
+## Gitee (${data.gitee.projects.length} AI projects)
+
+${giteeText}
+
+---
+
+## OSChina (${data.oschina.news.length} news items)
+
+${oschinaText}
+
+---
+
+## Juejin (${data.juejin.articles.length} articles)
+
+${juejinText}
+
+---
+
+Generate a structured China Tech Community AI Digest in English:
+
+1. **Today's Highlights** — 3-5 sentences on the most notable AI developments in the Chinese tech community
+
+2. **Industry News** — Key news from 36kr and OSChina:
+   - Title (with link)
+   - One sentence: what it means for the AI industry
+
+3. **Technical Articles** — Best articles from InfoQ and Juejin:
+   - Title (with link)
+   - One sentence: key technical takeaway
+
+4. **Open Source Projects** — Notable AI projects from Gitee:
+   - Project name (with link), stars
+   - One sentence: what it does and why it matters
+
+5. **China AI Signals** — 100-200 words analyzing what these sources reveal about the Chinese AI ecosystem:
+   - Key companies and products being discussed
+   - Technical directions gaining traction
+   - Policy or regulatory signals
+
+Style: English, concise and professional, preserve all original links.
+`;
+  }
+
+  return `你是专注于中文 AI 生态的行业分析师。以下是 ${dateStr} 从中文科技平台抓取的 AI 相关内容：
+
+## 36kr（共 ${data.kr36.articles.length} 篇）
+
+${kr36Text}
+
+---
+
+## InfoQ 中国（共 ${data.infoqCn.articles.length} 篇）
+
+${infoqText}
+
+---
+
+## Gitee（共 ${data.gitee.projects.length} 个 AI 项目）
+
+${giteeText}
+
+---
+
+## 开源中国（共 ${data.oschina.news.length} 条资讯）
+
+${oschinaText}
+
+---
+
+## 稀土掘金（共 ${data.juejin.articles.length} 篇）
+
+${juejinText}
+
+---
+
+请生成一份结构清晰的《中文科技社区 AI 动态日报》，要求：
+
+1. **今日速览** — 3~5 句话，概括今日中文 AI 社区最值得关注的动向
+
+2. **行业资讯** — 来自 36kr 和 OSChina 的重要新闻：
+   - 标题（附链接）
+   - 一句话说明：对 AI 行业的意义
+
+3. **技术文章精选** — 来自 InfoQ 和掘金的最佳技术文章：
+   - 标题（附链接）
+   - 一句话说明：核心技术要点
+
+4. **开源项目** — Gitee 上值得关注的 AI 项目：
+   - 项目名（附链接），stars
+   - 一句话说明：做什么、为什么值得关注
+
+5. **中国 AI 信号** — 100~200 字，分析这些来源揭示的中国 AI 生态动向：
+   - 讨论的关键公司和产品
+   - 获得关注的技术方向
+   - 政策或监管信号
 
 语言要求：中文，简洁专业，保留所有原文链接。
 `;

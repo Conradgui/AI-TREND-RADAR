@@ -219,6 +219,143 @@
     .md summary:hover { color: var(--text); }
     .md details > *:not(summary) { padding: 12px 14px; }
 
+    /* ── Chat Panel ── */
+    #chatPanel {
+      position: fixed; top: 0; right: 0; bottom: 0;
+      width: 400px; max-width: 90vw;
+      background: var(--bg-side); border-left: 1px solid var(--border);
+      display: flex; flex-direction: column; z-index: 1000;
+      transform: translateX(100%);
+      transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: -8px 0 32px rgba(0,0,0,0.3);
+    }
+    #chatPanel.open { transform: translateX(0); }
+    #chatOverlay {
+      position: fixed; inset: 0; z-index: 999;
+      background: rgba(0,0,0,0.25); opacity: 0;
+      pointer-events: none; transition: opacity 0.25s;
+    }
+    #chatOverlay.open { opacity: 1; pointer-events: auto; }
+
+    #chatHeader {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 16px; border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    #chatHeader .chat-title {
+      font-size: 13px; font-weight: 700; color: var(--text);
+      display: flex; align-items: center; gap: 8px;
+    }
+    #chatHeader .chat-title .dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--accent); box-shadow: 0 0 6px var(--accent);
+    }
+    .chat-close {
+      background: none; border: none; color: var(--muted);
+      cursor: pointer; font-size: 18px; padding: 2px 6px;
+      border-radius: 4px; transition: color 0.15s, background 0.15s;
+    }
+    .chat-close:hover { color: var(--text); background: var(--bg-hover); }
+
+    #chatMessages {
+      flex: 1; overflow-y: auto; padding: 16px;
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    #chatMessages::-webkit-scrollbar { width: 4px; }
+    #chatMessages::-webkit-scrollbar-thumb { background: var(--dim); border-radius: 2px; }
+
+    .chat-msg {
+      max-width: 88%; padding: 10px 14px;
+      border-radius: 12px; font-size: 13px; line-height: 1.6;
+      word-wrap: break-word;
+    }
+    .chat-msg.user {
+      align-self: flex-end;
+      background: var(--accent-bg); border: 1px solid rgba(232,160,61,0.25);
+      color: var(--text);
+    }
+    .chat-msg.assistant {
+      align-self: flex-start;
+      background: var(--bg-hover); border: 1px solid var(--border);
+      color: var(--text);
+    }
+    .chat-msg.assistant .md { font-size: 13px; line-height: 1.6; }
+    .chat-msg.assistant .md h1, .chat-msg.assistant .md h2 { font-size: 14px; margin: 8px 0 4px; }
+    .chat-msg.assistant .md h3 { font-size: 13px; margin: 6px 0 3px; }
+    .chat-msg.assistant .md p { margin-bottom: 6px; }
+    .chat-msg.assistant .md ul, .chat-msg.assistant .md ol { padding-left: 18px; margin-bottom: 6px; }
+    .chat-msg.assistant .md pre { font-size: 11px; padding: 10px; margin: 6px 0; }
+    .chat-msg.assistant .md code { font-size: 11px; }
+    .chat-msg.assistant .md a { color: var(--link); }
+
+    .chat-citations {
+      margin-top: 8px; padding-top: 8px;
+      border-top: 1px solid var(--border); font-size: 11px;
+    }
+    .chat-citations .cit-label {
+      font-size: 10px; color: var(--dim);
+      text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px;
+    }
+    .chat-cit-link {
+      display: inline-block; padding: 2px 8px; margin: 2px 4px 2px 0;
+      background: var(--code-bg); border: 1px solid var(--border);
+      border-radius: 4px; color: var(--link); font-size: 10px;
+      text-decoration: none; cursor: pointer; transition: border-color 0.15s;
+    }
+    .chat-cit-link:hover { border-color: var(--accent); }
+
+    .chat-typing {
+      align-self: flex-start; padding: 10px 14px;
+      font-size: 13px; color: var(--muted);
+    }
+    .chat-typing .dots span {
+      animation: blink 1.4s infinite both;
+    }
+    .chat-typing .dots span:nth-child(2) { animation-delay: 0.2s; }
+    .chat-typing .dots span:nth-child(3) { animation-delay: 0.4s; }
+
+    #chatInputWrap {
+      display: flex; align-items: center; gap: 8px;
+      padding: 12px 16px; border-top: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    #chatInput {
+      flex: 1; height: 36px; padding: 0 12px;
+      border: 1px solid var(--border); border-radius: 8px;
+      background: var(--bg); color: var(--text);
+      font-family: inherit; font-size: 13px; outline: none;
+      transition: border-color 0.15s;
+    }
+    #chatInput:focus { border-color: var(--accent); }
+    #chatInput::placeholder { color: var(--dim); }
+    #chatSend {
+      width: 36px; height: 36px; border: none; border-radius: 8px;
+      background: var(--accent); color: var(--bg);
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      font-size: 14px; flex-shrink: 0; transition: opacity 0.15s;
+    }
+    #chatSend:hover { opacity: 0.85; }
+    #chatSend:disabled { opacity: 0.4; cursor: not-allowed; }
+
+    .chat-welcome {
+      text-align: center; padding: 40px 20px; color: var(--muted);
+    }
+    .chat-welcome .icon { font-size: 28px; margin-bottom: 12px; opacity: 0.5; }
+    .chat-welcome p { font-size: 12px; line-height: 1.6; }
+    .chat-welcome .suggestions {
+      display: flex; flex-wrap: wrap; gap: 6px;
+      justify-content: center; margin-top: 16px;
+    }
+    .chat-suggestion {
+      padding: 5px 12px; border: 1px solid var(--border);
+      border-radius: 16px; background: var(--bg);
+      color: var(--muted); font-size: 11px; cursor: pointer;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .chat-suggestion:hover { border-color: var(--accent); color: var(--accent); }
+
+    .hdr-btn.chat-active { border-color: var(--accent); color: var(--accent); }
+
     /* ── Mobile ── */
     #mob-toggle { display: none; }
     @media (max-width: 680px) {
@@ -249,6 +386,10 @@
       .side-label { margin-top: 8px; }
       #content { padding: 20px 16px 48px; }
       .md { font-size: 15px; }
+
+      /* Chat panel full width on mobile */
+      #chatPanel { width: 100%; max-width: 100%; }
+      #chatBtn .hdr-label { display: none; }
     }
   </style>
 </head>
@@ -267,6 +408,9 @@
         </svg>
       </a>
       <a id="rssLink" class="hdr-btn" href="./feed.xml" title="RSS Feed"><span class="hdr-icon">⊕</span>RSS</a>
+      <button id="chatBtn" class="hdr-btn" onclick="toggleChat()" title="AI Agent 对话">
+        <span class="hdr-icon">🤖</span><span class="hdr-label">AGENT</span>
+      </button>
       <button id="themeBtn" class="hdr-btn"><span class="hdr-icon">◐</span><span class="hdr-label">LIGHT</span></button>
     </div>
   </div>
@@ -288,6 +432,32 @@
       <div id="content">
         <div class="msg"><div class="msg-icon">📡</div><div>正在加载…</div></div>
       </div>
+    </div>
+  </div>
+
+  <!-- Chat Overlay -->
+  <div id="chatOverlay" onclick="toggleChat()"></div>
+
+  <!-- Chat Panel -->
+  <div id="chatPanel">
+    <div id="chatHeader">
+      <div class="chat-title"><span class="dot"></span>AI Agent</div>
+      <button class="chat-close" onclick="toggleChat()" title="关闭">✕</button>
+    </div>
+    <div id="chatMessages">
+      <div class="chat-welcome">
+        <div class="icon">🤖</div>
+        <p>你好！我是 AI Topic Radar 的智能助手，<br>可以帮你分析 AI 趋势和选题建议。</p>
+        <div class="suggestions">
+          <div class="chat-suggestion" onclick="sendSuggestion(this)">最近有什么热门趋势？</div>
+          <div class="chat-suggestion" onclick="sendSuggestion(this)">推荐值得深挖的选题</div>
+          <div class="chat-suggestion" onclick="sendSuggestion(this)">Claude 最近有什么动态？</div>
+        </div>
+      </div>
+    </div>
+    <div id="chatInputWrap">
+      <input id="chatInput" type="text" placeholder="输入消息…" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendChatMessage()}">
+      <button id="chatSend" onclick="sendChatMessage()" title="发送">➤</button>
     </div>
   </div>
 </div>
@@ -329,6 +499,8 @@ const LABELS = {
   'ai-hf-en':        'HF Trending Models',
   'ai-community':    '技术社区 AI',
   'ai-community-en': 'Tech Community AI',
+  'ai-china-tech':   '中文科技社区 AI',
+  'ai-china-tech-en':'China Tech Community AI',
 };
 
 // ── Theme ──
@@ -626,6 +798,136 @@ window.addEventListener('popstate', () => {
     setContent('<div class="msg"><div class="msg-icon">📡</div><div>无法加载 manifest.json</div></div>');
   }
 })();
+
+// ── Chat Agent ──
+
+// MCP Worker URL — update this to your deployed Worker URL
+const CHAT_API_URL = 'https://ai-topic-radar-mcp.your-subdomain.workers.dev/chat';
+// For local dev: 'http://localhost:8787/chat'
+
+let chatHistory = [];
+let chatOpen = false;
+
+function toggleChat() {
+  chatOpen = !chatOpen;
+  document.getElementById('chatPanel').classList.toggle('open', chatOpen);
+  document.getElementById('chatOverlay').classList.toggle('open', chatOpen);
+  document.getElementById('chatBtn').classList.toggle('chat-active', chatOpen);
+  if (chatOpen) {
+    setTimeout(() => document.getElementById('chatInput').focus(), 300);
+  }
+}
+
+function sendSuggestion(el) {
+  const text = el.textContent;
+  document.getElementById('chatInput').value = text;
+  sendChatMessage();
+}
+
+function appendChatMessage(role, content, citations) {
+  const container = document.getElementById('chatMessages');
+  // Remove welcome message if present
+  const welcome = container.querySelector('.chat-welcome');
+  if (welcome) welcome.remove();
+
+  // Remove typing indicator
+  const typing = container.querySelector('.chat-typing');
+  if (typing) typing.remove();
+
+  const msg = document.createElement('div');
+  msg.className = `chat-msg ${role} fade`;
+
+  if (role === 'assistant') {
+    const mdDiv = document.createElement('div');
+    mdDiv.className = 'md';
+    mdDiv.innerHTML = renderMarkdown(content);
+    msg.appendChild(mdDiv);
+
+    // Add citations
+    if (citations && citations.length > 0) {
+      const citDiv = document.createElement('div');
+      citDiv.className = 'chat-citations';
+      citDiv.innerHTML = '<div class="cit-label">📚 参考来源</div>';
+      citations.forEach((c) => {
+        const link = document.createElement('a');
+        link.className = 'chat-cit-link';
+        link.textContent = `${c.date} · ${c.source}`;
+        link.title = c.excerpt || '';
+        link.href = `#${c.date}/${c.source}`;
+        link.onclick = (e) => {
+          e.preventDefault();
+          toggleChat(); // close chat panel
+          loadReport(c.date, c.source);
+        };
+        citDiv.appendChild(link);
+      });
+      msg.appendChild(citDiv);
+    }
+  } else {
+    msg.textContent = content;
+  }
+
+  container.appendChild(msg);
+  container.scrollTop = container.scrollHeight;
+}
+
+function showTypingIndicator() {
+  const container = document.getElementById('chatMessages');
+  const typing = document.createElement('div');
+  typing.className = 'chat-typing';
+  typing.innerHTML = '思考中<span class="dots"><span>.</span><span>.</span><span>.</span></span>';
+  container.appendChild(typing);
+  container.scrollTop = container.scrollHeight;
+}
+
+async function sendChatMessage() {
+  const input = document.getElementById('chatInput');
+  const message = input.value.trim();
+  if (!message) return;
+
+  const sendBtn = document.getElementById('chatSend');
+
+  // Clear input and disable
+  input.value = '';
+  sendBtn.disabled = true;
+
+  // Show user message
+  appendChatMessage('user', message);
+  chatHistory.push({ role: 'user', content: message });
+
+  // Show typing indicator
+  showTypingIndicator();
+
+  try {
+    const res = await fetch(CHAT_API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        message,
+        history: chatHistory.slice(0, -1), // exclude current user message (already in message field)
+      }),
+    });
+
+    if (!res.ok) {
+      const errData = await res.json().catch(() => ({}));
+      throw new Error(errData.error || `HTTP ${res.status}`);
+    }
+
+    const data = await res.json();
+
+    // Show assistant response
+    appendChatMessage('assistant', data.answer, data.citations);
+    chatHistory.push({ role: 'assistant', content: data.answer });
+  } catch (e) {
+    const errorMsg = `请求失败：${e.message}\n\n请确认 MCP Worker 已部署且 LLM 环境变量已配置。`;
+    appendChatMessage('assistant', errorMsg, []);
+    // Remove the failed user message from history
+    chatHistory.pop();
+  } finally {
+    sendBtn.disabled = false;
+    input.focus();
+  }
+}
 </script>
 </body>
 </html>

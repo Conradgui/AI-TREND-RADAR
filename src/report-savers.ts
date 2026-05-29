@@ -12,6 +12,7 @@ import {
   ARXIV_REPORT,
   HF_REPORT,
   COMMUNITY_REPORT,
+  CHINA_TECH_REPORT,
   ISSUE_LABELS,
 } from "./i18n.ts";
 import {
@@ -21,6 +22,7 @@ import {
   buildArxivPrompt,
   buildHfPrompt,
   buildCommunityPrompt,
+  buildChinaTechPrompt,
 } from "./prompts-data.ts";
 import { callLlm, saveFile, LLM_TOKENS_WEB } from "./report.ts";
 import { createGitHubIssue } from "./github.ts";
@@ -32,6 +34,8 @@ import type { ArxivData } from "./arxiv.ts";
 import type { HfData } from "./hf.ts";
 import type { DevtoData } from "./devto.ts";
 import type { LobstersData } from "./lobsters.ts";
+import type { ChinaSourcesData } from "./china-sources.ts";
+import { hasChinaSourcesData, countChinaSourcesItems } from "./china-sources.ts";
 
 // ---------------------------------------------------------------------------
 // Web report
@@ -59,6 +63,8 @@ export async function saveWebReport(
       const anthropicTotal = webResults.find((r) => r.site === "anthropic")?.totalDiscovered ?? 0;
       const openaiNew = webResults.find((r) => r.site === "openai")?.newItems.length ?? 0;
       const openaiTotal = webResults.find((r) => r.site === "openai")?.totalDiscovered ?? 0;
+      const deepmindNew = webResults.find((r) => r.site === "deepmind")?.newItems.length ?? 0;
+      const deepmindTotal = webResults.find((r) => r.site === "deepmind")?.totalDiscovered ?? 0;
 
       const fileName = lang === "en" ? "ai-web-en.md" : "ai-web.md";
       const mode = isFirstRun ? WEB_REPORT.firstCrawl[lang] : WEB_REPORT.todayUpdate[lang];
@@ -69,10 +75,12 @@ export async function saveWebReport(
         lang === "en"
           ? `${WEB_REPORT.sourcesHeader[lang]}\n` +
             `- Anthropic: [anthropic.com](https://www.anthropic.com) — ${anthropicNew} new articles (sitemap total: ${anthropicTotal})\n` +
-            `- OpenAI: [openai.com](https://openai.com) — ${openaiNew} new articles (sitemap total: ${openaiTotal})\n\n`
+            `- OpenAI: [openai.com](https://openai.com) — ${openaiNew} new articles (sitemap total: ${openaiTotal})\n` +
+            `- DeepMind: [deepmind.google](https://deepmind.google) — ${deepmindNew} new articles (sitemap total: ${deepmindTotal})\n\n`
           : `${WEB_REPORT.sourcesHeader[lang]}\n` +
             `- Anthropic: [anthropic.com](https://www.anthropic.com) — 新增 ${anthropicNew} 篇（sitemap 共 ${anthropicTotal} 条）\n` +
-            `- OpenAI: [openai.com](https://openai.com) — 新增 ${openaiNew} 篇（sitemap 共 ${openaiTotal} 条）\n\n`;
+            `- OpenAI: [openai.com](https://openai.com) — 新增 ${openaiNew} 篇（sitemap 共 ${openaiTotal} 条）\n` +
+            `- DeepMind: [deepmind.google](https://deepmind.google) — 新增 ${deepmindNew} 篇（sitemap 共 ${deepmindTotal} 条）\n\n`;
 
       const webContent = webTitle + webMeta + webSources + `---\n\n` + webSummary + footer;
 
@@ -367,5 +375,51 @@ export async function saveCommunityReport(
     }
   } catch (err) {
     console.error(`  [community/${lang}] Report generation failed: ${err}`);
+  }
+}
+
+// ---------------------------------------------------------------------------
+// China Tech report (36kr + InfoQ + Gitee + OSChina + Juejin)
+// ---------------------------------------------------------------------------
+
+export async function saveChinaTechReport(
+  chinaData: ChinaSourcesData,
+  utcStr: string,
+  dateStr: string,
+  digestRepo: string,
+  footer: string,
+  lang: Lang = "zh",
+): Promise<void> {
+  if (!hasChinaSourcesData(chinaData)) {
+    console.log(`  [china-tech/${lang}] No data available, skipping report.`);
+    return;
+  }
+
+  console.log(`  [china-tech/${lang}] Calling LLM for China tech report...`);
+  try {
+    const summary = await callLlm(buildChinaTechPrompt(chinaData, dateStr, lang));
+    const fileName = lang === "en" ? "ai-china-tech-en.md" : "ai-china-tech.md";
+    const totalCount = countChinaSourcesItems(chinaData);
+    const header =
+      lang === "en"
+        ? `# ${CHINA_TECH_REPORT.title[lang]} ${dateStr}\n\n` +
+          `> Sources: 36kr (${chinaData.kr36.articles.length}) + InfoQ (${chinaData.infoqCn.articles.length}) + Gitee (${chinaData.gitee.projects.length}) + OSChina (${chinaData.oschina.news.length}) + Juejin (${chinaData.juejin.articles.length}) | ${totalCount} total | Generated: ${utcStr} UTC\n\n` +
+          `---\n\n`
+        : `# ${CHINA_TECH_REPORT.title[lang]} ${dateStr}\n\n` +
+          `> 数据来源: 36kr (${chinaData.kr36.articles.length}) + InfoQ (${chinaData.infoqCn.articles.length}) + Gitee (${chinaData.gitee.projects.length}) + 开源中国 (${chinaData.oschina.news.length}) + 掘金 (${chinaData.juejin.articles.length}) | 共 ${totalCount} 条 | 生成时间: ${utcStr} UTC\n\n` +
+          `---\n\n`;
+
+    const content = header + summary + footer;
+
+    console.log(`  Saved ${saveFile(content, dateStr, fileName)}`);
+
+    if (digestRepo) {
+      const title = CHINA_TECH_REPORT.issueTitle(dateStr, lang);
+      const label = ISSUE_LABELS.chinaTech[lang];
+      const url = await createGitHubIssue(title, content, label);
+      console.log(`  Created china-tech issue (${lang}): ${url}`);
+    }
+  } catch (err) {
+    console.error(`  [china-tech/${lang}] Report generation failed: ${err}`);
   }
 }

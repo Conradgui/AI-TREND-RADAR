@@ -20,7 +20,18 @@ const DIGESTS_DIR = "digests";
 const MAX_CHARS_PER_REPORT = 2500;
 
 // Source report types to read for rollups (in priority order)
-const ROLLUP_SOURCES = ["ai-cli", "ai-agents", "ai-trending", "ai-hn", "ai-web"];
+const ROLLUP_SOURCES = [
+  "ai-cli",
+  "ai-agents",
+  "ai-trending",
+  "ai-hn",
+  "ai-web",
+  "ai-arxiv",
+  "ai-hf",
+  "ai-ph",
+  "ai-community",
+  "ai-china-tech",
+];
 type RollupKind = "weekly" | "monthly";
 
 // ---------------------------------------------------------------------------

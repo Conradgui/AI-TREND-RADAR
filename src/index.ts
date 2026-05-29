@@ -39,6 +39,7 @@ import {
   saveArxivReport,
   saveHfReport,
   saveCommunityReport,
+  saveChinaTechReport,
 } from "./report-savers.ts";
 import { loadWebState, saveWebState, fetchSiteContent, type WebFetchResult, type WebState } from "./web.ts";
 import { fetchTrendingData, type TrendingData } from "./trending.ts";
@@ -48,6 +49,7 @@ import { fetchArxivData, type ArxivData } from "./arxiv.ts";
 import { fetchHfData, type HfData } from "./hf.ts";
 import { fetchDevtoData, type DevtoData } from "./devto.ts";
 import { fetchLobstersData, type LobstersData } from "./lobsters.ts";
+import { fetchChinaSourcesData, type ChinaSourcesData } from "./china-sources.ts";
 import { loadConfig } from "./config.ts";
 import { toCstDateStr, toUtcStr } from "./date.ts";
 import { type Lang, MSG, ISSUE_LABELS, CLI_ISSUE_TITLE, OPENCLAW_ISSUE_TITLE } from "./i18n.ts";
@@ -83,6 +85,7 @@ async function fetchAllData(
   hfData: HfData;
   devtoData: DevtoData;
   lobstersData: LobstersData;
+  chinaSourcesData: ChinaSourcesData;
 }> {
   const allConfigs = [...CLI_REPOS, OPENCLAW, ...OPENCLAW_PEERS];
   console.log(
@@ -100,6 +103,7 @@ async function fetchAllData(
     hfData,
     devtoData,
     lobstersData,
+    chinaSourcesData,
   ] = await Promise.all([
     Promise.all(
       allConfigs.map(async (cfg) => {
@@ -144,6 +148,10 @@ async function fetchAllData(
         console.error(`  [web/openai] fetch failed: ${err}`);
         return { site: "openai", siteName: "OpenAI", isFirstRun: false, newItems: [], totalDiscovered: 0 };
       }),
+      fetchSiteContent("deepmind", webState).catch((err): WebFetchResult => {
+        console.error(`  [web/deepmind] fetch failed: ${err}`);
+        return { site: "deepmind", siteName: "Google DeepMind", isFirstRun: false, newItems: [], totalDiscovered: 0 };
+      }),
     ]),
     fetchTrendingData().catch(
       (): TrendingData => ({
@@ -158,6 +166,15 @@ async function fetchAllData(
     fetchHfData().catch((): HfData => ({ models: [], fetchSuccess: false })),
     fetchDevtoData().catch((): DevtoData => ({ articles: [], fetchSuccess: false })),
     fetchLobstersData().catch((): LobstersData => ({ stories: [], fetchSuccess: false })),
+    fetchChinaSourcesData().catch(
+      (): ChinaSourcesData => ({
+        kr36: { articles: [], fetchSuccess: false },
+        infoqCn: { articles: [], fetchSuccess: false },
+        gitee: { projects: [], fetchSuccess: false },
+        oschina: { news: [], fetchSuccess: false },
+        juejin: { articles: [], fetchSuccess: false },
+      }),
+    ),
   ]);
 
   return {
@@ -171,6 +188,7 @@ async function fetchAllData(
     hfData,
     devtoData,
     lobstersData,
+    chinaSourcesData,
   };
 }
 
@@ -310,6 +328,7 @@ async function main(): Promise<void> {
     hfData,
     devtoData,
     lobstersData,
+    chinaSourcesData,
   } = await fetchAllData(since, webState);
 
   const peerIds = new Set(OPENCLAW_PEERS.map((p) => p.id));
@@ -408,6 +427,7 @@ async function main(): Promise<void> {
           saveArxivReport(arxivData, utcStr, dateStr, digestRepo, ft, lang),
           saveHfReport(hfData, utcStr, dateStr, digestRepo, ft, lang),
           saveCommunityReport(devtoData, lobstersData, utcStr, dateStr, digestRepo, ft, lang),
+          saveChinaTechReport(chinaSourcesData, utcStr, dateStr, digestRepo, ft, lang),
         ];
       }),
     );
@@ -424,6 +444,7 @@ async function main(): Promise<void> {
     arxivData,
     hfData,
     webResults,
+    chinaSourcesData,
     dateStr,
     utcStr,
     now,
@@ -460,6 +481,7 @@ async function main(): Promise<void> {
       ["ai-arxiv", "ai-arxiv.md", "ai-arxiv-en.md"],
       ["ai-hf", "ai-hf.md", "ai-hf-en.md"],
       ["ai-community", "ai-community.md", "ai-community-en.md"],
+      ["ai-china-tech", "ai-china-tech.md", "ai-china-tech-en.md"],
     ] as const) {
       const zh = readReport(zhFile);
       const en = readReport(enFile);

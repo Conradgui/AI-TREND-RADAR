@@ -191,6 +191,7 @@ describe("emptyState", () => {
     expect(state).toEqual({
       anthropic: { lastChecked: "", seenUrls: {} },
       openai: { lastChecked: "", seenUrls: {} },
+      deepmind: { lastChecked: "", seenUrls: {} },
     });
   });
 

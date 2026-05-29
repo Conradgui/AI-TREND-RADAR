@@ -7,6 +7,7 @@ import { getReportLangs, shouldSaveSourceReports } from "./options.ts";
 const DIGESTS_DIR = "digests";
 const MANIFEST_PATH = "manifest.json";
 const FEED_PATH = "feed.xml";
+const SEARCH_INDEX_PATH = path.join(DIGESTS_DIR, "search-index.json");
 const SITE_URL = "https://conradgui.github.io/AI-TREND-RADAR";
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 const SOURCE_REPORT_BASES = [
@@ -19,6 +20,7 @@ const SOURCE_REPORT_BASES = [
   "ai-arxiv",
   "ai-hf",
   "ai-community",
+  "ai-china-tech",
 ] as const;
 const ROLLUP_REPORT_BASES = ["ai-weekly", "ai-monthly"] as const;
 
@@ -179,6 +181,75 @@ async function main(): Promise<void> {
 
   fs.writeFileSync(FEED_PATH, feedXml);
   console.log(`feed.xml updated: ${feedItems.length} items`);
+
+  // ── Search Index (for AI Agent chat) ──
+  generateSearchIndex(entries);
+}
+
+function generateSearchIndex(entries: DateEntry[]): void {
+  interface SearchTopic {
+    date: string;
+    title: string;
+    score: number;
+    category: string;
+    source: string;
+  }
+
+  const topics: SearchTopic[] = [];
+  const excerpts: Record<string, Record<string, string>> = {};
+
+  for (const { date, reports } of entries) {
+    const dateDir = path.join(DIGESTS_DIR, date);
+
+    // Load topic-pool.json if available
+    const poolPath = path.join(dateDir, "topic-pool.json");
+    if (fs.existsSync(poolPath)) {
+      try {
+        const pool = JSON.parse(fs.readFileSync(poolPath, "utf-8"));
+        if (Array.isArray(pool.topics)) {
+          for (const t of pool.topics) {
+            topics.push({
+              date,
+              title: t.topic ?? t.title ?? "",
+              score: t.score ?? 0,
+              category: t.category ?? "",
+              source: (t.evidence?.[0] ?? "").slice(0, 80),
+            });
+          }
+        }
+      } catch {
+        // skip corrupt pool files
+      }
+    }
+
+    // Load report excerpts (first 600 chars of each report)
+    excerpts[date] = {};
+    for (const report of reports) {
+      // Only index primary (non-English) reports to keep size down
+      if (report.endsWith("-en")) continue;
+      const reportPath = path.join(dateDir, `${report}.md`);
+      if (fs.existsSync(reportPath)) {
+        try {
+          const content = fs.readFileSync(reportPath, "utf-8");
+          excerpts[date][report] = content.slice(0, 600);
+        } catch {
+          // skip unreadable reports
+        }
+      }
+    }
+  }
+
+  // Sort topics by score descending
+  topics.sort((a, b) => b.score - a.score);
+
+  const searchIndex = {
+    generated: new Date().toISOString(),
+    topics,
+    excerpts,
+  };
+
+  fs.writeFileSync(SEARCH_INDEX_PATH, JSON.stringify(searchIndex, null, 2) + "\n");
+  console.log(`search-index.json updated: ${topics.length} topics across ${entries.length} dates`);
 }
 
 // Run only when executed directly (not imported for testing)

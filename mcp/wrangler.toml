@@ -4,3 +4,14 @@ compatibility_date = "2025-11-01"
 
 [observability]
 enabled = true
+
+# ── Environment Variables (configure in Cloudflare Dashboard or via `wrangler secret`) ──
+#
+# LLM_PROVIDER   = "anthropic"  # "anthropic" | "openai" | "deepseek"
+# LLM_API_KEY     = "sk-xxx"    # API key for the chosen provider
+# LLM_MODEL       = ""          # optional: override default model (e.g. "claude-sonnet-4-20250514")
+# LLM_BASE_URL    = ""          # optional: override API base URL (e.g. for proxies)
+#
+# Set secrets via CLI (recommended — never commit API keys):
+#   npx wrangler secret put LLM_API_KEY
+#   npx wrangler secret put LLM_PROVIDER

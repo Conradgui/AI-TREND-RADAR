@@ -7,7 +7,7 @@ import json
 import re
 from pathlib import Path
 
-from rag.config import DIGESTS_DIR, CHROMA_DIR, NEO4J_URI, NEO4J_USER, NEO4J_PASSWORD
+from rag.config import DIGESTS_DIR, NEO4J_URI, NEO4J_USER, NEO4J_PASSWORD
 from rag.graphrag.driver import Neo4jDriver
 from rag.graphrag.schema import init_schema
 from rag.graphrag.builder import KnowledgeGraphBuilder

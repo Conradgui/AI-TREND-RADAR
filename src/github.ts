@@ -213,6 +213,8 @@ const LABEL_COLORS: Record<string, string> = {
   "hf-en": "ffb84d",
   community: "2563eb",
   "community-en": "60a5fa",
+  "china-tech": "dc2626",
+  "china-tech-en": "ef4444",
 };
 
 /**
