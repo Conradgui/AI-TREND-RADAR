@@ -25,7 +25,11 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
-    "prepare": "husky"
+    "prepare": "husky",
+    "setup:rag": "pip install -r rag/requirements.txt && docker compose up -d",
+    "digest:rag": "pnpm start && pnpm manifest && python -m rag.ingest",
+    "rag:serve": "python -m rag.server",
+    "rag:ingest": "python -m rag.ingest"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.78.0",
