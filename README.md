@@ -62,6 +62,11 @@ cd AI-TREND-RADAR-RAG
 cp .env.example .env
 # 编辑 .env，设置 LLM_PROVIDER 和对应的 API_KEY
 
+# 2b.（可选）配置 Gitee Token 以获取 Gitee 热门项目数据
+# 前往 https://gitee.com/profile/personal_access_tokens 创建只读 Token
+# 在 .env 中取消注释并填入：GITEE_TOKEN=your_token
+# 如需在 GitHub Actions 中使用，还需在仓库 Settings → Secrets 中添加 GITEE_TOKEN
+
 # 3. 安装依赖 + 启动 Neo4j
 pnpm setup:rag
 

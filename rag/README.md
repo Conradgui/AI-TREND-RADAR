@@ -72,6 +72,8 @@ git clone https://github.com/Conradgui/AI-TREND-RADAR-RAG.git
 cd AI-TREND-RADAR-RAG
 
 # 2. 配置 API Key（复用主项目的 .env）
+# 注意：如需 Gitee 热门项目数据，需额外配置 GITEE_TOKEN
+# 前往 https://gitee.com/profile/personal_access_tokens 创建只读 Token
 cp .env.example .env
 # 编辑 .env，填入以下内容：
 #   LLM_PROVIDER=deepseek    # anthropic | openai | deepseek
