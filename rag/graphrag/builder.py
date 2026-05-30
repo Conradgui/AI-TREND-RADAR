@@ -7,6 +7,34 @@ from datetime import datetime
 from rag.graphrag.driver import Neo4jDriver
 
 
+def _infer_entity_type(tag: str) -> str:
+    """Infer entity type from tag content. Returns company/technology/project/topic_tag."""
+    tag_lower = tag.lower().strip()
+
+    # 1. Exact match for company names (highest priority)
+    companies = {
+        "openai", "anthropic", "google", "meta", "microsoft", "nvidia",
+        "apple", "deepseek", "baidu", "alibaba", "tencent", "百度", "阿里", "腾讯", "字节",
+    }
+    if tag_lower in companies:
+        return "company"
+
+    # 2. Contains technology keywords (including Chinese)
+    tech_patterns = [
+        "ai", "gpt", "llm", "rag", "agent", "transformer",
+        "embedding", "vector", "multimodal", "大模型", "人工智能", "机器学习", "深度学习",
+    ]
+    if any(t in tag_lower for t in tech_patterns):
+        return "technology"
+
+    # 3. Contains project name
+    projects = {"langchain", "llamaindex", "chromadb", "neo4j", "ollama", "vllm", "pytorch", "tensorflow"}
+    if any(p in tag_lower for p in projects):
+        return "project"
+
+    return "topic_tag"
+
+
 class KnowledgeGraphBuilder:
     """Builds and updates the Neo4j knowledge graph from digest data."""
 
@@ -51,7 +79,7 @@ class KnowledgeGraphBuilder:
                 title=report_type,
                 date=date_str,
                 type=report_type,
-                content=content[:5000],
+                content=content[:50000] if len(content) > 50000 else content,
             )
             await self.driver.execute_write(
                 "MATCH (doc:Document {id: $id}), (d:DailyDigest {date: $date}) "
@@ -100,8 +128,8 @@ class KnowledgeGraphBuilder:
                 continue
             entity_id = tag.lower().strip()
             await self.driver.execute_write(
-                "MERGE (e:Entity {id: $id}) SET e.name = $name, e.type = 'topic_tag'",
-                id=entity_id, name=tag,
+                "MERGE (e:Entity {id: $id}) SET e.name = $name, e.type = $entity_type",
+                id=entity_id, name=tag, entity_type=_infer_entity_type(tag),
             )
             await self.driver.execute_write(
                 "MATCH (e:Entity {id: $entity_id}), (t:Topic {id: $topic_id}) "

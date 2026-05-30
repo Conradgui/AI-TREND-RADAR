@@ -103,14 +103,16 @@ def create_tools(neo4j_driver: Neo4jDriver, hybrid_retriever: HybridRetriever) -
             return "日期格式错误，请使用 YYYY-MM-DD 格式。"
         try:
             results = await neo4j_driver.execute_query(
-                "MATCH (d:DailyDigest {date: $date})<-[:APPEARED_ON]-(t:Topic) "
-                "RETURN t.name AS topic, t.category AS category, t.totalScore AS score "
-                "ORDER BY t.totalScore DESC LIMIT 10",
+                "MATCH (t:Topic)-[r:APPEARED_ON]->(d:DailyDigest {date: $date}) "
+                "RETURN t.name AS topic, t.category AS category, r.score AS score, r.action AS action "
+                "ORDER BY r.score DESC LIMIT 10",
                 date=date,
             )
             if not results:
                 return f"{date} 没有选题数据。"
-            lines = [f"- **{r['topic']}** | {r['score']}分 | {r['category']}" for r in results]
+            lines = [
+                f"- **{r['topic']}** | {r['score']}分 ({r['action']}) | {r['category']}" for r in results
+            ]
             return f"**{date}** 选题概览（Top {len(results)}）：\n" + "\n".join(lines)
         except Exception as e:
             return f"日期查询失败: {e}"
@@ -140,18 +142,25 @@ def create_tools(neo4j_driver: Neo4jDriver, hybrid_retriever: HybridRetriever) -
         try:
             if category:
                 results = await neo4j_driver.execute_query(
-                    "MATCH (t:Topic) WHERE t.category CONTAINS $cat "
+                    "MATCH (t:Topic) "
+                    "WHERE t.category CONTAINS $cat "
+                    "AND t.lastSeen >= date() - duration({days: 14}) "
+                    "AND COALESCE(t.mentionCount, 0) > 0 "
+                    "WITH t, t.totalScore * 0.7 + COALESCE(t.mentionCount, 0) * 3 * 0.3 AS weightedScore "
                     "RETURN t.name AS topic, t.category AS category, "
                     "t.totalScore AS score, t.mentionCount AS mentions "
-                    "ORDER BY t.totalScore DESC LIMIT 5",
+                    "ORDER BY weightedScore DESC LIMIT 5",
                     cat=category,
                 )
             else:
                 results = await neo4j_driver.execute_query(
                     "MATCH (t:Topic) "
+                    "WHERE t.lastSeen >= date() - duration({days: 14}) "
+                    "AND COALESCE(t.mentionCount, 0) > 0 "
+                    "WITH t, t.totalScore * 0.7 + COALESCE(t.mentionCount, 0) * 3 * 0.3 AS weightedScore "
                     "RETURN t.name AS topic, t.category AS category, "
                     "t.totalScore AS score, t.mentionCount AS mentions "
-                    "ORDER BY t.totalScore DESC LIMIT 5"
+                    "ORDER BY weightedScore DESC LIMIT 5"
                 )
             if not results:
                 return "暂无推荐选题。"
