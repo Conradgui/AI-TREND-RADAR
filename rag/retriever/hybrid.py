@@ -30,16 +30,16 @@ class HybridRetriever:
         vector_results = self._safe_vector_search(query, k)
         graph_results = await self._safe_graph_search(query, k)
 
-        # Reciprocal Rank Fusion
-        fused: dict[int, dict] = {}
+        # Reciprocal Rank Fusion — use full text as key to avoid hash collisions
+        fused: dict[str, dict] = {}
         for rank, r in enumerate(vector_results):
-            key = hash(r.text[:100])
+            key = r.text
             if key not in fused:
                 fused[key] = {"chunk": r, "score": 0.0}
             fused[key]["score"] += 1.0 / (self.rrf_k + rank + 1)
 
         for rank, r in enumerate(graph_results):
-            key = hash(r.text[:100])
+            key = r.text
             if key not in fused:
                 fused[key] = {"chunk": r, "score": 0.0}
             fused[key]["score"] += 1.0 / (self.rrf_k + rank + 1)

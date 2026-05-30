@@ -19,7 +19,20 @@ def create_tools(neo4j_driver: Neo4jDriver, hybrid_retriever: HybridRetriever) -
         输入: 自然语言搜索查询。"""
         results = await hybrid_retriever.search(query, k=5)
         if not results:
-            return f"没有找到与 '{query}' 相关的内容。"
+            # Cold start check
+            try:
+                count = hybrid_retriever.vector.count()
+                if count == 0:
+                    return (
+                        "知识库为空，无法搜索。请先运行 `python -m rag.ingest` 导入数据。\n"
+                        "或者试试 daily_overview 工具查看某天的选题（需要 Neo4j 连接）。"
+                    )
+            except Exception:
+                pass
+            return (
+                f"没有找到与 '{query}' 相关的内容。\n"
+                "建议：换一个关键词，或使用 topic_trend / recommend 工具。"
+            )
         lines = []
         for i, r in enumerate(results, 1):
             meta = r.metadata

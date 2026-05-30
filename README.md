@@ -28,16 +28,18 @@ AI-TREND-RADAR-RAG（本项目）
     python -m rag.ingest → Neo4j 知识图谱 + ChromaDB 向量库
     python -m rag.server  → http://localhost:8001（Chat UI + API）
         ↓
-LangGraph ReAct Agent（4 个工具）
-    ├── graph_search    — Neo4j 知识图谱查询（话题关系、实体网络）
-    ├── vector_search   — ChromaDB 语义搜索（跨报告内容检索）
-    ├── trend_analysis  — 话题趋势分析（分数变化、热度走向）
-    └── topic_recommend — 选题推荐（基于评分和趋势排序）
+LangGraph ReAct Agent（6 个工具）
+    ├── search            — 搜索任何内容（自动混合图+向量 RRF 融合）
+    ├── topic_trend       — 话题趋势分析（分数变化、热度走向）
+    ├── entity_info       — 实体详情和关系网络
+    ├── daily_overview    — 某日选题概览
+    ├── source_coverage   — 跨数据源对比分析
+    └── recommend         — 选题推荐（基于评分和趋势）
 ```
 
 ### 核心设计思路
 
-**Agentic RAG（智能检索增强生成）**：不是简单的"检索 + 回答"，而是让 Agent 自主决定何时检索、用哪个工具检索、如何综合多次检索结果。当用户问"最近有什么趋势"时，Agent 会先用 `topic_recommend` 获取热门选题，再用 `trend_analysis` 分析变化，最后综合生成回答。
+**Agentic RAG（智能检索增强生成）**：不是简单的"检索 + 回答"，而是让 Agent 自主决定何时检索、用哪个工具检索、如何综合多次检索结果。当用户问"最近有什么趋势"时，Agent 会先用 `recommend` 获取热门选题，再用 `topic_trend` 分析变化，最后综合生成回答。
 
 **Graph RAG（图谱检索增强生成）**：通过 Neo4j 知识图谱把分散的选题数据组织成结构化的关系网络。话题通过 `APPEARED_ON` 关系连接到日期，通过 `DISCOVERED_VIA` 连接到数据源，实体通过 `MENTIONS` 连接到话题。这让 Agent 不仅能搜索内容，还能查询关系——"谁和谁有关"、"某个话题在哪些源出现过"。
 
@@ -134,7 +136,7 @@ rag/
 │   └── hybrid.py       # 混合检索器
 ├── agent/              # Agent 层
 │   ├── agent.py        # LangGraph ReAct Agent
-│   ├── tools.py        # 4 个工具定义
+│   ├── tools.py        # 6 个工具定义
 │   └── prompts.py      # 系统提示词
 ├── web/                # Chat UI
 │   └── chat.html       # 对话界面 + 配置页面

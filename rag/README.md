@@ -22,11 +22,13 @@ AI-TREND-RADAR-RAG（本项目）
     python -m rag.ingest → Neo4j 知识图谱 + ChromaDB 向量库
     python -m rag.server  → http://localhost:8001（Chat UI + API）
         ↓
-LangGraph ReAct Agent（4 个工具）
-    ├── graph_search    — Neo4j 知识图谱查询
-    ├── vector_search   — ChromaDB 语义搜索
-    ├── trend_analysis  — 话题趋势分析
-    └── topic_recommend — 选题推荐
+LangGraph ReAct Agent（6 个工具）
+    ├── search            — 搜索任何内容（图+向量 RRF 融合）
+    ├── topic_trend       — 话题趋势分析
+    ├── entity_info       — 实体详情和关系网络
+    ├── daily_overview    — 某日选题概览
+    ├── source_coverage   — 跨数据源对比
+    └── recommend         — 选题推荐
 ```
 
 ### 核心组件
@@ -149,7 +151,7 @@ rag/
 │   └── hybrid.py       # 混合检索器
 ├── agent/              # Agent 层
 │   ├── agent.py        # LangGraph ReAct Agent
-│   ├── tools.py        # 4 个工具定义
+│   ├── tools.py        # 6 个工具定义
 │   └── prompts.py      # 系统提示词
 ├── web/                # Chat UI 前端
 │   └── chat.html       # 对话界面
