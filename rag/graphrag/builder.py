@@ -52,7 +52,7 @@ class KnowledgeGraphBuilder:
         await self.driver.execute_write(
             "MERGE (d:DailyDigest {date: $date}) "
             "SET d.candidateCount = $count, d.generatedAt = $now",
-            date=date_str, count=candidate_count, now=datetime.utcnow().isoformat(),
+            date=date_str, count=candidate_count, now=datetime.now(datetime.timezone.utc).isoformat(),
         )
 
         sources = set()

@@ -1,6 +1,5 @@
 """Tests for config and graphrag modules."""
 
-import pytest
 from rag.config import NEO4J_URI, is_configured
 
 

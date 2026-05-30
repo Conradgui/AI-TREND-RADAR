@@ -31,7 +31,8 @@ def _load_topic_pool(date_dir: Path) -> dict | None:
         return None
     try:
         return json.loads(pool_path.read_text(encoding="utf-8"))
-    except (json.JSONDecodeError, OSError):
+    except (json.JSONDecodeError, OSError) as e:
+        print(f"  [ingest] Failed to load topic-pool.json from {date_dir}: {e}")
         return None
 
 
@@ -47,12 +48,12 @@ def _load_reports(date_dir: Path) -> dict[str, str]:
             continue
         try:
             reports[f.stem] = f.read_text(encoding="utf-8")
-        except OSError:
-            pass
+        except OSError as e:
+            print(f"  [ingest] Failed to read {f}: {e}")
     return reports
 
 
-def chunk_text(text: str, chunk_size: int = 1000, overlap: int = 200) -> list[str]:
+def chunk_text(text: str | None, chunk_size: int = 1000, overlap: int = 200) -> list[str]:
     """Split text into chunks by ## headers, then paragraphs, then characters with overlap."""
     if not text or not text.strip():
         return []

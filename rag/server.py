@@ -6,7 +6,7 @@ from contextlib import asynccontextmanager
 from pathlib import Path
 
 from fastapi import FastAPI, HTTPException
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, HTMLResponse
 from pydantic import BaseModel, Field
 
 from rag.config import (
@@ -85,7 +85,7 @@ app = FastAPI(title="AI Topic Radar RAG", version="0.2.0", lifespan=lifespan)
 CHAT_HTML = Path(__file__).parent / "web" / "chat.html"
 
 
-@app.get("/", response_class=__import__("fastapi.responses", fromlist=["HTMLResponse"]).HTMLResponse)
+@app.get("/", response_class=HTMLResponse)
 async def index():
     if not CHAT_HTML.exists():
         raise HTTPException(status_code=500, detail="Chat UI not found")
@@ -139,7 +139,8 @@ async def save_config(req: ConfigRequest):
 
         env_path.write_text("\n".join(new_lines) + "\n", encoding="utf-8")
         return {"status": "ok", "message": "Configuration saved. Please restart the server."}
-    except Exception:
+    except Exception as e:
+        print(f"[server] /config error: {e}")
         return {"status": "error", "message": "Failed to save configuration"}
 
 
@@ -162,6 +163,7 @@ async def chat(req: ChatRequest):
 
         return ChatResponse(answer=answer, citations=[])
     except Exception as e:
+        print(f"[server] /chat error: {e}")
         raise HTTPException(status_code=500, detail="Internal error occurred")
 
 
@@ -172,7 +174,8 @@ async def trigger_ingest():
     try:
         count = await run_ingestion()
         return {"status": "ok", "dates_ingested": count}
-    except Exception:
+    except Exception as e:
+        print(f"[server] /ingest error: {e}")
         return {"status": "error", "message": "Ingestion failed"}
 
 

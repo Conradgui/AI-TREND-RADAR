@@ -93,9 +93,14 @@ Files written to `digests/YYYY-MM-DD/`:
 | `ai-topic-radar.md` | `AI 热点选题池` | Decision-first topic pool for daily editorial use |
 | `topic-pool.json` | structured state | Topic score, action, category, reason, evidence, and generation date |
 | `ai-agents.md` | `openclaw` | Always generated |
-| `ai-web.md` | `web` | Skipped if no new sitemap content |
+| `ai-web.md` | `web` | Skipped if no new sitemap content (Anthropic + OpenAI + DeepMind) |
 | `ai-trending.md` | `trending` | Skipped if both data sources fail |
 | `ai-hn.md` | `hn` | Skipped if Algolia fetch fails |
+| `ai-ph.md` | `ph` | Skipped if Product Hunt token not set |
+| `ai-arxiv.md` | `arxiv` | ArXiv AI research papers |
+| `ai-hf.md` | `hf` | Hugging Face trending models |
+| `ai-community.md` | `community` | Dev.to + Lobsters combined |
+| `ai-china-tech.md` | `china-tech` | 36kr + InfoQ + Gitee + OSChina + Juejin combined |
 
 ## Tracked sources
 
@@ -114,7 +119,7 @@ Files written to `digests/YYYY-MM-DD/`:
 - `callLlm(prompt, maxTokens?)` defaults to 4096 tokens. Web report uses 8192, trending uses 6144. HN report uses the default 4096.
 - On 429 rate-limit errors `callLlm` retries up to 3 times with exponential backoff (5 s / 10 s / 20 s); the concurrency slot is released during the wait.
 - The concurrency limiter (`LLM_CONCURRENCY = 5`) prevents 429s when many parallel LLM calls fire. Do not bypass it by calling SDK clients directly.
-- LLM provider is selected via `LLM_PROVIDER` env var (default: `anthropic`). Valid values: `anthropic`, `openai`, `github-copilot`, `openrouter`.
+- LLM provider is selected via `LLM_PROVIDER` env var (default: `anthropic`). Valid values: `anthropic`, `openai`, `github-copilot`, `openrouter`, `deepseek`.
 - Provider implementations live in `src/providers/`. Each file implements the `LlmProvider` interface. The factory in `src/providers/index.ts` validates the provider name and logs only the provider name — never API keys or endpoint URLs.
 - GitHub issue label colors are defined in `LABEL_COLORS` in `src/github.ts`. Add new labels there.
 - `sampleNote(total, sampled)` in `src/prompts.ts` formats the "(共 N 条，展示前 M 条)" note. Reuse it — do not inline the same string format.
@@ -152,11 +157,13 @@ python -m rag.ingest → Neo4j knowledge graph + ChromaDB vector store
         ↓
 python -m rag.server → http://localhost:8001 (Chat UI + API)
         ↓
-LangGraph ReAct Agent with 4 tools:
-  ├── graph_search (Neo4j)
-  ├── vector_search (ChromaDB)
-  ├── trend_analysis (Neo4j time series)
-  └── topic_recommend (scoring + ranking)
+LangGraph ReAct Agent with 6 tools:
+  ├── search (hybrid vector + graph RRF)
+  ├── topic_trend (Neo4j time series)
+  ├── entity_info (entity + relationships)
+  ├── daily_overview (daily topic summary)
+  ├── source_coverage (cross-source comparison)
+  └── recommend (scored recommendations)
 ```
 
 ### Setup
