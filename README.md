@@ -1,180 +1,162 @@
-# AI Trend Radar
+# AI Trend Radar RAG
 
-面向 AI 内容运营和产品调研的热点选题监控工具。它会每天抓取公开 AI 信号（国内外共 15+ 数据源），生成一份中文"值得写、值得测、值得深挖"的选题池，并通过 HTML、Web UI、RSS、Telegram、飞书和 GitHub Actions 分发。
+在 [AI Trend Radar](https://github.com/Conradgui/AI-TREND-RADAR) 每日数据管道的基础上，构建 **Agentic RAG + Graph RAG** 智能选题助手。
 
-它不是一个简单的信息搬运脚本，而是把分散的 AI 行业信号转成可排序、可解释、可交付的选题决策流：先采集公开证据，再用评分框架判断优先级，最后沉淀成报告、结构化数据和自动化分发链路。
+---
 
-本项目基于 [`duanyytop/agents-radar`](https://github.com/duanyytop/agents-radar) 改造。
+AI Trend Radar 面向 AI 内容运营和产品调研，每天抓取公开 AI 信号（国内外共 15+ 数据源），生成一份中文"值得写、值得测、值得深挖"的选题池，并通过 HTML、Web UI、RSS、Telegram、飞书和 GitHub Actions 分发。它不是一个简单的信息搬运脚本，而是把分散的 AI 行业信号转成可排序、可解释、可交付的选题决策流：先采集公开证据，再用评分框架判断优先级，最后沉淀成报告、结构化数据和自动化分发链路。
 
-> **RAG 版本**：本项目还有一个 [AI-TREND-RADAR-RAG](https://github.com/Conradgui/AI-TREND-RADAR-RAG) 版本，基于 Neo4j 知识图谱 + ChromaDB 向量搜索构建了 Agentic RAG 系统，支持通过自然语言对话查询历史选题数据。
+**RAG 版本在此基础上增加了智能对话能力**——通过 Neo4j 知识图谱构建选题实体之间的关系网络，通过 ChromaDB 向量搜索实现跨报告的语义检索，再由 LangGraph ReAct Agent 编排多个检索工具，让用户可以用自然语言直接查询历史选题数据、分析趋势、获取选题推荐。
 
-## 5 分钟理解
+## 它能做什么？
 
-### 它解决什么问题？
+| 能力 | 示例问题 |
+|------|----------|
+| 趋势分析 | "最近 RAG 领域有什么新进展？" |
+| 话题查询 | "OpenAI 最近发布了什么？" |
+| 选题推荐 | "给我推荐几个值得深挖的选题" |
+| 跨源对比 | "中英文社区对大模型的讨论有什么不同？" |
+| 关系图谱 | "LangChain 和哪些项目有关系？" |
 
-每天 AI 信息源很多：新模型、新产品、开源项目、论文、Hacker News 讨论、大厂官网发布、国内外社区文章。AI Topic Radar 把这些公开信号聚合成一个可操作的内容选题池，帮助你判断：
+## 架构
 
-- 今天哪些 AI 话题值得优先深挖？
-- 哪些产品或开源项目值得进入选题池？
-- 中英文社区对同一话题的讨论有何异同？
-- 哪些数据源失败了，应该怎么修？
+```
+AI-TREND-RADAR（数据管道）
+    pnpm digest → digests/YYYY-MM-DD/*.md + topic-pool.json
+        ↓
+AI-TREND-RADAR-RAG（本项目）
+    python -m rag.ingest → Neo4j 知识图谱 + ChromaDB 向量库
+    python -m rag.server  → http://localhost:8001（Chat UI + API）
+        ↓
+LangGraph ReAct Agent（4 个工具）
+    ├── graph_search    — Neo4j 知识图谱查询（话题关系、实体网络）
+    ├── vector_search   — ChromaDB 语义搜索（跨报告内容检索）
+    ├── trend_analysis  — 话题趋势分析（分数变化、热度走向）
+    └── topic_recommend — 选题推荐（基于评分和趋势排序）
+```
 
-### 最终会产出什么？
+### 核心设计思路
 
-| 文件 | 用途 |
-| --- | --- |
-| `digests/YYYY-MM-DD/ai-topic-radar.html` | 主报告，可双击打开 |
-| `digests/YYYY-MM-DD/ai-topic-radar.md` | Markdown 版本 |
-| `digests/YYYY-MM-DD/topic-pool.json` | 结构化选题池（分数、分类、动作、理由、证据） |
-| `digests/YYYY-MM-DD/ai-china-tech.md` | 中文科技社区 AI 动态日报（36kr + InfoQ + Gitee + OSChina + 掘金） |
-| `manifest.json` | 历史 Web UI 索引 |
-| `feed.xml` | RSS 订阅源 |
+**Agentic RAG（智能检索增强生成）**：不是简单的"检索 + 回答"，而是让 Agent 自主决定何时检索、用哪个工具检索、如何综合多次检索结果。当用户问"最近有什么趋势"时，Agent 会先用 `topic_recommend` 获取热门选题，再用 `trend_analysis` 分析变化，最后综合生成回答。
 
-### 适合谁？
+**Graph RAG（图谱检索增强生成）**：通过 Neo4j 知识图谱把分散的选题数据组织成结构化的关系网络。话题通过 `APPEARED_ON` 关系连接到日期，通过 `DISCOVERED_VIA` 连接到数据源，实体通过 `MENTIONS` 连接到话题。这让 Agent 不仅能搜索内容，还能查询关系——"谁和谁有关"、"某个话题在哪些源出现过"。
 
-- AI 内容运营：每天做热点日报、社群内容、选题池
-- AI 产品研究：跟踪新产品、新模型和竞品动态
-- 技术/开源观察者：追踪 GitHub、Hacker News、arXiv、国内外社区信号
+## 快速开始
 
-## 最快跑通
+### 前置条件
+
+- Python 3.11+
+- Docker（用于 Neo4j）
+- 一个 LLM API Key（DeepSeek / OpenAI / Anthropic 均可）
+
+### 安装与运行
 
 ```bash
-# 1. 安装依赖
-pnpm install --frozen-lockfile
+# 1. 克隆项目
+git clone https://github.com/Conradgui/AI-TREND-RADAR-RAG.git
+cd AI-TREND-RADAR-RAG
 
 # 2. 配置 API Key
 cp .env.example .env
-# 编辑 .env，填入 LLM_PROVIDER 和对应 API_KEY
+# 编辑 .env，设置 LLM_PROVIDER 和对应的 API_KEY
 
-# 3. 运行
+# 3. 安装依赖 + 启动 Neo4j
+pnpm setup:rag
+
+# 4. 生成数据 + 摄取 + 启动服务
 pnpm digest
+python -m rag.ingest
+python -m rag.server
+
+# 5. 打开浏览器
+# http://localhost:8001
 ```
 
-成功后打开 `digests/YYYY-MM-DD/ai-topic-radar.html`。
+首次打开会显示配置页面，填写 LLM Provider 和 API Key 后进入 Chat 界面。
 
-查看历史看板：`pnpm serve` → http://localhost:8080
+## 技术栈
 
-## 数据源（15+ 个）
+| 层 | 技术 | 用途 |
+|---|------|------|
+| 知识图谱 | Neo4j 5 | 话题、实体、来源的关系网络 |
+| 向量库 | ChromaDB | 日报内容的语义嵌入和搜索 |
+| Agent 框架 | LangGraph | ReAct 模式的智能对话代理 |
+| LLM | LangChain | Anthropic / OpenAI / DeepSeek 封装 |
+| 后端 | FastAPI | HTTP API 服务 |
+| 前端 | 原生 HTML/JS | 对话界面（marked.js 渲染 Markdown） |
+| 数据管道 | TypeScript (原有) | 15+ 数据源采集 + 日报生成 |
+| 容器 | Docker | Neo4j 数据库 |
 
-### 国际数据源
+## 知识图谱 Schema
 
-| 来源 | 内容 | 配置 |
-| --- | --- | --- |
-| GitHub Trending | 每日热门开源仓库 | 无需 token |
-| GitHub Search | `llm`、`ai-agent`、`rag` 等关键词 | 推荐 `GITHUB_TOKEN` |
-| Hacker News | AI / LLM 社区讨论 | 无需 token |
-| Product Hunt | AI 产品发布 | 需要 `PRODUCTHUNT_TOKEN` |
-| arXiv | `cs.AI`、`cs.CL`、`cs.LG` 论文 | 无需 token |
-| Hugging Face | 热门模型和下载/点赞信号 | 无需 token |
-| OpenAI 官网 | 官方发布、产品更新 | 无需 token |
-| Anthropic 官网 | Claude、模型、安全动态 | 无需 token |
-| **Google DeepMind** | 研究博客、论文、产品发布 | 无需 token |
-| Dev.to | 技术社区文章 | 无需 token |
-| Lobsters | 技术社区讨论 | 无需 token |
+```cypher
+-- 节点
+(:Topic {id, name, category, totalScore, mentionCount, firstSeen, lastSeen})
+(:Entity {id, name, type})
+(:Source {id, name, type: "international"|"chinese"|"official"})
+(:Document {id, title, date, reportType, content})
+(:DailyDigest {date, candidateCount, generatedAt})
 
-### 国内数据源
+-- 关系
+(:Topic)-[:APPEARED_ON {score, action}]->(:DailyDigest)
+(:Topic)-[:DISCOVERED_VIA]->(:Source)
+(:Entity)-[:MENTIONS]->(:Topic)
+(:Document)-[:PART_OF]->(:DailyDigest)
 
-| 来源 | 内容 | 访问方式 |
-| --- | --- | --- |
-| 36kr | AI 行业新闻 | RSS feed |
-| InfoQ 中国 | 技术深度文章 | 内部 API |
-| Gitee | 热门 AI 开源项目 | REST API v5 |
-| 开源中国 | 技术资讯 | RSS feed |
-| 稀土掘金 | 开发者技术文章 | 内部 API |
-
-五个国内源合并为一份 `ai-china-tech.md` 报告（中英文版本），并同时纳入选题评分。
-
-某个来源失败不会中断日报，主报告会在"数据源状态与修复提示"里说明原因。
-
-## 功能模块总览
-
-| 模块 | 能力 | 默认 |
-| --- | --- | --- |
-| 数据采集 | 15+ 国内外源（GitHub、HN、arXiv、HF、官网、36kr、掘金等） | 是 |
-| LLM 摘要 | DeepSeek / Anthropic / OpenAI / OpenRouter / GitHub Copilot | 是 |
-| 选题评分 | 商业影响 40、热度 30、新鲜度 20、可写性 10 | 是 |
-| 内容分类 | 政策监管、模型突破、AI 产品、行业落地、标杆企业与商业格局 | 是 |
-| 中文科技社区报告 | `ai-china-tech.md`（36kr + InfoQ + Gitee + OSChina + 掘金） | 是 |
-| 源级报告 | `ai-web.md`、`ai-hn.md`、`ai-arxiv.md` 等 | 默认关闭 |
-| 英文报告 | `*-en.md` | 默认关闭 |
-| 历史 Web UI | `index.html` + `manifest.json` | 是 |
-| RSS | `feed.xml` | 是 |
-| Telegram / 飞书 | 通知推送 | 需 token |
-| GitHub Actions | 每日 / 每周 / 每月自动运行 | 是 |
-
-## 选题评分
-
-```text
-总分 = 商业影响（40）+ 热度（30）+ 新鲜度（20）+ 可写性（10）
+-- 索引
+CREATE CONSTRAINT topic_id FOR (t:Topic) REQUIRE t.id IS UNIQUE
+CREATE FULLTEXT INDEX entity_search FOR (e:Entity) ON EACH [e.name, e.description]
 ```
 
-| 分数 | 动作 |
-| ---: | --- |
-| 80+ | 深挖 |
-| 65-79 | 入池 |
-| 50-64 | 观察 |
-| < 50 | 归档 |
+## API 端点
 
-五类分类：
-- 政策监管、社会影响与 AI 安全
-- 模型与技术突破
-- AI 产品与用户入口
-- 企业落地与行业应用
-- 标杆企业动向、商业格局与投融资
+| 端点 | 方法 | 说明 |
+|------|------|------|
+| `/` | GET | Chat UI 页面 |
+| `/chat` | POST | Agent 对话入口 |
+| `/config` | POST | 保存 API 配置 |
+| `/health` | GET | 健康检查 |
+| `/ingest` | POST | 触发数据摄取 |
 
-## 三种使用方式
+## 目录结构
 
-### 方式一：本地使用
-
-```bash
-pnpm digest
-# 打开 digests/YYYY-MM-DD/ai-topic-radar.html
+```
+rag/
+├── config.py           # 配置（读取项目 .env）
+├── server.py           # FastAPI 服务入口
+├── ingest.py           # 数据摄取脚本
+├── graphrag/           # Neo4j 知识图谱层
+│   ├── driver.py       # 连接管理
+│   ├── schema.py       # Schema 定义
+│   └── builder.py      # 图谱构建器
+├── retriever/          # 检索层
+│   ├── vector_store.py # ChromaDB 向量库
+│   └── hybrid.py       # 混合检索器
+├── agent/              # Agent 层
+│   ├── agent.py        # LangGraph ReAct Agent
+│   ├── tools.py        # 4 个工具定义
+│   └── prompts.py      # 系统提示词
+├── web/                # Chat UI
+│   └── chat.html       # 对话界面 + 配置页面
+└── tests/              # 测试
 ```
 
-### 方式二：GitHub Actions 自动日报
+## 与 AI Trend Radar 的关系
 
-1. 配置 `DEEPSEEK_API_KEY` 为仓库 Secret
-2. 进入 `Actions -> Daily AI Topic Radar -> Run workflow`
-3. 成功后仓库自动生成新的 digest 文件
+```
+AI-TREND-RADAR（数据管道）          AI-TREND-RADAR-RAG（本项目）
+├── 抓取 15+ 数据源                 ├── 读取 digest 数据
+├── 生成日报/周报/月报              ├── 构建知识图谱 + 向量索引
+├── 输出到 digests/                 ├── 提供 Agent 对话
+├── GitHub Pages 展示               └── 本地 http://localhost:8001
+└── 评分框架（商业影响/热度/新鲜度）
+```
 
-### 方式三：GitHub Pages 公开分享
+两个项目共享同一份 `.env` 配置和 `digests/` 数据目录。
 
-1. `Settings -> Pages` → Source 选择 `GitHub Actions`
-2. 等待日报 workflow 成功后自动部署
-3. 访问 https://conradgui.github.io/AI-TREND-RADAR
+## 架构参考
 
-## 自动化
-
-| Workflow | 时间 |
-| --- | --- |
-| Daily | 每天 08:00 CST |
-| Weekly | 每周一 09:00 CST |
-| Monthly | 每月 1 日 10:00 CST |
-
-通知：Telegram / 飞书 / SMTP 邮箱。未配置 token 时自动跳过。
-
-## 常用命令
-
-| 命令 | 作用 |
-| --- | --- |
-| `pnpm digest` | 生成主报告 + manifest + RSS |
-| `pnpm start` | 只生成日报文件 |
-| `pnpm manifest` | 更新 manifest.json 和 feed.xml |
-| `pnpm serve` | 本地查看历史 Web UI |
-| `pnpm weekly` | 生成周报 |
-| `pnpm monthly` | 生成月报 |
-| `pnpm test` | 单元测试（224 个） |
-| `pnpm typecheck` | TypeScript 类型检查 |
-
-## 验证状态
-
-- TypeScript typecheck: 通过
-- ESLint: 通过
-- 单元测试: 224/224 通过
-
-## 作品集边界
-
-本仓库只使用公开信息源和可复现代码，不包含公司内部资料、私有社群内容、API key 或未公开报告。它用于展示一个可公开复现的 AI 热点监控、选题评分、日报生成和自动分发工作流。
+本项目的知识图谱设计参考了 **Pinecone Nexus** 的"知识引擎"理念——将分散的数据预编译为结构化的知识制品，让 Agent 查询时直接获取已组织好的知识，而非每次从原始文档中检索。当前实现已完成基础的图谱构建和混合检索层，后续将持续迭代预编译知识制品和声明式查询等高级特性。
 
 ## License
 
