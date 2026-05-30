@@ -103,9 +103,12 @@ export async function fetchGiteeData(): Promise<GiteeData> {
       order: "desc",
       page: "1",
     });
+    if (token) params.set("access_token", token);
 
-    const headers: Record<string, string> = { "User-Agent": "ai-topic-radar/1.0" };
-    if (token) headers["Authorization"] = `token ${token}`;
+    const headers: Record<string, string> = {
+      "User-Agent": "ai-topic-radar/1.0",
+      Accept: "application/json",
+    };
 
     const resp = await fetch(`${API_URL}?${params}`, { headers });
 

@@ -66,15 +66,18 @@ export async function fetchJuejinData(): Promise<JuejinData> {
   const seen = new Map<string, JuejinArticle>();
 
   try {
-    const resp = await fetch("https://api.juejin.com/recommend_api/v1/article/recommend_cate_feed", {
+    const resp = await fetch("https://api.juejin.cn/recommend_api/v1/article/recommend_cate_feed", {
       method: "POST",
       headers: {
-        "User-Agent": "ai-topic-radar/1.0",
+        "User-Agent": "Mozilla/5.0 ai-topic-radar/1.0",
         "Content-Type": "application/json",
+        Accept: "application/json",
+        Referer: "https://juejin.cn/",
+        Origin: "https://juejin.cn",
       },
       body: JSON.stringify({
         id_type: 2,
-        sort_type: 200, // hot/popular
+        sort_type: 7, // weekly hot
         cate_id: AI_CATEGORY_ID,
         cursor: "0",
         limit: 50,

@@ -88,8 +88,11 @@ export async function fetchInfoqCnData(): Promise<InfoqCnData> {
     const resp = await fetch("https://www.infoq.cn/public/v1/my/recommond", {
       method: "POST",
       headers: {
-        "User-Agent": "ai-topic-radar/1.0",
+        "User-Agent": "Mozilla/5.0 ai-topic-radar/1.0",
         "Content-Type": "application/json",
+        Accept: "application/json",
+        Referer: "https://www.infoq.cn",
+        Origin: "https://www.infoq.cn",
       },
       body: JSON.stringify({ size: 50, type: 1 }),
       signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
