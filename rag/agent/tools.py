@@ -1,105 +1,153 @@
-"""Agent tool definitions for LangGraph ReAct agent."""
+"""Agent tool definitions — 6 tools organized by user intent."""
 
 from __future__ import annotations
+
+import re
 
 from langchain_core.tools import tool
 
 from rag.graphrag.driver import Neo4jDriver
-from rag.retriever.vector_store import VectorStore
+from rag.retriever.hybrid import HybridRetriever
 
 
-def create_tools(neo4j_driver: Neo4jDriver, vector_store: VectorStore):
-    """Create tool instances bound to the given drivers."""
+def create_tools(neo4j_driver: Neo4jDriver, hybrid_retriever: HybridRetriever) -> list:
+    """Create 6 agent tools bound to the given drivers."""
 
     @tool
-    async def graph_search(query: str) -> str:
-        """Search the Neo4j knowledge graph for topics, entities, and their relationships.
-        Input: search query describing what to find."""
+    async def search(query: str) -> str:
+        """搜索所有日报和选题数据。适用于查找话题、项目、技术、产品等任何内容。
+        输入: 自然语言搜索查询。"""
+        results = await hybrid_retriever.search(query, k=5)
+        if not results:
+            return f"没有找到与 '{query}' 相关的内容。"
+        lines = []
+        for i, r in enumerate(results, 1):
+            meta = r.metadata
+            date = meta.get("date", "")
+            source = meta.get("source", r.source)
+            lines.append(f"{i}. [{date}/{source}] {r.text[:200]}")
+        return "搜索结果：\n" + "\n".join(lines)
+
+    @tool
+    async def topic_trend(topic: str, days: int = 30) -> str:
+        """分析某个话题在不同日期的热度变化趋势。
+        输入: 话题名称，可选天数（默认 30 天）。"""
         try:
             results = await neo4j_driver.execute_query(
-                "CALL db.index.fulltext.queryNodes('entity_search', $query) "
-                "YIELD node, score "
-                "MATCH (node)-[:MENTIONS]->(t:Topic) "
-                "OPTIONAL MATCH (t)-[r:APPEARED_ON]->(d:DailyDigest) "
-                "RETURN t.name AS topic, t.category AS category, t.totalScore AS score, "
-                "t.mentionCount AS mentions, d.date AS lastDate, score AS relevance "
-                "ORDER BY score DESC LIMIT 10",
-                query=query,
-            )
-            if not results:
-                return f"在知识图谱中没有找到与 '{query}' 相关的内容。"
-            lines = [f"- **{r['topic']}** | 分类: {r['category']} | 分数: {r['score']} | 出现次数: {r['mentions']}"
-                     for r in results]
-            return "知识图谱搜索结果：\n" + "\n".join(lines)
-        except Exception as e:
-            return f"图搜索失败: {e}"
-
-    @tool
-    async def vector_search(query: str) -> str:
-        """Search all digest reports by semantic similarity.
-        Input: natural language search query."""
-        try:
-            results = vector_store.search(query, k=5)
-            if not results:
-                return f"在报告中没有找到与 '{query}' 相关的内容。"
-            lines = []
-            for r in results:
-                meta = r.get("metadata", {})
-                date = meta.get("date", "unknown")
-                source = meta.get("source", "unknown")
-                lines.append(f"- [{date}/{source}] {r['text'][:200]}")
-            return "语义搜索结果：\n" + "\n".join(lines)
-        except Exception as e:
-            return f"向量搜索失败: {e}"
-
-    @tool
-    async def trend_analysis(topic: str, days: int = 30) -> str:
-        """Analyze the trend trajectory of a specific topic over time.
-        Input: topic name, optional number of days to look back."""
-        try:
-            results = await neo4j_driver.execute_query(
-                "MATCH (t:Topic {id: $topic_id})-[r:APPEARED_ON]->(d:DailyDigest) "
-                "WHERE d.date >= date() - duration({days: $days}) "
-                "RETURN d.date AS date, r.score AS score, r.action AS action "
+                "MATCH (t:Topic)-[r:APPEARED_ON]->(d:DailyDigest) "
+                "WHERE toLower(t.name) CONTAINS toLower($topic) "
+                "AND d.date >= date() - duration({days: $days}) "
+                "RETURN t.name AS name, d.date AS date, r.score AS score, r.action AS action "
                 "ORDER BY d.date",
-                topic_id=topic.lower().strip(), days=days,
+                topic=topic,
+                days=days,
             )
             if not results:
-                return f"话题 '{topic}' 在最近 {days} 天内没有出现记录。"
+                return f"话题 '{topic}' 在最近 {days} 天没有出现。"
             scores = [(r["date"], r["score"]) for r in results]
-            trend = "上升" if len(scores) > 1 and scores[-1][1] > scores[0][1] else "平稳" if len(scores) > 1 else "新出现"
-            lines = [f"- {r['date']}: 分数 {r['score']} ({r['action']})" for r in results]
-            return f"**{topic}** 趋势分析（最近 {days} 天，共 {len(results)} 次出现，趋势: {trend}）：\n" + "\n".join(lines)
+            direction = (
+                "上升 ↑"
+                if len(scores) > 1 and scores[-1][1] > scores[0][1]
+                else "平稳 →"
+                if len(scores) > 1
+                else "新出现"
+            )
+            lines = [f"- {r['date']}: {r['score']}分 ({r['action']})" for r in results]
+            return f"**{results[0]['name']}** 趋势（{len(results)} 天，{direction}）：\n" + "\n".join(lines)
         except Exception as e:
             return f"趋势分析失败: {e}"
 
     @tool
-    async def topic_recommend(category: str = "") -> str:
-        """Recommend topics worth deep-diving based on scores and trends.
-        Input: optional category name."""
+    async def entity_info(entity: str) -> str:
+        """查询某个实体（公司/项目/人物/产品）的详细信息和关系网络。
+        输入: 实体名称。"""
+        try:
+            results = await neo4j_driver.execute_query(
+                "MATCH (e:Entity) WHERE toLower(e.name) CONTAINS toLower($entity) "
+                "OPTIONAL MATCH (e)-[:MENTIONS]->(t:Topic) "
+                "OPTIONAL MATCH (e2:Entity)-[:MENTIONS]->(t) WHERE e2 <> e "
+                "RETURN e.name AS name, e.type AS type, "
+                "collect(DISTINCT t.name)[..5] AS topics, "
+                "collect(DISTINCT e2.name)[..5] AS related_entities",
+                entity=entity,
+            )
+            if not results:
+                return f"没有找到实体 '{entity}'。"
+            r = results[0]
+            return (
+                f"**{r['name']}**（类型: {r['type']}）\n"
+                f"- 相关话题: {', '.join(r['topics']) or '无'}\n"
+                f"- 关联实体: {', '.join(r['related_entities']) or '无'}"
+            )
+        except Exception as e:
+            return f"实体查询失败: {e}"
+
+    @tool
+    async def daily_overview(date: str) -> str:
+        """获取某一天的选题概览，包括热门话题和分数。
+        输入: 日期（YYYY-MM-DD 格式）。"""
+        if not re.match(r"^\d{4}-\d{2}-\d{2}$", date):
+            return "日期格式错误，请使用 YYYY-MM-DD 格式。"
+        try:
+            results = await neo4j_driver.execute_query(
+                "MATCH (d:DailyDigest {date: $date})<-[:APPEARED_ON]-(t:Topic) "
+                "RETURN t.name AS topic, t.category AS category, t.totalScore AS score "
+                "ORDER BY t.totalScore DESC LIMIT 10",
+                date=date,
+            )
+            if not results:
+                return f"{date} 没有选题数据。"
+            lines = [f"- **{r['topic']}** | {r['score']}分 | {r['category']}" for r in results]
+            return f"**{date}** 选题概览（Top {len(results)}）：\n" + "\n".join(lines)
+        except Exception as e:
+            return f"日期查询失败: {e}"
+
+    @tool
+    async def source_coverage(topic: str) -> str:
+        """对比某个话题在不同数据源中的覆盖情况。
+        输入: 话题名称。"""
+        try:
+            results = await neo4j_driver.execute_query(
+                "MATCH (t:Topic)-[:DISCOVERED_VIA]->(s:Source) "
+                "WHERE toLower(t.name) CONTAINS toLower($topic) "
+                "RETURN t.name AS name, collect(s.name) AS sources, t.totalScore AS score",
+                topic=topic,
+            )
+            if not results:
+                return f"话题 '{topic}' 没有数据源覆盖信息。"
+            r = results[0]
+            return f"**{r['name']}** 被以下数据源覆盖：{', '.join(r['sources'])}（总分: {r['score']}）"
+        except Exception as e:
+            return f"跨源查询失败: {e}"
+
+    @tool
+    async def recommend(category: str = "") -> str:
+        """推荐值得深挖的选题，基于评分和趋势。
+        输入: 可选分类过滤（如'模型与技术突破'、'AI 产品与用户入口'）。"""
         try:
             if category:
                 results = await neo4j_driver.execute_query(
-                    "MATCH (t:Topic)-[r:APPEARED_ON]->(d:DailyDigest) "
-                    "WHERE t.category CONTAINS $cat "
-                    "WITH t, MAX(r.score) AS maxScore, COUNT(r) AS freq "
-                    "RETURN t.name AS topic, t.category AS category, maxScore, freq "
-                    "ORDER BY maxScore DESC LIMIT 10",
+                    "MATCH (t:Topic) WHERE t.category CONTAINS $cat "
+                    "RETURN t.name AS topic, t.category AS category, "
+                    "t.totalScore AS score, t.mentionCount AS mentions "
+                    "ORDER BY t.totalScore DESC LIMIT 5",
                     cat=category,
                 )
             else:
                 results = await neo4j_driver.execute_query(
-                    "MATCH (t:Topic)-[r:APPEARED_ON]->(d:DailyDigest) "
-                    "WITH t, MAX(r.score) AS maxScore, COUNT(r) AS freq "
-                    "RETURN t.name AS topic, t.category AS category, maxScore, freq "
-                    "ORDER BY maxScore DESC LIMIT 10",
+                    "MATCH (t:Topic) "
+                    "RETURN t.name AS topic, t.category AS category, "
+                    "t.totalScore AS score, t.mentionCount AS mentions "
+                    "ORDER BY t.totalScore DESC LIMIT 5"
                 )
             if not results:
-                return "暂无选题推荐数据。"
-            lines = [f"- **{r['topic']}** | 最高分: {r['maxScore']} | 出现 {r['freq']} 次 | {r['category']}"
-                     for r in results]
-            return "推荐选题（按热度排序）：\n" + "\n".join(lines)
+                return "暂无推荐选题。"
+            lines = [
+                f"- **{r['topic']}** | {r['score']}分 | 出现{r['mentions']}次 | {r['category']}"
+                for r in results
+            ]
+            return "推荐选题：\n" + "\n".join(lines)
         except Exception as e:
-            return f"选题推荐失败: {e}"
+            return f"推荐失败: {e}"
 
-    return [graph_search, vector_search, trend_analysis, topic_recommend]
+    return [search, topic_trend, entity_info, daily_overview, source_coverage, recommend]

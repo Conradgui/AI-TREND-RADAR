@@ -11,9 +11,9 @@ from rag.agent.prompts import SYSTEM_PROMPT_ZH
 from rag.agent.tools import create_tools
 
 
-def create_agent(neo4j_driver, vector_store):
-    """Create a LangGraph ReAct agent with RAG tools."""
-    tools = create_tools(neo4j_driver, vector_store)
+def create_agent(neo4j_driver, hybrid_retriever):
+    """Create a LangGraph ReAct agent with 6 RAG tools."""
+    tools = create_tools(neo4j_driver, hybrid_retriever)
 
     api_key = get_llm_api_key()
     provider = LLM_PROVIDER.lower()

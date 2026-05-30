@@ -1,4 +1,5 @@
-"""Hybrid retriever combining Neo4j graph search with ChromaDB vector search."""
+"""Hybrid retriever combining Neo4j graph search with ChromaDB vector search.
+Uses Reciprocal Rank Fusion (RRF) to merge results from both sources."""
 
 from __future__ import annotations
 
@@ -11,58 +12,77 @@ from rag.retriever.vector_store import VectorStore
 @dataclass
 class RetrievedChunk:
     text: str
-    source: str
+    source: str  # "vector" or "graph"
     score: float
     metadata: dict = field(default_factory=dict)
 
 
 class HybridRetriever:
-    def __init__(self, vector_store: VectorStore, neo4j_driver: Neo4jDriver):
+    """Combines Neo4j graph traversal with ChromaDB vector similarity using RRF."""
+
+    def __init__(self, vector_store: VectorStore, neo4j_driver: Neo4jDriver, rrf_k: int = 60):
         self.vector = vector_store
         self.neo4j = neo4j_driver
+        self.rrf_k = rrf_k
 
     async def search(self, query: str, k: int = 5) -> list[RetrievedChunk]:
-        results: list[RetrievedChunk] = []
+        """Hybrid search: vector + graph, merge via Reciprocal Rank Fusion."""
+        vector_results = self._safe_vector_search(query, k)
+        graph_results = await self._safe_graph_search(query, k)
 
+        # Reciprocal Rank Fusion
+        fused: dict[int, dict] = {}
+        for rank, r in enumerate(vector_results):
+            key = hash(r.text[:100])
+            if key not in fused:
+                fused[key] = {"chunk": r, "score": 0.0}
+            fused[key]["score"] += 1.0 / (self.rrf_k + rank + 1)
+
+        for rank, r in enumerate(graph_results):
+            key = hash(r.text[:100])
+            if key not in fused:
+                fused[key] = {"chunk": r, "score": 0.0}
+            fused[key]["score"] += 1.0 / (self.rrf_k + rank + 1)
+
+        ranked = sorted(fused.values(), key=lambda x: x["score"], reverse=True)
+        return [item["chunk"] for item in ranked[:k]]
+
+    def _safe_vector_search(self, query: str, k: int) -> list[RetrievedChunk]:
         try:
-            vector_hits = self.vector.search(query, k=k)
-            for hit in vector_hits:
-                results.append(RetrievedChunk(
+            hits = self.vector.search(query, k=k)
+            return [
+                RetrievedChunk(
                     text=hit["text"],
                     source="vector",
                     score=1.0 - (hit["distance"] or 0),
                     metadata=hit["metadata"],
-                ))
-        except Exception:
-            pass
+                )
+                for hit in hits
+            ]
+        except Exception as e:
+            print(f"[hybrid] vector search failed: {e}")
+            return []
 
+    async def _safe_graph_search(self, query: str, k: int) -> list[RetrievedChunk]:
         try:
-            graph_hits = await self.neo4j.execute_query(
+            hits = await self.neo4j.execute_query(
                 "CALL db.index.fulltext.queryNodes('entity_search', $query) "
                 "YIELD node, score "
                 "MATCH (node)-[:MENTIONS]->(t:Topic) "
-                "RETURN t.name AS topic, t.category AS category, t.totalScore AS totalScore, score "
+                "RETURN t.name AS topic, t.category AS category, t.totalScore AS totalScore "
                 "ORDER BY score DESC LIMIT $k",
-                query=query, k=k,
+                query=query,
+                k=k,
             )
-            for hit in graph_hits:
-                text = f"话题: {hit['topic']} | 分类: {hit['category']} | 分数: {hit['totalScore']}"
-                results.append(RetrievedChunk(
-                    text=text,
+            return [
+                RetrievedChunk(
+                    text=f"话题: {h['topic']} | 分类: {h['category']} | 分数: {h['totalScore']}",
                     source="graph",
-                    score=float(hit.get("score", 0.5)),
-                    metadata={"topic": hit["topic"], "category": hit["category"]},
-                ))
-        except Exception:
-            pass
-
-        results.sort(key=lambda r: r.score, reverse=True)
-        seen = set()
-        unique = []
-        for r in results:
-            key = r.text[:60]
-            if key not in seen:
-                seen.add(key)
-                unique.append(r)
-
-        return unique[:k * 2]
+                    score=float(h.get("totalScore", 0)),
+                    metadata=h,
+                )
+                for h in hits
+            ]
+        except Exception as e:
+            print(f"[hybrid] graph search failed: {e}")
+            return []
