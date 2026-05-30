@@ -1,0 +1,80 @@
+<h2>Chat UI 布局方案</h2>
+<p class="subtitle">在现有 Web UI（左侧栏 + 右内容区）上添加 Agent 对话面板</p>
+
+<div class="options">
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>右侧滑出面板</h3>
+      <p>点击 header 的 "AI Agent" 按钮，右侧面板从右侧滑出覆盖在内容区上。不占用原有布局空间，平时隐藏不干扰看报告。</p>
+      <div class="mockup" style="margin-top:12px">
+        <div style="display:flex;height:200px;border:1px solid #444;border-radius:8px;overflow:hidden">
+          <div style="width:80px;background:#1e293b;padding:8px;font-size:10px;color:#94a3b8">
+            <div style="margin-bottom:4px">5/28</div>
+            <div style="margin-bottom:4px">5/27</div>
+            <div>5/26</div>
+          </div>
+          <div style="flex:1;background:#0f172a;padding:8px;font-size:10px;color:#94a3b8">
+            报告内容区域...
+          </div>
+          <div style="width:120px;background:#1a1a2e;padding:8px;font-size:9px;color:#e2e8f0;border-left:2px solid #3b82f6">
+            <div style="font-weight:bold;margin-bottom:6px">AI Agent</div>
+            <div style="background:#2d2d44;padding:4px;border-radius:4px;margin-bottom:4px;font-size:8px">用户：最近有什么趋势？</div>
+            <div style="background:#1e3a5f;padding:4px;border-radius:4px;font-size:8px">Agent：根据数据分析...</div>
+            <div style="position:absolute;bottom:12px;left:8px;right:8px">
+              <div style="background:#2d2d44;border-radius:12px;padding:4px 8px;font-size:8px;color:#94a3b8">输入消息...</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>底部对话栏（类似 IDE 终端）</h3>
+      <p>类似 VS Code 终端，对话面板从底部弹出，可调整高度。输入框在底部，历史消息向上滚动。</p>
+      <div class="mockup" style="margin-top:12px">
+        <div style="height:200px;border:1px solid #444;border-radius:8px;overflow:hidden;display:flex;flex-direction:column">
+          <div style="flex:1;background:#0f172a;padding:8px;font-size:10px;color:#94a3b8">
+            报告内容区域...<br>（被压缩）
+          </div>
+          <div style="height:80px;background:#1a1a2e;padding:6px 8px;font-size:9px;color:#e2e8f0;border-top:2px solid #3b82f6">
+            <div style="display:flex;justify-content:space-between;margin-bottom:4px">
+              <span style="font-weight:bold;font-size:9px">AI Agent</span>
+              <span style="font-size:8px;color:#94a3b8">▲ 调整高度</span>
+            </div>
+            <div style="font-size:8px;color:#94a3b8">用户: 最近有什么趋势？ → Agent: 大模型领域...</div>
+            <div style="background:#2d2d44;border-radius:8px;padding:3px 8px;font-size:8px;color:#94a3b8;margin-top:4px">输入消息...</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>独立页面（/chat 路由）</h3>
+      <p>在 header 添加 "AI Agent" 导航项，点击切换到独立的全屏对话页面。类似 ChatGPT 界面。</p>
+      <div class="mockup" style="margin-top:12px">
+        <div style="height:200px;border:1px solid #444;border-radius:8px;overflow:hidden;display:flex;flex-direction:column">
+          <div style="background:#1e293b;padding:6px 8px;display:flex;gap:12px;font-size:10px;color:#94a3b8;border-bottom:1px solid #333">
+            <span>选题池</span><span style="color:#3b82f6;font-weight:bold">AI Agent</span><span>周报</span>
+          </div>
+          <div style="flex:1;background:#0f172a;padding:12px;display:flex;flex-direction:column;align-items:center;justify-content:center">
+            <div style="width:80%;font-size:9px">
+              <div style="background:#1e3a5f;padding:6px 10px;border-radius:8px;margin-bottom:8px;color:#e2e8f0">你好！我是 AI 选题助手...</div>
+              <div style="background:#2d2d44;padding:6px 10px;border-radius:8px;margin-bottom:8px;color:#e2e8f0;text-align:right">最近 RAG 有什么新进展？</div>
+              <div style="background:#1e3a5f;padding:6px 10px;border-radius:8px;color:#e2e8f0">根据最近一周的数据...</div>
+            </div>
+          </div>
+          <div style="background:#1a1a2e;padding:6px 8px">
+            <div style="background:#2d2d44;border-radius:12px;padding:4px 12px;font-size:8px;color:#94a3b8;text-align:center">输入消息...</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

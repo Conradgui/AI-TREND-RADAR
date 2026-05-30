@@ -1,0 +1,62 @@
+<h2>部署流程</h2>
+<p class="subtitle">用户本地部署的完整步骤</p>
+
+<div class="section">
+<h3>一键部署流程</h3>
+<div class="mockup">
+<div class="mockup-body" style="font-family:monospace;font-size:12px;line-height:2.2;padding:20px;color:#e2e8f0">
+  <span style="color:#60a5fa"># 1. 克隆项目</span><br>
+  git clone https://github.com/Conradgui/AI-TREND-RADAR.git<br>
+  cd AI-TREND-RADAR<br><br>
+
+  <span style="color:#60a5fa"># 2. 配置 API Key（复用同一份 .env）</span><br>
+  cp .env.example .env<br>
+  <span style="color:#94a3b8"># 编辑 .env 填入 LLM_PROVIDER 和对应的 API_KEY</span><br><br>
+
+  <span style="color:#60a5fa"># 3. 安装依赖</span><br>
+  pnpm install &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#94a3b8"># TypeScript 依赖</span><br>
+  pip install -r rag/requirements.txt &nbsp;<span style="color:#94a3b8"># Python RAG 依赖</span><br><br>
+
+  <span style="color:#60a5fa"># 4. 启动 Neo4j（Docker）</span><br>
+  docker run -d --name neo4j \<br>
+  &nbsp;&nbsp;-p 7474:7474 -p 7687:7687 \<br>
+  &nbsp;&nbsp;-e NEO4J_AUTH=neo4j/password \<br>
+  &nbsp;&nbsp;neo4j:5<br><br>
+
+  <span style="color:#60a5fa"># 5. 运行数据管道 + 摄取</span><br>
+  pnpm digest &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#94a3b8"># 生成日报数据</span><br>
+  python -m rag.ingest &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#94a3b8"># 摄取到 Neo4j + ChromaDB</span><br><br>
+
+  <span style="color:#60a5fa"># 6. 启动 RAG 服务</span><br>
+  python -m rag.server &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#94a3b8"># http://localhost:8001</span><br><br>
+
+  <span style="color:#60a5fa"># 7. 打开浏览器对话</span><br>
+  <span style="color:#34d399">→ http://localhost:8001</span>
+</div>
+</div>
+</div>
+
+<div class="section">
+<h3>文件隔离设计</h3>
+<div class="mockup">
+<div class="mockup-body" style="font-family:monospace;font-size:11px;line-height:2;padding:16px">
+  AI-TREND-RADAR/<br>
+  ├── src/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#94a3b8">← 现有 TS 管道（不变）</span><br>
+  ├── digests/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#94a3b8">← 日报数据（共享）</span><br>
+  ├── rag/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#10b981">← 新增 RAG 系统（独立目录）</span><br>
+  │&nbsp;&nbsp;├── server.py &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#94a3b8">FastAPI 服务入口</span><br>
+  │&nbsp;&nbsp;├── ingest.py &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#94a3b8">摄取脚本入口</span><br>
+  │&nbsp;&nbsp;├── config.py &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#94a3b8">读取项目 .env</span><br>
+  │&nbsp;&nbsp;├── ingestion/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#94a3b8">数据摄取层</span><br>
+  │&nbsp;&nbsp;├── graph/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#94a3b8">Neo4j 图数据库层</span><br>
+  │&nbsp;&nbsp;├── retriever/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#94a3b8">检索层（向量+图混合）</span><br>
+  │&nbsp;&nbsp;├── agent/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#94a3b8">Agent + 工具</span><br>
+  │&nbsp;&nbsp;├── web/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#94a3b8">Chat UI 前端</span><br>
+  │&nbsp;&nbsp;├── data/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#94a3b8">持久化数据（ChromaDB 等）</span><br>
+  │&nbsp;&nbsp;├── requirements.txt<br>
+  │&nbsp;&nbsp;└── pyproject.toml<br>
+  ├── docker-compose.yml &nbsp;<span style="color:#8b5cf6">← 一键启动 Neo4j</span><br>
+  └── .env &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#94a3b8">← 共用 API 配置</span>
+</div>
+</div>
+</div>

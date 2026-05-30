@@ -1,0 +1,66 @@
+<h2>整体架构</h2>
+<p class="subtitle">TypeScript 数据管道 + Python RAG 后端，本地部署</p>
+
+<div class="mockup">
+  <div class="mockup-header">系统架构图</div>
+  <div class="mockup-body" style="font-family:monospace;font-size:11px;line-height:1.8;padding:16px">
+
+    <div style="display:flex;gap:16px;align-items:flex-start">
+
+      <!-- 左侧：现有 TS 管道 -->
+      <div style="flex:1;border:1px solid #3b82f6;border-radius:8px;padding:12px;background:rgba(59,130,246,0.1)">
+        <div style="font-weight:bold;color:#60a5fa;margin-bottom:8px">📁 AI-TREND-RADAR (现有)</div>
+        <div style="color:#94a3b8">
+          pnpm digest<br>
+          ├─ fetchAllData (GitHub/HN/ArXiv/36kr...)<br>
+          ├─ generateSummaries (LLM)<br>
+          ├─ saveTopicRadar<br>
+          └─ 输出 → digests/YYYY-MM-DD/<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;├─ topic-pool.json<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;├─ ai-topic-radar.md<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;└─ ai-*.md (各源报告)
+        </div>
+      </div>
+
+      <!-- 中间：数据流 -->
+      <div style="display:flex;align-items:center;color:#f59e0b;font-size:16px">→</div>
+
+      <!-- 右侧：RAG 后端 -->
+      <div style="flex:1.2;border:1px solid #10b981;border-radius:8px;padding:12px;background:rgba(16,185,129,0.1)">
+        <div style="font-weight:bold;color:#34d399;margin-bottom:8px">🧠 RAG Backend (新增)</div>
+        <div style="color:#94a3b8">
+          python -m rag.server (http://localhost:8001)<br>
+          ├─ 摄取层<br>
+          │&nbsp;&nbsp;├─ topic_pool_loader (解析 JSON)<br>
+          │&nbsp;&nbsp;├─ report_loader (解析 MD)<br>
+          │&nbsp;&nbsp;└─ neo4j-graphrag SimpleKGPipeline<br>
+          │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ LLM 实体抽取 → 知识图谱<br>
+          ├─ 存储层<br>
+          │&nbsp;&nbsp;├─ Neo4j (知识图谱 + 向量索引)<br>
+          │&nbsp;&nbsp;└─ ChromaDB (文档向量)<br>
+          ├─ 检索层<br>
+          │&nbsp;&nbsp;└─ HybridRetriever (向量+BM25+图)<br>
+          ├─ Agent 层<br>
+          │&nbsp;&nbsp;└─ LangGraph ReAct Agent<br>
+          │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├─ graph_search 工具<br>
+          │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├─ vector_search 工具<br>
+          │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├─ trend_analysis 工具<br>
+          │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ topic_recommend 工具<br>
+          └─ Web UI<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;└─ 右侧滑出 Chat 面板
+        </div>
+      </div>
+
+    </div>
+
+    <div style="margin-top:16px;border:1px solid #8b5cf6;border-radius:8px;padding:12px;background:rgba(139,92,246,0.1)">
+      <div style="font-weight:bold;color:#a78bfa;margin-bottom:8px">🐳 Docker Compose (一键启动)</div>
+      <div style="color:#94a3b8">
+        docker-compose up -d<br>
+        ├─ neo4j:5 (图数据库, 端口 7687/7474)<br>
+        └─ rag-server (Python FastAPI, 端口 8001)
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -92,7 +92,11 @@ describe("saveFile", () => {
 
   it("writes content as utf-8", () => {
     saveFile("hello world", "2026-03-09", "test.md");
-    expect(fs.writeFileSync).toHaveBeenCalledWith(path.join("digests", "2026-03-09", "test.md"), "hello world", "utf-8");
+    expect(fs.writeFileSync).toHaveBeenCalledWith(
+      path.join("digests", "2026-03-09", "test.md"),
+      "hello world",
+      "utf-8",
+    );
   });
 });
 

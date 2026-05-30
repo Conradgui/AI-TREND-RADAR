@@ -206,7 +206,9 @@ export function titleFromUrl(url: string): string {
 // URL discovery
 // ---------------------------------------------------------------------------
 
-async function discoverUrls(site: "anthropic" | "openai" | "deepmind"): Promise<Array<{ loc: string; lastmod?: string }>> {
+async function discoverUrls(
+  site: "anthropic" | "openai" | "deepmind",
+): Promise<Array<{ loc: string; lastmod?: string }>> {
   const cfg = SITE_CONFIGS[site];
   const results: Array<{ loc: string; lastmod?: string }> = [];
 

@@ -1,0 +1,71 @@
+<h2>Chat 交互流程</h2>
+<p class="subtitle">用户通过右侧面板与 AI Agent 对话的完整流程</p>
+
+<div class="section">
+<h3>用户操作流程</h3>
+<div class="mockup">
+<div class="mockup-body" style="font-family:monospace;font-size:11px;line-height:2;padding:16px">
+  1. 用户打开 http://localhost:8001<br>
+  2. 看到报告界面（和 GitHub Pages 上一样）<br>
+  3. 点击 header 的 "🤖 Agent" 按钮<br>
+  4. 右侧面板滑出（宽度 380px）<br>
+  5. 输入问题："最近 RAG 有什么新进展？"<br>
+  6. Agent 自动：<br>
+  &nbsp;&nbsp;a. 在 topic-pool.json 中搜索相关话题<br>
+  &nbsp;&nbsp;b. 在 Neo4j 知识图谱中查询相关实体和关系<br>
+  &nbsp;&nbsp;c. 调用 LLM 综合分析并生成回答<br>
+  7. 回答显示在面板中（支持 markdown 渲染）<br>
+  8. 引用来源可点击，跳转到对应日期的报告
+</div>
+</div>
+</div>
+
+<div class="section">
+<h3>Agent 工具系统（4 个工具）</h3>
+<div class="cards">
+  <div class="card">
+    <div class="card-body">
+      <h3>graph_search</h3>
+      <p>Neo4j 知识图谱查询：话题关系、实体网络、跨时间趋势</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <h3>vector_search</h3>
+      <p>ChromaDB 语义搜索：在所有日报/周报/月报中按语义相似度查找相关内容</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <h3>trend_analysis</h3>
+      <p>话题趋势分析：某个话题在不同日期的分数变化、热度走向</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <h3>topic_recommend</h3>
+      <p>选题推荐：基于历史数据和当前趋势，推荐值得深挖的选题</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="section">
+<h3>数据流</h3>
+<div class="mockup">
+<div class="mockup-body" style="font-family:monospace;font-size:11px;line-height:2;padding:16px">
+  用户输入 → FastAPI /chat 端点<br>
+  &nbsp;&nbsp;↓<br>
+  LangGraph ReAct Agent<br>
+  &nbsp;&nbsp;↓ 判断需要什么工具<br>
+  &nbsp;&nbsp;├─ graph_search → Neo4j Cypher 查询<br>
+  &nbsp;&nbsp;├─ vector_search → ChromaDB 语义搜索<br>
+  &nbsp;&nbsp;├─ trend_analysis → Neo4j 时间序列查询<br>
+  &nbsp;&nbsp;└─ topic_recommend → 综合评分排序<br>
+  &nbsp;&nbsp;↓<br>
+  拼接 context + 用户问题 → 调用 LLM<br>
+  &nbsp;&nbsp;↓<br>
+  返回 {answer, citations} → 浏览器渲染
+</div>
+</div>
+</div>

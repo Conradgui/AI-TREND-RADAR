@@ -102,9 +102,7 @@ export const COMMUNITY_REPORT = {
 export const CHINA_TECH_REPORT = {
   title: t("中文科技社区 AI 动态日报", "China Tech Community AI Digest"),
   issueTitle: (dateStr: string, lang: Lang) =>
-    lang === "en"
-      ? `🇨🇳 China Tech Community AI Digest ${dateStr}`
-      : `🇨🇳 中文科技社区 AI 动态日报 ${dateStr}`,
+    lang === "en" ? `🇨🇳 China Tech Community AI Digest ${dateStr}` : `🇨🇳 中文科技社区 AI 动态日报 ${dateStr}`,
 } as const;
 
 export const WEEKLY_REPORT = {

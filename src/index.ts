@@ -150,7 +150,13 @@ async function fetchAllData(
       }),
       fetchSiteContent("deepmind", webState).catch((err): WebFetchResult => {
         console.error(`  [web/deepmind] fetch failed: ${err}`);
-        return { site: "deepmind", siteName: "Google DeepMind", isFirstRun: false, newItems: [], totalDiscovered: 0 };
+        return {
+          site: "deepmind",
+          siteName: "Google DeepMind",
+          isFirstRun: false,
+          newItems: [],
+          totalDiscovered: 0,
+        };
       }),
     ]),
     fetchTrendingData().catch(
