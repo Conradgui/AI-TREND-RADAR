@@ -78,6 +78,7 @@ export interface TopicRadarResult {
   generatedAt: string;
   date: string;
   candidates: TopicCandidate[];
+  notices: string[];
   warnings: string[];
 }
 
@@ -470,6 +471,7 @@ function collectRawTopics(input: TopicRadarInput): RawTopic[] {
 }
 
 function appendSourceStatus(
+  notices: string[],
   warnings: string[],
   status: SourceStatus | undefined,
   fetchSuccess: boolean,
@@ -480,14 +482,15 @@ function appendSourceStatus(
     if (!fetchSuccess) warnings.push(errorWarning);
     return;
   }
-  if (status.state === "empty") warnings.push(emptyNotice);
+  if (status.state === "empty") notices.push(emptyNotice);
   if (status.state === "error") warnings.push(errorWarning);
   if (status.state === "skipped") {
-    warnings.push(`${status.label} 已跳过${status.detail ? `；${status.detail}` : "。"}`);
+    notices.push(`${status.label} 已跳过${status.detail ? `；${status.detail}` : "。"}`);
   }
 }
 
-function collectWarnings(input: TopicRadarInput): string[] {
+function collectStatusMessages(input: TopicRadarInput): Pick<TopicRadarResult, "notices" | "warnings"> {
+  const notices: string[] = [];
   const warnings: string[] = [];
   if (!input.trendingData.trendingFetchSuccess) {
     warnings.push(
@@ -499,9 +502,10 @@ function collectWarnings(input: TopicRadarInput): string[] {
     const hint = process.env["PRODUCTHUNT_TOKEN"]
       ? "Product Hunt 无可用数据；可检查 GraphQL API 响应和 AI topic 过滤条件。"
       : "Product Hunt 已跳过；配置 PRODUCTHUNT_TOKEN 后可启用产品榜单信号。";
-    warnings.push(hint);
+    (process.env["PRODUCTHUNT_TOKEN"] ? warnings : notices).push(hint);
   }
   appendSourceStatus(
+    notices,
     warnings,
     input.arxivData.status,
     input.arxivData.fetchSuccess,
@@ -511,12 +515,13 @@ function collectWarnings(input: TopicRadarInput): string[] {
   if (!input.hfData.fetchSuccess)
     warnings.push("Hugging Face 获取失败；可检查 huggingface.co API 是否可访问。");
   if (!input.webResults.some((result) => result.newItems.length > 0)) {
-    warnings.push("官方内容源今日没有检测到新内容；首次运行后这是正常情况。");
+    notices.push("官方内容源今日没有检测到新内容；首次运行后这是正常情况。");
   }
   if (input.chinaSourcesData) {
     const cn = input.chinaSourcesData;
     if (!cn.kr36.fetchSuccess) warnings.push("36kr 获取失败；可检查网络或 RSS 源是否可用。");
     appendSourceStatus(
+      notices,
       warnings,
       cn.infoqCn.status,
       cn.infoqCn.fetchSuccess,
@@ -524,6 +529,7 @@ function collectWarnings(input: TopicRadarInput): string[] {
       "InfoQ 中国获取失败；可检查 infoq.cn API 是否可用。",
     );
     appendSourceStatus(
+      notices,
       warnings,
       cn.gitee.status,
       cn.gitee.fetchSuccess,
@@ -532,6 +538,7 @@ function collectWarnings(input: TopicRadarInput): string[] {
     );
     if (!cn.oschina.fetchSuccess) warnings.push("开源中国获取失败；可检查 oschina.net RSS 是否可用。");
     appendSourceStatus(
+      notices,
       warnings,
       cn.juejin.status,
       cn.juejin.fetchSuccess,
@@ -539,11 +546,12 @@ function collectWarnings(input: TopicRadarInput): string[] {
       "掘金获取失败；可检查 juejin.com API 是否可用。",
     );
   }
-  return warnings;
+  return { notices, warnings };
 }
 
 export function buildTopicRadar(input: TopicRadarInput): TopicRadarResult {
   const now = input.now ?? new Date();
+  const statusMessages = collectStatusMessages(input);
   const candidates = collectRawTopics(input)
     .map((topic) => scoreTopic(topic, now))
     .sort((a, b) => b.score - a.score)
@@ -553,7 +561,7 @@ export function buildTopicRadar(input: TopicRadarInput): TopicRadarResult {
     generatedAt: input.utcStr,
     date: input.dateStr,
     candidates,
-    warnings: collectWarnings(input),
+    ...statusMessages,
   };
 }
 
@@ -582,8 +590,12 @@ export function buildTopicRadarMarkdown(result: TopicRadarResult): string {
 
   const warningSection =
     result.warnings.length === 0
-      ? "暂无失败或跳过的数据源。\n"
+      ? "暂无需要修复的数据源。\n"
       : result.warnings.map((warning) => `- ${warning}`).join("\n") + "\n";
+  const noticeSection =
+    result.notices.length === 0
+      ? "暂无普通状态提示。\n"
+      : result.notices.map((notice) => `- ${notice}`).join("\n") + "\n";
 
   return [
     `# AI 热点选题池 ${result.date}`,
@@ -605,7 +617,10 @@ export function buildTopicRadarMarkdown(result: TopicRadarResult): string {
     "",
     tableRows(watch),
     "",
-    "## 数据源状态与修复提示",
+    "## 数据源普通状态提示",
+    "",
+    noticeSection,
+    "## 数据源修复提示",
     "",
     warningSection,
   ].join("\n");
@@ -661,8 +676,12 @@ export function buildTopicRadarHtml(result: TopicRadarResult): string {
   const watch = result.candidates.filter((item) => item.action === "观察").slice(0, 15);
   const warnings =
     result.warnings.length === 0
-      ? `<p class="empty">暂无失败或跳过的数据源。</p>`
+      ? `<p class="empty">暂无需要修复的数据源。</p>`
       : `<ul>${result.warnings.map((warning) => `<li>${escapeHtml(warning)}</li>`).join("")}</ul>`;
+  const notices =
+    result.notices.length === 0
+      ? `<p class="empty">暂无普通状态提示。</p>`
+      : `<ul>${result.notices.map((notice) => `<li>${escapeHtml(notice)}</li>`).join("")}</ul>`;
 
   const categorySections = TOPIC_CATEGORIES.map((category) => {
     const items = result.candidates.filter((item) => item.category === category).slice(0, 5);
@@ -877,8 +896,13 @@ export function buildTopicRadarHtml(result: TopicRadarResult): string {
       <div class="topic-grid">${renderTopicCards(watch)}</div>
     </section>
 
-    <section id="status">
-      <h2>数据源状态与修复提示</h2>
+    <section id="notices">
+      <h2>数据源普通状态提示</h2>
+      ${notices}
+    </section>
+
+    <section id="warnings">
+      <h2>数据源修复提示</h2>
       ${warnings}
     </section>
 

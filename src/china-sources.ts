@@ -20,13 +20,7 @@ export interface ChinaSourcesData {
 
 /** Check if any Chinese source has data. */
 export function hasChinaSourcesData(data: ChinaSourcesData): boolean {
-  return (
-    data.kr36.fetchSuccess ||
-    data.infoqCn.fetchSuccess ||
-    data.gitee.fetchSuccess ||
-    data.oschina.fetchSuccess ||
-    data.juejin.fetchSuccess
-  );
+  return countChinaSourcesItems(data) > 0;
 }
 
 /** Total items across all Chinese sources. */

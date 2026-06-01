@@ -88,7 +88,7 @@ describe("buildTopicRadar", () => {
     expect(result.candidates).toEqual([]);
     expect(result.warnings.join("\n")).toContain("GitHub Trending");
     expect(result.warnings.join("\n")).toContain("Hacker News");
-    expect(result.warnings.join("\n")).toContain("Product Hunt");
+    expect(result.notices.join("\n")).toContain("Product Hunt");
   });
 
   it("renders an empty notice instead of an error warning for a successful empty source", () => {
@@ -104,9 +104,12 @@ describe("buildTopicRadar", () => {
       },
     });
 
-    const warnings = buildTopicRadar(input).warnings.join("\n");
+    const result = buildTopicRadar(input);
+    const notices = result.notices.join("\n");
+    const warnings = result.warnings.join("\n");
 
-    expect(warnings).toContain("ArXiv 暂无");
+    expect(notices).toContain("ArXiv 暂无");
+    expect(warnings).not.toContain("ArXiv 暂无");
     expect(warnings).not.toContain("ArXiv 获取失败");
   });
 
@@ -124,7 +127,12 @@ describe("buildTopicRadar", () => {
       },
     });
 
-    expect(buildTopicRadar(input).warnings.join("\n")).toContain("ArXiv 获取失败");
+    const result = buildTopicRadar(input);
+
+    expect(result.notices.join("\n")).not.toContain("ArXiv 获取失败");
+    expect(result.warnings.join("\n")).toContain("ArXiv 获取失败");
+    expect(buildTopicRadarMarkdown(result)).toContain("ArXiv 获取失败");
+    expect(buildTopicRadarHtml(result)).toContain("ArXiv 获取失败");
   });
 
   it("renders a decision-first markdown report", () => {
@@ -145,7 +153,9 @@ describe("buildTopicRadar", () => {
     expect(markdown).toContain("## 今日 Top 深挖选题");
     expect(markdown).toContain("## 入池选题");
     expect(markdown).toContain("## 按五类选题分类摘要");
-    expect(markdown).toContain("## 数据源状态与修复提示");
+    expect(markdown).toContain("## 数据源普通状态提示");
+    expect(markdown).toContain("## 数据源修复提示");
+    expect(markdown).toContain("ArXiv 暂无");
     expect(markdown).toContain("| 分数 | 动作 | 题目 | 摘要 | 分类 | 推荐选题 | 推荐理由 | 证据 |");
     expect(markdown).toContain("New multimodal model launch");
     expect(markdown).toContain(
@@ -172,6 +182,9 @@ describe("buildTopicRadar", () => {
     expect(html).toContain("<!doctype html>");
     expect(html).toContain("AI 热点选题池 2026-05-20");
     expect(html).toContain("今日 Top 深挖选题");
+    expect(html).toContain("数据源普通状态提示");
+    expect(html).toContain("数据源修复提示");
+    expect(html).toContain("ArXiv 暂无");
     expect(html).toContain("New multimodal model launch");
     expect(html).toContain("topic-pool.json");
     expect(html).not.toContain("https://cdn.");

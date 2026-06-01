@@ -247,7 +247,7 @@ export async function saveArxivReport(
   footer: string,
   lang: Lang = "zh",
 ): Promise<void> {
-  if (!arxivData.fetchSuccess) {
+  if (arxivData.papers.length === 0) {
     console.log(`  [arxiv/${lang}] No data available, skipping report.`);
     return;
   }
