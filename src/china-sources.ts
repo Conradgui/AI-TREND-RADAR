@@ -8,6 +8,7 @@ import { fetchInfoqCnData, type InfoqCnData } from "./infoq-cn.ts";
 import { fetchGiteeData, type GiteeData } from "./gitee.ts";
 import { fetchOschinaData, type OschinaData } from "./oschina.ts";
 import { fetchJuejinData, type JuejinData } from "./juejin.ts";
+import { createSourceStatus } from "./source-status.ts";
 
 export interface ChinaSourcesData {
   kr36: Kr36Data;
@@ -42,10 +43,46 @@ export function countChinaSourcesItems(data: ChinaSourcesData): number {
 export async function fetchChinaSourcesData(): Promise<ChinaSourcesData> {
   const [kr36, infoqCn, gitee, oschina, juejin] = await Promise.all([
     fetchKr36Data().catch((): Kr36Data => ({ articles: [], fetchSuccess: false })),
-    fetchInfoqCnData().catch((): InfoqCnData => ({ articles: [], fetchSuccess: false })),
-    fetchGiteeData().catch((): GiteeData => ({ projects: [], fetchSuccess: false })),
+    fetchInfoqCnData().catch(
+      (): InfoqCnData => ({
+        articles: [],
+        fetchSuccess: false,
+        status: createSourceStatus({
+          id: "infoq-cn",
+          label: "InfoQ 中国",
+          fetchedCount: 0,
+          acceptedCount: 0,
+          error: "fetch failed",
+        }),
+      }),
+    ),
+    fetchGiteeData().catch(
+      (): GiteeData => ({
+        projects: [],
+        fetchSuccess: false,
+        status: createSourceStatus({
+          id: "gitee",
+          label: "Gitee",
+          fetchedCount: 0,
+          acceptedCount: 0,
+          error: "fetch failed",
+        }),
+      }),
+    ),
     fetchOschinaData().catch((): OschinaData => ({ news: [], fetchSuccess: false })),
-    fetchJuejinData().catch((): JuejinData => ({ articles: [], fetchSuccess: false })),
+    fetchJuejinData().catch(
+      (): JuejinData => ({
+        articles: [],
+        fetchSuccess: false,
+        status: createSourceStatus({
+          id: "juejin",
+          label: "掘金",
+          fetchedCount: 0,
+          acceptedCount: 0,
+          error: "fetch failed",
+        }),
+      }),
+    ),
   ]);
 
   return { kr36, infoqCn, gitee, oschina, juejin };

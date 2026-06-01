@@ -23,6 +23,13 @@ function baseInput(): TopicRadarInput {
     arxivData: {
       papers: [],
       fetchSuccess: true,
+      status: {
+        id: "arxiv",
+        label: "ArXiv",
+        state: "empty",
+        fetchedCount: 0,
+        acceptedCount: 0,
+      },
     },
     hfData: {
       models: [],
@@ -82,6 +89,42 @@ describe("buildTopicRadar", () => {
     expect(result.warnings.join("\n")).toContain("GitHub Trending");
     expect(result.warnings.join("\n")).toContain("Hacker News");
     expect(result.warnings.join("\n")).toContain("Product Hunt");
+  });
+
+  it("renders an empty notice instead of an error warning for a successful empty source", () => {
+    const input = baseInput();
+    Object.assign(input.arxivData, {
+      fetchSuccess: true,
+      status: {
+        id: "arxiv",
+        label: "ArXiv",
+        state: "empty",
+        fetchedCount: 0,
+        acceptedCount: 0,
+      },
+    });
+
+    const warnings = buildTopicRadar(input).warnings.join("\n");
+
+    expect(warnings).toContain("ArXiv 暂无");
+    expect(warnings).not.toContain("ArXiv 获取失败");
+  });
+
+  it("renders an error warning when the source status reports an error", () => {
+    const input = baseInput();
+    Object.assign(input.arxivData, {
+      fetchSuccess: true,
+      status: {
+        id: "arxiv",
+        label: "ArXiv",
+        state: "error",
+        fetchedCount: 0,
+        acceptedCount: 0,
+        detail: "HTTP 429",
+      },
+    });
+
+    expect(buildTopicRadar(input).warnings.join("\n")).toContain("ArXiv 获取失败");
   });
 
   it("renders a decision-first markdown report", () => {

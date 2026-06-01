@@ -7,6 +7,7 @@ import {
   urlCategory,
   titleFromUrl,
   emptyState,
+  normalizeWebState,
   fetchSiteContent,
 } from "../web.ts";
 
@@ -206,6 +207,21 @@ describe("emptyState", () => {
     expect(a).not.toBe(b);
     a.anthropic.lastChecked = "modified";
     expect(b.anthropic.lastChecked).toBe("");
+  });
+});
+
+describe("normalizeWebState", () => {
+  it("adds missing sites without dropping persisted URLs", () => {
+    const state = normalizeWebState({
+      anthropic: { lastChecked: "2026-05-31", seenUrls: { "https://anthropic.com/news/a": "seen" } },
+      openai: { lastChecked: "2026-05-31", seenUrls: { "https://openai.com/news/b": "seen" } },
+    });
+
+    expect(state).toEqual({
+      anthropic: { lastChecked: "2026-05-31", seenUrls: { "https://anthropic.com/news/a": "seen" } },
+      openai: { lastChecked: "2026-05-31", seenUrls: { "https://openai.com/news/b": "seen" } },
+      deepmind: { lastChecked: "", seenUrls: {} },
+    });
   });
 });
 

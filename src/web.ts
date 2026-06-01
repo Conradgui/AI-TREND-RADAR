@@ -260,9 +260,18 @@ export function emptyState(): WebState {
   };
 }
 
+export function normalizeWebState(state: Partial<WebState>): WebState {
+  const empty = emptyState();
+  return {
+    anthropic: state.anthropic ?? empty.anthropic,
+    openai: state.openai ?? empty.openai,
+    deepmind: state.deepmind ?? empty.deepmind,
+  };
+}
+
 export function loadWebState(): WebState {
   try {
-    return JSON.parse(fs.readFileSync(STATE_FILE, "utf-8")) as WebState;
+    return normalizeWebState(JSON.parse(fs.readFileSync(STATE_FILE, "utf-8")) as Partial<WebState>);
   } catch {
     return emptyState();
   }
@@ -282,7 +291,9 @@ export async function fetchSiteContent(
   state: WebState,
 ): Promise<WebFetchResult> {
   const cfg = SITE_CONFIGS[site];
-  const siteState = state[site];
+  const normalizedState = normalizeWebState(state);
+  Object.assign(state, normalizedState);
+  const siteState = normalizedState[site];
   const isFirstRun = Object.keys(siteState.seenUrls).length === 0;
 
   console.log(`  [web/${site}] Discovering URLs from sitemap...`);

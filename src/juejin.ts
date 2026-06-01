@@ -3,6 +3,7 @@
  */
 
 import { FETCH_TIMEOUT_MS } from "./rss-utils.ts";
+import { createSourceStatus, type SourceStatus } from "./source-status.ts";
 
 // ---------------------------------------------------------------------------
 // Types
@@ -23,6 +24,7 @@ export interface JuejinArticle {
 export interface JuejinData {
   articles: JuejinArticle[];
   fetchSuccess: boolean;
+  status: SourceStatus;
 }
 
 // ---------------------------------------------------------------------------
@@ -55,7 +57,19 @@ interface JuejinArticleInfo {
 
 interface JuejinApiResponse {
   data: JuejinArticleInfo[];
+  err_no: number;
   err_msg?: string;
+}
+
+function result(articles: JuejinArticle[], fetchedCount: number, error?: string): JuejinData {
+  const status = createSourceStatus({
+    id: "juejin",
+    label: "掘金",
+    fetchedCount,
+    acceptedCount: articles.length,
+    error,
+  });
+  return { articles, fetchSuccess: status.state !== "error", status };
 }
 
 // ---------------------------------------------------------------------------
@@ -87,17 +101,18 @@ export async function fetchJuejinData(): Promise<JuejinData> {
 
     if (!resp.ok) {
       console.error(`  [juejin] API returned HTTP ${resp.status}`);
-      return { articles: [], fetchSuccess: false };
+      return result([], 0, `HTTP ${resp.status}`);
     }
 
     const raw = (await resp.json()) as JuejinApiResponse;
+    if (raw.err_no !== 0) {
+      const error = raw.err_msg || `API err_no ${raw.err_no}`;
+      console.error(`  [juejin] API error: ${error}`);
+      return result([], 0, error);
+    }
     if (!raw || !Array.isArray(raw.data)) {
       console.error(`  [juejin] unexpected response shape`);
-      return { articles: [], fetchSuccess: false };
-    }
-    if (raw.err_msg) {
-      console.error(`  [juejin] API error: ${raw.err_msg}`);
-      return { articles: [], fetchSuccess: false };
+      return result([], 0, "unexpected response shape");
     }
 
     for (const item of raw.data ?? []) {
@@ -124,9 +139,9 @@ export async function fetchJuejinData(): Promise<JuejinData> {
 
     const articles = [...seen.values()].sort((a, b) => b.diggCount - a.diggCount).slice(0, MAX_ARTICLES);
     console.log(`  [juejin] ${articles.length} AI articles`);
-    return { articles, fetchSuccess: articles.length > 0 };
+    return result(articles, raw.data.length);
   } catch (err) {
     console.error(`  [juejin] fetch failed: ${err}`);
-    return { articles: [], fetchSuccess: false };
+    return result([], 0, String(err));
   }
 }

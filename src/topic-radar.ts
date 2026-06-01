@@ -12,6 +12,7 @@ import type { ArxivData } from "./arxiv.ts";
 import type { HfData } from "./hf.ts";
 import type { WebFetchResult } from "./web.ts";
 import type { ChinaSourcesData } from "./china-sources.ts";
+import type { SourceStatus } from "./source-status.ts";
 import fs from "node:fs";
 import path from "node:path";
 
@@ -468,6 +469,24 @@ function collectRawTopics(input: TopicRadarInput): RawTopic[] {
   return topics;
 }
 
+function appendSourceStatus(
+  warnings: string[],
+  status: SourceStatus | undefined,
+  fetchSuccess: boolean,
+  emptyNotice: string,
+  errorWarning: string,
+): void {
+  if (!status) {
+    if (!fetchSuccess) warnings.push(errorWarning);
+    return;
+  }
+  if (status.state === "empty") warnings.push(emptyNotice);
+  if (status.state === "error") warnings.push(errorWarning);
+  if (status.state === "skipped") {
+    warnings.push(`${status.label} 已跳过${status.detail ? `；${status.detail}` : "。"}`);
+  }
+}
+
 function collectWarnings(input: TopicRadarInput): string[] {
   const warnings: string[] = [];
   if (!input.trendingData.trendingFetchSuccess) {
@@ -482,7 +501,13 @@ function collectWarnings(input: TopicRadarInput): string[] {
       : "Product Hunt 已跳过；配置 PRODUCTHUNT_TOKEN 后可启用产品榜单信号。";
     warnings.push(hint);
   }
-  if (!input.arxivData.fetchSuccess) warnings.push("ArXiv 获取失败；可检查 export.arxiv.org 网络或重试。");
+  appendSourceStatus(
+    warnings,
+    input.arxivData.status,
+    input.arxivData.fetchSuccess,
+    "ArXiv 暂无符合时间窗口的新论文；抓取成功。",
+    "ArXiv 获取失败；可检查 export.arxiv.org 网络或重试。",
+  );
   if (!input.hfData.fetchSuccess)
     warnings.push("Hugging Face 获取失败；可检查 huggingface.co API 是否可访问。");
   if (!input.webResults.some((result) => result.newItems.length > 0)) {
@@ -491,10 +516,28 @@ function collectWarnings(input: TopicRadarInput): string[] {
   if (input.chinaSourcesData) {
     const cn = input.chinaSourcesData;
     if (!cn.kr36.fetchSuccess) warnings.push("36kr 获取失败；可检查网络或 RSS 源是否可用。");
-    if (!cn.infoqCn.fetchSuccess) warnings.push("InfoQ 中国获取失败；可检查 infoq.cn API 是否可用。");
-    if (!cn.gitee.fetchSuccess) warnings.push("Gitee 获取失败；可检查 gitee.com API 是否可访问。");
+    appendSourceStatus(
+      warnings,
+      cn.infoqCn.status,
+      cn.infoqCn.fetchSuccess,
+      "InfoQ 中国暂无符合条件的新内容；抓取成功。",
+      "InfoQ 中国获取失败；可检查 infoq.cn API 是否可用。",
+    );
+    appendSourceStatus(
+      warnings,
+      cn.gitee.status,
+      cn.gitee.fetchSuccess,
+      "Gitee 暂无符合条件的新项目；抓取成功。",
+      "Gitee 获取失败；可检查 gitee.com API 是否可访问。",
+    );
     if (!cn.oschina.fetchSuccess) warnings.push("开源中国获取失败；可检查 oschina.net RSS 是否可用。");
-    if (!cn.juejin.fetchSuccess) warnings.push("掘金获取失败；可检查 juejin.com API 是否可用。");
+    appendSourceStatus(
+      warnings,
+      cn.juejin.status,
+      cn.juejin.fetchSuccess,
+      "掘金暂无符合条件的新内容；抓取成功。",
+      "掘金获取失败；可检查 juejin.com API 是否可用。",
+    );
   }
   return warnings;
 }
