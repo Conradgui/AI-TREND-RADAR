@@ -135,6 +135,55 @@ describe("buildTopicRadar", () => {
     expect(buildTopicRadarHtml(result)).toContain("ArXiv 获取失败");
   });
 
+  it("preserves structured statuses from adapters", () => {
+    const input = baseInput();
+    input.chinaSourcesData = {
+      kr36: { articles: [], fetchSuccess: false },
+      infoqCn: {
+        articles: [],
+        fetchSuccess: true,
+        status: {
+          id: "infoq-cn",
+          label: "InfoQ 中国",
+          state: "empty",
+          fetchedCount: 12,
+          acceptedCount: 0,
+        },
+      },
+      gitee: {
+        projects: [],
+        fetchSuccess: false,
+        status: {
+          id: "gitee",
+          label: "Gitee",
+          state: "error",
+          fetchedCount: 0,
+          acceptedCount: 0,
+          detail: "HTTP 503",
+        },
+      },
+      oschina: { news: [], fetchSuccess: false },
+      juejin: {
+        articles: [],
+        fetchSuccess: true,
+        status: {
+          id: "juejin",
+          label: "掘金",
+          state: "empty",
+          fetchedCount: 20,
+          acceptedCount: 0,
+        },
+      },
+    };
+
+    expect(buildTopicRadar(input).sourceStatuses).toEqual([
+      input.arxivData.status,
+      input.chinaSourcesData.infoqCn.status,
+      input.chinaSourcesData.gitee.status,
+      input.chinaSourcesData.juejin.status,
+    ]);
+  });
+
   it("renders a decision-first markdown report", () => {
     const input = baseInput();
     input.webResults[0]!.newItems = [

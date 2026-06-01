@@ -78,6 +78,7 @@ export interface TopicRadarResult {
   generatedAt: string;
   date: string;
   candidates: TopicCandidate[];
+  sourceStatuses: SourceStatus[];
   notices: string[];
   warnings: string[];
 }
@@ -549,6 +550,18 @@ function collectStatusMessages(input: TopicRadarInput): Pick<TopicRadarResult, "
   return { notices, warnings };
 }
 
+function collectSourceStatuses(input: TopicRadarInput): SourceStatus[] {
+  const statuses = [input.arxivData.status];
+  if (input.chinaSourcesData) {
+    statuses.push(
+      input.chinaSourcesData.infoqCn.status,
+      input.chinaSourcesData.gitee.status,
+      input.chinaSourcesData.juejin.status,
+    );
+  }
+  return statuses;
+}
+
 export function buildTopicRadar(input: TopicRadarInput): TopicRadarResult {
   const now = input.now ?? new Date();
   const statusMessages = collectStatusMessages(input);
@@ -561,6 +574,7 @@ export function buildTopicRadar(input: TopicRadarInput): TopicRadarResult {
     generatedAt: input.utcStr,
     date: input.dateStr,
     candidates,
+    sourceStatuses: collectSourceStatuses(input),
     ...statusMessages,
   };
 }
