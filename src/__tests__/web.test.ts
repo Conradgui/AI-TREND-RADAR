@@ -1,4 +1,4 @@
-import { describe, it, expect } from "vitest";
+import { afterEach, describe, it, expect, vi } from "vitest";
 import {
   parseSitemapUrls,
   isSitemapIndex,
@@ -7,7 +7,12 @@ import {
   urlCategory,
   titleFromUrl,
   emptyState,
+  fetchSiteContent,
 } from "../web.ts";
+
+afterEach(() => {
+  vi.unstubAllGlobals();
+});
 
 // ---------------------------------------------------------------------------
 // parseSitemapUrls
@@ -201,5 +206,30 @@ describe("emptyState", () => {
     expect(a).not.toBe(b);
     a.anthropic.lastChecked = "modified";
     expect(b.anthropic.lastChecked).toBe("");
+  });
+});
+
+describe("fetchSiteContent", () => {
+  it("initializes a missing DeepMind state from older persisted data", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn().mockResolvedValue(
+        new Response(
+          `<?xml version="1.0" encoding="UTF-8"?>
+          <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"></urlset>`,
+          { status: 200 },
+        ),
+      ),
+    );
+
+    const legacyState = {
+      anthropic: { lastChecked: "", seenUrls: {} },
+      openai: { lastChecked: "", seenUrls: {} },
+    };
+
+    await expect(fetchSiteContent("deepmind", legacyState as never)).resolves.toMatchObject({
+      site: "deepmind",
+      totalDiscovered: 0,
+    });
   });
 });
