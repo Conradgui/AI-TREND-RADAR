@@ -113,8 +113,14 @@ function retryDelayMs(resp: Response, attempt: number): number {
   if (retryAfter !== null) {
     const seconds = Number(retryAfter);
     if (Number.isFinite(seconds) && seconds >= 0) return seconds * 1000;
+    const dateMs = Date.parse(retryAfter);
+    if (!Number.isNaN(dateMs)) return Math.max(0, dateMs - Date.now());
   }
   return REQUEST_DELAY_MS * 2 ** attempt;
+}
+
+function isAtomFeed(xml: string): boolean {
+  return /<feed[\s>]/.test(xml);
 }
 
 export async function fetchArxivData(): Promise<ArxivData> {
@@ -154,6 +160,21 @@ export async function fetchArxivData(): Promise<ArxivData> {
       }
 
       xml = await resp.text();
+      if (!isAtomFeed(xml)) {
+        const error = "unexpected Atom feed shape";
+        console.error(`  [arxiv] ${error}`);
+        return {
+          papers: [],
+          fetchSuccess: false,
+          status: createSourceStatus({
+            id: "arxiv",
+            label: "ArXiv",
+            fetchedCount: 0,
+            acceptedCount: 0,
+            error,
+          }),
+        };
+      }
       break;
     } catch (err) {
       const error = String(err);

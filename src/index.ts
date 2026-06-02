@@ -582,6 +582,8 @@ async function main(): Promise<void> {
     phData,
     arxivData,
     hfData,
+    devtoData,
+    lobstersData,
     webResults,
     chinaSourcesData,
     dateStr,

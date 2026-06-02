@@ -380,6 +380,16 @@ describe("source adapters", () => {
     });
   });
 
+  it("reports HTTP 200 ArXiv block pages as errors", async () => {
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue(new Response("<html>blocked</html>", { status: 200 })));
+
+    await expect(fetchArxivData()).resolves.toMatchObject({
+      papers: [],
+      fetchSuccess: false,
+      status: { state: "error", detail: "unexpected Atom feed shape" },
+    });
+  });
+
   it("rejects Juejin responses when err_no is non-zero", async () => {
     vi.stubGlobal(
       "fetch",
@@ -446,6 +456,24 @@ describe("source adapters", () => {
     await expect(fetchOschinaData()).resolves.toMatchObject({
       fetchSuccess: true,
       status: { state: "empty" },
+    });
+  });
+
+  it("reports HTTP 200 RSS block pages as errors", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi
+        .fn()
+        .mockImplementation(() => Promise.resolve(new Response("<html>blocked</html>", { status: 200 }))),
+    );
+
+    await expect(fetchKr36Data()).resolves.toMatchObject({
+      fetchSuccess: false,
+      status: { state: "error", detail: "unexpected RSS response shape" },
+    });
+    await expect(fetchOschinaData()).resolves.toMatchObject({
+      fetchSuccess: false,
+      status: { state: "error", detail: "unexpected RSS response shape" },
     });
   });
 

@@ -74,6 +74,10 @@ function result(news: OschinaNews[], fetchedCount: number, error?: string): Osch
   return { news, fetchSuccess: status.state !== "error", status };
 }
 
+function isRssFeed(xml: string): boolean {
+  return /<(rss|feed)[\s>]/i.test(xml);
+}
+
 // ---------------------------------------------------------------------------
 // Fetch
 // ---------------------------------------------------------------------------
@@ -102,6 +106,10 @@ export async function fetchOschinaData(): Promise<OschinaData> {
     }
 
     const xml = await resp.text();
+    if (!isRssFeed(xml)) {
+      console.error(`  [oschina] unexpected RSS response shape`);
+      return result([], 0, "unexpected RSS response shape");
+    }
     const itemBlocks = xml.split("<item>").slice(1);
 
     for (const block of itemBlocks) {

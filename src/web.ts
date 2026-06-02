@@ -148,6 +148,10 @@ export function isSitemapIndex(xml: string): boolean {
   return /<sitemapindex[\s>]/.test(xml);
 }
 
+function isUrlSet(xml: string): boolean {
+  return /<urlset[\s>]/.test(xml);
+}
+
 // ---------------------------------------------------------------------------
 // HTML content extraction
 // ---------------------------------------------------------------------------
@@ -221,6 +225,9 @@ async function discoverUrls(
       const subUrl = cfg.subSitemapTemplate.replace("{name}", name);
       try {
         const xml = await httpGet(subUrl);
+        if (!isUrlSet(xml)) {
+          throw new Error(isSitemapIndex(xml) ? "unexpected sitemap index" : "unexpected sitemap response");
+        }
         results.push(...parseSitemapUrls(xml));
         await sleep(100);
       } catch (err) {
@@ -231,9 +238,9 @@ async function discoverUrls(
   } else {
     // Single sitemap
     const xml = await httpGet(cfg.sitemapUrl);
-    const all = isSitemapIndex(xml)
-      ? [] // unexpected; skip rather than recurse
-      : parseSitemapUrls(xml);
+    if (isSitemapIndex(xml)) throw new Error("unexpected sitemap index");
+    if (!isUrlSet(xml)) throw new Error("unexpected sitemap response");
+    const all = parseSitemapUrls(xml);
 
     const prefixes = cfg.prefixes ?? [];
     results.push(

@@ -74,6 +74,10 @@ function result(articles: Kr36Article[], fetchedCount: number, error?: string): 
   return { articles, fetchSuccess: status.state !== "error", status };
 }
 
+function isRssFeed(xml: string): boolean {
+  return /<(rss|feed)[\s>]/i.test(xml);
+}
+
 // ---------------------------------------------------------------------------
 // Fetch via RSS
 // ---------------------------------------------------------------------------
@@ -98,6 +102,10 @@ export async function fetchKr36Data(): Promise<Kr36Data> {
       }
 
       const xml = await resp.text();
+      if (!isRssFeed(xml)) {
+        console.error(`  [kr36] unexpected RSS response shape`);
+        return result([], 0, "unexpected RSS response shape");
+      }
       const itemBlocks = xml.split("<item>").slice(1);
 
       for (const block of itemBlocks) {

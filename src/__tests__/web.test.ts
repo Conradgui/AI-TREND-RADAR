@@ -369,6 +369,38 @@ describe("fetchSiteContent", () => {
     });
   });
 
+  it("reports HTTP 200 sitemap block pages as errors", async () => {
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue(new Response("<html>blocked</html>", { status: 200 })));
+
+    await expect(fetchSiteContent("deepmind", emptyState())).rejects.toThrow("unexpected sitemap response");
+  });
+
+  it("treats malformed OpenAI sub-sitemaps as partial failures", async () => {
+    vi.useFakeTimers();
+    vi.stubGlobal(
+      "fetch",
+      vi.fn().mockImplementation((url) => {
+        if (String(url).includes("/research/")) {
+          return Promise.resolve(
+            new Response(
+              `<urlset><url><loc>https://openai.com/research/new-model</loc><lastmod>2026-06-02</lastmod></url></urlset>`,
+              { status: 200 },
+            ),
+          );
+        }
+        return Promise.resolve(new Response("<html>blocked</html>", { status: 200 }));
+      }),
+    );
+
+    const resultPromise = fetchSiteContent("openai", emptyState());
+    await vi.runAllTimersAsync();
+
+    await expect(resultPromise).resolves.toMatchObject({
+      newItems: [{ url: "https://openai.com/research/new-model" }],
+      status: { state: "error", acceptedCount: 1 },
+    });
+  });
+
   it("keeps OpenAI items but reports error when some sub-sitemaps fail", async () => {
     vi.useFakeTimers();
     vi.stubGlobal(

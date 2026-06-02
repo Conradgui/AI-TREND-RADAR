@@ -13,6 +13,8 @@ import type { HfData } from "./hf.ts";
 import type { WebFetchResult } from "./web.ts";
 import type { ChinaSourcesData } from "./china-sources.ts";
 import type { SourceStatus } from "./source-status.ts";
+import type { DevtoData } from "./devto.ts";
+import type { LobstersData } from "./lobsters.ts";
 import fs from "node:fs";
 import path from "node:path";
 
@@ -67,6 +69,8 @@ export interface TopicRadarInput {
   phData: PhData;
   arxivData: ArxivData;
   hfData: HfData;
+  devtoData?: DevtoData;
+  lobstersData?: LobstersData;
   webResults: WebFetchResult[];
   chinaSourcesData?: ChinaSourcesData;
   dateStr: string;
@@ -171,7 +175,7 @@ function heatScore(topic: RawTopic): number {
     case "community":
       return clamp(strongestSignal / 12, 30);
     case "github":
-      return clamp(strongestSignal / 15, 30);
+      return clamp(Math.log10(strongestSignal + 1) * 5, 24);
     case "model":
       return clamp(strongestSignal / 20, 30);
     case "official":
@@ -314,6 +318,75 @@ function scoreTopic(topic: RawTopic, now: Date): TopicCandidate {
   };
 }
 
+function candidateKey(candidate: TopicCandidate): string {
+  return candidate.url || `${candidate.source}:${candidate.title}`;
+}
+
+function dedupeCandidates(candidates: TopicCandidate[]): TopicCandidate[] {
+  const byUrl = new Map<string, TopicCandidate>();
+  for (const candidate of candidates) {
+    const key = candidateKey(candidate);
+    const existing = byUrl.get(key);
+    if (!existing || candidate.score > existing.score) byUrl.set(key, candidate);
+  }
+  return [...byUrl.values()];
+}
+
+type SourceGroup = "repo" | "domestic" | "research" | "product" | "official" | "community";
+
+function sourceGroup(candidate: TopicCandidate): SourceGroup {
+  if (
+    candidate.source === "GitHub Trending" ||
+    candidate.source.startsWith("GitHub Search") ||
+    candidate.source === "Gitee"
+  ) {
+    return "repo";
+  }
+  if (["36kr", "InfoQ 中国", "开源中国", "掘金"].includes(candidate.source)) return "domestic";
+  if (candidate.source === "ArXiv" || candidate.source === "Hugging Face") return "research";
+  if (candidate.source === "Product Hunt") return "product";
+  if (["OpenAI", "Anthropic (Claude)", "Google DeepMind"].includes(candidate.source)) return "official";
+  return "community";
+}
+
+function selectCandidates(scored: TopicCandidate[]): TopicCandidate[] {
+  const eligible = dedupeCandidates(scored)
+    .filter((candidate) => candidate.score >= 50)
+    .sort((a, b) => b.score - a.score);
+  const selected: TopicCandidate[] = [];
+  const used = new Set<string>();
+  const counts = new Map<SourceGroup, number>();
+  const groups: Array<{ id: SourceGroup; base: number; max: number }> = [
+    { id: "repo", base: 15, max: 20 },
+    { id: "domestic", base: 8, max: 12 },
+    { id: "research", base: 8, max: 10 },
+    { id: "product", base: 6, max: 10 },
+    { id: "official", base: 5, max: 8 },
+    { id: "community", base: 5, max: 8 },
+  ];
+  const add = (candidate: TopicCandidate): void => {
+    if (selected.length >= 60) return;
+    const key = candidateKey(candidate);
+    if (used.has(key)) return;
+    const group = sourceGroup(candidate);
+    const max = groups.find((item) => item.id === group)?.max ?? 60;
+    if ((counts.get(group) ?? 0) >= max) return;
+    used.add(key);
+    counts.set(group, (counts.get(group) ?? 0) + 1);
+    selected.push(candidate);
+  };
+
+  for (const group of groups) {
+    for (const candidate of eligible) {
+      if (sourceGroup(candidate) !== group.id) continue;
+      if ((counts.get(group.id) ?? 0) >= group.base) break;
+      add(candidate);
+    }
+  }
+  for (const candidate of eligible) add(candidate);
+  return selected;
+}
+
 function collectRawTopics(input: TopicRadarInput): RawTopic[] {
   const topics: RawTopic[] = [];
 
@@ -386,6 +459,30 @@ function collectRawTopics(input: TopicRadarInput): RawTopic[] {
       publishedAt: model.lastModified,
       heatSignals: [model.likes, model.downloads],
       tags: [model.pipelineTag, ...model.tags].filter(Boolean),
+    });
+  }
+  for (const article of input.devtoData?.articles ?? []) {
+    topics.push({
+      title: article.title,
+      url: article.url,
+      source: "Dev.to",
+      sourceType: "community",
+      summary: article.description,
+      publishedAt: article.publishedAt,
+      heatSignals: [article.positiveReactionsCount, article.commentsCount],
+      tags: ["devto", ...article.tags],
+    });
+  }
+  for (const story of input.lobstersData?.stories ?? []) {
+    topics.push({
+      title: story.title,
+      url: story.url,
+      source: "Lobste.rs",
+      sourceType: "community",
+      summary: `Comments: ${story.commentCount} by ${story.author}`,
+      publishedAt: story.publishedAt,
+      heatSignals: [story.score, story.commentCount],
+      tags: ["lobsters", ...story.tags],
     });
   }
   for (const result of input.webResults) {
@@ -614,10 +711,7 @@ function collectSourceStatuses(input: TopicRadarInput): SourceStatus[] {
 export function buildTopicRadar(input: TopicRadarInput): TopicRadarResult {
   const now = input.now ?? new Date();
   const statusMessages = collectStatusMessages(input);
-  const candidates = collectRawTopics(input)
-    .map((topic) => scoreTopic(topic, now))
-    .sort((a, b) => b.score - a.score)
-    .slice(0, 60);
+  const candidates = selectCandidates(collectRawTopics(input).map((topic) => scoreTopic(topic, now)));
 
   return {
     generatedAt: input.utcStr,
@@ -645,6 +739,8 @@ export function buildTopicRadarMarkdown(result: TopicRadarResult): string {
   const deepDive = result.candidates.filter((item) => item.action === "深挖").slice(0, 10);
   const pool = result.candidates.filter((item) => item.action === "入池").slice(0, 15);
   const watch = result.candidates.filter((item) => item.action === "观察").slice(0, 15);
+  const watchSection =
+    watch.length === 0 ? "暂无 50–64 分观察项。这不代表数据源采集失败。\n" : tableRows(watch);
 
   const categorySections = TOPIC_CATEGORIES.map((category) => {
     const items = result.candidates.filter((item) => item.category === category).slice(0, 5);
@@ -678,7 +774,7 @@ export function buildTopicRadarMarkdown(result: TopicRadarResult): string {
     categorySections,
     "## 观察项",
     "",
-    tableRows(watch),
+    watchSection,
     "",
     "## 数据源普通状态提示",
     "",
@@ -956,7 +1052,7 @@ export function buildTopicRadarHtml(result: TopicRadarResult): string {
 
     <section id="watch">
       <h2>观察项</h2>
-      <div class="topic-grid">${renderTopicCards(watch)}</div>
+      <div class="topic-grid">${watch.length === 0 ? '<p class="empty">暂无 50–64 分观察项。这不代表数据源采集失败。</p>' : renderTopicCards(watch)}</div>
     </section>
 
     <section id="notices">

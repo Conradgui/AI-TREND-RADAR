@@ -97,6 +97,89 @@ describe("buildTopicRadar", () => {
     expect(result.candidates[0]!.evidence.join(" ")).toContain("Product Hunt");
   });
 
+  it("includes Dev.to and Lobste.rs community sources in candidates", () => {
+    const input = baseInput();
+    input.devtoData = {
+      fetchSuccess: true,
+      articles: [
+        {
+          id: 1,
+          title: "Building reliable AI agents",
+          description: "Enterprise agent workflow with observability and evaluation.",
+          url: "https://dev.to/example/agents",
+          publishedAt: "2026-05-20T00:00:00Z",
+          positiveReactionsCount: 420,
+          commentsCount: 30,
+          readingTimeMinutes: 8,
+          tags: ["ai", "agents"],
+          user: "Alice",
+        },
+      ],
+    };
+    input.lobstersData = {
+      fetchSuccess: true,
+      stories: [
+        {
+          title: "LLM evals in production",
+          url: "https://example.com/evals",
+          commentsUrl: "https://lobste.rs/s/abc",
+          score: 120,
+          commentCount: 45,
+          author: "bob",
+          publishedAt: "2026-05-20T00:00:00Z",
+          tags: ["ai"],
+        },
+      ],
+    };
+
+    const sources = buildTopicRadar(input).candidates.map((candidate) => candidate.source);
+
+    expect(sources).toContain("Dev.to");
+    expect(sources).toContain("Lobste.rs");
+  });
+
+  it("limits GitHub and Gitee candidates after deduplication", () => {
+    const input = baseInput();
+    input.trendingData.searchRepos = Array.from({ length: 30 }, (_, index) => ({
+      fullName: `example/repo-${index}`,
+      description: "Enterprise AI agent workflow platform",
+      language: "TypeScript",
+      stargazersCount: 100_000 - index,
+      pushedAt: "2026-05-20T00:00:00Z",
+      url: `https://github.com/example/repo-${index}`,
+      searchQuery: "ai-agent",
+    }));
+    input.chinaSourcesData = {
+      kr36: { articles: [], fetchSuccess: true, status: status("kr36") },
+      infoqCn: { articles: [], fetchSuccess: true, status: status("infoq-cn") },
+      gitee: {
+        projects: Array.from({ length: 10 }, (_, index) => ({
+          id: index,
+          name: `gitee-${index}`,
+          fullName: `gitee/gitee-${index}`,
+          url: `https://gitee.com/gitee/gitee-${index}`,
+          description: "AI agent project",
+          language: "TypeScript",
+          stars: 50_000 - index,
+          forks: 100,
+          updatedAt: "2026-05-20T00:00:00Z",
+          namespace: "gitee",
+        })),
+        fetchSuccess: true,
+        status: status("gitee"),
+      },
+      oschina: { news: [], fetchSuccess: true, status: status("oschina") },
+      juejin: { articles: [], fetchSuccess: true, status: status("juejin") },
+    };
+
+    const candidates = buildTopicRadar(input).candidates;
+    const repoCount = candidates.filter(
+      (candidate) => candidate.source.startsWith("GitHub Search") || candidate.source === "Gitee",
+    ).length;
+
+    expect(repoCount).toBeLessThanOrEqual(20);
+  });
+
   it("keeps source warnings without blocking topic pool generation", () => {
     const input = baseInput();
     input.trendingData.trendingFetchSuccess = false;
@@ -321,6 +404,12 @@ describe("buildTopicRadar", () => {
       "OpenAI launches a new multimodal model with product availability and enterprise pricing.",
     );
     expect(markdown).toContain("New multimodal model launch 为什么值得关注？（");
+  });
+
+  it("explains an empty watch list without implying source failure", () => {
+    const markdown = buildTopicRadarMarkdown(buildTopicRadar(baseInput()));
+
+    expect(markdown).toContain("暂无 50–64 分观察项。这不代表数据源采集失败。");
   });
 
   it("renders a self-contained html report", () => {
