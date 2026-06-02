@@ -1,0 +1,1202 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 热点选题池 2026-06-02</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f8fb;
+      --panel: #ffffff;
+      --text: #172033;
+      --muted: #667085;
+      --line: #d8dee9;
+      --accent: #2563eb;
+      --accent-soft: #e8f0ff;
+      --green: #0f8a5f;
+      --shadow: 0 16px 40px rgba(17, 24, 39, 0.08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 40px 20px 64px;
+    }
+    header {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      padding: 28px;
+      margin-bottom: 24px;
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { font-size: 32px; line-height: 1.2; margin-bottom: 12px; }
+    h2 { font-size: 24px; margin: 32px 0 16px; }
+    h3 { font-size: 18px; margin: 24px 0 12px; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .summary {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+    .quick-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .quick-links a, .quick-links span {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 12px;
+      background: #fff;
+      color: var(--text);
+      font-size: 14px;
+    }
+    .topic-grid {
+      display: grid;
+      gap: 14px;
+    }
+    .topic-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+      box-shadow: 0 8px 24px rgba(17, 24, 39, 0.05);
+    }
+    .topic-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 16px;
+      align-items: start;
+    }
+    .topic-title {
+      display: inline-block;
+      font-weight: 700;
+      font-size: 17px;
+      line-height: 1.45;
+      overflow-wrap: anywhere;
+    }
+    .meta {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 4px;
+    }
+    .score {
+      min-width: 72px;
+      border-radius: 8px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      text-align: center;
+      padding: 8px 10px;
+    }
+    .score strong {
+      display: block;
+      font-size: 24px;
+      line-height: 1;
+    }
+    .score span {
+      display: block;
+      margin-top: 4px;
+      font-size: 13px;
+      color: var(--text);
+    }
+    .summary {
+      color: #344054;
+      font-weight: 500;
+    }
+    .recommended {
+      background: #f8fafc;
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      padding: 8px 10px;
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 12px 0;
+    }
+    .tags span {
+      background: #eef2f7;
+      border-radius: 999px;
+      color: #475467;
+      font-size: 12px;
+      padding: 3px 8px;
+    }
+    details {
+      border-top: 1px solid var(--line);
+      margin-top: 12px;
+      padding-top: 10px;
+    }
+    summary {
+      cursor: pointer;
+      color: var(--green);
+      font-weight: 600;
+    }
+    ul { padding-left: 20px; }
+    .empty {
+      color: var(--muted);
+      background: var(--panel);
+      border: 1px dashed var(--line);
+      border-radius: 8px;
+      padding: 14px;
+    }
+    .category-stack {
+      display: grid;
+      gap: 10px;
+    }
+    footer {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 36px;
+    }
+    @media (max-width: 640px) {
+      main { padding: 24px 12px 48px; }
+      header { padding: 20px; }
+      h1 { font-size: 26px; }
+      .topic-head { grid-template-columns: 1fr; }
+      .score { width: 84px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>AI 热点选题池 2026-06-02</h1>
+      <p class="summary">面向 AI 内容运营和产品调研的每日选题监控报告。默认入口为本 HTML 文件，可直接双击查看，也可通过 GitHub Pages 分享。</p>
+      <div class="quick-links">
+        <span>生成时间：2026-06-02 04:50 UTC</span>
+        <a href="./ai-topic-radar.md">Markdown</a>
+        <a href="./topic-pool.json">JSON 选题池</a>
+      </div>
+    </header>
+
+    <section id="top">
+      <h2>今日 Top 深挖选题</h2>
+      <div class="topic-grid">
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropic.com/news/confidential-draft-s1-sec" target="_blank" rel="noreferrer">Anthropic confidentially submits draft S-1 to the SEC</a>
+              <div class="meta">Anthropic (Claude) · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>88</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Announcements Anthropic confidentially submits draft S-1 to the SEC Jun 1, 2026 Today, Anthropic, PBC confidentially submitted a draft registration statement on Form S-1 to the U.S. Securities and Exchange Commission for a proposed initial public offering of our common stock. This gives us the option to go public after the SEC completes its review. The proposed initial public offering will depend on market conditions and other factors. The number of shares to be offered and the price have not yet been set. This announcement is being published under Rule 135 of the Securities Act of 1933, as amended. It is not an offer to sell securities; nor is it a solicitation of an offer to buy them. Any offers, solicitations of offers to buy, or any sales of securities will be made only in accordance with the registration requirements of the Securities Act. Related content Anthropic raises $65B in Series H funding at $965B post-money valuation Anthropic has raised $65 billion in Series H funding led by Altimeter Capital, Dragoneer, Greenoaks, and Sequoia Capital. Read more Introducing Claude Opus 4.8 An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work. Read more Anthropic opens Milan office to support Italian enterprise, research, and developers We&amp;#x27;re opening a new office in Milan, our sixth in Europe. Read more</p>
+          <p class="recommended"><strong>推荐选题：</strong>Anthropic confidentially submits draft S-1 to the SEC 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>值得优先深挖：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Anthropic (Claude)。</p>
+          <div class="tags"><span>anthropic</span><span>news</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Anthropic (Claude)</li><li>发布时间：2026-06-01</li><li>关键词：anthropic, news</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropic.com/news/series-h" target="_blank" rel="noreferrer">Anthropic raises $65B in Series H funding at $965B post-money valuation</a>
+              <div class="meta">Anthropic (Claude) · 政策监管、社会影响与 AI 安全</div>
+            </div>
+            <div class="score">
+              <strong>88</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Announcements Anthropic raises $65B in Series H funding at $965B post-money valuation May 28, 2026 Anthropic has raised $65 billion in Series H funding led by Altimeter Capital, Dragoneer, Greenoaks, and Sequoia Capital, valuing the company at $965 billion post-money. Global enterprises across industries are deploying Claude in their core operations, and a growing number of people around the world use it for their everyday work. Since our Series G in February, adoption has continued to grow across global enterprise customers, and our run-rate revenue crossed $47 billion earlier this month. This latest funding is expected to advance our safety and interpretability research, expand compute to meet growing demand for Claude, and scale the products and partnerships our customers rely on. “Claude is increasingly indispensable to our growing global community of customers, and we work tirelessly to make tools like Claude Code and Cowork more helpful, more powerful, and more adaptable to their needs,” said Krishna Rao, Chief Financial Officer of Anthropic. “This funding will help us serve the historic demand we are experiencing, stay at the research frontier, and bring Claude to more of the places where work happens.” The round was co-led by Capital Group, Coatue, D1 Capital Partners, GIC, ICONIQ, and XN. Significant investors in this round include AMP PBC, Baillie Gifford, Blackstone, Brookfield, D.E. Shaw Ventures, DST Global, Fidelity Management &amp; Research Company, General Catalys</p>
+          <p class="recommended"><strong>推荐选题：</strong>Anthropic raises $65B in Series H funding at $965B post-money valuation 为什么值得关注？（政策变化、信任风险与安全治理）</p>
+          <p>值得优先深挖：适合从政策变化、信任风险和安全治理角度切入，来源：Anthropic (Claude)。</p>
+          <div class="tags"><span>anthropic</span><span>news</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Anthropic (Claude)</li><li>发布时间：2026-06-01</li><li>关键词：anthropic, news</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropic.com/news/claude-opus-4-8" target="_blank" rel="noreferrer">Introducing Claude Opus 4.8</a>
+              <div class="meta">Anthropic (Claude) · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>88</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Product Announcements Introducing Claude Opus 4.8 May 28, 2026 We’re upgrading Claude Opus to a new version: Claude Opus 4.8. It builds on Opus 4.7 with improvements across benchmarks, and is a more effective collaborator. It’s available today for the same price. Opus 4.8 launches alongside several new features. Users on claude.ai now have control over the amount of effort Claude puts into a task. Claude Code has a new “dynamic workflows” feature that allows it to tackle very large-scale problems. And fast mode for Opus 4.8—where the model can work at 2.5× the speed—is now three times cheaper than it was for previous models. Opus 4.8’s capabilities The table below shows how Opus 4.8 compares to its predecessor and to other models on tests of coding, agentic skills, reasoning, and practical knowledge work tasks. More details and a much wider range of capability evaluations are provided in the Claude Opus 4.8 System Card . Collaborating with Opus 4.8 Early testers have found Claude Opus 4.8 to be more reliable and sharper in its judgment when it’s performing agentic tasks. Below are quotes from many of these testers about their experience collaborating with Opus 4.8: Claude Opus 4.8 has noticeably better judgment. In Claude Code, it asks the right questions, catches its own mistakes, pushes back when a plan isn’t sound, and builds up confidence around complex, multi-service explorations before making big changes. It’s a great model to build with. Tom Pritchard Staff Engineer On</p>
+          <p class="recommended"><strong>推荐选题：</strong>Introducing Claude Opus 4.8 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>值得优先深挖：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Anthropic (Claude)。</p>
+          <div class="tags"><span>anthropic</span><span>news</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Anthropic (Claude)</li><li>发布时间：2026-06-01</li><li>关键词：anthropic, news</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropic.com/news/confidential-draft-s1-sec" target="_blank" rel="noreferrer">Anthropic confidentially submits draft S-1 to the SEC</a>
+              <div class="meta">Hacker News · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>87</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by surprisetalk</p>
+          <p class="recommended"><strong>推荐选题：</strong>Anthropic confidentially submits draft S-1 to the SEC 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>值得优先深挖：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：469 / 385</li><li>发布时间：2026-06-01</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.economist.com/finance-and-economics/2026/06/01/can-the-stockmarket-swallow-anthropic-spacex-and-openai" target="_blank" rel="noreferrer">Can the stockmarket swallow Anthropic, SpaceX and OpenAI?</a>
+              <div class="meta">Hacker News · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>87</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by 1vuio0pswjnm7</p>
+          <p class="recommended"><strong>推荐选题：</strong>Can the stockmarket swallow Anthropic, SpaceX and OpenAI? 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>值得优先深挖：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：181 / 374</li><li>发布时间：2026-06-01</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/open-webui/open-webui" target="_blank" rel="noreferrer">open-webui/open-webui</a>
+              <div class="meta">GitHub Search:rag · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>80</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">User-friendly AI Interface (Supports Ollama, OpenAI API, ...)</p>
+          <p class="recommended"><strong>推荐选题：</strong>open-webui/open-webui 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>值得优先深挖：适合从大厂动作、商业化路径和竞争格局角度切入，来源：GitHub Search:rag。</p>
+          <div class="tags"><span>Python</span><span>rag</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:rag</li><li>热度信号：139593</li><li>发布时间：2026-06-02</li><li>关键词：Python, rag</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/langchain4j/langchain4j" target="_blank" rel="noreferrer">langchain4j/langchain4j</a>
+              <div class="meta">GitHub Search:vector-db · 企业落地与行业应用</div>
+            </div>
+            <div class="score">
+              <strong>80</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">LangChain4j is an idiomatic, open-source Java library for building LLM-powered applications on the JVM. It offers a unified API over popular LLM providers and vector stores, and makes implementing tool calling (including MCP support), agents and RAG easy. It integrates seamlessly with enterprise Java frameworks like Quarkus and Spring Boot.</p>
+          <p class="recommended"><strong>推荐选题：</strong>langchain4j/langchain4j 为什么值得关注？（行业场景、落地成本与业务价值）</p>
+          <p>值得优先深挖：适合从行业场景、落地成本和业务价值角度切入，来源：GitHub Search:vector-db。</p>
+          <div class="tags"><span>Java</span><span>vector-db</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:vector-db</li><li>热度信号：12176</li><li>发布时间：2026-06-01</li><li>关键词：Java, vector-db</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/Y5E7U6HB2KB5NG?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Clipto</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>80</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Fully local, natural language search over terabytes of media</p>
+          <p class="recommended"><strong>推荐选题：</strong>Clipto 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>值得优先深挖：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Mac</span><span>Productivity</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：455 / 143</li><li>发布时间：2026-05-31</li><li>关键词：Mac, Productivity, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/DHJEGKLQBKHAGY?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Second Brain for AI</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>80</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Persistent memory for Claude, ChatGPT &amp; Cursor. Free.</p>
+          <p class="recommended"><strong>推荐选题：</strong>Second Brain for AI 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>值得优先深挖：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Open Source</span><span>Developer Tools</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：278 / 50</li><li>发布时间：2026-05-31</li><li>关键词：Open Source, Developer Tools, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      </div>
+    </section>
+
+    <section id="pool">
+      <h2>入池选题</h2>
+      <div class="topic-grid">
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/stanford-cs336/assignment1-basics/blob/main/CLAUDE.md" target="_blank" rel="noreferrer">AI Agent Guidelines for CS336 at Stanford</a>
+              <div class="meta">Hacker News · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>79</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by prakashqwerty</p>
+          <p class="recommended"><strong>推荐选题：</strong>AI Agent Guidelines for CS336 at Stanford 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：357 / 124</li><li>发布时间：2026-06-01</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://openai.com/index/openai-frontier-models-and-codex-are-now-available-on-aws/" target="_blank" rel="noreferrer">Openai Frontier Models And Codex Are Now Available On Aws</a>
+              <div class="meta">OpenAI · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>79</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary"></p>
+          <p class="recommended"><strong>推荐选题：</strong>Openai Frontier Models And Codex Are Now Available On Aws 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合进入今日选题池：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：OpenAI。</p>
+          <div class="tags"><span>openai</span><span>index</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：OpenAI</li><li>发布时间：2026-06-02</li><li>关键词：openai, index</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/googleworkspace/cli" target="_blank" rel="noreferrer">googleworkspace/cli</a>
+              <div class="meta">GitHub Search:ai-agent · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>78</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Google Workspace CLI — one command-line tool for Drive, Gmail, Calendar, Sheets, Docs, Chat, Admin, and more. Dynamically built from Google Discovery Service. Includes AI agent skills.</p>
+          <p class="recommended"><strong>推荐选题：</strong>googleworkspace/cli 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合进入今日选题池：适合从大厂动作、商业化路径和竞争格局角度切入，来源：GitHub Search:ai-agent。</p>
+          <div class="tags"><span>Rust</span><span>ai-agent</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:ai-agent</li><li>热度信号：26740</li><li>发布时间：2026-06-01</li><li>关键词：Rust, ai-agent</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/revfactory/harness" target="_blank" rel="noreferrer">revfactory/harness</a>
+              <div class="meta">GitHub Trending · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>74</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">A meta-skill that designs domain-specific agent teams, defines specialized agents, and generates the skills they use.</p>
+          <p class="recommended"><strong>推荐选题：</strong>revfactory/harness 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合进入今日选题池：适合从大厂动作、商业化路径和竞争格局角度切入，来源：GitHub Trending。</p>
+          <div class="tags"><span>HTML</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Trending</li><li>热度信号：524 / 0</li><li>关键词：HTML</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/infiniflow/ragflow" target="_blank" rel="noreferrer">infiniflow/ragflow</a>
+              <div class="meta">GitHub Search:rag · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>74</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">RAGFlow is a leading open-source Retrieval-Augmented Generation (RAG) engine that fuses cutting-edge RAG with Agent capabilities to create a superior context layer for LLMs</p>
+          <p class="recommended"><strong>推荐选题：</strong>infiniflow/ragflow 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:rag。</p>
+          <div class="tags"><span>Python</span><span>rag</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:rag</li><li>热度信号：81688</li><li>发布时间：2026-06-02</li><li>关键词：Python, rag</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/PaddlePaddle/PaddleOCR" target="_blank" rel="noreferrer">PaddlePaddle/PaddleOCR</a>
+              <div class="meta">GitHub Search:rag · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>74</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Turn any PDF or image document into structured data for your AI. A powerful, lightweight OCR toolkit that bridges the gap between images/PDFs and LLMs. Supports 100+ languages.</p>
+          <p class="recommended"><strong>推荐选题：</strong>PaddlePaddle/PaddleOCR 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:rag。</p>
+          <div class="tags"><span>Python</span><span>rag</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:rag</li><li>热度信号：79242</li><li>发布时间：2026-06-01</li><li>关键词：Python, rag</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/safishamsi/graphify" target="_blank" rel="noreferrer">safishamsi/graphify</a>
+              <div class="meta">GitHub Search:rag · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>74</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">AI coding assistant skill (Claude Code, Codex, OpenCode, Cursor, Gemini CLI, and more). Turn any folder of code, SQL schemas, R scripts, shell scripts, docs, papers, images, or videos into a queryable knowledge graph. App code + database schema + infrastructure in one graph.</p>
+          <p class="recommended"><strong>推荐选题：</strong>safishamsi/graphify 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:rag。</p>
+          <div class="tags"><span>Python</span><span>rag</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:rag</li><li>热度信号：58009</li><li>发布时间：2026-06-01</li><li>关键词：Python, rag</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/milvus-io/milvus" target="_blank" rel="noreferrer">milvus-io/milvus</a>
+              <div class="meta">GitHub Search:rag · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>74</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Milvus is a high-performance, cloud-native vector database built for scalable vector ANN search</p>
+          <p class="recommended"><strong>推荐选题：</strong>milvus-io/milvus 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:rag。</p>
+          <div class="tags"><span>Go</span><span>rag</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:rag</li><li>热度信号：44583</li><li>发布时间：2026-06-02</li><li>关键词：Go, rag</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/CherryHQ/cherry-studio" target="_blank" rel="noreferrer">CherryHQ/cherry-studio</a>
+              <div class="meta">GitHub Search:ai-agent · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>74</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">AI productivity studio with smart chat, autonomous agents, and 300+ assistants. Unified access to frontier LLMs</p>
+          <p class="recommended"><strong>推荐选题：</strong>CherryHQ/cherry-studio 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:ai-agent。</p>
+          <div class="tags"><span>TypeScript</span><span>ai-agent</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:ai-agent</li><li>热度信号：46729</li><li>发布时间：2026-06-02</li><li>关键词：TypeScript, ai-agent</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/ZhuLinsen/daily_stock_analysis" target="_blank" rel="noreferrer">ZhuLinsen/daily_stock_analysis</a>
+              <div class="meta">GitHub Search:ai-agent · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>74</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">LLM驱动的 A/H/美股智能分析：多数据源行情 + 实时新闻 + LLM决策仪表盘 + 多渠道推送，零成本定时运行，纯白嫖. LLM-powered stock analysis system for A/H/US markets.</p>
+          <p class="recommended"><strong>推荐选题：</strong>ZhuLinsen/daily_stock_analysis 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:ai-agent。</p>
+          <div class="tags"><span>Python</span><span>ai-agent</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:ai-agent</li><li>热度信号：39806</li><li>发布时间：2026-06-01</li><li>关键词：Python, ai-agent</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/CopilotKit/CopilotKit" target="_blank" rel="noreferrer">CopilotKit/CopilotKit</a>
+              <div class="meta">GitHub Search:ai-agent · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>74</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">The Frontend Stack for Agents &amp; Generative UI. React + Angular.  Makers of the AG-UI Protocol</p>
+          <p class="recommended"><strong>推荐选题：</strong>CopilotKit/CopilotKit 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:ai-agent。</p>
+          <div class="tags"><span>TypeScript</span><span>ai-agent</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:ai-agent</li><li>热度信号：31888</li><li>发布时间：2026-06-02</li><li>关键词：TypeScript, ai-agent</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/iOfficeAI/AionUi" target="_blank" rel="noreferrer">iOfficeAI/AionUi</a>
+              <div class="meta">GitHub Search:ai-agent · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>74</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Free, local, open-source 24/7 Cowork app for OpenClaw, Hermes Agent, Claude Code, Codex, OpenCode, Gemini CLI and 20+ more CLI | Customize your assistants | Star if you like it!</p>
+          <p class="recommended"><strong>推荐选题：</strong>iOfficeAI/AionUi 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:ai-agent。</p>
+          <div class="tags"><span>TypeScript</span><span>ai-agent</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:ai-agent</li><li>热度信号：27403</li><li>发布时间：2026-06-02</li><li>关键词：TypeScript, ai-agent</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/hugohe3/ppt-master" target="_blank" rel="noreferrer">hugohe3/ppt-master</a>
+              <div class="meta">GitHub Search:ai-agent · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>74</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">AI generates a real, editable PowerPoint from any document — native shapes &amp; animations, speaker notes voiced as audio narration, and the option to follow your own .pptx template, not slide images · by Hugo He</p>
+          <p class="recommended"><strong>推荐选题：</strong>hugohe3/ppt-master 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:ai-agent。</p>
+          <div class="tags"><span>Python</span><span>ai-agent</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:ai-agent</li><li>热度信号：23423</li><li>发布时间：2026-06-01</li><li>关键词：Python, ai-agent</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/nocobase/nocobase" target="_blank" rel="noreferrer">nocobase/nocobase</a>
+              <div class="meta">GitHub Search:ai-agent · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>74</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">NocoBase is an open-source AI + no-code platform for building business systems fast. Instead of generating everything from scratch, AI works on top of production-proven infrastructure and a WYSIWYG no-code interface, so you get both speed and reliability.</p>
+          <p class="recommended"><strong>推荐选题：</strong>nocobase/nocobase 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:ai-agent。</p>
+          <div class="tags"><span>TypeScript</span><span>ai-agent</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:ai-agent</li><li>热度信号：22614</li><li>发布时间：2026-06-02</li><li>关键词：TypeScript, ai-agent</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/meilisearch/meilisearch" target="_blank" rel="noreferrer">meilisearch/meilisearch</a>
+              <div class="meta">GitHub Search:vector-db · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>74</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">A lightning-fast search engine API bringing AI-powered hybrid search to your sites and applications.</p>
+          <p class="recommended"><strong>推荐选题：</strong>meilisearch/meilisearch 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:vector-db。</p>
+          <div class="tags"><span>Rust</span><span>vector-db</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:vector-db</li><li>热度信号：57906</li><li>发布时间：2026-06-01</li><li>关键词：Rust, vector-db</li></ul>
+          </details>
+        </article>
+      </div>
+    </section>
+
+    <section id="categories">
+      <h2>按五类选题分类摘要</h2>
+      <div class="category-stack">
+      <section>
+        <h3>政策监管、社会影响与 AI 安全</h3>
+        
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropic.com/news/series-h" target="_blank" rel="noreferrer">Anthropic raises $65B in Series H funding at $965B post-money valuation</a>
+              <div class="meta">Anthropic (Claude) · 政策监管、社会影响与 AI 安全</div>
+            </div>
+            <div class="score">
+              <strong>88</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Announcements Anthropic raises $65B in Series H funding at $965B post-money valuation May 28, 2026 Anthropic has raised $65 billion in Series H funding led by Altimeter Capital, Dragoneer, Greenoaks, and Sequoia Capital, valuing the company at $965 billion post-money. Global enterprises across industries are deploying Claude in their core operations, and a growing number of people around the world use it for their everyday work. Since our Series G in February, adoption has continued to grow across global enterprise customers, and our run-rate revenue crossed $47 billion earlier this month. This latest funding is expected to advance our safety and interpretability research, expand compute to meet growing demand for Claude, and scale the products and partnerships our customers rely on. “Claude is increasingly indispensable to our growing global community of customers, and we work tirelessly to make tools like Claude Code and Cowork more helpful, more powerful, and more adaptable to their needs,” said Krishna Rao, Chief Financial Officer of Anthropic. “This funding will help us serve the historic demand we are experiencing, stay at the research frontier, and bring Claude to more of the places where work happens.” The round was co-led by Capital Group, Coatue, D1 Capital Partners, GIC, ICONIQ, and XN. Significant investors in this round include AMP PBC, Baillie Gifford, Blackstone, Brookfield, D.E. Shaw Ventures, DST Global, Fidelity Management &amp; Research Company, General Catalys</p>
+          <p class="recommended"><strong>推荐选题：</strong>Anthropic raises $65B in Series H funding at $965B post-money valuation 为什么值得关注？（政策变化、信任风险与安全治理）</p>
+          <p>值得优先深挖：适合从政策变化、信任风险和安全治理角度切入，来源：Anthropic (Claude)。</p>
+          <div class="tags"><span>anthropic</span><span>news</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Anthropic (Claude)</li><li>发布时间：2026-06-01</li><li>关键词：anthropic, news</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/S6D5ZCV6OE5UPW?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">TabTasker</a>
+              <div class="meta">Product Hunt · 政策监管、社会影响与 AI 安全</div>
+            </div>
+            <div class="score">
+              <strong>71</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Zero servers. Total privacy. Your new favorite toolbox.</p>
+          <p class="recommended"><strong>推荐选题：</strong>TabTasker 为什么值得关注？（政策变化、信任风险与安全治理）</p>
+          <p>适合进入今日选题池：适合从政策变化、信任风险和安全治理角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Productivity</span><span>Privacy</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：229 / 23</li><li>发布时间：2026-05-31</li><li>关键词：Productivity, Privacy, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+      </section>
+    
+
+      <section>
+        <h3>模型与技术突破</h3>
+        
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropic.com/news/confidential-draft-s1-sec" target="_blank" rel="noreferrer">Anthropic confidentially submits draft S-1 to the SEC</a>
+              <div class="meta">Anthropic (Claude) · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>88</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Announcements Anthropic confidentially submits draft S-1 to the SEC Jun 1, 2026 Today, Anthropic, PBC confidentially submitted a draft registration statement on Form S-1 to the U.S. Securities and Exchange Commission for a proposed initial public offering of our common stock. This gives us the option to go public after the SEC completes its review. The proposed initial public offering will depend on market conditions and other factors. The number of shares to be offered and the price have not yet been set. This announcement is being published under Rule 135 of the Securities Act of 1933, as amended. It is not an offer to sell securities; nor is it a solicitation of an offer to buy them. Any offers, solicitations of offers to buy, or any sales of securities will be made only in accordance with the registration requirements of the Securities Act. Related content Anthropic raises $65B in Series H funding at $965B post-money valuation Anthropic has raised $65 billion in Series H funding led by Altimeter Capital, Dragoneer, Greenoaks, and Sequoia Capital. Read more Introducing Claude Opus 4.8 An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work. Read more Anthropic opens Milan office to support Italian enterprise, research, and developers We&amp;#x27;re opening a new office in Milan, our sixth in Europe. Read more</p>
+          <p class="recommended"><strong>推荐选题：</strong>Anthropic confidentially submits draft S-1 to the SEC 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>值得优先深挖：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Anthropic (Claude)。</p>
+          <div class="tags"><span>anthropic</span><span>news</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Anthropic (Claude)</li><li>发布时间：2026-06-01</li><li>关键词：anthropic, news</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropic.com/news/claude-opus-4-8" target="_blank" rel="noreferrer">Introducing Claude Opus 4.8</a>
+              <div class="meta">Anthropic (Claude) · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>88</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Product Announcements Introducing Claude Opus 4.8 May 28, 2026 We’re upgrading Claude Opus to a new version: Claude Opus 4.8. It builds on Opus 4.7 with improvements across benchmarks, and is a more effective collaborator. It’s available today for the same price. Opus 4.8 launches alongside several new features. Users on claude.ai now have control over the amount of effort Claude puts into a task. Claude Code has a new “dynamic workflows” feature that allows it to tackle very large-scale problems. And fast mode for Opus 4.8—where the model can work at 2.5× the speed—is now three times cheaper than it was for previous models. Opus 4.8’s capabilities The table below shows how Opus 4.8 compares to its predecessor and to other models on tests of coding, agentic skills, reasoning, and practical knowledge work tasks. More details and a much wider range of capability evaluations are provided in the Claude Opus 4.8 System Card . Collaborating with Opus 4.8 Early testers have found Claude Opus 4.8 to be more reliable and sharper in its judgment when it’s performing agentic tasks. Below are quotes from many of these testers about their experience collaborating with Opus 4.8: Claude Opus 4.8 has noticeably better judgment. In Claude Code, it asks the right questions, catches its own mistakes, pushes back when a plan isn’t sound, and builds up confidence around complex, multi-service explorations before making big changes. It’s a great model to build with. Tom Pritchard Staff Engineer On</p>
+          <p class="recommended"><strong>推荐选题：</strong>Introducing Claude Opus 4.8 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>值得优先深挖：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Anthropic (Claude)。</p>
+          <div class="tags"><span>anthropic</span><span>news</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Anthropic (Claude)</li><li>发布时间：2026-06-01</li><li>关键词：anthropic, news</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://openai.com/index/openai-frontier-models-and-codex-are-now-available-on-aws/" target="_blank" rel="noreferrer">Openai Frontier Models And Codex Are Now Available On Aws</a>
+              <div class="meta">OpenAI · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>79</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary"></p>
+          <p class="recommended"><strong>推荐选题：</strong>Openai Frontier Models And Codex Are Now Available On Aws 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合进入今日选题池：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：OpenAI。</p>
+          <div class="tags"><span>openai</span><span>index</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：OpenAI</li><li>发布时间：2026-06-02</li><li>关键词：openai, index</li></ul>
+          </details>
+        </article>
+      
+      </section>
+    
+
+      <section>
+        <h3>AI 产品与用户入口</h3>
+        
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/Y5E7U6HB2KB5NG?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Clipto</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>80</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Fully local, natural language search over terabytes of media</p>
+          <p class="recommended"><strong>推荐选题：</strong>Clipto 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>值得优先深挖：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Mac</span><span>Productivity</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：455 / 143</li><li>发布时间：2026-05-31</li><li>关键词：Mac, Productivity, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/DHJEGKLQBKHAGY?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Second Brain for AI</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>80</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Persistent memory for Claude, ChatGPT &amp; Cursor. Free.</p>
+          <p class="recommended"><strong>推荐选题：</strong>Second Brain for AI 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>值得优先深挖：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Open Source</span><span>Developer Tools</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：278 / 50</li><li>发布时间：2026-05-31</li><li>关键词：Open Source, Developer Tools, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/stanford-cs336/assignment1-basics/blob/main/CLAUDE.md" target="_blank" rel="noreferrer">AI Agent Guidelines for CS336 at Stanford</a>
+              <div class="meta">Hacker News · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>79</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by prakashqwerty</p>
+          <p class="recommended"><strong>推荐选题：</strong>AI Agent Guidelines for CS336 at Stanford 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：357 / 124</li><li>发布时间：2026-06-01</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/infiniflow/ragflow" target="_blank" rel="noreferrer">infiniflow/ragflow</a>
+              <div class="meta">GitHub Search:rag · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>74</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">RAGFlow is a leading open-source Retrieval-Augmented Generation (RAG) engine that fuses cutting-edge RAG with Agent capabilities to create a superior context layer for LLMs</p>
+          <p class="recommended"><strong>推荐选题：</strong>infiniflow/ragflow 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:rag。</p>
+          <div class="tags"><span>Python</span><span>rag</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:rag</li><li>热度信号：81688</li><li>发布时间：2026-06-02</li><li>关键词：Python, rag</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/PaddlePaddle/PaddleOCR" target="_blank" rel="noreferrer">PaddlePaddle/PaddleOCR</a>
+              <div class="meta">GitHub Search:rag · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>74</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Turn any PDF or image document into structured data for your AI. A powerful, lightweight OCR toolkit that bridges the gap between images/PDFs and LLMs. Supports 100+ languages.</p>
+          <p class="recommended"><strong>推荐选题：</strong>PaddlePaddle/PaddleOCR 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:rag。</p>
+          <div class="tags"><span>Python</span><span>rag</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:rag</li><li>热度信号：79242</li><li>发布时间：2026-06-01</li><li>关键词：Python, rag</li></ul>
+          </details>
+        </article>
+      
+      </section>
+    
+
+      <section>
+        <h3>企业落地与行业应用</h3>
+        
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/langchain4j/langchain4j" target="_blank" rel="noreferrer">langchain4j/langchain4j</a>
+              <div class="meta">GitHub Search:vector-db · 企业落地与行业应用</div>
+            </div>
+            <div class="score">
+              <strong>80</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">LangChain4j is an idiomatic, open-source Java library for building LLM-powered applications on the JVM. It offers a unified API over popular LLM providers and vector stores, and makes implementing tool calling (including MCP support), agents and RAG easy. It integrates seamlessly with enterprise Java frameworks like Quarkus and Spring Boot.</p>
+          <p class="recommended"><strong>推荐选题：</strong>langchain4j/langchain4j 为什么值得关注？（行业场景、落地成本与业务价值）</p>
+          <p>值得优先深挖：适合从行业场景、落地成本和业务价值角度切入，来源：GitHub Search:vector-db。</p>
+          <div class="tags"><span>Java</span><span>vector-db</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:vector-db</li><li>热度信号：12176</li><li>发布时间：2026-06-01</li><li>关键词：Java, vector-db</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/activepieces/activepieces" target="_blank" rel="noreferrer">activepieces/activepieces</a>
+              <div class="meta">GitHub Search:ai-agent · 企业落地与行业应用</div>
+            </div>
+            <div class="score">
+              <strong>73</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">AI Agents &amp; MCPs &amp; AI Workflow Automation • (~400 MCP servers for AI agents) • AI Automation / AI Agent with MCPs • AI Workflows &amp; AI Agents • MCPs for AI Agents</p>
+          <p class="recommended"><strong>推荐选题：</strong>activepieces/activepieces 为什么值得关注？（行业场景、落地成本与业务价值）</p>
+          <p>适合进入今日选题池：适合从行业场景、落地成本和业务价值角度切入，来源：GitHub Search:ai-agent。</p>
+          <div class="tags"><span>TypeScript</span><span>ai-agent</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:ai-agent</li><li>热度信号：22510</li><li>发布时间：2026-06-02</li><li>关键词：TypeScript, ai-agent</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/apache/airflow" target="_blank" rel="noreferrer">apache/airflow</a>
+              <div class="meta">GitHub Search:ml · 企业落地与行业应用</div>
+            </div>
+            <div class="score">
+              <strong>73</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Apache Airflow - A platform to programmatically author, schedule, and monitor workflows</p>
+          <p class="recommended"><strong>推荐选题：</strong>apache/airflow 为什么值得关注？（行业场景、落地成本与业务价值）</p>
+          <p>适合进入今日选题池：适合从行业场景、落地成本和业务价值角度切入，来源：GitHub Search:ml。</p>
+          <div class="tags"><span>Python</span><span>ml</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:ml</li><li>热度信号：45660</li><li>发布时间：2026-06-02</li><li>关键词：Python, ml</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/langgenius/dify" target="_blank" rel="noreferrer">langgenius/dify</a>
+              <div class="meta">GitHub Search:rag · 企业落地与行业应用</div>
+            </div>
+            <div class="score">
+              <strong>71</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Production-ready platform for agentic workflow development.</p>
+          <p class="recommended"><strong>推荐选题：</strong>langgenius/dify 为什么值得关注？（行业场景、落地成本与业务价值）</p>
+          <p>适合进入今日选题池：适合从行业场景、落地成本和业务价值角度切入，来源：GitHub Search:rag。</p>
+          <div class="tags"><span>TypeScript</span><span>rag</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:rag</li><li>热度信号：143465</li><li>发布时间：2026-06-02</li><li>关键词：TypeScript, rag</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/HKUDS/nanobot" target="_blank" rel="noreferrer">HKUDS/nanobot</a>
+              <div class="meta">GitHub Search:ai-agent · 企业落地与行业应用</div>
+            </div>
+            <div class="score">
+              <strong>71</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Lightweight, open-source AI agent for your tools, chats, and workflows.</p>
+          <p class="recommended"><strong>推荐选题：</strong>HKUDS/nanobot 为什么值得关注？（行业场景、落地成本与业务价值）</p>
+          <p>适合进入今日选题池：适合从行业场景、落地成本和业务价值角度切入，来源：GitHub Search:ai-agent。</p>
+          <div class="tags"><span>Python</span><span>ai-agent</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:ai-agent</li><li>热度信号：43496</li><li>发布时间：2026-06-02</li><li>关键词：Python, ai-agent</li></ul>
+          </details>
+        </article>
+      
+      </section>
+    
+
+      <section>
+        <h3>标杆企业动向、商业格局与投融资</h3>
+        
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropic.com/news/confidential-draft-s1-sec" target="_blank" rel="noreferrer">Anthropic confidentially submits draft S-1 to the SEC</a>
+              <div class="meta">Hacker News · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>87</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by surprisetalk</p>
+          <p class="recommended"><strong>推荐选题：</strong>Anthropic confidentially submits draft S-1 to the SEC 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>值得优先深挖：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：469 / 385</li><li>发布时间：2026-06-01</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.economist.com/finance-and-economics/2026/06/01/can-the-stockmarket-swallow-anthropic-spacex-and-openai" target="_blank" rel="noreferrer">Can the stockmarket swallow Anthropic, SpaceX and OpenAI?</a>
+              <div class="meta">Hacker News · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>87</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by 1vuio0pswjnm7</p>
+          <p class="recommended"><strong>推荐选题：</strong>Can the stockmarket swallow Anthropic, SpaceX and OpenAI? 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>值得优先深挖：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：181 / 374</li><li>发布时间：2026-06-01</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/open-webui/open-webui" target="_blank" rel="noreferrer">open-webui/open-webui</a>
+              <div class="meta">GitHub Search:rag · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>80</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">User-friendly AI Interface (Supports Ollama, OpenAI API, ...)</p>
+          <p class="recommended"><strong>推荐选题：</strong>open-webui/open-webui 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>值得优先深挖：适合从大厂动作、商业化路径和竞争格局角度切入，来源：GitHub Search:rag。</p>
+          <div class="tags"><span>Python</span><span>rag</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:rag</li><li>热度信号：139593</li><li>发布时间：2026-06-02</li><li>关键词：Python, rag</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/googleworkspace/cli" target="_blank" rel="noreferrer">googleworkspace/cli</a>
+              <div class="meta">GitHub Search:ai-agent · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>78</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Google Workspace CLI — one command-line tool for Drive, Gmail, Calendar, Sheets, Docs, Chat, Admin, and more. Dynamically built from Google Discovery Service. Includes AI agent skills.</p>
+          <p class="recommended"><strong>推荐选题：</strong>googleworkspace/cli 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合进入今日选题池：适合从大厂动作、商业化路径和竞争格局角度切入，来源：GitHub Search:ai-agent。</p>
+          <div class="tags"><span>Rust</span><span>ai-agent</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:ai-agent</li><li>热度信号：26740</li><li>发布时间：2026-06-01</li><li>关键词：Rust, ai-agent</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/revfactory/harness" target="_blank" rel="noreferrer">revfactory/harness</a>
+              <div class="meta">GitHub Trending · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>74</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">A meta-skill that designs domain-specific agent teams, defines specialized agents, and generates the skills they use.</p>
+          <p class="recommended"><strong>推荐选题：</strong>revfactory/harness 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合进入今日选题池：适合从大厂动作、商业化路径和竞争格局角度切入，来源：GitHub Trending。</p>
+          <div class="tags"><span>HTML</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Trending</li><li>热度信号：524 / 0</li><li>关键词：HTML</li></ul>
+          </details>
+        </article>
+      
+      </section>
+    </div>
+    </section>
+
+    <section id="watch">
+      <h2>观察项</h2>
+      <div class="topic-grid"><p class="empty">暂无条目。</p></div>
+    </section>
+
+    <section id="status">
+      <h2>数据源状态与修复提示</h2>
+      <ul><li>InfoQ 中国获取失败；可检查 infoq.cn API 是否可用。</li><li>Gitee 获取失败；可检查 gitee.com API 是否可访问。</li><li>掘金获取失败；可检查 juejin.com API 是否可用。</li></ul>
+    </section>
+
+    <footer>AI Topic Radar · 单文件报告 · 不包含私有资料或 API key</footer>
+  </main>
+</body>
+</html>
