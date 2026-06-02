@@ -12,6 +12,7 @@ import {
 } from "../web.ts";
 
 afterEach(() => {
+  vi.useRealTimers();
   vi.unstubAllGlobals();
 });
 
@@ -246,6 +247,68 @@ describe("fetchSiteContent", () => {
     await expect(fetchSiteContent("deepmind", legacyState as never)).resolves.toMatchObject({
       site: "deepmind",
       totalDiscovered: 0,
+      status: { state: "empty" },
+    });
+  });
+
+  it("reports newly fetched official content as ok", async () => {
+    vi.useFakeTimers();
+    vi.stubGlobal(
+      "fetch",
+      vi.fn().mockImplementation((url) => {
+        if (String(url).endsWith("/sitemap.xml")) {
+          return Promise.resolve(
+            new Response(
+              `<urlset><url><loc>https://deepmind.google/blog/new-model</loc><lastmod>2026-06-02</lastmod></url></urlset>`,
+              { status: 200 },
+            ),
+          );
+        }
+        return Promise.resolve(new Response("<title>New model</title><main>Details</main>", { status: 200 }));
+      }),
+    );
+
+    const resultPromise = fetchSiteContent("deepmind", emptyState());
+    await vi.runAllTimersAsync();
+
+    await expect(resultPromise).resolves.toMatchObject({
+      newItems: [{ title: "New model" }],
+      status: { state: "ok", acceptedCount: 1 },
+    });
+  });
+
+  it("reports OpenAI as error when every sub-sitemap fails", async () => {
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue(new Response("", { status: 503 })));
+
+    await expect(fetchSiteContent("openai", emptyState())).resolves.toMatchObject({
+      newItems: [],
+      status: { id: "web-openai", state: "error", acceptedCount: 0 },
+    });
+  });
+
+  it("keeps OpenAI items but reports error when some sub-sitemaps fail", async () => {
+    vi.useFakeTimers();
+    vi.stubGlobal(
+      "fetch",
+      vi.fn().mockImplementation((url) => {
+        if (String(url).includes("/research/")) {
+          return Promise.resolve(
+            new Response(
+              `<urlset><url><loc>https://openai.com/research/new-model</loc><lastmod>2026-06-02</lastmod></url></urlset>`,
+              { status: 200 },
+            ),
+          );
+        }
+        return Promise.resolve(new Response("", { status: 503 }));
+      }),
+    );
+
+    const resultPromise = fetchSiteContent("openai", emptyState());
+    await vi.runAllTimersAsync();
+
+    await expect(resultPromise).resolves.toMatchObject({
+      newItems: [{ url: "https://openai.com/research/new-model" }],
+      status: { id: "web-openai", state: "error", acceptedCount: 1 },
     });
   });
 });

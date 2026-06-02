@@ -105,14 +105,14 @@ export async function fetchJuejinData(): Promise<JuejinData> {
     }
 
     const raw = (await resp.json()) as JuejinApiResponse;
+    if (!raw || !Array.isArray(raw.data)) {
+      console.error(`  [juejin] unexpected response shape`);
+      return result([], 0, "unexpected response shape");
+    }
     if (raw.err_no !== 0) {
       const error = raw.err_msg || `API err_no ${raw.err_no}`;
       console.error(`  [juejin] API error: ${error}`);
       return result([], 0, error);
-    }
-    if (!raw || !Array.isArray(raw.data)) {
-      console.error(`  [juejin] unexpected response shape`);
-      return result([], 0, "unexpected response shape");
     }
 
     for (const item of raw.data ?? []) {

@@ -108,6 +108,15 @@ async function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+function retryDelayMs(resp: Response, attempt: number): number {
+  const retryAfter = resp.headers.get("retry-after");
+  if (retryAfter !== null) {
+    const seconds = Number(retryAfter);
+    if (Number.isFinite(seconds) && seconds >= 0) return seconds * 1000;
+  }
+  return REQUEST_DELAY_MS * 2 ** attempt;
+}
+
 export async function fetchArxivData(): Promise<ArxivData> {
   const seen = new Map<string, ArxivPaper>();
   const params = new URLSearchParams({
@@ -128,7 +137,7 @@ export async function fetchArxivData(): Promise<ArxivData> {
         const error = `HTTP ${resp.status}`;
         console.error(`  [arxiv] ${error}`);
         if (resp.status === 429 && attempt < MAX_ATTEMPTS - 1) {
-          await sleep(REQUEST_DELAY_MS);
+          await sleep(retryDelayMs(resp, attempt));
           continue;
         }
         return {

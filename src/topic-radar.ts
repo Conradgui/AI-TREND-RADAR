@@ -493,18 +493,30 @@ function appendSourceStatus(
 function collectStatusMessages(input: TopicRadarInput): Pick<TopicRadarResult, "notices" | "warnings"> {
   const notices: string[] = [];
   const warnings: string[] = [];
-  if (!input.trendingData.trendingFetchSuccess) {
-    warnings.push(
-      "GitHub Trending HTML 获取失败；可检查 GitHub 页面结构或网络环境，GitHub Search 结果仍可使用。",
-    );
-  }
-  if (!input.hnData.fetchSuccess) warnings.push("Hacker News 获取失败；可检查 hn.algolia.com 是否可访问。");
-  if (!input.phData.fetchSuccess) {
-    const hint = process.env["PRODUCTHUNT_TOKEN"]
-      ? "Product Hunt 无可用数据；可检查 GraphQL API 响应和 AI topic 过滤条件。"
-      : "Product Hunt 已跳过；配置 PRODUCTHUNT_TOKEN 后可启用产品榜单信号。";
-    (process.env["PRODUCTHUNT_TOKEN"] ? warnings : notices).push(hint);
-  }
+  appendSourceStatus(
+    notices,
+    warnings,
+    input.trendingData.status,
+    input.trendingData.trendingFetchSuccess,
+    "GitHub Trending HTML 暂无条目；抓取成功。",
+    "GitHub Trending HTML 获取失败；可检查 GitHub 页面结构或网络环境，GitHub Search 结果仍可使用。",
+  );
+  appendSourceStatus(
+    notices,
+    warnings,
+    input.hnData.status,
+    input.hnData.fetchSuccess,
+    "Hacker News 暂无符合时间窗口的新内容；抓取成功。",
+    "Hacker News 获取失败；可检查 hn.algolia.com 是否可访问。",
+  );
+  appendSourceStatus(
+    notices,
+    warnings,
+    input.phData.status,
+    input.phData.fetchSuccess,
+    "Product Hunt 暂无符合条件的新产品；抓取成功。",
+    "Product Hunt 获取失败；可检查 GraphQL API 响应和 AI topic 过滤条件。",
+  );
   appendSourceStatus(
     notices,
     warnings,
@@ -513,14 +525,35 @@ function collectStatusMessages(input: TopicRadarInput): Pick<TopicRadarResult, "
     "ArXiv 暂无符合时间窗口的新论文；抓取成功。",
     "ArXiv 获取失败；可检查 export.arxiv.org 网络或重试。",
   );
-  if (!input.hfData.fetchSuccess)
-    warnings.push("Hugging Face 获取失败；可检查 huggingface.co API 是否可访问。");
-  if (!input.webResults.some((result) => result.newItems.length > 0)) {
+  appendSourceStatus(
+    notices,
+    warnings,
+    input.hfData.status,
+    input.hfData.fetchSuccess,
+    "Hugging Face 暂无热门模型条目；抓取成功。",
+    "Hugging Face 获取失败；可检查 huggingface.co API 是否可访问。",
+  );
+  for (const result of input.webResults) {
+    if (result.status.state === "error") {
+      warnings.push(`${result.siteName} 官方内容源获取失败；可检查 sitemap 或网络环境。`);
+    }
+  }
+  if (
+    input.webResults.every((result) => result.status.state !== "error") &&
+    !input.webResults.some((result) => result.newItems.length > 0)
+  ) {
     notices.push("官方内容源今日没有检测到新内容；首次运行后这是正常情况。");
   }
   if (input.chinaSourcesData) {
     const cn = input.chinaSourcesData;
-    if (!cn.kr36.fetchSuccess) warnings.push("36kr 获取失败；可检查网络或 RSS 源是否可用。");
+    appendSourceStatus(
+      notices,
+      warnings,
+      cn.kr36.status,
+      cn.kr36.fetchSuccess,
+      "36kr 暂无符合条件的新内容；抓取成功。",
+      "36kr 获取失败；可检查网络或 RSS 源是否可用。",
+    );
     appendSourceStatus(
       notices,
       warnings,
@@ -537,7 +570,14 @@ function collectStatusMessages(input: TopicRadarInput): Pick<TopicRadarResult, "
       "Gitee 暂无符合条件的新项目；抓取成功。",
       "Gitee 获取失败；可检查 gitee.com API 是否可访问。",
     );
-    if (!cn.oschina.fetchSuccess) warnings.push("开源中国获取失败；可检查 oschina.net RSS 是否可用。");
+    appendSourceStatus(
+      notices,
+      warnings,
+      cn.oschina.status,
+      cn.oschina.fetchSuccess,
+      "开源中国暂无符合条件的新内容；抓取成功。",
+      "开源中国获取失败；可检查 oschina.net RSS 是否可用。",
+    );
     appendSourceStatus(
       notices,
       warnings,
@@ -551,11 +591,20 @@ function collectStatusMessages(input: TopicRadarInput): Pick<TopicRadarResult, "
 }
 
 function collectSourceStatuses(input: TopicRadarInput): SourceStatus[] {
-  const statuses = [input.arxivData.status];
+  const statuses = [
+    input.trendingData.status,
+    input.hnData.status,
+    input.phData.status,
+    input.arxivData.status,
+    input.hfData.status,
+    ...input.webResults.map((result) => result.status),
+  ];
   if (input.chinaSourcesData) {
     statuses.push(
+      input.chinaSourcesData.kr36.status,
       input.chinaSourcesData.infoqCn.status,
       input.chinaSourcesData.gitee.status,
+      input.chinaSourcesData.oschina.status,
       input.chinaSourcesData.juejin.status,
     );
   }

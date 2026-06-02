@@ -1,6 +1,21 @@
-import { describe, expect, it } from "vitest";
-import { buildTopicRadar, buildTopicRadarHtml, buildTopicRadarMarkdown } from "../topic-radar.ts";
+import fs from "node:fs";
+import { afterEach, describe, expect, it, vi } from "vitest";
+import {
+  buildTopicRadar,
+  buildTopicRadarHtml,
+  buildTopicRadarMarkdown,
+  saveTopicRadar,
+} from "../topic-radar.ts";
 import type { TopicRadarInput } from "../topic-radar.ts";
+import type { SourceStatus } from "../source-status.ts";
+
+afterEach(() => {
+  vi.restoreAllMocks();
+});
+
+function status(id: string, state: SourceStatus["state"] = "empty"): SourceStatus {
+  return { id, label: id, state, fetchedCount: 0, acceptedCount: 0 };
+}
 
 function baseInput(): TopicRadarInput {
   return {
@@ -11,14 +26,17 @@ function baseInput(): TopicRadarInput {
       trendingRepos: [],
       searchRepos: [],
       trendingFetchSuccess: true,
+      status: status("github-trending"),
     },
     hnData: {
       stories: [],
       fetchSuccess: true,
+      status: status("hn"),
     },
     phData: {
       products: [],
       fetchSuccess: true,
+      status: status("product-hunt"),
     },
     arxivData: {
       papers: [],
@@ -34,6 +52,7 @@ function baseInput(): TopicRadarInput {
     hfData: {
       models: [],
       fetchSuccess: true,
+      status: status("hf"),
     },
     webResults: [
       {
@@ -42,6 +61,7 @@ function baseInput(): TopicRadarInput {
         isFirstRun: false,
         newItems: [],
         totalDiscovered: 0,
+        status: status("web-openai"),
       },
     ],
   };
@@ -80,8 +100,11 @@ describe("buildTopicRadar", () => {
   it("keeps source warnings without blocking topic pool generation", () => {
     const input = baseInput();
     input.trendingData.trendingFetchSuccess = false;
+    input.trendingData.status = status("github-trending", "error");
     input.hnData.fetchSuccess = false;
+    input.hnData.status = status("hn", "error");
     input.phData.fetchSuccess = false;
+    input.phData.status = { ...status("product-hunt", "skipped"), label: "Product Hunt" };
 
     const result = buildTopicRadar(input);
 
@@ -137,8 +160,38 @@ describe("buildTopicRadar", () => {
 
   it("preserves structured statuses from adapters", () => {
     const input = baseInput();
+    Object.assign(input.trendingData, { status: status("github-trending") });
+    Object.assign(input.hnData, { status: status("hn") });
+    Object.assign(input.phData, { status: status("product-hunt", "skipped") });
+    Object.assign(input.hfData, { status: status("hf") });
+    input.webResults = [
+      {
+        site: "anthropic",
+        siteName: "Anthropic",
+        isFirstRun: false,
+        newItems: [],
+        totalDiscovered: 0,
+        status: status("web-anthropic"),
+      },
+      {
+        site: "openai",
+        siteName: "OpenAI",
+        isFirstRun: false,
+        newItems: [],
+        totalDiscovered: 0,
+        status: status("web-openai"),
+      },
+      {
+        site: "deepmind",
+        siteName: "DeepMind",
+        isFirstRun: false,
+        newItems: [],
+        totalDiscovered: 0,
+        status: status("web-deepmind"),
+      },
+    ];
     input.chinaSourcesData = {
-      kr36: { articles: [], fetchSuccess: false },
+      kr36: { articles: [], fetchSuccess: true, status: status("kr36") },
       infoqCn: {
         articles: [],
         fetchSuccess: true,
@@ -162,7 +215,7 @@ describe("buildTopicRadar", () => {
           detail: "HTTP 503",
         },
       },
-      oschina: { news: [], fetchSuccess: false },
+      oschina: { news: [], fetchSuccess: true, status: status("oschina") },
       juejin: {
         articles: [],
         fetchSuccess: true,
@@ -177,11 +230,68 @@ describe("buildTopicRadar", () => {
     };
 
     expect(buildTopicRadar(input).sourceStatuses).toEqual([
+      input.trendingData.status,
+      input.hnData.status,
+      input.phData.status,
       input.arxivData.status,
+      input.hfData.status,
+      input.webResults[0]!.status,
+      input.webResults[1]!.status,
+      input.webResults[2]!.status,
+      input.chinaSourcesData.kr36.status,
       input.chinaSourcesData.infoqCn.status,
       input.chinaSourcesData.gitee.status,
+      input.chinaSourcesData.oschina.status,
       input.chinaSourcesData.juejin.status,
     ]);
+  });
+
+  it("shows official source errors as warnings without an all-clear notice", () => {
+    const input = baseInput();
+    input.webResults = [
+      {
+        site: "anthropic",
+        siteName: "Anthropic",
+        isFirstRun: false,
+        newItems: [],
+        totalDiscovered: 0,
+        status: status("web-anthropic"),
+      },
+      {
+        site: "openai",
+        siteName: "OpenAI",
+        isFirstRun: false,
+        newItems: [],
+        totalDiscovered: 0,
+        status: status("web-openai", "error"),
+      },
+      {
+        site: "deepmind",
+        siteName: "DeepMind",
+        isFirstRun: false,
+        newItems: [],
+        totalDiscovered: 0,
+        status: status("web-deepmind"),
+      },
+    ];
+
+    const result = buildTopicRadar(input);
+
+    expect(result.warnings.join("\n")).toContain("OpenAI");
+    expect(result.notices.join("\n")).not.toContain("官方内容源今日没有检测到新内容");
+  });
+
+  it("saves structured source statuses in topic-pool JSON", () => {
+    const input = baseInput();
+    const writeSpy = vi.spyOn(fs, "writeFileSync").mockReturnValue(undefined);
+    vi.spyOn(fs, "mkdirSync").mockReturnValue(undefined);
+
+    const result = buildTopicRadar(input);
+    saveTopicRadar(result);
+
+    const jsonCall = writeSpy.mock.calls.find(([file]) => String(file).endsWith("topic-pool.json"));
+    expect(jsonCall).toBeDefined();
+    expect(JSON.parse(String(jsonCall![1])).sourceStatuses).toEqual(result.sourceStatuses);
   });
 
   it("renders a decision-first markdown report", () => {

@@ -13,6 +13,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { sleep } from "./date.ts";
+import { createSourceStatus, type SourceStatus } from "./source-status.ts";
 
 // ---------------------------------------------------------------------------
 // Types
@@ -46,6 +47,7 @@ export interface WebFetchResult {
   newItems: WebPageItem[];
   /** Total URLs discovered in sitemap (for context in the report) */
   totalDiscovered: number;
+  status: SourceStatus;
 }
 
 // ---------------------------------------------------------------------------
@@ -208,9 +210,10 @@ export function titleFromUrl(url: string): string {
 
 async function discoverUrls(
   site: "anthropic" | "openai" | "deepmind",
-): Promise<Array<{ loc: string; lastmod?: string }>> {
+): Promise<{ urls: Array<{ loc: string; lastmod?: string }>; errors: string[] }> {
   const cfg = SITE_CONFIGS[site];
   const results: Array<{ loc: string; lastmod?: string }> = [];
+  const errors: string[] = [];
 
   if (cfg.subSitemapNames && cfg.subSitemapTemplate) {
     // Sitemap index: fetch each named sub-sitemap
@@ -222,6 +225,7 @@ async function discoverUrls(
         await sleep(100);
       } catch (err) {
         console.error(`  [web/${site}] sub-sitemap "${name}" failed: ${err}`);
+        errors.push(`${name}: ${err}`);
       }
     }
   } else {
@@ -243,7 +247,7 @@ async function discoverUrls(
     );
   }
 
-  return results;
+  return { urls: results, errors };
 }
 
 // ---------------------------------------------------------------------------
@@ -297,7 +301,7 @@ export async function fetchSiteContent(
   const isFirstRun = Object.keys(siteState.seenUrls).length === 0;
 
   console.log(`  [web/${site}] Discovering URLs from sitemap...`);
-  const allDiscovered = await discoverUrls(site);
+  const { urls: allDiscovered, errors } = await discoverUrls(site);
   console.log(`  [web/${site}] Discovered ${allDiscovered.length} URLs`);
 
   // Newest first
@@ -355,6 +359,7 @@ export async function fetchSiteContent(
         });
       } catch (err) {
         console.error(`  [web/${site}] Failed to fetch ${loc}: ${err}`);
+        errors.push(`${loc}: ${err}`);
       }
       await sleep(FETCH_DELAY_MS);
     }
@@ -373,5 +378,12 @@ export async function fetchSiteContent(
     isFirstRun,
     newItems: items,
     totalDiscovered: allDiscovered.length,
+    status: createSourceStatus({
+      id: `web-${site}`,
+      label: cfg.name,
+      fetchedCount: allDiscovered.length,
+      acceptedCount: items.length,
+      error: errors.length > 0 ? `partial failure: ${errors.join("; ")}` : undefined,
+    }),
   };
 }

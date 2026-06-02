@@ -2,6 +2,8 @@
  * GitHub trending and AI topic search data fetching.
  */
 
+import { createSourceStatus, type SourceStatus } from "./source-status.ts";
+
 // ---------------------------------------------------------------------------
 // Types
 // ---------------------------------------------------------------------------
@@ -30,6 +32,7 @@ export interface TrendingData {
   trendingRepos: TrendingRepo[];
   searchRepos: SearchRepo[];
   trendingFetchSuccess: boolean;
+  status: SourceStatus;
 }
 
 // ---------------------------------------------------------------------------
@@ -201,5 +204,16 @@ export async function fetchTrendingData(): Promise<TrendingData> {
     searchAiRepos(sevenDaysAgo),
   ]);
 
-  return { trendingRepos, searchRepos, trendingFetchSuccess: success };
+  return {
+    trendingRepos,
+    searchRepos,
+    trendingFetchSuccess: success,
+    status: createSourceStatus({
+      id: "github-trending",
+      label: "GitHub Trending HTML",
+      fetchedCount: trendingRepos.length,
+      acceptedCount: trendingRepos.length,
+      error: success ? undefined : "fetch or parse failed",
+    }),
+  };
 }

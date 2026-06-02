@@ -77,16 +77,17 @@ function result(projects: GiteeProject[], fetchedCount: number, error?: string):
 
 export async function fetchGiteeData(): Promise<GiteeData> {
   const seen = new Map<number, GiteeProject>();
+  const errors: string[] = [];
   let fetchedCount = 0;
 
-  try {
-    const token = process.env["GITEE_TOKEN"];
-    const headers: Record<string, string> = {
-      "User-Agent": "ai-topic-radar/1.0",
-      Accept: "application/json",
-    };
+  const token = process.env["GITEE_TOKEN"];
+  const headers: Record<string, string> = {
+    "User-Agent": "ai-topic-radar/1.0",
+    Accept: "application/json",
+  };
 
-    for (const keyword of SEARCH_KEYWORDS) {
+  for (const keyword of SEARCH_KEYWORDS) {
+    try {
       const params = new URLSearchParams({
         q: keyword,
         sort: "stars_count",
@@ -100,13 +101,15 @@ export async function fetchGiteeData(): Promise<GiteeData> {
 
       if (!resp.ok) {
         console.error(`  [gitee] API returned HTTP ${resp.status}`);
-        return result([], fetchedCount, `HTTP ${resp.status}`);
+        errors.push(`${keyword}: HTTP ${resp.status}`);
+        continue;
       }
 
       const raw = (await resp.json()) as GiteeApiProject[];
       if (!Array.isArray(raw)) {
         console.error(`  [gitee] unexpected response shape`);
-        return result([], fetchedCount, "unexpected response shape");
+        errors.push(`${keyword}: unexpected response shape`);
+        continue;
       }
       fetchedCount += raw.length;
 
@@ -126,17 +129,19 @@ export async function fetchGiteeData(): Promise<GiteeData> {
             namespace: p.namespace.path,
           });
         }
-
-        if (seen.size >= MAX_PROJECTS) break;
       }
+    } catch (err) {
+      const safeMsg = safeError(err);
+      console.error(`  [gitee] fetch failed: ${safeMsg}`);
+      errors.push(`${keyword}: ${safeMsg}`);
     }
-
-    const projects = [...seen.values()].sort((a, b) => b.stars - a.stars).slice(0, MAX_PROJECTS);
-    console.log(`  [gitee] ${projects.length} AI projects (from ${fetchedCount} results)`);
-    return result(projects, fetchedCount);
-  } catch (err) {
-    const safeMsg = safeError(err);
-    console.error(`  [gitee] fetch failed: ${safeMsg}`);
-    return result([], fetchedCount, safeMsg);
   }
+
+  const projects = [...seen.values()].sort((a, b) => b.stars - a.stars).slice(0, MAX_PROJECTS);
+  console.log(`  [gitee] ${projects.length} AI projects (from ${fetchedCount} results)`);
+  return result(
+    projects,
+    fetchedCount,
+    errors.length > 0 ? `partial failure: ${errors.join("; ")}` : undefined,
+  );
 }

@@ -143,11 +143,31 @@ async function fetchAllData(
           isFirstRun: false,
           newItems: [],
           totalDiscovered: 0,
+          status: createSourceStatus({
+            id: "web-anthropic",
+            label: "Anthropic (Claude)",
+            fetchedCount: 0,
+            acceptedCount: 0,
+            error: "fetch failed",
+          }),
         };
       }),
       fetchSiteContent("openai", webState).catch((err): WebFetchResult => {
         console.error(`  [web/openai] fetch failed: ${err}`);
-        return { site: "openai", siteName: "OpenAI", isFirstRun: false, newItems: [], totalDiscovered: 0 };
+        return {
+          site: "openai",
+          siteName: "OpenAI",
+          isFirstRun: false,
+          newItems: [],
+          totalDiscovered: 0,
+          status: createSourceStatus({
+            id: "web-openai",
+            label: "OpenAI",
+            fetchedCount: 0,
+            acceptedCount: 0,
+            error: "fetch failed",
+          }),
+        };
       }),
       fetchSiteContent("deepmind", webState).catch((err): WebFetchResult => {
         console.error(`  [web/deepmind] fetch failed: ${err}`);
@@ -157,6 +177,13 @@ async function fetchAllData(
           isFirstRun: false,
           newItems: [],
           totalDiscovered: 0,
+          status: createSourceStatus({
+            id: "web-deepmind",
+            label: "Google DeepMind",
+            fetchedCount: 0,
+            acceptedCount: 0,
+            error: "fetch failed",
+          }),
         };
       }),
     ]),
@@ -165,10 +192,41 @@ async function fetchAllData(
         trendingRepos: [],
         searchRepos: [],
         trendingFetchSuccess: false,
+        status: createSourceStatus({
+          id: "github-trending",
+          label: "GitHub Trending HTML",
+          fetchedCount: 0,
+          acceptedCount: 0,
+          error: "fetch failed",
+        }),
       }),
     ),
-    fetchHnData().catch((): HnData => ({ stories: [], fetchSuccess: false })),
-    fetchPhData().catch((): PhData => ({ products: [], fetchSuccess: false })),
+    fetchHnData().catch(
+      (): HnData => ({
+        stories: [],
+        fetchSuccess: false,
+        status: createSourceStatus({
+          id: "hn",
+          label: "Hacker News",
+          fetchedCount: 0,
+          acceptedCount: 0,
+          error: "fetch failed",
+        }),
+      }),
+    ),
+    fetchPhData().catch(
+      (): PhData => ({
+        products: [],
+        fetchSuccess: false,
+        status: createSourceStatus({
+          id: "product-hunt",
+          label: "Product Hunt",
+          fetchedCount: 0,
+          acceptedCount: 0,
+          error: "fetch failed",
+        }),
+      }),
+    ),
     fetchArxivData().catch(
       (): ArxivData => ({
         papers: [],
@@ -182,12 +240,34 @@ async function fetchAllData(
         }),
       }),
     ),
-    fetchHfData().catch((): HfData => ({ models: [], fetchSuccess: false })),
+    fetchHfData().catch(
+      (): HfData => ({
+        models: [],
+        fetchSuccess: false,
+        status: createSourceStatus({
+          id: "hf",
+          label: "Hugging Face",
+          fetchedCount: 0,
+          acceptedCount: 0,
+          error: "fetch failed",
+        }),
+      }),
+    ),
     fetchDevtoData().catch((): DevtoData => ({ articles: [], fetchSuccess: false })),
     fetchLobstersData().catch((): LobstersData => ({ stories: [], fetchSuccess: false })),
     fetchChinaSourcesData().catch(
       (): ChinaSourcesData => ({
-        kr36: { articles: [], fetchSuccess: false },
+        kr36: {
+          articles: [],
+          fetchSuccess: false,
+          status: createSourceStatus({
+            id: "kr36",
+            label: "36kr",
+            fetchedCount: 0,
+            acceptedCount: 0,
+            error: "fetch failed",
+          }),
+        },
         infoqCn: {
           articles: [],
           fetchSuccess: false,
@@ -210,7 +290,17 @@ async function fetchAllData(
             error: "fetch failed",
           }),
         },
-        oschina: { news: [], fetchSuccess: false },
+        oschina: {
+          news: [],
+          fetchSuccess: false,
+          status: createSourceStatus({
+            id: "oschina",
+            label: "开源中国",
+            fetchedCount: 0,
+            acceptedCount: 0,
+            error: "fetch failed",
+          }),
+        },
         juejin: {
           articles: [],
           fetchSuccess: false,

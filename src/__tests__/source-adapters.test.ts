@@ -1,8 +1,14 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { fetchArxivData } from "../arxiv.ts";
 import { fetchGiteeData } from "../gitee.ts";
+import { fetchHfData } from "../hf.ts";
+import { fetchHnData } from "../hn.ts";
 import { fetchInfoqCnData } from "../infoq-cn.ts";
 import { fetchJuejinData } from "../juejin.ts";
+import { fetchKr36Data } from "../kr36.ts";
+import { fetchOschinaData } from "../oschina.ts";
+import { fetchPhData } from "../ph.ts";
+import { fetchTrendingData } from "../trending.ts";
 
 afterEach(() => {
   vi.useRealTimers();
@@ -44,6 +50,41 @@ describe("source adapters", () => {
         topics: ["AI"],
       }),
     ]);
+  });
+
+  it("keeps mapping legacy InfoQ recommendation response fields", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn().mockResolvedValue(
+        Response.json({
+          data: [
+            {
+              id: 2,
+              uuid: "infoq-legacy",
+              title: "LLM 工程落地复盘",
+              description: "团队总结大模型应用上线经验。",
+              url: "https://www.infoq.cn/article/infoq-legacy",
+              publish_time: 1_800_000_000,
+              author: { name: "Legacy Author" },
+              topics: ["LLM"],
+            },
+          ],
+        }),
+      ),
+    );
+
+    await expect(fetchInfoqCnData()).resolves.toMatchObject({
+      fetchSuccess: true,
+      articles: [
+        {
+          id: "2",
+          title: "LLM 工程落地复盘",
+          summary: "团队总结大模型应用上线经验。",
+          author: "Legacy Author",
+          topics: ["LLM"],
+        },
+      ],
+    });
   });
 
   it("accepts Juejin responses whose err_msg is success", async () => {
@@ -125,6 +166,85 @@ describe("source adapters", () => {
     expect(result.status.state).toBe("ok");
   });
 
+  it("sorts Gitee projects globally after querying every keyword", async () => {
+    vi.stubEnv("GITEE_TOKEN", "");
+    const lowStarProjects = Array.from({ length: 30 }, (_, index) => ({
+      id: index + 1,
+      name: `low-${index + 1}`,
+      full_name: `example/low-${index + 1}`,
+      html_url: `https://gitee.com/example/low-${index + 1}`,
+      description: "AI project",
+      language: "TypeScript",
+      stargazers_count: 30 - index,
+      forks_count: 0,
+      updated_at: "2026-05-31T00:00:00Z",
+      namespace: { path: "example" },
+    }));
+    const highStarProject = {
+      id: 31,
+      name: "high-star",
+      full_name: "example/high-star",
+      html_url: "https://gitee.com/example/high-star",
+      description: "LLM project",
+      language: "TypeScript",
+      stargazers_count: 1000,
+      forks_count: 10,
+      updated_at: "2026-05-31T00:00:00Z",
+      namespace: { path: "example" },
+    };
+    const fetchMock = vi.fn().mockImplementation((url) => {
+      const query = new URL(String(url)).searchParams.get("q");
+      return Promise.resolve(
+        Response.json(query === "ai" ? lowStarProjects : query === "llm" ? [highStarProject] : []),
+      );
+    });
+    vi.stubGlobal("fetch", fetchMock);
+
+    const result = await fetchGiteeData();
+
+    expect(fetchMock).toHaveBeenCalledTimes(5);
+    expect(result.projects).toHaveLength(30);
+    expect(result.projects[0]!.id).toBe(31);
+  });
+
+  it("keeps successful Gitee projects when later keywords fail", async () => {
+    const token = "gitee-secret-token";
+    vi.stubEnv("GITEE_TOKEN", token);
+    const project = (id: number, stars: number) => ({
+      id,
+      name: `project-${id}`,
+      full_name: `example/project-${id}`,
+      html_url: `https://gitee.com/example/project-${id}`,
+      description: "AI project",
+      language: "TypeScript",
+      stargazers_count: stars,
+      forks_count: 0,
+      updated_at: "2026-05-31T00:00:00Z",
+      namespace: { path: "example" },
+    });
+    const fetchMock = vi.fn().mockImplementation((url) => {
+      const query = new URL(String(url)).searchParams.get("q");
+      if (query === "ai") return Promise.resolve(Response.json([project(1, 10)]));
+      if (query === "llm") return Promise.resolve(new Response("", { status: 503 }));
+      if (query === "大模型") return Promise.resolve(Response.json([project(2, 20)]));
+      if (query === "agent") return Promise.resolve(Response.json({ unexpected: true }));
+      return Promise.reject(new Error(`failed ${String(url)}`));
+    });
+    vi.stubGlobal("fetch", fetchMock);
+
+    const result = await fetchGiteeData();
+
+    expect(fetchMock).toHaveBeenCalledTimes(5);
+    expect(result.projects.map(({ id }) => id)).toEqual([2, 1]);
+    expect(result.fetchSuccess).toBe(false);
+    expect(result.status).toMatchObject({
+      state: "error",
+      acceptedCount: 2,
+    });
+    expect(result.status.detail).toContain("partial failure");
+    expect(result.status.detail).not.toContain(token);
+  });
+
   it("distinguishes an empty Gitee search from an HTTP error", async () => {
     vi.stubEnv("GITEE_TOKEN", "");
     vi.stubGlobal(
@@ -143,7 +263,7 @@ describe("source adapters", () => {
     await expect(fetchGiteeData()).resolves.toMatchObject({
       projects: [],
       fetchSuccess: false,
-      status: { state: "error", detail: "HTTP 503" },
+      status: { state: "error" },
     });
   });
 
@@ -202,6 +322,41 @@ describe("source adapters", () => {
     expect(fetchMock).toHaveBeenCalledTimes(3);
   });
 
+  it("backs off ArXiv 429 retries by 3s then 6s when Retry-After is absent", async () => {
+    vi.useFakeTimers();
+    const fetchMock = vi.fn().mockResolvedValue(new Response("", { status: 429 }));
+    vi.stubGlobal("fetch", fetchMock);
+
+    const resultPromise = fetchArxivData();
+    await vi.advanceTimersByTimeAsync(2_999);
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    await vi.advanceTimersByTimeAsync(1);
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+    await vi.advanceTimersByTimeAsync(5_999);
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+    await vi.advanceTimersByTimeAsync(1);
+    await resultPromise;
+
+    expect(fetchMock).toHaveBeenCalledTimes(3);
+  });
+
+  it("prefers a valid ArXiv Retry-After delay", async () => {
+    vi.useFakeTimers();
+    const fetchMock = vi
+      .fn()
+      .mockResolvedValueOnce(new Response("", { status: 429, headers: { "Retry-After": "7" } }))
+      .mockResolvedValueOnce(new Response("", { status: 429 }));
+    vi.stubGlobal("fetch", fetchMock);
+
+    const resultPromise = fetchArxivData();
+    await vi.advanceTimersByTimeAsync(6_999);
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    await vi.advanceTimersByTimeAsync(1);
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+    await vi.runAllTimersAsync();
+    await resultPromise;
+  });
+
   it("reports an empty ArXiv feed as a successful empty fetch", async () => {
     vi.stubGlobal(
       "fetch",
@@ -250,6 +405,69 @@ describe("source adapters", () => {
       articles: [],
       fetchSuccess: false,
       status: { state: "error" },
+    });
+  });
+
+  it("reports malformed Juejin responses as errors", async () => {
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue(Response.json(null)));
+
+    await expect(fetchJuejinData()).resolves.toMatchObject({
+      articles: [],
+      fetchSuccess: false,
+      status: { state: "error", detail: "unexpected response shape" },
+    });
+  });
+
+  it("reports successful empty legacy adapters as empty", async () => {
+    vi.stubEnv("PRODUCTHUNT_TOKEN", "configured");
+    vi.stubGlobal(
+      "fetch",
+      vi.fn().mockImplementation((url) => {
+        const value = String(url);
+        if (value.includes("hn.algolia.com")) return Promise.resolve(Response.json({ hits: [] }));
+        if (value.includes("producthunt.com"))
+          return Promise.resolve(Response.json({ data: { posts: { edges: [] } } }));
+        if (value.includes("huggingface.co")) return Promise.resolve(Response.json([]));
+        if (value.includes("36kr.com")) return Promise.resolve(new Response("<rss></rss>", { status: 200 }));
+        if (value.includes("oschina.net"))
+          return Promise.resolve(new Response("<rss></rss>", { status: 200 }));
+        throw new Error(`Unexpected URL: ${value}`);
+      }),
+    );
+
+    await expect(fetchHnData()).resolves.toMatchObject({ fetchSuccess: true, status: { state: "empty" } });
+    await expect(fetchPhData()).resolves.toMatchObject({ fetchSuccess: true, status: { state: "empty" } });
+    await expect(fetchHfData()).resolves.toMatchObject({ fetchSuccess: true, status: { state: "empty" } });
+    await expect(fetchKr36Data()).resolves.toMatchObject({ fetchSuccess: true, status: { state: "empty" } });
+    await expect(fetchOschinaData()).resolves.toMatchObject({
+      fetchSuccess: true,
+      status: { state: "empty" },
+    });
+  });
+
+  it("reports Product Hunt without a token as skipped", async () => {
+    vi.stubEnv("PRODUCTHUNT_TOKEN", "");
+
+    await expect(fetchPhData()).resolves.toMatchObject({
+      fetchSuccess: false,
+      status: { state: "skipped" },
+    });
+  });
+
+  it("reports GitHub Trending HTML parse failures with a structured status", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn().mockImplementation((url) => {
+        const value = String(url);
+        if (value.includes("github.com/trending"))
+          return Promise.resolve(new Response("<html></html>", { status: 200 }));
+        return Promise.resolve(Response.json({ items: [] }));
+      }),
+    );
+
+    await expect(fetchTrendingData()).resolves.toMatchObject({
+      trendingFetchSuccess: false,
+      status: { id: "github-trending", state: "error" },
     });
   });
 });

@@ -16,11 +16,17 @@ vi.mock("../github.ts", () => ({
 }));
 
 import { hasChinaSourcesData } from "../china-sources.ts";
-import { saveArxivReport, saveChinaTechReport } from "../report-savers.ts";
+import {
+  saveArxivReport,
+  saveChinaTechReport,
+  saveHfReport,
+  saveHnReport,
+  savePhReport,
+} from "../report-savers.ts";
 
 function emptyChinaSources(): ChinaSourcesData {
   return {
-    kr36: { articles: [], fetchSuccess: false },
+    kr36: { articles: [], fetchSuccess: false, status: status("kr36") },
     infoqCn: {
       articles: [],
       fetchSuccess: true,
@@ -43,7 +49,7 @@ function emptyChinaSources(): ChinaSourcesData {
         acceptedCount: 0,
       },
     },
-    oschina: { news: [], fetchSuccess: false },
+    oschina: { news: [], fetchSuccess: false, status: status("oschina") },
     juejin: {
       articles: [],
       fetchSuccess: true,
@@ -86,6 +92,22 @@ describe("saveArxivReport", () => {
   });
 });
 
+describe("empty source reports", () => {
+  it("skips HN, Product Hunt, and Hugging Face LLM generation when successful fetches are empty", async () => {
+    await saveHnReport({ stories: [], fetchSuccess: true, status: { ...status("hn") } }, "", "", "", "");
+    await savePhReport(
+      { products: [], fetchSuccess: true, status: { ...status("product-hunt") } },
+      "",
+      "",
+      "",
+      "",
+    );
+    await saveHfReport({ models: [], fetchSuccess: true, status: { ...status("hf") } }, "", "", "", "");
+
+    expect(callLlmMock).not.toHaveBeenCalled();
+  });
+});
+
 describe("China sources empty results", () => {
   it("does not treat successful empty fetches as China source content", () => {
     expect(hasChinaSourcesData(emptyChinaSources())).toBe(false);
@@ -97,3 +119,7 @@ describe("China sources empty results", () => {
     expect(callLlmMock).not.toHaveBeenCalled();
   });
 });
+
+function status(id: string) {
+  return { id, label: id, state: "empty" as const, fetchedCount: 0, acceptedCount: 0 };
+}
