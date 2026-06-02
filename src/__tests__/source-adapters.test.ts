@@ -345,7 +345,8 @@ describe("source adapters", () => {
     const fetchMock = vi
       .fn()
       .mockResolvedValueOnce(new Response("", { status: 429, headers: { "Retry-After": "7" } }))
-      .mockResolvedValueOnce(new Response("", { status: 429 }));
+      .mockResolvedValueOnce(new Response("", { status: 429 }))
+      .mockResolvedValueOnce(new Response("", { status: 503 }));
     vi.stubGlobal("fetch", fetchMock);
 
     const resultPromise = fetchArxivData();
@@ -354,7 +355,10 @@ describe("source adapters", () => {
     await vi.advanceTimersByTimeAsync(1);
     expect(fetchMock).toHaveBeenCalledTimes(2);
     await vi.runAllTimersAsync();
-    await resultPromise;
+    await expect(resultPromise).resolves.toMatchObject({
+      fetchSuccess: false,
+      status: { state: "error", detail: "HTTP 503" },
+    });
   });
 
   it("reports an empty ArXiv feed as a successful empty fetch", async () => {

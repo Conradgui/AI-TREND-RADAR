@@ -333,6 +333,7 @@ export async function fetchSiteContent(
 
   // Build items — either from full page fetches or from sitemap metadata only
   const items: WebPageItem[] = [];
+  const failedContentUrls = new Set<string>();
   if (cfg.metadataOnly) {
     for (const { loc, lastmod } of toFetch) {
       items.push({
@@ -360,14 +361,16 @@ export async function fetchSiteContent(
       } catch (err) {
         console.error(`  [web/${site}] Failed to fetch ${loc}: ${err}`);
         errors.push(`${loc}: ${err}`);
+        failedContentUrls.add(loc);
       }
       await sleep(FETCH_DELAY_MS);
     }
   }
 
-  // Mark ALL discovered URLs as seen (not just fetched ones)
-  // This ensures future runs are truly incremental
+  // Mark discovered URLs as seen unless a requested content fetch failed.
+  // Capped first-run URLs still advance so future runs remain incremental.
   for (const { loc, lastmod } of allDiscovered) {
+    if (failedContentUrls.has(loc)) continue;
     siteState.seenUrls[loc] = lastmod ?? "seen";
   }
   siteState.lastChecked = new Date().toISOString();

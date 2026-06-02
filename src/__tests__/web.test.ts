@@ -277,6 +277,89 @@ describe("fetchSiteContent", () => {
     });
   });
 
+  it("retries body fetches that failed before advancing the seen URL cursor", async () => {
+    vi.useFakeTimers();
+    const pageUrl = "https://deepmind.google/blog/retry-model";
+    const state = emptyState();
+    let bodyRequests = 0;
+    vi.stubGlobal(
+      "fetch",
+      vi.fn().mockImplementation((url) => {
+        if (String(url).endsWith("/sitemap.xml")) {
+          return Promise.resolve(
+            new Response(`<urlset><url><loc>${pageUrl}</loc><lastmod>2026-06-02</lastmod></url></urlset>`, {
+              status: 200,
+            }),
+          );
+        }
+        bodyRequests++;
+        return Promise.resolve(
+          bodyRequests === 1
+            ? new Response("", { status: 503 })
+            : new Response("<title>Retry model</title><main>Details</main>", { status: 200 }),
+        );
+      }),
+    );
+
+    const firstResultPromise = fetchSiteContent("deepmind", state);
+    await vi.runAllTimersAsync();
+    await expect(firstResultPromise).resolves.toMatchObject({
+      newItems: [],
+      status: { state: "error" },
+    });
+    expect(state.deepmind.seenUrls[pageUrl]).toBeUndefined();
+
+    const secondResultPromise = fetchSiteContent("deepmind", state);
+    await vi.runAllTimersAsync();
+    await expect(secondResultPromise).resolves.toMatchObject({
+      newItems: [{ url: pageUrl, title: "Retry model" }],
+      status: { state: "ok" },
+    });
+    expect(bodyRequests).toBe(2);
+  });
+
+  it("preserves an older seen URL cursor when a changed page body fetch fails", async () => {
+    vi.useFakeTimers();
+    const pageUrl = "https://deepmind.google/blog/changed-model";
+    const state = emptyState();
+    state.deepmind.seenUrls[pageUrl] = "2026-06-01";
+    let bodyRequests = 0;
+    vi.stubGlobal(
+      "fetch",
+      vi.fn().mockImplementation((url) => {
+        if (String(url).endsWith("/sitemap.xml")) {
+          return Promise.resolve(
+            new Response(`<urlset><url><loc>${pageUrl}</loc><lastmod>2026-06-02</lastmod></url></urlset>`, {
+              status: 200,
+            }),
+          );
+        }
+        bodyRequests++;
+        return Promise.resolve(
+          bodyRequests === 1
+            ? new Response("", { status: 503 })
+            : new Response("<title>Changed model</title><main>Details</main>", { status: 200 }),
+        );
+      }),
+    );
+
+    const firstResultPromise = fetchSiteContent("deepmind", state);
+    await vi.runAllTimersAsync();
+    await expect(firstResultPromise).resolves.toMatchObject({
+      newItems: [],
+      status: { state: "error" },
+    });
+    expect(state.deepmind.seenUrls[pageUrl]).toBe("2026-06-01");
+
+    const secondResultPromise = fetchSiteContent("deepmind", state);
+    await vi.runAllTimersAsync();
+    await expect(secondResultPromise).resolves.toMatchObject({
+      newItems: [{ url: pageUrl, title: "Changed model" }],
+      status: { state: "ok" },
+    });
+    expect(bodyRequests).toBe(2);
+  });
+
   it("reports OpenAI as error when every sub-sitemap fails", async () => {
     vi.stubGlobal("fetch", vi.fn().mockResolvedValue(new Response("", { status: 503 })));
 
