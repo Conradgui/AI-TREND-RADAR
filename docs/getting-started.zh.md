@@ -57,6 +57,7 @@ pnpm digest
 - 终端最后看到 `Done!`
 - 出现 `digests/YYYY-MM-DD/ai-topic-radar.html`
 - 出现 `manifest.json`
+- 出现 `digests/search-index.json`
 - 出现 `feed.xml`
 
 打开报告：
@@ -70,6 +71,7 @@ digests/YYYY-MM-DD/ai-topic-radar.html
 - `Missing DEEPSEEK_API_KEY`：当前终端没有成功 export key，重新执行上面的 `read -r -s` 命令。
 - GitHub API 403：说明匿名 GitHub API 限流。可以先忽略，也可以配置 `GITHUB_TOKEN`。
 - Product Hunt skipped：没有配置 `PRODUCTHUNT_TOKEN`，不影响主报告。
+- 数据源显示 `empty`：表示来源成功访问但本轮没有新内容，不等同于失败。
 
 ## 第 2 步：启用 GitHub Actions 自动日报
 
@@ -105,6 +107,7 @@ Actions -> Daily AI Topic Radar -> Run workflow
 - workflow 绿色通过
 - 仓库出现新的 `digests/YYYY-MM-DD/`
 - `manifest.json` 和 `feed.xml` 被更新
+- `digests/search-index.json` 被更新，并从每日 `topic-pool.json` 的 `candidates` 生成历史搜索数据
 - 如果配置了通知 token，Telegram / 飞书收到消息
 
 常见失败：
@@ -124,9 +127,7 @@ Settings -> Pages
 推荐配置：
 
 ```text
-Source: Deploy from a branch
-Branch: main
-Folder: / (root)
+Source: GitHub Actions
 ```
 
 访问历史 Web UI：
@@ -157,6 +158,8 @@ https://conradgui.github.io/AI-TREND-RADAR/feed.xml
 
 - 404：Pages 还没部署完成，等 1-3 分钟；或仓库路径大小写写错。
 - Web UI 空白：确认 `manifest.json` 已提交，且 `digests/YYYY-MM-DD/ai-topic-radar.md` 存在。
+- 搜索没有结果：确认 `digests/search-index.json` 已提交，且对应日期的 `topic-pool.json` 里有 `candidates`。
+- 观察项暂无条目：表示当天没有 50-64 分候选；不代表数据源采集失败。
 - 通知里的链接打不开：确认 workflow 的 `PAGES_URL` 使用 `https://conradgui.github.io/AI-TREND-RADAR`。
 
 ## 第 4 步：配置 Telegram 和飞书通知
@@ -234,9 +237,10 @@ REPORT_LANGS=zh,en SAVE_SOURCE_REPORTS=1 pnpm digest
 3. `pnpm manifest`
 4. 打开 `digests/YYYY-MM-DD/ai-topic-radar.html`
 5. 检查 `manifest.json`
-6. 检查 `feed.xml`
-7. 检查 GitHub Actions Secrets
-8. 检查 GitHub Pages URL 大小写
+6. 检查 `digests/search-index.json`
+7. 检查 `feed.xml`
+8. 检查 GitHub Actions Secrets
+9. 检查 GitHub Pages URL 大小写
 
 ## 安全提醒
 
