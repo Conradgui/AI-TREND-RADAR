@@ -5,8 +5,6 @@
  * then filter locally for AI-related topics.
  */
 
-import { createSourceStatus, type SourceStatus } from "./source-status.ts";
-
 // ---------------------------------------------------------------------------
 // Types
 // ---------------------------------------------------------------------------
@@ -26,7 +24,6 @@ export interface PhProduct {
 export interface PhData {
   products: PhProduct[];
   fetchSuccess: boolean;
-  status: SourceStatus;
 }
 
 // ---------------------------------------------------------------------------
@@ -103,18 +100,6 @@ interface PhResponse {
   errors?: Array<{ message: string }>;
 }
 
-function result(products: PhProduct[], fetchedCount: number, error?: string, skipped?: string): PhData {
-  const status = createSourceStatus({
-    id: "product-hunt",
-    label: "Product Hunt",
-    fetchedCount,
-    acceptedCount: products.length,
-    error,
-    skipped,
-  });
-  return { products, fetchSuccess: status.state !== "error" && status.state !== "skipped", status };
-}
-
 // ---------------------------------------------------------------------------
 // Fetch
 // ---------------------------------------------------------------------------
@@ -123,7 +108,7 @@ export async function fetchPhData(): Promise<PhData> {
   const token = process.env["PRODUCTHUNT_TOKEN"] ?? "";
   if (!token) {
     console.log("  [ph] PRODUCTHUNT_TOKEN not set — skipping.");
-    return result([], 0, undefined, "PRODUCTHUNT_TOKEN not set");
+    return { products: [], fetchSuccess: false };
   }
 
   // Fetch yesterday's products (they've had a full day to accumulate votes)
@@ -151,24 +136,18 @@ export async function fetchPhData(): Promise<PhData> {
 
     if (!resp.ok) {
       console.error(`  [ph] HTTP ${resp.status}`);
-      return result([], 0, `HTTP ${resp.status}`);
+      return { products: [], fetchSuccess: false };
     }
 
     const json = (await resp.json()) as PhResponse;
 
     if (json.errors?.length) {
       console.error(`  [ph] API errors: ${json.errors.map((e) => e.message).join("; ")}`);
-      return result([], 0, json.errors.map((e) => e.message).join("; "));
-    }
-
-    const edges = json.data?.posts?.edges;
-    if (!Array.isArray(edges)) {
-      console.error(`  [ph] unexpected response shape`);
-      return result([], 0, "unexpected response shape");
+      return { products: [], fetchSuccess: false };
     }
 
     const allProducts: PhProduct[] = [];
-    for (const edge of edges) {
+    for (const edge of json.data?.posts?.edges ?? []) {
       const node = edge.node;
       const topicSlugs = node.topics?.edges?.map((e) => e.node.slug) ?? [];
       const topicNames = node.topics?.edges?.map((e) => e.node.name) ?? [];
@@ -192,10 +171,10 @@ export async function fetchPhData(): Promise<PhData> {
 
     const products = allProducts.sort((a, b) => b.votesCount - a.votesCount).slice(0, PH_TOP_PRODUCTS);
 
-    console.log(`  [ph] ${products.length} AI products (from ${edges.length} total)`);
-    return result(products, edges.length);
+    console.log(`  [ph] ${products.length} AI products (from ${json.data?.posts?.edges?.length ?? 0} total)`);
+    return { products, fetchSuccess: products.length > 0 };
   } catch (err) {
     console.error(`  [ph] fetch failed: ${err}`);
-    return result([], 0, String(err));
+    return { products: [], fetchSuccess: false };
   }
 }

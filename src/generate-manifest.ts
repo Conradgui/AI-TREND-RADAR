@@ -186,7 +186,7 @@ async function main(): Promise<void> {
   generateSearchIndex(entries);
 }
 
-export function generateSearchIndex(entries: DateEntry[]): void {
+function generateSearchIndex(entries: DateEntry[]): void {
   interface SearchTopic {
     date: string;
     title: string;
@@ -206,19 +206,16 @@ export function generateSearchIndex(entries: DateEntry[]): void {
     if (fs.existsSync(poolPath)) {
       try {
         const pool = JSON.parse(fs.readFileSync(poolPath, "utf-8"));
-        const poolTopics = Array.isArray(pool.candidates)
-          ? pool.candidates
-          : Array.isArray(pool.topics)
-            ? pool.topics
-            : [];
-        for (const t of poolTopics) {
-          topics.push({
-            date,
-            title: t.topic ?? t.title ?? "",
-            score: t.score ?? 0,
-            category: t.category ?? "",
-            source: (t.source ?? t.evidence?.[0] ?? "").slice(0, 80),
-          });
+        if (Array.isArray(pool.topics)) {
+          for (const t of pool.topics) {
+            topics.push({
+              date,
+              title: t.topic ?? t.title ?? "",
+              score: t.score ?? 0,
+              category: t.category ?? "",
+              source: (t.evidence?.[0] ?? "").slice(0, 80),
+            });
+          }
         }
       } catch {
         // skip corrupt pool files

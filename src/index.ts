@@ -55,7 +55,6 @@ import { toCstDateStr, toUtcStr } from "./date.ts";
 import { type Lang, MSG, ISSUE_LABELS, CLI_ISSUE_TITLE, OPENCLAW_ISSUE_TITLE } from "./i18n.ts";
 import { buildTopicRadar, saveTopicRadar } from "./topic-radar.ts";
 import { getReportLangs, shouldSaveSourceReports } from "./options.ts";
-import { createSourceStatus } from "./source-status.ts";
 
 // ---------------------------------------------------------------------------
 // Repo config — loaded from config.yml, falls back to built-in defaults
@@ -143,31 +142,11 @@ async function fetchAllData(
           isFirstRun: false,
           newItems: [],
           totalDiscovered: 0,
-          status: createSourceStatus({
-            id: "web-anthropic",
-            label: "Anthropic (Claude)",
-            fetchedCount: 0,
-            acceptedCount: 0,
-            error: "fetch failed",
-          }),
         };
       }),
       fetchSiteContent("openai", webState).catch((err): WebFetchResult => {
         console.error(`  [web/openai] fetch failed: ${err}`);
-        return {
-          site: "openai",
-          siteName: "OpenAI",
-          isFirstRun: false,
-          newItems: [],
-          totalDiscovered: 0,
-          status: createSourceStatus({
-            id: "web-openai",
-            label: "OpenAI",
-            fetchedCount: 0,
-            acceptedCount: 0,
-            error: "fetch failed",
-          }),
-        };
+        return { site: "openai", siteName: "OpenAI", isFirstRun: false, newItems: [], totalDiscovered: 0 };
       }),
       fetchSiteContent("deepmind", webState).catch((err): WebFetchResult => {
         console.error(`  [web/deepmind] fetch failed: ${err}`);
@@ -177,13 +156,6 @@ async function fetchAllData(
           isFirstRun: false,
           newItems: [],
           totalDiscovered: 0,
-          status: createSourceStatus({
-            id: "web-deepmind",
-            label: "Google DeepMind",
-            fetchedCount: 0,
-            acceptedCount: 0,
-            error: "fetch failed",
-          }),
         };
       }),
     ]),
@@ -192,126 +164,21 @@ async function fetchAllData(
         trendingRepos: [],
         searchRepos: [],
         trendingFetchSuccess: false,
-        status: createSourceStatus({
-          id: "github-trending",
-          label: "GitHub Trending HTML",
-          fetchedCount: 0,
-          acceptedCount: 0,
-          error: "fetch failed",
-        }),
       }),
     ),
-    fetchHnData().catch(
-      (): HnData => ({
-        stories: [],
-        fetchSuccess: false,
-        status: createSourceStatus({
-          id: "hn",
-          label: "Hacker News",
-          fetchedCount: 0,
-          acceptedCount: 0,
-          error: "fetch failed",
-        }),
-      }),
-    ),
-    fetchPhData().catch(
-      (): PhData => ({
-        products: [],
-        fetchSuccess: false,
-        status: createSourceStatus({
-          id: "product-hunt",
-          label: "Product Hunt",
-          fetchedCount: 0,
-          acceptedCount: 0,
-          error: "fetch failed",
-        }),
-      }),
-    ),
-    fetchArxivData().catch(
-      (): ArxivData => ({
-        papers: [],
-        fetchSuccess: false,
-        status: createSourceStatus({
-          id: "arxiv",
-          label: "ArXiv",
-          fetchedCount: 0,
-          acceptedCount: 0,
-          error: "fetch failed",
-        }),
-      }),
-    ),
-    fetchHfData().catch(
-      (): HfData => ({
-        models: [],
-        fetchSuccess: false,
-        status: createSourceStatus({
-          id: "hf",
-          label: "Hugging Face",
-          fetchedCount: 0,
-          acceptedCount: 0,
-          error: "fetch failed",
-        }),
-      }),
-    ),
+    fetchHnData().catch((): HnData => ({ stories: [], fetchSuccess: false })),
+    fetchPhData().catch((): PhData => ({ products: [], fetchSuccess: false })),
+    fetchArxivData().catch((): ArxivData => ({ papers: [], fetchSuccess: false })),
+    fetchHfData().catch((): HfData => ({ models: [], fetchSuccess: false })),
     fetchDevtoData().catch((): DevtoData => ({ articles: [], fetchSuccess: false })),
     fetchLobstersData().catch((): LobstersData => ({ stories: [], fetchSuccess: false })),
     fetchChinaSourcesData().catch(
       (): ChinaSourcesData => ({
-        kr36: {
-          articles: [],
-          fetchSuccess: false,
-          status: createSourceStatus({
-            id: "kr36",
-            label: "36kr",
-            fetchedCount: 0,
-            acceptedCount: 0,
-            error: "fetch failed",
-          }),
-        },
-        infoqCn: {
-          articles: [],
-          fetchSuccess: false,
-          status: createSourceStatus({
-            id: "infoq-cn",
-            label: "InfoQ 中国",
-            fetchedCount: 0,
-            acceptedCount: 0,
-            error: "fetch failed",
-          }),
-        },
-        gitee: {
-          projects: [],
-          fetchSuccess: false,
-          status: createSourceStatus({
-            id: "gitee",
-            label: "Gitee",
-            fetchedCount: 0,
-            acceptedCount: 0,
-            error: "fetch failed",
-          }),
-        },
-        oschina: {
-          news: [],
-          fetchSuccess: false,
-          status: createSourceStatus({
-            id: "oschina",
-            label: "开源中国",
-            fetchedCount: 0,
-            acceptedCount: 0,
-            error: "fetch failed",
-          }),
-        },
-        juejin: {
-          articles: [],
-          fetchSuccess: false,
-          status: createSourceStatus({
-            id: "juejin",
-            label: "掘金",
-            fetchedCount: 0,
-            acceptedCount: 0,
-            error: "fetch failed",
-          }),
-        },
+        kr36: { articles: [], fetchSuccess: false },
+        infoqCn: { articles: [], fetchSuccess: false },
+        gitee: { projects: [], fetchSuccess: false },
+        oschina: { news: [], fetchSuccess: false },
+        juejin: { articles: [], fetchSuccess: false },
       }),
     ),
   ]);
@@ -582,8 +449,6 @@ async function main(): Promise<void> {
     phData,
     arxivData,
     hfData,
-    devtoData,
-    lobstersData,
     webResults,
     chinaSourcesData,
     dateStr,

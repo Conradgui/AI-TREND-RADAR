@@ -18,7 +18,6 @@ import type { RepoDigest } from "../prompts.ts";
 import type { TrendingData } from "../trending.ts";
 import type { HnData } from "../hn.ts";
 import type { WebFetchResult } from "../web.ts";
-import type { SourceState, SourceStatus } from "../source-status.ts";
 
 // ---------------------------------------------------------------------------
 // Fixtures
@@ -190,7 +189,6 @@ describe("buildTrendingPrompt", () => {
       ],
       searchRepos: [],
       trendingFetchSuccess: true,
-      status: status("github-trending"),
     };
     const result = buildTrendingPrompt(data, "2026-03-09");
     expect(result).toContain("org/repo");
@@ -200,12 +198,7 @@ describe("buildTrendingPrompt", () => {
   });
 
   it("shows fetch failure message when trending fails", () => {
-    const data: TrendingData = {
-      trendingRepos: [],
-      searchRepos: [],
-      trendingFetchSuccess: false,
-      status: status("github-trending", "error"),
-    };
+    const data: TrendingData = { trendingRepos: [], searchRepos: [], trendingFetchSuccess: false };
     const result = buildTrendingPrompt(data, "2026-03-09");
     expect(result).toContain("未能抓取");
   });
@@ -225,7 +218,6 @@ describe("buildTrendingPrompt", () => {
         },
       ],
       trendingFetchSuccess: false,
-      status: status("github-trending", "error"),
     };
     const result = buildTrendingPrompt(data, "2026-03-09");
     expect(result).toContain("[topic:ai-agent]");
@@ -255,7 +247,6 @@ describe("buildWebReportPrompt", () => {
           },
         ],
         totalDiscovered: 50,
-        status: status("web-anthropic"),
       },
     ];
     const result = buildWebReportPrompt(results, "2026-03-09");
@@ -266,14 +257,7 @@ describe("buildWebReportPrompt", () => {
 
   it("shows incremental mode for non-first-run", () => {
     const results: WebFetchResult[] = [
-      {
-        site: "openai",
-        siteName: "OpenAI",
-        isFirstRun: false,
-        newItems: [],
-        totalDiscovered: 100,
-        status: status("web-openai", "empty"),
-      },
+      { site: "openai", siteName: "OpenAI", isFirstRun: false, newItems: [], totalDiscovered: 100 },
     ];
     const result = buildWebReportPrompt(results, "2026-03-09");
     expect(result).toContain("增量更新");
@@ -368,7 +352,6 @@ describe("buildHnPrompt", () => {
         },
       ],
       fetchSuccess: true,
-      status: status("hn"),
     };
     const result = buildHnPrompt(data, "2026-03-09");
     expect(result).toContain("AI News");
@@ -393,7 +376,6 @@ describe("buildHnPrompt", () => {
         },
       ],
       fetchSuccess: true,
-      status: status("hn"),
     };
     const result = buildHnPrompt(data, "2026-03-09", "en");
     expect(result).toContain("Score: 10");
@@ -401,6 +383,3 @@ describe("buildHnPrompt", () => {
     expect(result).toContain("Hacker News");
   });
 });
-function status(id: string, state: SourceState = "ok"): SourceStatus {
-  return { id, label: id, state, fetchedCount: 0, acceptedCount: 0 };
-}

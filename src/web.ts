@@ -13,7 +13,6 @@
 import fs from "node:fs";
 import path from "node:path";
 import { sleep } from "./date.ts";
-import { createSourceStatus, type SourceStatus } from "./source-status.ts";
 
 // ---------------------------------------------------------------------------
 // Types
@@ -47,7 +46,6 @@ export interface WebFetchResult {
   newItems: WebPageItem[];
   /** Total URLs discovered in sitemap (for context in the report) */
   totalDiscovered: number;
-  status: SourceStatus;
 }
 
 // ---------------------------------------------------------------------------
@@ -148,10 +146,6 @@ export function isSitemapIndex(xml: string): boolean {
   return /<sitemapindex[\s>]/.test(xml);
 }
 
-function isUrlSet(xml: string): boolean {
-  return /<urlset[\s>]/.test(xml);
-}
-
 // ---------------------------------------------------------------------------
 // HTML content extraction
 // ---------------------------------------------------------------------------
@@ -214,10 +208,9 @@ export function titleFromUrl(url: string): string {
 
 async function discoverUrls(
   site: "anthropic" | "openai" | "deepmind",
-): Promise<{ urls: Array<{ loc: string; lastmod?: string }>; errors: string[] }> {
+): Promise<Array<{ loc: string; lastmod?: string }>> {
   const cfg = SITE_CONFIGS[site];
   const results: Array<{ loc: string; lastmod?: string }> = [];
-  const errors: string[] = [];
 
   if (cfg.subSitemapNames && cfg.subSitemapTemplate) {
     // Sitemap index: fetch each named sub-sitemap
@@ -225,22 +218,18 @@ async function discoverUrls(
       const subUrl = cfg.subSitemapTemplate.replace("{name}", name);
       try {
         const xml = await httpGet(subUrl);
-        if (!isUrlSet(xml)) {
-          throw new Error(isSitemapIndex(xml) ? "unexpected sitemap index" : "unexpected sitemap response");
-        }
         results.push(...parseSitemapUrls(xml));
         await sleep(100);
       } catch (err) {
         console.error(`  [web/${site}] sub-sitemap "${name}" failed: ${err}`);
-        errors.push(`${name}: ${err}`);
       }
     }
   } else {
     // Single sitemap
     const xml = await httpGet(cfg.sitemapUrl);
-    if (isSitemapIndex(xml)) throw new Error("unexpected sitemap index");
-    if (!isUrlSet(xml)) throw new Error("unexpected sitemap response");
-    const all = parseSitemapUrls(xml);
+    const all = isSitemapIndex(xml)
+      ? [] // unexpected; skip rather than recurse
+      : parseSitemapUrls(xml);
 
     const prefixes = cfg.prefixes ?? [];
     results.push(
@@ -254,7 +243,7 @@ async function discoverUrls(
     );
   }
 
-  return { urls: results, errors };
+  return results;
 }
 
 // ---------------------------------------------------------------------------
@@ -271,18 +260,9 @@ export function emptyState(): WebState {
   };
 }
 
-export function normalizeWebState(state: Partial<WebState>): WebState {
-  const empty = emptyState();
-  return {
-    anthropic: state.anthropic ?? empty.anthropic,
-    openai: state.openai ?? empty.openai,
-    deepmind: state.deepmind ?? empty.deepmind,
-  };
-}
-
 export function loadWebState(): WebState {
   try {
-    return normalizeWebState(JSON.parse(fs.readFileSync(STATE_FILE, "utf-8")) as Partial<WebState>);
+    return JSON.parse(fs.readFileSync(STATE_FILE, "utf-8")) as WebState;
   } catch {
     return emptyState();
   }
@@ -302,13 +282,11 @@ export async function fetchSiteContent(
   state: WebState,
 ): Promise<WebFetchResult> {
   const cfg = SITE_CONFIGS[site];
-  const normalizedState = normalizeWebState(state);
-  Object.assign(state, normalizedState);
-  const siteState = normalizedState[site];
+  const siteState = state[site];
   const isFirstRun = Object.keys(siteState.seenUrls).length === 0;
 
   console.log(`  [web/${site}] Discovering URLs from sitemap...`);
-  const { urls: allDiscovered, errors } = await discoverUrls(site);
+  const allDiscovered = await discoverUrls(site);
   console.log(`  [web/${site}] Discovered ${allDiscovered.length} URLs`);
 
   // Newest first
@@ -340,7 +318,6 @@ export async function fetchSiteContent(
 
   // Build items — either from full page fetches or from sitemap metadata only
   const items: WebPageItem[] = [];
-  const failedContentUrls = new Set<string>();
   if (cfg.metadataOnly) {
     for (const { loc, lastmod } of toFetch) {
       items.push({
@@ -367,17 +344,14 @@ export async function fetchSiteContent(
         });
       } catch (err) {
         console.error(`  [web/${site}] Failed to fetch ${loc}: ${err}`);
-        errors.push(`${loc}: ${err}`);
-        failedContentUrls.add(loc);
       }
       await sleep(FETCH_DELAY_MS);
     }
   }
 
-  // Mark discovered URLs as seen unless a requested content fetch failed.
-  // Capped first-run URLs still advance so future runs remain incremental.
+  // Mark ALL discovered URLs as seen (not just fetched ones)
+  // This ensures future runs are truly incremental
   for (const { loc, lastmod } of allDiscovered) {
-    if (failedContentUrls.has(loc)) continue;
     siteState.seenUrls[loc] = lastmod ?? "seen";
   }
   siteState.lastChecked = new Date().toISOString();
@@ -388,12 +362,5 @@ export async function fetchSiteContent(
     isFirstRun,
     newItems: items,
     totalDiscovered: allDiscovered.length,
-    status: createSourceStatus({
-      id: `web-${site}`,
-      label: cfg.name,
-      fetchedCount: allDiscovered.length,
-      acceptedCount: items.length,
-      error: errors.length > 0 ? `partial failure: ${errors.join("; ")}` : undefined,
-    }),
   };
 }

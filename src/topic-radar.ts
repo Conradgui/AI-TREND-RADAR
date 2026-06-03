@@ -12,9 +12,6 @@ import type { ArxivData } from "./arxiv.ts";
 import type { HfData } from "./hf.ts";
 import type { WebFetchResult } from "./web.ts";
 import type { ChinaSourcesData } from "./china-sources.ts";
-import type { SourceStatus } from "./source-status.ts";
-import type { DevtoData } from "./devto.ts";
-import type { LobstersData } from "./lobsters.ts";
 import fs from "node:fs";
 import path from "node:path";
 
@@ -69,8 +66,6 @@ export interface TopicRadarInput {
   phData: PhData;
   arxivData: ArxivData;
   hfData: HfData;
-  devtoData?: DevtoData;
-  lobstersData?: LobstersData;
   webResults: WebFetchResult[];
   chinaSourcesData?: ChinaSourcesData;
   dateStr: string;
@@ -82,8 +77,6 @@ export interface TopicRadarResult {
   generatedAt: string;
   date: string;
   candidates: TopicCandidate[];
-  sourceStatuses: SourceStatus[];
-  notices: string[];
   warnings: string[];
 }
 
@@ -175,7 +168,7 @@ function heatScore(topic: RawTopic): number {
     case "community":
       return clamp(strongestSignal / 12, 30);
     case "github":
-      return clamp(Math.log10(strongestSignal + 1) * 5, 24);
+      return clamp(strongestSignal / 15, 30);
     case "model":
       return clamp(strongestSignal / 20, 30);
     case "official":
@@ -318,75 +311,6 @@ function scoreTopic(topic: RawTopic, now: Date): TopicCandidate {
   };
 }
 
-function candidateKey(candidate: TopicCandidate): string {
-  return candidate.url || `${candidate.source}:${candidate.title}`;
-}
-
-function dedupeCandidates(candidates: TopicCandidate[]): TopicCandidate[] {
-  const byUrl = new Map<string, TopicCandidate>();
-  for (const candidate of candidates) {
-    const key = candidateKey(candidate);
-    const existing = byUrl.get(key);
-    if (!existing || candidate.score > existing.score) byUrl.set(key, candidate);
-  }
-  return [...byUrl.values()];
-}
-
-type SourceGroup = "repo" | "domestic" | "research" | "product" | "official" | "community";
-
-function sourceGroup(candidate: TopicCandidate): SourceGroup {
-  if (
-    candidate.source === "GitHub Trending" ||
-    candidate.source.startsWith("GitHub Search") ||
-    candidate.source === "Gitee"
-  ) {
-    return "repo";
-  }
-  if (["36kr", "InfoQ 中国", "开源中国", "掘金"].includes(candidate.source)) return "domestic";
-  if (candidate.source === "ArXiv" || candidate.source === "Hugging Face") return "research";
-  if (candidate.source === "Product Hunt") return "product";
-  if (["OpenAI", "Anthropic (Claude)", "Google DeepMind"].includes(candidate.source)) return "official";
-  return "community";
-}
-
-function selectCandidates(scored: TopicCandidate[]): TopicCandidate[] {
-  const eligible = dedupeCandidates(scored)
-    .filter((candidate) => candidate.score >= 50)
-    .sort((a, b) => b.score - a.score);
-  const selected: TopicCandidate[] = [];
-  const used = new Set<string>();
-  const counts = new Map<SourceGroup, number>();
-  const groups: Array<{ id: SourceGroup; base: number; max: number }> = [
-    { id: "repo", base: 15, max: 20 },
-    { id: "domestic", base: 8, max: 12 },
-    { id: "research", base: 8, max: 10 },
-    { id: "product", base: 6, max: 10 },
-    { id: "official", base: 5, max: 8 },
-    { id: "community", base: 5, max: 8 },
-  ];
-  const add = (candidate: TopicCandidate): void => {
-    if (selected.length >= 60) return;
-    const key = candidateKey(candidate);
-    if (used.has(key)) return;
-    const group = sourceGroup(candidate);
-    const max = groups.find((item) => item.id === group)?.max ?? 60;
-    if ((counts.get(group) ?? 0) >= max) return;
-    used.add(key);
-    counts.set(group, (counts.get(group) ?? 0) + 1);
-    selected.push(candidate);
-  };
-
-  for (const group of groups) {
-    for (const candidate of eligible) {
-      if (sourceGroup(candidate) !== group.id) continue;
-      if ((counts.get(group.id) ?? 0) >= group.base) break;
-      add(candidate);
-    }
-  }
-  for (const candidate of eligible) add(candidate);
-  return selected;
-}
-
 function collectRawTopics(input: TopicRadarInput): RawTopic[] {
   const topics: RawTopic[] = [];
 
@@ -459,30 +383,6 @@ function collectRawTopics(input: TopicRadarInput): RawTopic[] {
       publishedAt: model.lastModified,
       heatSignals: [model.likes, model.downloads],
       tags: [model.pipelineTag, ...model.tags].filter(Boolean),
-    });
-  }
-  for (const article of input.devtoData?.articles ?? []) {
-    topics.push({
-      title: article.title,
-      url: article.url,
-      source: "Dev.to",
-      sourceType: "community",
-      summary: article.description,
-      publishedAt: article.publishedAt,
-      heatSignals: [article.positiveReactionsCount, article.commentsCount],
-      tags: ["devto", ...article.tags],
-    });
-  }
-  for (const story of input.lobstersData?.stories ?? []) {
-    topics.push({
-      title: story.title,
-      url: story.url,
-      source: "Lobste.rs",
-      sourceType: "community",
-      summary: `Comments: ${story.commentCount} by ${story.author}`,
-      publishedAt: story.publishedAt,
-      heatSignals: [story.score, story.commentCount],
-      tags: ["lobsters", ...story.tags],
     });
   }
   for (const result of input.webResults) {
@@ -568,157 +468,49 @@ function collectRawTopics(input: TopicRadarInput): RawTopic[] {
   return topics;
 }
 
-function appendSourceStatus(
-  notices: string[],
-  warnings: string[],
-  status: SourceStatus | undefined,
-  fetchSuccess: boolean,
-  emptyNotice: string,
-  errorWarning: string,
-): void {
-  if (!status) {
-    if (!fetchSuccess) warnings.push(errorWarning);
-    return;
-  }
-  if (status.state === "empty") notices.push(emptyNotice);
-  if (status.state === "error") warnings.push(errorWarning);
-  if (status.state === "skipped") {
-    notices.push(`${status.label} 已跳过${status.detail ? `；${status.detail}` : "。"}`);
-  }
-}
-
-function collectStatusMessages(input: TopicRadarInput): Pick<TopicRadarResult, "notices" | "warnings"> {
-  const notices: string[] = [];
+function collectWarnings(input: TopicRadarInput): string[] {
   const warnings: string[] = [];
-  appendSourceStatus(
-    notices,
-    warnings,
-    input.trendingData.status,
-    input.trendingData.trendingFetchSuccess,
-    "GitHub Trending HTML 暂无条目；抓取成功。",
-    "GitHub Trending HTML 获取失败；可检查 GitHub 页面结构或网络环境，GitHub Search 结果仍可使用。",
-  );
-  appendSourceStatus(
-    notices,
-    warnings,
-    input.hnData.status,
-    input.hnData.fetchSuccess,
-    "Hacker News 暂无符合时间窗口的新内容；抓取成功。",
-    "Hacker News 获取失败；可检查 hn.algolia.com 是否可访问。",
-  );
-  appendSourceStatus(
-    notices,
-    warnings,
-    input.phData.status,
-    input.phData.fetchSuccess,
-    "Product Hunt 暂无符合条件的新产品；抓取成功。",
-    "Product Hunt 获取失败；可检查 GraphQL API 响应和 AI topic 过滤条件。",
-  );
-  appendSourceStatus(
-    notices,
-    warnings,
-    input.arxivData.status,
-    input.arxivData.fetchSuccess,
-    "ArXiv 暂无符合时间窗口的新论文；抓取成功。",
-    "ArXiv 获取失败；可检查 export.arxiv.org 网络或重试。",
-  );
-  appendSourceStatus(
-    notices,
-    warnings,
-    input.hfData.status,
-    input.hfData.fetchSuccess,
-    "Hugging Face 暂无热门模型条目；抓取成功。",
-    "Hugging Face 获取失败；可检查 huggingface.co API 是否可访问。",
-  );
-  for (const result of input.webResults) {
-    if (result.status.state === "error") {
-      warnings.push(`${result.siteName} 官方内容源获取失败；可检查 sitemap 或网络环境。`);
-    }
+  if (!input.trendingData.trendingFetchSuccess) {
+    warnings.push(
+      "GitHub Trending HTML 获取失败；可检查 GitHub 页面结构或网络环境，GitHub Search 结果仍可使用。",
+    );
   }
-  if (
-    input.webResults.every((result) => result.status.state !== "error") &&
-    !input.webResults.some((result) => result.newItems.length > 0)
-  ) {
-    notices.push("官方内容源今日没有检测到新内容；首次运行后这是正常情况。");
+  if (!input.hnData.fetchSuccess) warnings.push("Hacker News 获取失败；可检查 hn.algolia.com 是否可访问。");
+  if (!input.phData.fetchSuccess) {
+    const hint = process.env["PRODUCTHUNT_TOKEN"]
+      ? "Product Hunt 无可用数据；可检查 GraphQL API 响应和 AI topic 过滤条件。"
+      : "Product Hunt 已跳过；配置 PRODUCTHUNT_TOKEN 后可启用产品榜单信号。";
+    warnings.push(hint);
+  }
+  if (!input.arxivData.fetchSuccess) warnings.push("ArXiv 获取失败；可检查 export.arxiv.org 网络或重试。");
+  if (!input.hfData.fetchSuccess)
+    warnings.push("Hugging Face 获取失败；可检查 huggingface.co API 是否可访问。");
+  if (!input.webResults.some((result) => result.newItems.length > 0)) {
+    warnings.push("官方内容源今日没有检测到新内容；首次运行后这是正常情况。");
   }
   if (input.chinaSourcesData) {
     const cn = input.chinaSourcesData;
-    appendSourceStatus(
-      notices,
-      warnings,
-      cn.kr36.status,
-      cn.kr36.fetchSuccess,
-      "36kr 暂无符合条件的新内容；抓取成功。",
-      "36kr 获取失败；可检查网络或 RSS 源是否可用。",
-    );
-    appendSourceStatus(
-      notices,
-      warnings,
-      cn.infoqCn.status,
-      cn.infoqCn.fetchSuccess,
-      "InfoQ 中国暂无符合条件的新内容；抓取成功。",
-      "InfoQ 中国获取失败；可检查 infoq.cn API 是否可用。",
-    );
-    appendSourceStatus(
-      notices,
-      warnings,
-      cn.gitee.status,
-      cn.gitee.fetchSuccess,
-      "Gitee 暂无符合条件的新项目；抓取成功。",
-      "Gitee 获取失败；可检查 gitee.com API 是否可访问。",
-    );
-    appendSourceStatus(
-      notices,
-      warnings,
-      cn.oschina.status,
-      cn.oschina.fetchSuccess,
-      "开源中国暂无符合条件的新内容；抓取成功。",
-      "开源中国获取失败；可检查 oschina.net RSS 是否可用。",
-    );
-    appendSourceStatus(
-      notices,
-      warnings,
-      cn.juejin.status,
-      cn.juejin.fetchSuccess,
-      "掘金暂无符合条件的新内容；抓取成功。",
-      "掘金获取失败；可检查 juejin.com API 是否可用。",
-    );
+    if (!cn.kr36.fetchSuccess) warnings.push("36kr 获取失败；可检查网络或 RSS 源是否可用。");
+    if (!cn.infoqCn.fetchSuccess) warnings.push("InfoQ 中国获取失败；可检查 infoq.cn API 是否可用。");
+    if (!cn.gitee.fetchSuccess) warnings.push("Gitee 获取失败；可检查 gitee.com API 是否可访问。");
+    if (!cn.oschina.fetchSuccess) warnings.push("开源中国获取失败；可检查 oschina.net RSS 是否可用。");
+    if (!cn.juejin.fetchSuccess) warnings.push("掘金获取失败；可检查 juejin.com API 是否可用。");
   }
-  return { notices, warnings };
-}
-
-function collectSourceStatuses(input: TopicRadarInput): SourceStatus[] {
-  const statuses = [
-    input.trendingData.status,
-    input.hnData.status,
-    input.phData.status,
-    input.arxivData.status,
-    input.hfData.status,
-    ...input.webResults.map((result) => result.status),
-  ];
-  if (input.chinaSourcesData) {
-    statuses.push(
-      input.chinaSourcesData.kr36.status,
-      input.chinaSourcesData.infoqCn.status,
-      input.chinaSourcesData.gitee.status,
-      input.chinaSourcesData.oschina.status,
-      input.chinaSourcesData.juejin.status,
-    );
-  }
-  return statuses;
+  return warnings;
 }
 
 export function buildTopicRadar(input: TopicRadarInput): TopicRadarResult {
   const now = input.now ?? new Date();
-  const statusMessages = collectStatusMessages(input);
-  const candidates = selectCandidates(collectRawTopics(input).map((topic) => scoreTopic(topic, now)));
+  const candidates = collectRawTopics(input)
+    .map((topic) => scoreTopic(topic, now))
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 60);
 
   return {
     generatedAt: input.utcStr,
     date: input.dateStr,
     candidates,
-    sourceStatuses: collectSourceStatuses(input),
-    ...statusMessages,
+    warnings: collectWarnings(input),
   };
 }
 
@@ -739,8 +531,6 @@ export function buildTopicRadarMarkdown(result: TopicRadarResult): string {
   const deepDive = result.candidates.filter((item) => item.action === "深挖").slice(0, 10);
   const pool = result.candidates.filter((item) => item.action === "入池").slice(0, 15);
   const watch = result.candidates.filter((item) => item.action === "观察").slice(0, 15);
-  const watchSection =
-    watch.length === 0 ? "暂无 50–64 分观察项。这不代表数据源采集失败。\n" : tableRows(watch);
 
   const categorySections = TOPIC_CATEGORIES.map((category) => {
     const items = result.candidates.filter((item) => item.category === category).slice(0, 5);
@@ -749,12 +539,8 @@ export function buildTopicRadarMarkdown(result: TopicRadarResult): string {
 
   const warningSection =
     result.warnings.length === 0
-      ? "暂无需要修复的数据源。\n"
+      ? "暂无失败或跳过的数据源。\n"
       : result.warnings.map((warning) => `- ${warning}`).join("\n") + "\n";
-  const noticeSection =
-    result.notices.length === 0
-      ? "暂无普通状态提示。\n"
-      : result.notices.map((notice) => `- ${notice}`).join("\n") + "\n";
 
   return [
     `# AI 热点选题池 ${result.date}`,
@@ -774,12 +560,9 @@ export function buildTopicRadarMarkdown(result: TopicRadarResult): string {
     categorySections,
     "## 观察项",
     "",
-    watchSection,
+    tableRows(watch),
     "",
-    "## 数据源普通状态提示",
-    "",
-    noticeSection,
-    "## 数据源修复提示",
+    "## 数据源状态与修复提示",
     "",
     warningSection,
   ].join("\n");
@@ -835,12 +618,8 @@ export function buildTopicRadarHtml(result: TopicRadarResult): string {
   const watch = result.candidates.filter((item) => item.action === "观察").slice(0, 15);
   const warnings =
     result.warnings.length === 0
-      ? `<p class="empty">暂无需要修复的数据源。</p>`
+      ? `<p class="empty">暂无失败或跳过的数据源。</p>`
       : `<ul>${result.warnings.map((warning) => `<li>${escapeHtml(warning)}</li>`).join("")}</ul>`;
-  const notices =
-    result.notices.length === 0
-      ? `<p class="empty">暂无普通状态提示。</p>`
-      : `<ul>${result.notices.map((notice) => `<li>${escapeHtml(notice)}</li>`).join("")}</ul>`;
 
   const categorySections = TOPIC_CATEGORIES.map((category) => {
     const items = result.candidates.filter((item) => item.category === category).slice(0, 5);
@@ -1052,16 +831,11 @@ export function buildTopicRadarHtml(result: TopicRadarResult): string {
 
     <section id="watch">
       <h2>观察项</h2>
-      <div class="topic-grid">${watch.length === 0 ? '<p class="empty">暂无 50–64 分观察项。这不代表数据源采集失败。</p>' : renderTopicCards(watch)}</div>
+      <div class="topic-grid">${renderTopicCards(watch)}</div>
     </section>
 
-    <section id="notices">
-      <h2>数据源普通状态提示</h2>
-      ${notices}
-    </section>
-
-    <section id="warnings">
-      <h2>数据源修复提示</h2>
+    <section id="status">
+      <h2>数据源状态与修复提示</h2>
       ${warnings}
     </section>
 

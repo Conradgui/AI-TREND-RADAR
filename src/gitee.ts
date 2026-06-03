@@ -2,8 +2,6 @@
  * Gitee popular AI projects fetched via REST API v5.
  */
 
-import { createSourceStatus, type SourceStatus } from "./source-status.ts";
-
 // ---------------------------------------------------------------------------
 // Types
 // ---------------------------------------------------------------------------
@@ -24,7 +22,6 @@ export interface GiteeProject {
 export interface GiteeData {
   projects: GiteeProject[];
   fetchSuccess: boolean;
-  status: SourceStatus;
 }
 
 // ---------------------------------------------------------------------------
@@ -32,8 +29,38 @@ export interface GiteeData {
 // ---------------------------------------------------------------------------
 
 const MAX_PROJECTS = 30;
-const API_URL = "https://gitee.com/api/v5/search/repositories";
-const SEARCH_KEYWORDS = ["ai", "llm", "大模型", "agent", "rag"];
+const API_URL = "https://gitee.com/api/v5/projects";
+
+/** AI-related keywords for filtering project names/descriptions. */
+const AI_KEYWORDS = [
+  "ai",
+  "人工智能",
+  "大模型",
+  "llm",
+  "gpt",
+  "chatgpt",
+  "机器学习",
+  "深度学习",
+  "deep-learning",
+  "machine-learning",
+  "aigc",
+  "rag",
+  "agent",
+  "langchain",
+  "transformer",
+  "diffusion",
+  "nlp",
+  "自然语言处理",
+  "computer-vision",
+  "计算机视觉",
+  "向量",
+  "vector",
+  "embedding",
+  "神经网络",
+  "neural",
+  "pytorch",
+  "tensorflow",
+];
 
 // ---------------------------------------------------------------------------
 // API types
@@ -56,19 +83,9 @@ interface GiteeApiProject {
 // Helpers
 // ---------------------------------------------------------------------------
 
-function safeError(err: unknown): string {
-  return String(err).replace(/access_token=[^&\s]+/g, "access_token=REDACTED");
-}
-
-function result(projects: GiteeProject[], fetchedCount: number, error?: string): GiteeData {
-  const status = createSourceStatus({
-    id: "gitee",
-    label: "Gitee",
-    fetchedCount,
-    acceptedCount: projects.length,
-    error,
-  });
-  return { projects, fetchSuccess: status.state !== "error", status };
+function isAiRelated(name: string, description: string): boolean {
+  const text = `${name} ${description}`.toLowerCase();
+  return AI_KEYWORDS.some((kw) => text.includes(kw));
 }
 
 // ---------------------------------------------------------------------------
@@ -77,71 +94,63 @@ function result(projects: GiteeProject[], fetchedCount: number, error?: string):
 
 export async function fetchGiteeData(): Promise<GiteeData> {
   const seen = new Map<number, GiteeProject>();
-  const errors: string[] = [];
-  let fetchedCount = 0;
 
-  const token = process.env["GITEE_TOKEN"];
-  const headers: Record<string, string> = {
-    "User-Agent": "ai-topic-radar/1.0",
-    Accept: "application/json",
-  };
+  try {
+    const token = process.env["GITEE_TOKEN"];
+    const params = new URLSearchParams({
+      sort: "stars",
+      per_page: "100",
+      order: "desc",
+      page: "1",
+    });
+    if (token) params.set("access_token", token);
 
-  for (const keyword of SEARCH_KEYWORDS) {
-    try {
-      const params = new URLSearchParams({
-        q: keyword,
-        sort: "stars_count",
-        order: "desc",
-        per_page: "100",
-        page: "1",
-      });
-      if (token) params.set("access_token", token);
+    const headers: Record<string, string> = {
+      "User-Agent": "ai-topic-radar/1.0",
+      Accept: "application/json",
+    };
 
-      const resp = await fetch(`${API_URL}?${params}`, { headers });
+    const resp = await fetch(`${API_URL}?${params}`, { headers });
 
-      if (!resp.ok) {
-        console.error(`  [gitee] API returned HTTP ${resp.status}`);
-        errors.push(`${keyword}: HTTP ${resp.status}`);
-        continue;
-      }
-
-      const raw = (await resp.json()) as GiteeApiProject[];
-      if (!Array.isArray(raw)) {
-        console.error(`  [gitee] unexpected response shape`);
-        errors.push(`${keyword}: unexpected response shape`);
-        continue;
-      }
-      fetchedCount += raw.length;
-
-      for (const p of raw) {
-        const desc = p.description ?? "";
-        if (!seen.has(p.id)) {
-          seen.set(p.id, {
-            id: p.id,
-            name: p.name,
-            fullName: p.full_name,
-            url: p.html_url,
-            description: desc,
-            language: p.language ?? "",
-            stars: p.stargazers_count,
-            forks: p.forks_count,
-            updatedAt: p.updated_at,
-            namespace: p.namespace.path,
-          });
-        }
-      }
-    } catch (err) {
-      const safeMsg = safeError(err);
-      console.error(`  [gitee] fetch failed: ${safeMsg}`);
-      errors.push(`${keyword}: ${safeMsg}`);
+    if (!resp.ok) {
+      console.error(`  [gitee] API returned HTTP ${resp.status}`);
+      return { projects: [], fetchSuccess: false };
     }
-  }
 
-  const projects = [...seen.values()].sort((a, b) => b.stars - a.stars).slice(0, MAX_PROJECTS);
-  console.log(`  [gitee] ${projects.length} AI projects (from ${fetchedCount} results)`);
-  return result(
-    projects,
-    fetchedCount,
-    errors.length > 0 ? `partial failure: ${errors.join("; ")}` : undefined,
-  );
+    const raw = (await resp.json()) as GiteeApiProject[];
+    if (!Array.isArray(raw)) {
+      console.error(`  [gitee] unexpected response shape`);
+      return { projects: [], fetchSuccess: false };
+    }
+
+    for (const p of raw) {
+      const desc = p.description ?? "";
+      if (!isAiRelated(p.name, desc)) continue;
+
+      if (!seen.has(p.id)) {
+        seen.set(p.id, {
+          id: p.id,
+          name: p.name,
+          fullName: p.full_name,
+          url: p.html_url,
+          description: desc,
+          language: p.language ?? "",
+          stars: p.stargazers_count,
+          forks: p.forks_count,
+          updatedAt: p.updated_at,
+          namespace: p.namespace.path,
+        });
+      }
+
+      if (seen.size >= MAX_PROJECTS) break;
+    }
+
+    const projects = [...seen.values()].sort((a, b) => b.stars - a.stars).slice(0, MAX_PROJECTS);
+    console.log(`  [gitee] ${projects.length} AI projects (from ${raw.length} total)`);
+    return { projects, fetchSuccess: projects.length > 0 };
+  } catch (err) {
+    const safeMsg = String(err).replace(/access_token=[^&\s]+/g, "access_token=REDACTED");
+    console.error(`  [gitee] fetch failed: ${safeMsg}`);
+    return { projects: [], fetchSuccess: false };
+  }
 }

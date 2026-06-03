@@ -153,7 +153,7 @@ export async function saveHnReport(
   footer: string,
   lang: Lang = "zh",
 ): Promise<void> {
-  if (hnData.stories.length === 0) {
+  if (!hnData.fetchSuccess) {
     console.log(`  [hn/${lang}] No data available, skipping report.`);
     return;
   }
@@ -200,7 +200,7 @@ export async function savePhReport(
   footer: string,
   lang: Lang = "zh",
 ): Promise<void> {
-  if (phData.products.length === 0) {
+  if (!phData.fetchSuccess) {
     console.log(`  [ph/${lang}] No data available, skipping report.`);
     return;
   }
@@ -247,7 +247,7 @@ export async function saveArxivReport(
   footer: string,
   lang: Lang = "zh",
 ): Promise<void> {
-  if (arxivData.papers.length === 0) {
+  if (!arxivData.fetchSuccess) {
     console.log(`  [arxiv/${lang}] No data available, skipping report.`);
     return;
   }
@@ -294,7 +294,7 @@ export async function saveHfReport(
   footer: string,
   lang: Lang = "zh",
 ): Promise<void> {
-  if (hfData.models.length === 0) {
+  if (!hfData.fetchSuccess) {
     console.log(`  [hf/${lang}] No data available, skipping report.`);
     return;
   }

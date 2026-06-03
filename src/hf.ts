@@ -5,8 +5,6 @@
  * HF Hub API, returning a mapped subset of fields.
  */
 
-import { createSourceStatus, type SourceStatus } from "./source-status.ts";
-
 // ---------------------------------------------------------------------------
 // Types
 // ---------------------------------------------------------------------------
@@ -25,7 +23,6 @@ export interface HfModel {
 export interface HfData {
   models: HfModel[];
   fetchSuccess: boolean;
-  status: SourceStatus;
 }
 
 // ---------------------------------------------------------------------------
@@ -50,17 +47,6 @@ interface HfApiModel {
   lastModified?: string;
 }
 
-function result(models: HfModel[], fetchedCount: number, error?: string): HfData {
-  const status = createSourceStatus({
-    id: "hf",
-    label: "Hugging Face",
-    fetchedCount,
-    acceptedCount: models.length,
-    error,
-  });
-  return { models, fetchSuccess: status.state !== "error", status };
-}
-
 // ---------------------------------------------------------------------------
 // Fetch
 // ---------------------------------------------------------------------------
@@ -81,14 +67,10 @@ export async function fetchHfData(): Promise<HfData> {
 
     if (!resp.ok) {
       console.error(`  [hf] HTTP ${resp.status}`);
-      return result([], 0, `HTTP ${resp.status}`);
+      return { models: [], fetchSuccess: false };
     }
 
     const raw = (await resp.json()) as HfApiModel[];
-    if (!Array.isArray(raw)) {
-      console.error(`  [hf] unexpected response shape`);
-      return result([], 0, "unexpected response shape");
-    }
 
     const models: HfModel[] = raw.map((m) => ({
       id: m.id,
@@ -102,9 +84,9 @@ export async function fetchHfData(): Promise<HfData> {
     }));
 
     console.log(`  [hf] ${models.length} trending models`);
-    return result(models, raw.length);
+    return { models, fetchSuccess: models.length > 0 };
   } catch (err) {
     console.error(`  [hf] fetch failed: ${err}`);
-    return result([], 0, String(err));
+    return { models: [], fetchSuccess: false };
   }
 }
