@@ -1,6 +1,21 @@
-import { describe, expect, it } from "vitest";
-import { buildTopicRadar, buildTopicRadarHtml, buildTopicRadarMarkdown } from "../topic-radar.ts";
+import fs from "node:fs";
+import { afterEach, describe, expect, it, vi } from "vitest";
+import {
+  buildTopicRadar,
+  buildTopicRadarHtml,
+  buildTopicRadarMarkdown,
+  saveTopicRadar,
+} from "../topic-radar.ts";
 import type { TopicRadarInput } from "../topic-radar.ts";
+import type { SourceStatus } from "../source-status.ts";
+
+afterEach(() => {
+  vi.restoreAllMocks();
+});
+
+function status(id: string, state: SourceStatus["state"] = "empty"): SourceStatus {
+  return { id, label: id, state, fetchedCount: 0, acceptedCount: 0 };
+}
 
 function baseInput(): TopicRadarInput {
   return {
@@ -11,22 +26,33 @@ function baseInput(): TopicRadarInput {
       trendingRepos: [],
       searchRepos: [],
       trendingFetchSuccess: true,
+      status: status("github-trending"),
     },
     hnData: {
       stories: [],
       fetchSuccess: true,
+      status: status("hn"),
     },
     phData: {
       products: [],
       fetchSuccess: true,
+      status: status("product-hunt"),
     },
     arxivData: {
       papers: [],
       fetchSuccess: true,
+      status: {
+        id: "arxiv",
+        label: "ArXiv",
+        state: "empty",
+        fetchedCount: 0,
+        acceptedCount: 0,
+      },
     },
     hfData: {
       models: [],
       fetchSuccess: true,
+      status: status("hf"),
     },
     webResults: [
       {
@@ -35,6 +61,7 @@ function baseInput(): TopicRadarInput {
         isFirstRun: false,
         newItems: [],
         totalDiscovered: 0,
+        status: status("web-openai"),
       },
     ],
   };
@@ -70,18 +97,284 @@ describe("buildTopicRadar", () => {
     expect(result.candidates[0]!.evidence.join(" ")).toContain("Product Hunt");
   });
 
+  it("includes Dev.to and Lobste.rs community sources in candidates", () => {
+    const input = baseInput();
+    input.devtoData = {
+      fetchSuccess: true,
+      articles: [
+        {
+          id: 1,
+          title: "Building reliable AI agents",
+          description: "Enterprise agent workflow with observability and evaluation.",
+          url: "https://dev.to/example/agents",
+          publishedAt: "2026-05-20T00:00:00Z",
+          positiveReactionsCount: 420,
+          commentsCount: 30,
+          readingTimeMinutes: 8,
+          tags: ["ai", "agents"],
+          user: "Alice",
+        },
+      ],
+    };
+    input.lobstersData = {
+      fetchSuccess: true,
+      stories: [
+        {
+          title: "LLM evals in production",
+          url: "https://example.com/evals",
+          commentsUrl: "https://lobste.rs/s/abc",
+          score: 120,
+          commentCount: 45,
+          author: "bob",
+          publishedAt: "2026-05-20T00:00:00Z",
+          tags: ["ai"],
+        },
+      ],
+    };
+
+    const sources = buildTopicRadar(input).candidates.map((candidate) => candidate.source);
+
+    expect(sources).toContain("Dev.to");
+    expect(sources).toContain("Lobste.rs");
+  });
+
+  it("limits GitHub and Gitee candidates after deduplication", () => {
+    const input = baseInput();
+    input.trendingData.searchRepos = Array.from({ length: 30 }, (_, index) => ({
+      fullName: `example/repo-${index}`,
+      description: "Enterprise AI agent workflow platform",
+      language: "TypeScript",
+      stargazersCount: 100_000 - index,
+      pushedAt: "2026-05-20T00:00:00Z",
+      url: `https://github.com/example/repo-${index}`,
+      searchQuery: "ai-agent",
+    }));
+    input.chinaSourcesData = {
+      kr36: { articles: [], fetchSuccess: true, status: status("kr36") },
+      infoqCn: { articles: [], fetchSuccess: true, status: status("infoq-cn") },
+      gitee: {
+        projects: Array.from({ length: 10 }, (_, index) => ({
+          id: index,
+          name: `gitee-${index}`,
+          fullName: `gitee/gitee-${index}`,
+          url: `https://gitee.com/gitee/gitee-${index}`,
+          description: "AI agent project",
+          language: "TypeScript",
+          stars: 50_000 - index,
+          forks: 100,
+          updatedAt: "2026-05-20T00:00:00Z",
+          namespace: "gitee",
+        })),
+        fetchSuccess: true,
+        status: status("gitee"),
+      },
+      oschina: { news: [], fetchSuccess: true, status: status("oschina") },
+      juejin: { articles: [], fetchSuccess: true, status: status("juejin") },
+    };
+
+    const candidates = buildTopicRadar(input).candidates;
+    const repoCount = candidates.filter(
+      (candidate) => candidate.source.startsWith("GitHub Search") || candidate.source === "Gitee",
+    ).length;
+
+    expect(repoCount).toBeLessThanOrEqual(20);
+  });
+
   it("keeps source warnings without blocking topic pool generation", () => {
     const input = baseInput();
     input.trendingData.trendingFetchSuccess = false;
+    input.trendingData.status = status("github-trending", "error");
     input.hnData.fetchSuccess = false;
+    input.hnData.status = status("hn", "error");
     input.phData.fetchSuccess = false;
+    input.phData.status = { ...status("product-hunt", "skipped"), label: "Product Hunt" };
 
     const result = buildTopicRadar(input);
 
     expect(result.candidates).toEqual([]);
     expect(result.warnings.join("\n")).toContain("GitHub Trending");
     expect(result.warnings.join("\n")).toContain("Hacker News");
-    expect(result.warnings.join("\n")).toContain("Product Hunt");
+    expect(result.notices.join("\n")).toContain("Product Hunt");
+  });
+
+  it("renders an empty notice instead of an error warning for a successful empty source", () => {
+    const input = baseInput();
+    Object.assign(input.arxivData, {
+      fetchSuccess: true,
+      status: {
+        id: "arxiv",
+        label: "ArXiv",
+        state: "empty",
+        fetchedCount: 0,
+        acceptedCount: 0,
+      },
+    });
+
+    const result = buildTopicRadar(input);
+    const notices = result.notices.join("\n");
+    const warnings = result.warnings.join("\n");
+
+    expect(notices).toContain("ArXiv 暂无");
+    expect(warnings).not.toContain("ArXiv 暂无");
+    expect(warnings).not.toContain("ArXiv 获取失败");
+  });
+
+  it("renders an error warning when the source status reports an error", () => {
+    const input = baseInput();
+    Object.assign(input.arxivData, {
+      fetchSuccess: true,
+      status: {
+        id: "arxiv",
+        label: "ArXiv",
+        state: "error",
+        fetchedCount: 0,
+        acceptedCount: 0,
+        detail: "HTTP 429",
+      },
+    });
+
+    const result = buildTopicRadar(input);
+
+    expect(result.notices.join("\n")).not.toContain("ArXiv 获取失败");
+    expect(result.warnings.join("\n")).toContain("ArXiv 获取失败");
+    expect(buildTopicRadarMarkdown(result)).toContain("ArXiv 获取失败");
+    expect(buildTopicRadarHtml(result)).toContain("ArXiv 获取失败");
+  });
+
+  it("preserves structured statuses from adapters", () => {
+    const input = baseInput();
+    Object.assign(input.trendingData, { status: status("github-trending") });
+    Object.assign(input.hnData, { status: status("hn") });
+    Object.assign(input.phData, { status: status("product-hunt", "skipped") });
+    Object.assign(input.hfData, { status: status("hf") });
+    input.webResults = [
+      {
+        site: "anthropic",
+        siteName: "Anthropic",
+        isFirstRun: false,
+        newItems: [],
+        totalDiscovered: 0,
+        status: status("web-anthropic"),
+      },
+      {
+        site: "openai",
+        siteName: "OpenAI",
+        isFirstRun: false,
+        newItems: [],
+        totalDiscovered: 0,
+        status: status("web-openai"),
+      },
+      {
+        site: "deepmind",
+        siteName: "DeepMind",
+        isFirstRun: false,
+        newItems: [],
+        totalDiscovered: 0,
+        status: status("web-deepmind"),
+      },
+    ];
+    input.chinaSourcesData = {
+      kr36: { articles: [], fetchSuccess: true, status: status("kr36") },
+      infoqCn: {
+        articles: [],
+        fetchSuccess: true,
+        status: {
+          id: "infoq-cn",
+          label: "InfoQ 中国",
+          state: "empty",
+          fetchedCount: 12,
+          acceptedCount: 0,
+        },
+      },
+      gitee: {
+        projects: [],
+        fetchSuccess: false,
+        status: {
+          id: "gitee",
+          label: "Gitee",
+          state: "error",
+          fetchedCount: 0,
+          acceptedCount: 0,
+          detail: "HTTP 503",
+        },
+      },
+      oschina: { news: [], fetchSuccess: true, status: status("oschina") },
+      juejin: {
+        articles: [],
+        fetchSuccess: true,
+        status: {
+          id: "juejin",
+          label: "掘金",
+          state: "empty",
+          fetchedCount: 20,
+          acceptedCount: 0,
+        },
+      },
+    };
+
+    expect(buildTopicRadar(input).sourceStatuses).toEqual([
+      input.trendingData.status,
+      input.hnData.status,
+      input.phData.status,
+      input.arxivData.status,
+      input.hfData.status,
+      input.webResults[0]!.status,
+      input.webResults[1]!.status,
+      input.webResults[2]!.status,
+      input.chinaSourcesData.kr36.status,
+      input.chinaSourcesData.infoqCn.status,
+      input.chinaSourcesData.gitee.status,
+      input.chinaSourcesData.oschina.status,
+      input.chinaSourcesData.juejin.status,
+    ]);
+  });
+
+  it("shows official source errors as warnings without an all-clear notice", () => {
+    const input = baseInput();
+    input.webResults = [
+      {
+        site: "anthropic",
+        siteName: "Anthropic",
+        isFirstRun: false,
+        newItems: [],
+        totalDiscovered: 0,
+        status: status("web-anthropic"),
+      },
+      {
+        site: "openai",
+        siteName: "OpenAI",
+        isFirstRun: false,
+        newItems: [],
+        totalDiscovered: 0,
+        status: status("web-openai", "error"),
+      },
+      {
+        site: "deepmind",
+        siteName: "DeepMind",
+        isFirstRun: false,
+        newItems: [],
+        totalDiscovered: 0,
+        status: status("web-deepmind"),
+      },
+    ];
+
+    const result = buildTopicRadar(input);
+
+    expect(result.warnings.join("\n")).toContain("OpenAI");
+    expect(result.notices.join("\n")).not.toContain("官方内容源今日没有检测到新内容");
+  });
+
+  it("saves structured source statuses in topic-pool JSON", () => {
+    const input = baseInput();
+    const writeSpy = vi.spyOn(fs, "writeFileSync").mockReturnValue(undefined);
+    vi.spyOn(fs, "mkdirSync").mockReturnValue(undefined);
+
+    const result = buildTopicRadar(input);
+    saveTopicRadar(result);
+
+    const jsonCall = writeSpy.mock.calls.find(([file]) => String(file).endsWith("topic-pool.json"));
+    expect(jsonCall).toBeDefined();
+    expect(JSON.parse(String(jsonCall![1])).sourceStatuses).toEqual(result.sourceStatuses);
   });
 
   it("renders a decision-first markdown report", () => {
@@ -102,13 +395,21 @@ describe("buildTopicRadar", () => {
     expect(markdown).toContain("## 今日 Top 深挖选题");
     expect(markdown).toContain("## 入池选题");
     expect(markdown).toContain("## 按五类选题分类摘要");
-    expect(markdown).toContain("## 数据源状态与修复提示");
+    expect(markdown).toContain("## 数据源普通状态提示");
+    expect(markdown).toContain("## 数据源修复提示");
+    expect(markdown).toContain("ArXiv 暂无");
     expect(markdown).toContain("| 分数 | 动作 | 题目 | 摘要 | 分类 | 推荐选题 | 推荐理由 | 证据 |");
     expect(markdown).toContain("New multimodal model launch");
     expect(markdown).toContain(
       "OpenAI launches a new multimodal model with product availability and enterprise pricing.",
     );
     expect(markdown).toContain("New multimodal model launch 为什么值得关注？（");
+  });
+
+  it("explains an empty watch list without implying source failure", () => {
+    const markdown = buildTopicRadarMarkdown(buildTopicRadar(baseInput()));
+
+    expect(markdown).toContain("暂无 50–64 分观察项。这不代表数据源采集失败。");
   });
 
   it("renders a self-contained html report", () => {
@@ -129,6 +430,9 @@ describe("buildTopicRadar", () => {
     expect(html).toContain("<!doctype html>");
     expect(html).toContain("AI 热点选题池 2026-05-20");
     expect(html).toContain("今日 Top 深挖选题");
+    expect(html).toContain("数据源普通状态提示");
+    expect(html).toContain("数据源修复提示");
+    expect(html).toContain("ArXiv 暂无");
     expect(html).toContain("New multimodal model launch");
     expect(html).toContain("topic-pool.json");
     expect(html).not.toContain("https://cdn.");

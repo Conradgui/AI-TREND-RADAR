@@ -1,5 +1,10 @@
-import { describe, it, expect } from "vitest";
-import { toRfc822, escapeXml, getReportFiles } from "../generate-manifest.ts";
+import fs from "node:fs";
+import { afterEach, describe, it, expect, vi } from "vitest";
+import { toRfc822, escapeXml, getReportFiles, generateSearchIndex } from "../generate-manifest.ts";
+
+afterEach(() => {
+  vi.restoreAllMocks();
+});
 
 // ---------------------------------------------------------------------------
 // toRfc822
@@ -77,5 +82,37 @@ describe("getReportFiles", () => {
     const reports = getReportFiles(["zh", "en"], true);
     expect(reports).toContain("ai-cli-en");
     expect(reports).toContain("ai-weekly-en");
+  });
+});
+
+describe("generateSearchIndex", () => {
+  it("indexes topic-pool candidates and legacy topics", () => {
+    vi.spyOn(fs, "existsSync").mockImplementation((file) => String(file).endsWith("topic-pool.json"));
+    vi.spyOn(fs, "readFileSync").mockImplementation((file) => {
+      const text = String(file);
+      if (text.includes("2026-06-01")) {
+        return JSON.stringify({
+          candidates: [
+            { title: "New candidate", score: 88, category: "AI 产品与用户入口", source: "Dev.to" },
+          ],
+        });
+      }
+      return JSON.stringify({
+        topics: [{ topic: "Legacy topic", score: 70, category: "模型与技术突破", evidence: ["来源：ArXiv"] }],
+      });
+    });
+    const writeSpy = vi.spyOn(fs, "writeFileSync").mockImplementation(() => undefined);
+
+    generateSearchIndex([
+      { date: "2026-06-01", reports: ["ai-topic-radar"] },
+      { date: "2026-05-31", reports: ["ai-topic-radar"] },
+    ]);
+
+    const [, content] = writeSpy.mock.calls.find(([file]) => String(file).endsWith("search-index.json"))!;
+    const index = JSON.parse(String(content));
+    expect(index.topics).toEqual([
+      expect.objectContaining({ title: "New candidate", source: "Dev.to" }),
+      expect.objectContaining({ title: "Legacy topic", source: "来源：ArXiv" }),
+    ]);
   });
 });

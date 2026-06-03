@@ -3,6 +3,7 @@
  */
 
 import { extractTag, extractCdata, stripHtml, FETCH_TIMEOUT_MS } from "./rss-utils.ts";
+import { createSourceStatus, type SourceStatus } from "./source-status.ts";
 
 // ---------------------------------------------------------------------------
 // Types
@@ -20,6 +21,7 @@ export interface Kr36Article {
 export interface Kr36Data {
   articles: Kr36Article[];
   fetchSuccess: boolean;
+  status: SourceStatus;
 }
 
 // ---------------------------------------------------------------------------
@@ -61,6 +63,21 @@ function isAiRelated(title: string, summary: string): boolean {
   return AI_KEYWORDS.some((kw) => text.includes(kw.toLowerCase()));
 }
 
+function result(articles: Kr36Article[], fetchedCount: number, error?: string): Kr36Data {
+  const status = createSourceStatus({
+    id: "kr36",
+    label: "36kr",
+    fetchedCount,
+    acceptedCount: articles.length,
+    error,
+  });
+  return { articles, fetchSuccess: status.state !== "error", status };
+}
+
+function isRssFeed(xml: string): boolean {
+  return /<(rss|feed)[\s>]/i.test(xml);
+}
+
 // ---------------------------------------------------------------------------
 // Fetch via RSS
 // ---------------------------------------------------------------------------
@@ -81,10 +98,14 @@ export async function fetchKr36Data(): Promise<Kr36Data> {
       const cl = resp.headers.get("content-length");
       if (cl && Number(cl) > 5 * 1024 * 1024) {
         console.error(`  [kr36] RSS response too large: ${cl} bytes`);
-        return { articles: [], fetchSuccess: false };
+        return result([], 0, `RSS response too large: ${cl} bytes`);
       }
 
       const xml = await resp.text();
+      if (!isRssFeed(xml)) {
+        console.error(`  [kr36] unexpected RSS response shape`);
+        return result([], 0, "unexpected RSS response shape");
+      }
       const itemBlocks = xml.split("<item>").slice(1);
 
       for (const block of itemBlocks) {
@@ -112,13 +133,13 @@ export async function fetchKr36Data(): Promise<Kr36Data> {
       }
 
       console.log(`  [kr36] ${articles.length} AI articles from RSS`);
-      return { articles, fetchSuccess: articles.length > 0 };
+      return result(articles, itemBlocks.length);
     }
 
     console.log(`  [kr36] RSS returned ${resp.status}, no fallback available`);
+    return result([], 0, `HTTP ${resp.status}`);
   } catch (err) {
     console.error(`  [kr36] RSS fetch failed: ${err}`);
+    return result([], 0, String(err));
   }
-
-  return { articles: [], fetchSuccess: false };
 }

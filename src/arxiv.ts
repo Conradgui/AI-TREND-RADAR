@@ -5,6 +5,8 @@
  * sorted by submission date, filtered to last 48h.
  */
 
+import { createSourceStatus, type SourceStatus } from "./source-status.ts";
+
 // ---------------------------------------------------------------------------
 // Types
 // ---------------------------------------------------------------------------
@@ -24,6 +26,7 @@ export interface ArxivPaper {
 export interface ArxivData {
   papers: ArxivPaper[];
   fetchSuccess: boolean;
+  status: SourceStatus;
 }
 
 // ---------------------------------------------------------------------------
@@ -36,8 +39,9 @@ const API_URL = "https://export.arxiv.org/api/query";
 /** ArXiv categories to search. */
 const CATEGORIES = ["cs.AI", "cs.CL", "cs.LG"];
 
-/** Delay between requests (ArXiv asks for 3s). */
+/** Delay before retrying a rate-limited request. */
 const REQUEST_DELAY_MS = 3000;
+const MAX_ATTEMPTS = 3;
 
 // ---------------------------------------------------------------------------
 // XML helpers (lightweight, no dependency)
@@ -104,46 +108,99 @@ async function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+function retryDelayMs(resp: Response, attempt: number): number {
+  const retryAfter = resp.headers.get("retry-after");
+  if (retryAfter !== null) {
+    const seconds = Number(retryAfter);
+    if (Number.isFinite(seconds) && seconds >= 0) return seconds * 1000;
+    const dateMs = Date.parse(retryAfter);
+    if (!Number.isNaN(dateMs)) return Math.max(0, dateMs - Date.now());
+  }
+  return REQUEST_DELAY_MS * 2 ** attempt;
+}
+
+function isAtomFeed(xml: string): boolean {
+  return /<feed[\s>]/.test(xml);
+}
+
 export async function fetchArxivData(): Promise<ArxivData> {
   const seen = new Map<string, ArxivPaper>();
+  const params = new URLSearchParams({
+    search_query: CATEGORIES.map((cat) => `cat:${cat}`).join(" OR "),
+    sortBy: "submittedDate",
+    sortOrder: "descending",
+    max_results: String(ARXIV_MAX_RESULTS),
+  });
+  let xml = "";
 
-  for (let i = 0; i < CATEGORIES.length; i++) {
-    const cat = CATEGORIES[i]!;
-    if (i > 0) await sleep(REQUEST_DELAY_MS);
-
+  for (let attempt = 0; attempt < MAX_ATTEMPTS; attempt++) {
     try {
-      const params = new URLSearchParams({
-        search_query: `cat:${cat}`,
-        sortBy: "submittedDate",
-        sortOrder: "descending",
-        max_results: String(ARXIV_MAX_RESULTS),
-      });
-
       const resp = await fetch(`${API_URL}?${params}`, {
         headers: { "User-Agent": "ai-topic-radar/1.0" },
       });
 
       if (!resp.ok) {
-        console.error(`  [arxiv] ${cat}: HTTP ${resp.status}`);
-        continue;
-      }
-
-      const xml = await resp.text();
-
-      // Split into entries
-      const entryBlocks = xml.split("<entry>").slice(1);
-      for (const block of entryBlocks) {
-        const paper = parseEntry("<entry>" + block);
-        if (paper && !seen.has(paper.id)) {
-          seen.set(paper.id, paper);
+        const error = `HTTP ${resp.status}`;
+        console.error(`  [arxiv] ${error}`);
+        if (resp.status === 429 && attempt < MAX_ATTEMPTS - 1) {
+          await sleep(retryDelayMs(resp, attempt));
+          continue;
         }
+        return {
+          papers: [],
+          fetchSuccess: false,
+          status: createSourceStatus({
+            id: "arxiv",
+            label: "ArXiv",
+            fetchedCount: 0,
+            acceptedCount: 0,
+            error,
+          }),
+        };
       }
 
-      console.log(`  [arxiv] ${cat}: ${entryBlocks.length} papers`);
+      xml = await resp.text();
+      if (!isAtomFeed(xml)) {
+        const error = "unexpected Atom feed shape";
+        console.error(`  [arxiv] ${error}`);
+        return {
+          papers: [],
+          fetchSuccess: false,
+          status: createSourceStatus({
+            id: "arxiv",
+            label: "ArXiv",
+            fetchedCount: 0,
+            acceptedCount: 0,
+            error,
+          }),
+        };
+      }
+      break;
     } catch (err) {
-      console.error(`  [arxiv] ${cat}: ${err}`);
+      const error = String(err);
+      console.error(`  [arxiv] fetch failed: ${error}`);
+      return {
+        papers: [],
+        fetchSuccess: false,
+        status: createSourceStatus({
+          id: "arxiv",
+          label: "ArXiv",
+          fetchedCount: 0,
+          acceptedCount: 0,
+          error,
+        }),
+      };
     }
   }
+
+  const entryBlocks = xml.split("<entry>").slice(1);
+  for (const block of entryBlocks) {
+    const paper = parseEntry("<entry>" + block);
+    if (paper && !seen.has(paper.id)) {
+      seen.set(paper.id, paper);
+    }
+  }
+  console.log(`  [arxiv] ${entryBlocks.length} papers fetched`);
 
   // Filter to last 48h (ArXiv has a ~1-day publishing delay, so 24h would miss today's batch)
   const cutoff = Date.now() - 48 * 60 * 60 * 1000;
@@ -153,5 +210,14 @@ export async function fetchArxivData(): Promise<ArxivData> {
     .slice(0, ARXIV_MAX_RESULTS);
 
   console.log(`  [arxiv] ${papers.length} papers (from ${seen.size} unique)`);
-  return { papers, fetchSuccess: papers.length > 0 };
+  return {
+    papers,
+    fetchSuccess: true,
+    status: createSourceStatus({
+      id: "arxiv",
+      label: "ArXiv",
+      fetchedCount: entryBlocks.length,
+      acceptedCount: papers.length,
+    }),
+  };
 }

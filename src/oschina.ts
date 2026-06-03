@@ -3,6 +3,7 @@
  */
 
 import { extractTag, extractCdata, stripHtml, FETCH_TIMEOUT_MS } from "./rss-utils.ts";
+import { createSourceStatus, type SourceStatus } from "./source-status.ts";
 
 // ---------------------------------------------------------------------------
 // Types
@@ -20,6 +21,7 @@ export interface OschinaNews {
 export interface OschinaData {
   news: OschinaNews[];
   fetchSuccess: boolean;
+  status: SourceStatus;
 }
 
 // ---------------------------------------------------------------------------
@@ -61,6 +63,21 @@ function isAiRelated(title: string, body: string): boolean {
   return AI_KEYWORDS.some((kw) => text.includes(kw.toLowerCase()));
 }
 
+function result(news: OschinaNews[], fetchedCount: number, error?: string): OschinaData {
+  const status = createSourceStatus({
+    id: "oschina",
+    label: "开源中国",
+    fetchedCount,
+    acceptedCount: news.length,
+    error,
+  });
+  return { news, fetchSuccess: status.state !== "error", status };
+}
+
+function isRssFeed(xml: string): boolean {
+  return /<(rss|feed)[\s>]/i.test(xml);
+}
+
 // ---------------------------------------------------------------------------
 // Fetch
 // ---------------------------------------------------------------------------
@@ -79,16 +96,20 @@ export async function fetchOschinaData(): Promise<OschinaData> {
 
     if (!resp.ok) {
       console.error(`  [oschina] RSS returned HTTP ${resp.status}`);
-      return { news: [], fetchSuccess: false };
+      return result([], 0, `HTTP ${resp.status}`);
     }
 
     const cl = resp.headers.get("content-length");
     if (cl && Number(cl) > 5 * 1024 * 1024) {
       console.error(`  [oschina] RSS response too large: ${cl} bytes`);
-      return { news: [], fetchSuccess: false };
+      return result([], 0, `RSS response too large: ${cl} bytes`);
     }
 
     const xml = await resp.text();
+    if (!isRssFeed(xml)) {
+      console.error(`  [oschina] unexpected RSS response shape`);
+      return result([], 0, "unexpected RSS response shape");
+    }
     const itemBlocks = xml.split("<item>").slice(1);
 
     for (const block of itemBlocks) {
@@ -116,9 +137,9 @@ export async function fetchOschinaData(): Promise<OschinaData> {
     }
 
     console.log(`  [oschina] ${articles.length} AI news articles`);
-    return { news: articles, fetchSuccess: articles.length > 0 };
+    return result(articles, itemBlocks.length);
   } catch (err) {
     console.error(`  [oschina] fetch failed: ${err}`);
-    return { news: [], fetchSuccess: false };
+    return result([], 0, String(err));
   }
 }
