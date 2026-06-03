@@ -27,7 +27,8 @@
 | `digests/YYYY-MM-DD/ai-topic-radar.md` | Markdown 版本 |
 | `digests/YYYY-MM-DD/topic-pool.json` | 结构化选题池（分数、分类、动作、理由、证据） |
 | `digests/YYYY-MM-DD/ai-china-tech.md` | 中文科技社区 AI 动态日报（36kr + InfoQ + Gitee + OSChina + 掘金） |
-| `manifest.json` | 历史 Web UI 索引 |
+| `manifest.json` | 历史 Web UI 侧边栏索引 |
+| `digests/search-index.json` | 历史选题搜索索引 |
 | `feed.xml` | RSS 订阅源 |
 
 ### 适合谁？
@@ -86,6 +87,17 @@ pnpm digest
 
 某个来源失败不会中断日报，主报告会在"数据源状态与修复提示"里说明原因。
 
+状态语义：
+
+- `ok`：来源成功返回并产出内容。
+- `empty`：来源成功访问，但本轮没有符合条件的新内容；不等同于故障。
+- `skipped`：缺少可选 token 或配置，主动跳过。
+- `error`：网络、接口结构或上游返回异常；HTTP 200 但返回拦截页、HTML 或异常 XML 也会标记为失败。
+
+Gitee 是尽力而为来源，空结果或部分关键词失败不会阻断日报。
+
+选题排序优先级默认按一手程度处理：OpenAI / Anthropic / Google DeepMind 官网优先，其次是产品、模型、开源和国际社区信号；国内媒体和国内开发者社区作为补充观察源。
+
 ## 功能模块总览
 
 | 模块 | 能力 | 默认 |
@@ -95,6 +107,7 @@ pnpm digest
 | 选题评分 | 商业影响 40、热度 30、新鲜度 20、可写性 10 | 是 |
 | 内容分类 | 政策监管、模型突破、AI 产品、行业落地、标杆企业与商业格局 | 是 |
 | 中文科技社区报告 | `ai-china-tech.md`（36kr + InfoQ + Gitee + OSChina + 掘金） | 是 |
+| 搜索索引 | `digests/search-index.json`，从每日 `topic-pool.json` 生成 | 是 |
 | 源级报告 | `ai-web.md`、`ai-hn.md`、`ai-arxiv.md` 等 | 默认关闭 |
 | 英文报告 | `*-en.md` | 默认关闭 |
 | 历史 Web UI | `index.html` + `manifest.json` | 是 |
@@ -121,6 +134,19 @@ pnpm digest
 - AI 产品与用户入口
 - 企业落地与行业应用
 - 标杆企业动向、商业格局与投融资
+
+选题池还有几条约束：
+
+- `topic-pool.json` 的主数据字段是 `candidates`；历史版本的 `topics` 会继续被搜索索引兼容读取。
+- 候选池会按 URL 去重。
+- 官网一手内容会获得更高排序权重；HTTP 200 但结构异常的官网响应仍会标记为失败。
+- GitHub + Gitee 仓库类候选最多保留 16 条，避免开源仓库长期挤满 60 个候选位。
+- Gitee 单源最多 3 条。
+- GitHub 仓库热度使用对数计分，高 star 仍有优势，但不会仅凭总 star 挤掉其他来源。
+- 国内源拆分为国内媒体（InfoQ 中国、36kr）和国内开发者社区（开源中国、掘金）；国内源合计最多 6 条。
+- 掘金单源最多 2 条，定位为补充社区观察，不作为 Top 深挖主来源。
+- Dev.to 和 Lobsters 社区内容会进入选题池，不只生成社区报告。
+- 50-64 分是"观察项"。如果当天没有观察项，报告会显示说明文案；这不代表采集失败。
 
 ## 三种使用方式
 
@@ -163,14 +189,14 @@ pnpm digest
 | `pnpm serve` | 本地查看历史 Web UI |
 | `pnpm weekly` | 生成周报 |
 | `pnpm monthly` | 生成月报 |
-| `pnpm test` | 单元测试（224 个） |
+| `pnpm test` | 单元测试（274 个） |
 | `pnpm typecheck` | TypeScript 类型检查 |
 
 ## 验证状态
 
 - TypeScript typecheck: 通过
 - ESLint: 通过
-- 单元测试: 224/224 通过
+- 单元测试: 274/274 通过
 
 ## 作品集边界
 

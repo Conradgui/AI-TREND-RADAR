@@ -176,8 +176,137 @@ describe("buildTopicRadar", () => {
     const repoCount = candidates.filter(
       (candidate) => candidate.source.startsWith("GitHub Search") || candidate.source === "Gitee",
     ).length;
+    const giteeCount = candidates.filter((candidate) => candidate.source === "Gitee").length;
 
-    expect(repoCount).toBeLessThanOrEqual(20);
+    expect(repoCount).toBeLessThanOrEqual(16);
+    expect(giteeCount).toBeLessThanOrEqual(3);
+  });
+
+  it("prioritizes fresh official sources over high-heat Juejin articles", () => {
+    const input = baseInput();
+    input.webResults = [
+      {
+        site: "openai",
+        siteName: "OpenAI",
+        isFirstRun: false,
+        totalDiscovered: 3,
+        status: status("web-openai", "ok"),
+        newItems: Array.from({ length: 3 }, (_, index) => ({
+          url: `https://openai.com/index/official-${index}`,
+          title: `OpenAI enterprise product launch ${index}`,
+          lastmod: "2026-05-20",
+          content:
+            "OpenAI launches a new enterprise AI product with pricing, customer rollout, and platform availability.",
+          site: "openai",
+          category: "product",
+        })),
+      },
+    ];
+    input.chinaSourcesData = {
+      kr36: { articles: [], fetchSuccess: true, status: status("kr36") },
+      infoqCn: { articles: [], fetchSuccess: true, status: status("infoq-cn") },
+      gitee: { projects: [], fetchSuccess: true, status: status("gitee") },
+      oschina: { news: [], fetchSuccess: true, status: status("oschina") },
+      juejin: {
+        articles: Array.from({ length: 8 }, (_, index) => ({
+          id: `juejin-${index}`,
+          title: `掘金 AI 编程爆款文章 ${index}`,
+          url: `https://juejin.cn/post/${index}`,
+          brief: "AI 编程、企业用户和产品体验相关的高热度社区文章，适合观察但不是一手官方信号。",
+          author: "掘金作者",
+          diggCount: 10_000 - index,
+          viewCount: 100_000 - index,
+          tags: ["AI编程", "前端"],
+          publishTime: "2026-05-20T00:00:00Z",
+        })),
+        fetchSuccess: true,
+        status: status("juejin"),
+      },
+    };
+
+    const candidates = buildTopicRadar(input).candidates;
+    const officialScores = candidates
+      .filter((candidate) => candidate.source === "OpenAI")
+      .map((candidate) => candidate.score);
+    const juejinScores = candidates
+      .filter((candidate) => candidate.source === "掘金")
+      .map((candidate) => candidate.score);
+
+    expect(candidates.slice(0, 3).every((candidate) => candidate.source === "OpenAI")).toBe(true);
+    expect(Math.min(...officialScores)).toBeGreaterThan(Math.max(...juejinScores));
+  });
+
+  it("caps domestic media and domestic community candidates separately", () => {
+    const input = baseInput();
+    input.chinaSourcesData = {
+      kr36: {
+        articles: Array.from({ length: 6 }, (_, index) => ({
+          id: `kr36-${index}`,
+          title: `36kr AI 企业落地新闻 ${index}`,
+          url: `https://36kr.com/p/${index}`,
+          summary: "AI 企业落地、商业化和用户增长相关报道，来自国内媒体。",
+          publishedAt: "2026-05-20T00:00:00Z",
+          author: "36kr",
+        })),
+        fetchSuccess: true,
+        status: status("kr36"),
+      },
+      infoqCn: {
+        articles: Array.from({ length: 6 }, (_, index) => ({
+          id: `infoq-${index}`,
+          title: `InfoQ 中国 AI 架构实践 ${index}`,
+          url: `https://www.infoq.cn/article/${index}`,
+          summary: "企业 AI 架构、模型应用和工程落地经验。",
+          author: "InfoQ",
+          publishTime: "2026-05-20T00:00:00Z",
+          topics: ["AI", "架构"],
+        })),
+        fetchSuccess: true,
+        status: status("infoq-cn"),
+      },
+      gitee: { projects: [], fetchSuccess: true, status: status("gitee") },
+      oschina: {
+        news: Array.from({ length: 6 }, (_, index) => ({
+          id: `oschina-${index}`,
+          title: `开源中国 AI 产品动态 ${index}`,
+          url: `https://www.oschina.net/news/${index}`,
+          body: "AI 产品、用户入口和开发者生态相关内容。",
+          author: "开源中国",
+          pubDate: "2026-05-20T00:00:00Z",
+        })),
+        fetchSuccess: true,
+        status: status("oschina"),
+      },
+      juejin: {
+        articles: Array.from({ length: 8 }, (_, index) => ({
+          id: `juejin-${index}`,
+          title: `掘金 AI 编程文章 ${index}`,
+          url: `https://juejin.cn/post/${index}`,
+          brief: "AI 编程、前端开发和开发者工具相关社区内容。",
+          author: "掘金作者",
+          diggCount: 8_000 - index,
+          viewCount: 80_000 - index,
+          tags: ["AI编程", "前端"],
+          publishTime: "2026-05-20T00:00:00Z",
+        })),
+        fetchSuccess: true,
+        status: status("juejin"),
+      },
+    };
+
+    const candidates = buildTopicRadar(input).candidates;
+    const domesticMediaCount = candidates.filter((candidate) =>
+      ["36kr", "InfoQ 中国"].includes(candidate.source),
+    ).length;
+    const domesticCommunityCount = candidates.filter((candidate) =>
+      ["开源中国", "掘金"].includes(candidate.source),
+    ).length;
+    const juejinCount = candidates.filter((candidate) => candidate.source === "掘金").length;
+
+    expect(domesticMediaCount + domesticCommunityCount).toBeLessThanOrEqual(6);
+    expect(domesticMediaCount).toBeLessThanOrEqual(4);
+    expect(domesticCommunityCount).toBeLessThanOrEqual(2);
+    expect(juejinCount).toBeLessThanOrEqual(2);
   });
 
   it("keeps source warnings without blocking topic pool generation", () => {

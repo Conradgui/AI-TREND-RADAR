@@ -99,6 +99,37 @@ GitHub Actions Secret 名称：
 PRODUCTHUNT_TOKEN
 ```
 
+## 数据源状态与选题规则
+
+日报不会因为单个公开来源失败而中断。主报告里的"数据源状态与修复提示"使用以下语义：
+
+| 状态 | 含义 |
+| --- | --- |
+| `ok` | 成功获取并产出内容 |
+| `empty` | 成功访问，但本轮没有符合条件的新内容 |
+| `skipped` | 缺少可选 token 或配置，主动跳过 |
+| `error` | 网络、接口结构或上游返回异常 |
+
+注意：
+
+- `empty` 不是故障。官方内容源、Gitee 等来源在首次运行后没有新增内容是正常情况。
+- ArXiv、36kr、OSChina 和官网 sitemap 会校验最小 XML 结构；HTTP 200 但返回 HTML 拦截页或异常 XML 时会标记为 `error`。
+- Gitee 是尽力而为来源；空结果、部分关键词失败或接口短暂不可用不会阻断日报。
+
+选题池规则：
+
+- 每日结构化选题池写入 `digests/YYYY-MM-DD/topic-pool.json`，主字段为 `candidates`。
+- 搜索索引 `digests/search-index.json` 由 `pnpm manifest` 生成，优先读取 `candidates`，并兼容旧版 `topics`。
+- 候选会按 URL 去重。
+- OpenAI / Anthropic / Google DeepMind 官网一手内容拥有最高排序优先级。
+- GitHub + Gitee 仓库类候选最多保留 16 条，避免仓库信号长期挤满候选池。
+- Gitee 单源最多 3 条。
+- GitHub 仓库热度使用对数计分，高 star 项目仍可入池，但不会仅凭总 star 压过其他来源。
+- 国内源拆分为国内媒体（InfoQ 中国、36kr）和国内开发者社区（开源中国、掘金）；国内源合计最多 6 条。
+- 掘金单源最多 2 条，定位为补充社区观察，不作为 Top 深挖主来源。
+- Dev.to 和 Lobsters 社区内容会进入选题池，同时也可用于社区报告。
+- 50-64 分是"观察项"；如果观察项为空，报告会显示解释文案，这不代表采集失败。
+
 ## Telegram
 
 需要两个值：

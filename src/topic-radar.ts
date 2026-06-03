@@ -173,13 +173,15 @@ function heatScore(topic: RawTopic): number {
     case "product":
       return clamp(strongestSignal / 8, 30);
     case "community":
+      if (topic.source === "InfoQ 中国" || topic.source === "36kr") return clamp(strongestSignal / 30, 18);
+      if (topic.source === "开源中国" || topic.source === "掘金") return clamp(strongestSignal / 80, 12);
       return clamp(strongestSignal / 12, 30);
     case "github":
-      return clamp(Math.log10(strongestSignal + 1) * 5, 24);
+      return clamp(Math.log10(strongestSignal + 1) * 5, topic.source === "Gitee" ? 20 : 24);
     case "model":
       return clamp(strongestSignal / 20, 30);
     case "official":
-      return 24;
+      return 30;
     case "research":
       return 16;
   }
@@ -199,7 +201,7 @@ function freshnessScore(topic: RawTopic, now: Date): number {
 function commercialImpactScore(topic: RawTopic, category: TopicCategory): number {
   const text = textOf(topic);
   let score = 8;
-  if (topic.sourceType === "official") score += 16;
+  if (topic.sourceType === "official") score += 22;
   if (topic.sourceType === "product") score += 12;
   if (topic.sourceType === "community") score += 7;
   if (category === "标杆企业动向、商业格局与投融资") score += 9;
@@ -220,6 +222,11 @@ function commercialImpactScore(topic: RawTopic, category: TopicCategory): number
   )
     score += 7;
   if (hasAny(text, ["openai", "anthropic", "google", "meta", "microsoft", "nvidia", "apple"])) score += 5;
+  if (topic.source === "InfoQ 中国") score -= 4;
+  if (topic.source === "36kr") score -= 6;
+  if (topic.source === "开源中国") score -= 10;
+  if (topic.source === "掘金") score -= 12;
+  if (topic.source === "Gitee") score -= 3;
   return clamp(score, 40);
 }
 
@@ -332,9 +339,19 @@ function dedupeCandidates(candidates: TopicCandidate[]): TopicCandidate[] {
   return [...byUrl.values()];
 }
 
-type SourceGroup = "repo" | "domestic" | "research" | "product" | "official" | "community";
+type SourceGroup =
+  | "official"
+  | "product"
+  | "research"
+  | "repo"
+  | "internationalCommunity"
+  | "domesticMedia"
+  | "domesticCommunity";
 
 function sourceGroup(candidate: TopicCandidate): SourceGroup {
+  if (["OpenAI", "Anthropic (Claude)", "Google DeepMind"].includes(candidate.source)) return "official";
+  if (candidate.source === "Product Hunt") return "product";
+  if (candidate.source === "ArXiv" || candidate.source === "Hugging Face") return "research";
   if (
     candidate.source === "GitHub Trending" ||
     candidate.source.startsWith("GitHub Search") ||
@@ -342,11 +359,15 @@ function sourceGroup(candidate: TopicCandidate): SourceGroup {
   ) {
     return "repo";
   }
-  if (["36kr", "InfoQ 中国", "开源中国", "掘金"].includes(candidate.source)) return "domestic";
-  if (candidate.source === "ArXiv" || candidate.source === "Hugging Face") return "research";
-  if (candidate.source === "Product Hunt") return "product";
-  if (["OpenAI", "Anthropic (Claude)", "Google DeepMind"].includes(candidate.source)) return "official";
-  return "community";
+  if (["InfoQ 中国", "36kr"].includes(candidate.source)) return "domesticMedia";
+  if (["开源中国", "掘金"].includes(candidate.source)) return "domesticCommunity";
+  return "internationalCommunity";
+}
+
+function sourceMax(candidate: TopicCandidate): number | undefined {
+  if (candidate.source === "Gitee") return 3;
+  if (candidate.source === "掘金") return 2;
+  return undefined;
 }
 
 function selectCandidates(scored: TopicCandidate[]): TopicCandidate[] {
@@ -356,13 +377,15 @@ function selectCandidates(scored: TopicCandidate[]): TopicCandidate[] {
   const selected: TopicCandidate[] = [];
   const used = new Set<string>();
   const counts = new Map<SourceGroup, number>();
+  const sourceCounts = new Map<string, number>();
   const groups: Array<{ id: SourceGroup; base: number; max: number }> = [
-    { id: "repo", base: 15, max: 20 },
-    { id: "domestic", base: 8, max: 12 },
-    { id: "research", base: 8, max: 10 },
-    { id: "product", base: 6, max: 10 },
-    { id: "official", base: 5, max: 8 },
-    { id: "community", base: 5, max: 8 },
+    { id: "official", base: 10, max: 15 },
+    { id: "product", base: 8, max: 10 },
+    { id: "research", base: 8, max: 12 },
+    { id: "repo", base: 10, max: 16 },
+    { id: "internationalCommunity", base: 5, max: 8 },
+    { id: "domesticMedia", base: 2, max: 4 },
+    { id: "domesticCommunity", base: 1, max: 2 },
   ];
   const add = (candidate: TopicCandidate): void => {
     if (selected.length >= 60) return;
@@ -371,8 +394,11 @@ function selectCandidates(scored: TopicCandidate[]): TopicCandidate[] {
     const group = sourceGroup(candidate);
     const max = groups.find((item) => item.id === group)?.max ?? 60;
     if ((counts.get(group) ?? 0) >= max) return;
+    const maxForSource = sourceMax(candidate);
+    if (maxForSource !== undefined && (sourceCounts.get(candidate.source) ?? 0) >= maxForSource) return;
     used.add(key);
     counts.set(group, (counts.get(group) ?? 0) + 1);
+    sourceCounts.set(candidate.source, (sourceCounts.get(candidate.source) ?? 0) + 1);
     selected.push(candidate);
   };
 
@@ -384,7 +410,7 @@ function selectCandidates(scored: TopicCandidate[]): TopicCandidate[] {
     }
   }
   for (const candidate of eligible) add(candidate);
-  return selected;
+  return selected.sort((a, b) => b.score - a.score);
 }
 
 function collectRawTopics(input: TopicRadarInput): RawTopic[] {
