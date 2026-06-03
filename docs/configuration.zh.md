@@ -121,8 +121,12 @@ PRODUCTHUNT_TOKEN
 - 每日结构化选题池写入 `digests/YYYY-MM-DD/topic-pool.json`，主字段为 `candidates`。
 - 搜索索引 `digests/search-index.json` 由 `pnpm manifest` 生成，优先读取 `candidates`，并兼容旧版 `topics`。
 - 候选会按 URL 去重。
-- GitHub + Gitee 仓库类候选最多保留 20 条，避免仓库信号长期挤满候选池。
+- OpenAI / Anthropic / Google DeepMind 官网一手内容拥有最高排序优先级。
+- GitHub + Gitee 仓库类候选最多保留 16 条，避免仓库信号长期挤满候选池。
+- Gitee 单源最多 3 条。
 - GitHub 仓库热度使用对数计分，高 star 项目仍可入池，但不会仅凭总 star 压过其他来源。
+- 国内源拆分为国内媒体（InfoQ 中国、36kr）和国内开发者社区（开源中国、掘金）；国内源合计最多 6 条。
+- 掘金单源最多 2 条，定位为补充社区观察，不作为 Top 深挖主来源。
 - Dev.to 和 Lobsters 社区内容会进入选题池，同时也可用于社区报告。
 - 50-64 分是"观察项"；如果观察项为空，报告会显示解释文案，这不代表采集失败。
 
