@@ -6,7 +6,7 @@
 
 本项目基于 [`duanyytop/agents-radar`](https://github.com/duanyytop/agents-radar) 改造。
 
-> **RAG 版本**：本项目还有一个 [AI-TREND-RADAR-RAG](https://github.com/Conradgui/AI-TREND-RADAR-RAG) 版本，基于 Neo4j 知识图谱 + ChromaDB 向量搜索构建了 Agentic RAG 系统，支持通过自然语言对话查询历史选题数据。
+> **关联项目**：本仓库的扩展版本 [AI-TREND-RADAR-RAG](https://github.com/Conradgui/AI-TREND-RADAR-RAG) 在数据管道基础上构建了 Graph RAG + Agentic RAG 智能查询系统，支持通过自然语言对话查询历史选题数据、分析趋势。详见[开发方向](#关联项目与开发方向)。
 
 ## 5 分钟理解
 
@@ -197,6 +197,41 @@ pnpm digest
 - TypeScript typecheck: 通过
 - ESLint: 通过
 - 单元测试: 274/274 通过
+
+## 关联项目与开发方向
+
+### AI-TREND-RADAR-RAG
+
+扩展版本：https://github.com/Conradgui/AI-TREND-RADAR-RAG
+
+本仓库是**数据管道**（采集 → 评分 → 报告 → 分发），RAG 仓库在此基础上增加了**智能查询层**：
+
+```
+AI-TREND-RADAR（本仓库）              AI-TREND-RADAR-RAG（扩展版本）
+├── 15+ 数据源采集                    ├── 包含本仓库全部代码
+├── LLM 摘要 + 选题评分               ├── Neo4j 知识图谱
+├── 日报/周报/月报生成                ├── ChromaDB 向量搜索
+├── Telegram/飞书/RSS 分发            ├── LangGraph ReAct Agent（6 工具）
+└── GitHub Pages 展示                 └── Chat UI + MCP Worker
+```
+
+> 本仓库的 `rag/`、`services/agentdb/`、`mcp/` 目录是从 RAG 仓库引入的实验性代码，尚未接入主流程。正式版本请使用 RAG 仓库。
+
+### 开发方向：Nexus-inspired Knowledge Engine
+
+正在 RAG 仓库开发的下一代架构，目标是把分散的每日 AI 信号预编译为结构化知识，让 Agent 查询时直接获取已组织好的知识，而非每次从原始文档中检索：
+
+```
+Nexus-inspired Knowledge Engine
+= Agentic RAG                          — Agent 自主决定何时检索、用哪个工具、如何综合
++ Pre-runtime Knowledge Compilation    — 每日 ingestion 阶段预编译知识制品
++ Knowledge Artifact Layer             — 结构化知识实体（话题图谱、趋势轨迹、实体关系）
++ Structured Knowledge Query           — 声明式查询（Cypher + 语义混合），不再依赖纯文本检索
++ Evidence & Governance Layer          — 每条结论可追溯到原始数据源和评分证据
++ Evaluation Feedback Loop             — 选题质量反馈驱动评分权重和分类规则的持续优化
+```
+
+当前进度：基础 Graph RAG（知识图谱构建 + 混合检索 + 6 工具 Agent）已完成，后续迭代预编译知识制品和声明式查询层。
 
 ## 作品集边界
 
