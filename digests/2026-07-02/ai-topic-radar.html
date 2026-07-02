@@ -1,0 +1,1514 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 热点选题池 2026-07-02</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f8fb;
+      --panel: #ffffff;
+      --text: #172033;
+      --muted: #667085;
+      --line: #d8dee9;
+      --accent: #2563eb;
+      --accent-soft: #e8f0ff;
+      --green: #0f8a5f;
+      --shadow: 0 16px 40px rgba(17, 24, 39, 0.08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 40px 20px 64px;
+    }
+    header {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      padding: 28px;
+      margin-bottom: 24px;
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { font-size: 32px; line-height: 1.2; margin-bottom: 12px; }
+    h2 { font-size: 24px; margin: 32px 0 16px; }
+    h3 { font-size: 18px; margin: 24px 0 12px; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .summary {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+    .quick-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .quick-links a, .quick-links span {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 12px;
+      background: #fff;
+      color: var(--text);
+      font-size: 14px;
+    }
+    .topic-grid {
+      display: grid;
+      gap: 14px;
+    }
+    .topic-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+      box-shadow: 0 8px 24px rgba(17, 24, 39, 0.05);
+    }
+    .topic-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 16px;
+      align-items: start;
+    }
+    .topic-title {
+      display: inline-block;
+      font-weight: 700;
+      font-size: 17px;
+      line-height: 1.45;
+      overflow-wrap: anywhere;
+    }
+    .meta {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 4px;
+    }
+    .score {
+      min-width: 72px;
+      border-radius: 8px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      text-align: center;
+      padding: 8px 10px;
+    }
+    .score strong {
+      display: block;
+      font-size: 24px;
+      line-height: 1;
+    }
+    .score span {
+      display: block;
+      margin-top: 4px;
+      font-size: 13px;
+      color: var(--text);
+    }
+    .summary {
+      color: #344054;
+      font-weight: 500;
+    }
+    .recommended {
+      background: #f8fafc;
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      padding: 8px 10px;
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 12px 0;
+    }
+    .tags span {
+      background: #eef2f7;
+      border-radius: 999px;
+      color: #475467;
+      font-size: 12px;
+      padding: 3px 8px;
+    }
+    details {
+      border-top: 1px solid var(--line);
+      margin-top: 12px;
+      padding-top: 10px;
+    }
+    summary {
+      cursor: pointer;
+      color: var(--green);
+      font-weight: 600;
+    }
+    ul { padding-left: 20px; }
+    .empty {
+      color: var(--muted);
+      background: var(--panel);
+      border: 1px dashed var(--line);
+      border-radius: 8px;
+      padding: 14px;
+    }
+    .category-stack {
+      display: grid;
+      gap: 10px;
+    }
+    footer {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 36px;
+    }
+    @media (max-width: 640px) {
+      main { padding: 24px 12px 48px; }
+      header { padding: 20px; }
+      h1 { font-size: 26px; }
+      .topic-head { grid-template-columns: 1fr; }
+      .score { width: 84px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>AI 热点选题池 2026-07-02</h1>
+      <p class="summary">面向 AI 内容运营和产品调研的每日选题监控报告。默认入口为本 HTML 文件，可直接双击查看，也可通过 GitHub Pages 分享。</p>
+      <div class="quick-links">
+        <span>生成时间：2026-07-02 04:12 UTC</span>
+        <a href="./ai-topic-radar.md">Markdown</a>
+        <a href="./topic-pool.json">JSON 选题池</a>
+      </div>
+    </header>
+
+    <section id="top">
+      <h2>今日 Top 深挖选题</h2>
+      <div class="topic-grid">
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropic.com/news/redeploying-fable-5" target="_blank" rel="noreferrer">Redeploying Claude Fable 5</a>
+              <div class="meta">Anthropic (Claude) · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>98</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Announcements Redeploying Fable 5 Jun 30, 2026 Update Claude Fable 5 and Mythos 5 redeployed Jul 1, 2026 Access to Claude Fable 5 and Mythos 5 is now restored. On Friday, June 12, the US government applied export controls to our newest models, Claude Fable 5 and Claude Mythos 5. This required us to restrict access to foreign nationals, whether inside or outside the United States. Because the order took effect immediately and we had no reliable way to verify nationality in real-time, we suspended access to both models for all users. As of today, June 30, the export controls on Fable 5 and Mythos 5 have been lifted . Fable 5 will be available starting tomorrow, Wednesday, July 1, to users globally on the Claude Platform, Claude.ai, Claude Code, and Claude Cowork. For Pro, Max, Team, and select Enterprise plans, 1 Fable 5 will be included for up to 50% of weekly usage limits through July 7, after which it will be available via usage credits . We will re-enable access on AWS, Google Cloud, and Microsoft Foundry as quickly as possible. We have also restored access to Mythos 5 for a set of US organizations, following the US government’s approval on June 26 . We continue to coordinate with the government to expand access to the broader set of domestic and international partners in the Glasswing program. In the remainder of this post, we provide further details and updates in four areas: A timeline of events, including updates we made to our safeguards . We discuss the events that le</p>
+          <p class="recommended"><strong>推荐选题：</strong>Redeploying Claude Fable 5 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>值得优先深挖：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Anthropic (Claude)。</p>
+          <div class="tags"><span>anthropic</span><span>news</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Anthropic (Claude)</li><li>发布时间：2026-07-01</li><li>关键词：anthropic, news</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropic.com/news/claude-fable-5-mythos-5" target="_blank" rel="noreferrer">Claude Fable 5 and Claude Mythos 5</a>
+              <div class="meta">Anthropic (Claude) · 政策监管、社会影响与 AI 安全</div>
+            </div>
+            <div class="score">
+              <strong>98</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Announcements Claude Fable 5 and Claude Mythos 5 Jun 9, 2026 Update Claude Mythos 5 and Fable 5 redeployed Jul 1, 2026 Claude Fable 5 and Mythos 5 are now available. Read more Claude Mythos 5 and Fable 5 access unavailable Jun 12, 2026 We are suspending access to Claude Fable 5 and Claude Mythos 5. We apologize for this disruption to our customers and are working to restore access as soon as possible. Read more Today we’re launching Claude Fable 5 : a Mythos-class 1 model that we’ve made safe for general use. Fable 5’s capabilities exceed those of any model we’ve ever made generally available. It is state-of-the-art on nearly all tested benchmarks of AI capability, showing exceptional performance in software engineering, knowledge work, vision, scientific research, and many other areas. The longer and more complex the task, the larger Fable 5’s lead over our other models. Releasing a model this capable comes with risks. Without safeguards, Fable 5’s capabilities in areas like cybersecurity could be misused to cause serious damage. We’ve therefore launched the model with safeguards that mean queries on some topics will instead receive a response from our next-most-capable model, Claude Opus 4.8. To release the model both safely and quickly, we’ve tuned these safeguards conservatively—they’ll sometimes catch harmless requests, though they trigger, on average, in less than 5% of sessions. With more capable models arriving in the coming months, we’re working to improve our safegu</p>
+          <p class="recommended"><strong>推荐选题：</strong>Claude Fable 5 and Claude Mythos 5 为什么值得关注？（政策变化、信任风险与安全治理）</p>
+          <p>值得优先深挖：适合从政策变化、信任风险和安全治理角度切入，来源：Anthropic (Claude)。</p>
+          <div class="tags"><span>anthropic</span><span>news</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Anthropic (Claude)</li><li>发布时间：2026-07-01</li><li>关键词：anthropic, news</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropic.com/news/claude-science-ai-workbench" target="_blank" rel="noreferrer">Claude Science, an AI workbench for scientists</a>
+              <div class="meta">Anthropic (Claude) · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>98</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Announcements Claude Science, an AI workbench for scientists, is now available Jun 30, 2026 Get started with Claude Science AI has the potential to dramatically accelerate the pace of scientific discovery and the development of healthcare interventions. Since launching our efforts in the life sciences last fall, we’ve worked to improve our model capabilities, make connections to the scientific ecosystem via MCPs and skills, and launch partnerships in an effort to realize this potential. Today, we’re introducing our most significant expansion of these efforts: Claude Science , an AI workbench for scientists. Claude Science is an app that integrates the tools and packages that researchers most commonly use, produces auditable artifacts, and provides flexible access to computing resources. Introducing Claude Science Scientific research is often tedious. Researchers must work across dozens of databases, each with their own schema, contend with file formats that require bespoke data pipelines and viewers, and transition between a roster of tools: PubMed, Jupyter, R, a cluster terminal, and more. Claude Science brings these fragmented tools into a single research environment where scientists can conduct all stages of their work. It helps you analyze literature and execute multi-step research, produces detailed artifacts, and lets you iteratively refine figures and manuscripts until they’re ready for publication. Every output carries an auditable history of how it was made, so you c</p>
+          <p class="recommended"><strong>推荐选题：</strong>Claude Science, an AI workbench for scientists 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>值得优先深挖：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Anthropic (Claude)。</p>
+          <div class="tags"><span>anthropic</span><span>news</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Anthropic (Claude)</li><li>发布时间：2026-07-01</li><li>关键词：anthropic, news</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://deepmind.google/research/evals/" target="_blank" rel="noreferrer">Evals — Google DeepMind</a>
+              <div class="meta">Google DeepMind · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>89</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Evals Explore our comprehensive evaluations across AI capabilities SimpleQA Verified SimpleQA Verified is a 1,000-prompt benchmark for reliably evaluating Large Language Models (LLMs) on short-form factuality and parametric knowledge. The authors from Google DeepMind and Google Research address various limitations of SimpleQA , originally designed by Wei et al. (2024) at OpenAI, including noisy and incorrect labels, topical biases, and question redundancy. SimpleQA Verified was created to provide the research community with a more precise instrument to track genuine progress in factuality, discourage overfitting to benchmark artifacts, and ultimately foster the development of more trustworthy AI systems. View paper View Kaggle Leaderboard View Kaggle Notebook View dataset FACTS Grounding The FACTS Grounding benchmark evaluates the ability of Large Language Models (LLMs) to generate factually accurate responses grounded in provided long-form documents, encompassing a variety of domains. FACTS Grounding moves beyond simple factual question-answering by assessing whether LLM responses are fully grounded to the provided context and correctly synthesize information from a long context document. By providing a standardized evaluation framework, FACTS Grounding aims to promote the development of LLMs that are both knowledgeable and trustworthy, facilitating their responsible deployment in real-world applications. View blog View paper View Kaggle Leaderboard View Kaggle Notebook View</p>
+          <p class="recommended"><strong>推荐选题：</strong>Evals — Google DeepMind 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>值得优先深挖：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Google DeepMind。</p>
+          <div class="tags"><span>deepmind</span><span>research</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Google DeepMind</li><li>发布时间：2026-07-01</li><li>关键词：deepmind, research</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/KBJ3E75U6E6GTF?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Cursor for iOS</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>80</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Build with coding agents from anywhere</p>
+          <p class="recommended"><strong>推荐选题：</strong>Cursor for iOS 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>值得优先深挖：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Artificial Intelligence</span><span>Development</span><span>Vibe coding</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：569 / 62</li><li>发布时间：2026-06-30</li><li>关键词：Artificial Intelligence, Development, Vibe coding</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/EH536KOIRGF4MD?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Skills Marketplace by Databox</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>80</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Ready-made AI analytics skills for your business data</p>
+          <p class="recommended"><strong>推荐选题：</strong>Skills Marketplace by Databox 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>值得优先深挖：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Analytics</span><span>Marketing</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：416 / 65</li><li>发布时间：2026-06-30</li><li>关键词：Analytics, Marketing, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/ERAFMCUYCEPACK?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Foresight by Lightning Rod</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>80</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Predict anything with AI</p>
+          <p class="recommended"><strong>推荐选题：</strong>Foresight by Lightning Rod 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>值得优先深挖：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>API</span><span>Developer Tools</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：323 / 43</li><li>发布时间：2026-06-30</li><li>关键词：API, Developer Tools, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      </div>
+    </section>
+
+    <section id="pool">
+      <h2>入池选题</h2>
+      <div class="topic-grid">
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://twitter.com/claudeai/status/2072402636813607381" target="_blank" rel="noreferrer">Fable 5 is Back</a>
+              <div class="meta">Hacker News · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>78</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by mfiguiere</p>
+          <p class="recommended"><strong>推荐选题：</strong>Fable 5 is Back 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：348 / 329</li><li>发布时间：2026-07-01</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/asgeirtj/system_prompts_leaks" target="_blank" rel="noreferrer">asgeirtj/system_prompts_leaks</a>
+              <div class="meta">GitHub Search:ml · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>75</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Extracted system prompts from Anthropic - Claude Fable 5, Opus 4.8, Claude Code, Claude Design. OpenAI - ChatGPT 5.5 Thinking, GPT 5.5 Instant, Codex. Google - Gemini 3.5 Flash, 3.1 Pro, Antigravity. xAI - Grok, Cursor, Copilot, VS Code, Perplexity, and more. Updated regularly.</p>
+          <p class="recommended"><strong>推荐选题：</strong>asgeirtj/system_prompts_leaks 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合进入今日选题池：适合从大厂动作、商业化路径和竞争格局角度切入，来源：GitHub Search:ml。</p>
+          <div class="tags"><span>JavaScript</span><span>ml</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:ml</li><li>热度信号：47701</li><li>发布时间：2026-07-02</li><li>关键词：JavaScript, ml</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/WP5F37BOUYFY2M?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">v0 Design Systems 2.0</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>74</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Build with your components, colors, fonts, and patterns</p>
+          <p class="recommended"><strong>推荐选题：</strong>v0 Design Systems 2.0 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Developer Tools</span><span>Artificial Intelligence</span><span>Vibe coding</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：192 / 3</li><li>发布时间：2026-06-30</li><li>关键词：Developer Tools, Artificial Intelligence, Vibe coding</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/open-webui/open-webui" target="_blank" rel="noreferrer">open-webui/open-webui</a>
+              <div class="meta">GitHub Search:llm · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>74</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">User-friendly AI Interface (Supports Ollama, OpenAI API, ...)</p>
+          <p class="recommended"><strong>推荐选题：</strong>open-webui/open-webui 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合进入今日选题池：适合从大厂动作、商业化路径和竞争格局角度切入，来源：GitHub Search:llm。</p>
+          <div class="tags"><span>Python</span><span>llm</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:llm</li><li>热度信号：143744</li><li>发布时间：2026-07-01</li><li>关键词：Python, llm</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/M23VGVAYQ55RCX?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Pluno</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>72</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Browser agent that’s 10x faster than Claude</p>
+          <p class="recommended"><strong>推荐选题：</strong>Pluno 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Productivity</span><span>SaaS</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：179 / 46</li><li>发布时间：2026-06-30</li><li>关键词：Productivity, SaaS, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/HN53MKBPHQIQHU?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Dayflow</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>72</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Open source tools that help you get promoted</p>
+          <p class="recommended"><strong>推荐选题：</strong>Dayflow 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Productivity</span><span>Open Source</span><span>Developer Tools</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：176 / 45</li><li>发布时间：2026-06-30</li><li>关键词：Productivity, Open Source, Developer Tools</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/UJNQOTAPSSLD2L?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">AgentPeek</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>72</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Claude Code &amp; Codex in your Mac notch</p>
+          <p class="recommended"><strong>推荐选题：</strong>AgentPeek 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Developer Tools</span><span>Menu Bar Apps</span><span>Vibe coding</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：175 / 33</li><li>发布时间：2026-06-30</li><li>关键词：Developer Tools, Menu Bar Apps, Vibe coding</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://zcode.z.ai/en" target="_blank" rel="noreferrer">ZCode – Harness for GLM-5.2</a>
+              <div class="meta">Hacker News · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>72</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by chvid</p>
+          <p class="recommended"><strong>推荐选题：</strong>ZCode – Harness for GLM-5.2 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：272 / 236</li><li>发布时间：2026-07-01</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://zcode.z.ai/cn" target="_blank" rel="noreferrer">ZCode: Claude Code from the Makers of GLM</a>
+              <div class="meta">Hacker News · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>72</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by handfuloflight</p>
+          <p class="recommended"><strong>推荐选题：</strong>ZCode: Claude Code from the Makers of GLM 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：270 / 12</li><li>发布时间：2026-07-01</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/googleworkspace/cli" target="_blank" rel="noreferrer">googleworkspace/cli</a>
+              <div class="meta">GitHub Search:ai-agent · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>70</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Google Workspace CLI — one command-line tool for Drive, Gmail, Calendar, Sheets, Docs, Chat, Admin, and more. Dynamically built from Google Discovery Service. Includes AI agent skills.</p>
+          <p class="recommended"><strong>推荐选题：</strong>googleworkspace/cli 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合进入今日选题池：适合从大厂动作、商业化路径和竞争格局角度切入，来源：GitHub Search:ai-agent。</p>
+          <div class="tags"><span>Rust</span><span>ai-agent</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:ai-agent</li><li>热度信号：29286</li><li>发布时间：2026-07-01</li><li>关键词：Rust, ai-agent</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/langchain4j/langchain4j" target="_blank" rel="noreferrer">langchain4j/langchain4j</a>
+              <div class="meta">GitHub Search:vector-db · 企业落地与行业应用</div>
+            </div>
+            <div class="score">
+              <strong>70</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">LangChain4j is an idiomatic, open-source Java library for building LLM-powered applications on the JVM. It offers a unified API over popular LLM providers and vector stores, and makes implementing tool calling (including MCP support), agents and RAG easy. It integrates seamlessly with enterprise Java frameworks like Quarkus and Spring Boot.</p>
+          <p class="recommended"><strong>推荐选题：</strong>langchain4j/langchain4j 为什么值得关注？（行业场景、落地成本与业务价值）</p>
+          <p>适合进入今日选题池：适合从行业场景、落地成本和业务价值角度切入，来源：GitHub Search:vector-db。</p>
+          <div class="tags"><span>Java</span><span>vector-db</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:vector-db</li><li>热度信号：12494</li><li>发布时间：2026-07-01</li><li>关键词：Java, vector-db</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/pathwaycom/llm-app" target="_blank" rel="noreferrer">pathwaycom/llm-app</a>
+              <div class="meta">GitHub Search:ml · 企业落地与行业应用</div>
+            </div>
+            <div class="score">
+              <strong>69</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Ready-to-run cloud templates for RAG, AI pipelines, and enterprise search with live data. 🐳Docker-friendly.⚡Always in sync with Sharepoint, Google Drive, S3, Kafka, PostgreSQL, real-time data APIs, and more.</p>
+          <p class="recommended"><strong>推荐选题：</strong>pathwaycom/llm-app 为什么值得关注？（行业场景、落地成本与业务价值）</p>
+          <p>适合进入今日选题池：适合从行业场景、落地成本和业务价值角度切入，来源：GitHub Search:ml。</p>
+          <div class="tags"><span>Jupyter Notebook</span><span>ml</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:ml</li><li>热度信号：59161</li><li>发布时间：2026-06-29</li><li>关键词：Jupyter Notebook, ml</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/Significant-Gravitas/AutoGPT" target="_blank" rel="noreferrer">Significant-Gravitas/AutoGPT</a>
+              <div class="meta">GitHub Search:llm · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.</p>
+          <p class="recommended"><strong>推荐选题：</strong>Significant-Gravitas/AutoGPT 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:llm。</p>
+          <div class="tags"><span>Python</span><span>llm</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:llm</li><li>热度信号：185244</li><li>发布时间：2026-07-01</li><li>关键词：Python, llm</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/bytedance/deer-flow" target="_blank" rel="noreferrer">bytedance/deer-flow</a>
+              <div class="meta">GitHub Search:llm · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">An open-source long-horizon SuperAgent harness that researches, codes, and creates. With the help of sandboxes, memories, tools, skill, subagents and message gateway, it handles different levels of tasks that could take minutes to hours.</p>
+          <p class="recommended"><strong>推荐选题：</strong>bytedance/deer-flow 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:llm。</p>
+          <div class="tags"><span>Python</span><span>llm</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:llm</li><li>热度信号：75789</li><li>发布时间：2026-07-02</li><li>关键词：Python, llm</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/ultralytics/ultralytics" target="_blank" rel="noreferrer">ultralytics/ultralytics</a>
+              <div class="meta">GitHub Search:ml · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Ultralytics YOLO26, YOLO11, YOLOv8 — object detection, instance segmentation, semantic segmentation, image classification, pose estimation, object tracking</p>
+          <p class="recommended"><strong>推荐选题：</strong>ultralytics/ultralytics 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:ml。</p>
+          <div class="tags"><span>Python</span><span>ml</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:ml</li><li>热度信号：59019</li><li>发布时间：2026-07-02</li><li>关键词：Python, ml</li></ul>
+          </details>
+        </article>
+      </div>
+    </section>
+
+    <section id="categories">
+      <h2>按五类选题分类摘要</h2>
+      <div class="category-stack">
+      <section>
+        <h3>政策监管、社会影响与 AI 安全</h3>
+        
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropic.com/news/claude-fable-5-mythos-5" target="_blank" rel="noreferrer">Claude Fable 5 and Claude Mythos 5</a>
+              <div class="meta">Anthropic (Claude) · 政策监管、社会影响与 AI 安全</div>
+            </div>
+            <div class="score">
+              <strong>98</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Announcements Claude Fable 5 and Claude Mythos 5 Jun 9, 2026 Update Claude Mythos 5 and Fable 5 redeployed Jul 1, 2026 Claude Fable 5 and Mythos 5 are now available. Read more Claude Mythos 5 and Fable 5 access unavailable Jun 12, 2026 We are suspending access to Claude Fable 5 and Claude Mythos 5. We apologize for this disruption to our customers and are working to restore access as soon as possible. Read more Today we’re launching Claude Fable 5 : a Mythos-class 1 model that we’ve made safe for general use. Fable 5’s capabilities exceed those of any model we’ve ever made generally available. It is state-of-the-art on nearly all tested benchmarks of AI capability, showing exceptional performance in software engineering, knowledge work, vision, scientific research, and many other areas. The longer and more complex the task, the larger Fable 5’s lead over our other models. Releasing a model this capable comes with risks. Without safeguards, Fable 5’s capabilities in areas like cybersecurity could be misused to cause serious damage. We’ve therefore launched the model with safeguards that mean queries on some topics will instead receive a response from our next-most-capable model, Claude Opus 4.8. To release the model both safely and quickly, we’ve tuned these safeguards conservatively—they’ll sometimes catch harmless requests, though they trigger, on average, in less than 5% of sessions. With more capable models arriving in the coming months, we’re working to improve our safegu</p>
+          <p class="recommended"><strong>推荐选题：</strong>Claude Fable 5 and Claude Mythos 5 为什么值得关注？（政策变化、信任风险与安全治理）</p>
+          <p>值得优先深挖：适合从政策变化、信任风险和安全治理角度切入，来源：Anthropic (Claude)。</p>
+          <div class="tags"><span>anthropic</span><span>news</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Anthropic (Claude)</li><li>发布时间：2026-07-01</li><li>关键词：anthropic, news</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="http://arxiv.org/abs/2607.01153v1" target="_blank" rel="noreferrer">Adversarial Pragmatics for AI Safety Evaluation: A Benchmark for Instruction Conflict, Embedded Commands, and Policy Ambiguity</a>
+              <div class="meta">ArXiv · 政策监管、社会影响与 AI 安全</div>
+            </div>
+            <div class="score">
+              <strong>57</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">Safety evaluations for language models increasingly depend on judgments about ambiguous natural-language behaviour: whether a model has followed an instruction, refused appropriately, complied with a policy, resisted an embedded command, or misreported progress in an agentic task. Existing benchmarks often compress these distinctions into pass/fail labels, obscuring whether failures arise from capability limits, policy ambiguity, instruction conflict, scaffold failure, or unstable evaluator judgments. This paper introduces adversarial pragmatics as a benchmark and annotation protocol for evaluating model behaviour under instruction conflict, embedded commands, quotation, scope ambiguity, deixis, indirect speech acts, and multi-turn agent transcripts. The contribution is empirical and methodological: a linguistically controlled taxonomy, an 18-item seed benchmark with validator-enforced metadata, a 54-row local seed pilot, an expert-evaluation protocol distinguishing task success, policy compliance, safety risk, refusal outcome, and evaluator confidence, and metrics for judge validity, diagnostic ambiguity, and taxonomy drift. The framework turns linguistic judgment methodology into a practical tool for validating safety evals, LLM judges, gold-set construction, prompt-injection tests, and safety documentation.</p>
+          <p class="recommended"><strong>推荐选题：</strong>Adversarial Pragmatics for AI Safety Evaluation: A Benchmark for Instruction Conflict, Embedded Commands, and Policy Ambiguity 为什么值得关注？（政策变化、信任风险与安全治理）</p>
+          <p>适合作为观察项：适合从政策变化、信任风险和安全治理角度切入，来源：ArXiv。</p>
+          <div class="tags"><span>cs.CL</span><span>cs.AI</span><span>cs.SE</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：ArXiv</li><li>发布时间：2026-07-01</li><li>关键词：cs.CL, cs.AI, cs.SE</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="http://arxiv.org/abs/2607.01136v1" target="_blank" rel="noreferrer">Skills Are Not Islands: Measuring Dependency and Risk in Agent Skill Supply Chains</a>
+              <div class="meta">ArXiv · 政策监管、社会影响与 AI 安全</div>
+            </div>
+            <div class="score">
+              <strong>57</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">Agent skills package reusable operational knowledge for Large Language Model (LLM) agents, yet as they grow in scope, they become dependency-bearing artifacts whose identities, versions, and provenance remain implicit. This opacity already causes duplicated dependencies and inconsistent installations, exposing a gap that dependency management has yet to close. We introduce Agent Skill Supply Chains (ASSCs) to characterize mixed skill-package-service dependency graphs and help close this gap. Borrowing from Software Bill of Materials (SBOMs), we design SkillDepAnalyzer to capture natural-language dependency evidence and model skills as dependency-bearing artifacts. On the SKILL-DEP benchmark, SkillDepAnalyzer recovers skill metadata and dependency graphs accurately and comprehensively, substantially outperforming an LLM-based baseline and package-centric SBOM tools. Applying SkillDepAnalyzer to over 1.43 million skills, we obtain ASSCs and explore their structural diversity and security signals. We find four structural patterns: skill metadata is activation-ready but governance-poor; dependency graphs span skill, package, and service dependencies with concentrated reuse; recursive skill reuse expands dependency graphs and creates hidden package inventory; and skill dependency clusters form around related workflows. We also find that inspecting a skill alone misses security-relevant signals hiding in its dependencies. By analyzing ASSCs, we identify and report known malicious skills persisting in ASSCs to their developers. Based on these findings, we recommend typed dependency manifests, first-class dependency-cluster management, risk-warning audit commands for skill infrastructure maintainers, and lockfile-like records for skill developers.</p>
+          <p class="recommended"><strong>推荐选题：</strong>Skills Are Not Islands: Measuring Dependency and Risk in Agent Skill Supply Chains 为什么值得关注？（政策变化、信任风险与安全治理）</p>
+          <p>适合作为观察项：适合从政策变化、信任风险和安全治理角度切入，来源：ArXiv。</p>
+          <div class="tags"><span>cs.SE</span><span>cs.AI</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：ArXiv</li><li>发布时间：2026-07-01</li><li>关键词：cs.SE, cs.AI</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="http://arxiv.org/abs/2607.01103v1" target="_blank" rel="noreferrer">Clinician-Level Agreement Without Clinical Caution: LLM Evaluator Limits in Medical AI Benchmarking</a>
+              <div class="meta">ArXiv · 政策监管、社会影响与 AI 安全</div>
+            </div>
+            <div class="score">
+              <strong>57</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">Open-response evaluation provides stronger clinical validity than multiple-choice benchmarks but creates a scoring bottleneck that motivates automated LLM-asa-Judge approaches. Whether such evaluators replicate clinical calibration and caution, however, remains untested. We introduce MedQADE, the first standardised open-response clinical benchmark for German, a major clinical language lacking native evaluation infrastructure, comprising 3,800 items annotated by ten practising physicians and nine Large Language Model (LLM) evaluators. The top-performing evaluator model, Gemini 3 Flash, reached alignment consistent with the physician ceiling (\k{appa} = 0.694 vs. \k{appa} = 0.709), though wide confidence intervals limit interpretation. Despite this statistical alignment, automated evaluators exhibited near-absent clinical metacognition: physicians scaled abstention with item difficulty, while frontier models assigned definitive scores in every case. We additionally quantified systematic lineage-dependent biases, where models preferentially scored architectural siblings, an effect independent of language. These results show that statistical alignment does not ensure clinical caution, and that evaluator independence requires explicit verification.</p>
+          <p class="recommended"><strong>推荐选题：</strong>Clinician-Level Agreement Without Clinical Caution: LLM Evaluator Limits in Medical AI Benchmarking 为什么值得关注？（政策变化、信任风险与安全治理）</p>
+          <p>适合作为观察项：适合从政策变化、信任风险和安全治理角度切入，来源：ArXiv。</p>
+          <div class="tags"><span>cs.CL</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：ArXiv</li><li>发布时间：2026-07-01</li><li>关键词：cs.CL</li></ul>
+          </details>
+        </article>
+      
+      </section>
+    
+
+      <section>
+        <h3>模型与技术突破</h3>
+        
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropic.com/news/redeploying-fable-5" target="_blank" rel="noreferrer">Redeploying Claude Fable 5</a>
+              <div class="meta">Anthropic (Claude) · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>98</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Announcements Redeploying Fable 5 Jun 30, 2026 Update Claude Fable 5 and Mythos 5 redeployed Jul 1, 2026 Access to Claude Fable 5 and Mythos 5 is now restored. On Friday, June 12, the US government applied export controls to our newest models, Claude Fable 5 and Claude Mythos 5. This required us to restrict access to foreign nationals, whether inside or outside the United States. Because the order took effect immediately and we had no reliable way to verify nationality in real-time, we suspended access to both models for all users. As of today, June 30, the export controls on Fable 5 and Mythos 5 have been lifted . Fable 5 will be available starting tomorrow, Wednesday, July 1, to users globally on the Claude Platform, Claude.ai, Claude Code, and Claude Cowork. For Pro, Max, Team, and select Enterprise plans, 1 Fable 5 will be included for up to 50% of weekly usage limits through July 7, after which it will be available via usage credits . We will re-enable access on AWS, Google Cloud, and Microsoft Foundry as quickly as possible. We have also restored access to Mythos 5 for a set of US organizations, following the US government’s approval on June 26 . We continue to coordinate with the government to expand access to the broader set of domestic and international partners in the Glasswing program. In the remainder of this post, we provide further details and updates in four areas: A timeline of events, including updates we made to our safeguards . We discuss the events that le</p>
+          <p class="recommended"><strong>推荐选题：</strong>Redeploying Claude Fable 5 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>值得优先深挖：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Anthropic (Claude)。</p>
+          <div class="tags"><span>anthropic</span><span>news</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Anthropic (Claude)</li><li>发布时间：2026-07-01</li><li>关键词：anthropic, news</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropic.com/news/claude-science-ai-workbench" target="_blank" rel="noreferrer">Claude Science, an AI workbench for scientists</a>
+              <div class="meta">Anthropic (Claude) · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>98</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Announcements Claude Science, an AI workbench for scientists, is now available Jun 30, 2026 Get started with Claude Science AI has the potential to dramatically accelerate the pace of scientific discovery and the development of healthcare interventions. Since launching our efforts in the life sciences last fall, we’ve worked to improve our model capabilities, make connections to the scientific ecosystem via MCPs and skills, and launch partnerships in an effort to realize this potential. Today, we’re introducing our most significant expansion of these efforts: Claude Science , an AI workbench for scientists. Claude Science is an app that integrates the tools and packages that researchers most commonly use, produces auditable artifacts, and provides flexible access to computing resources. Introducing Claude Science Scientific research is often tedious. Researchers must work across dozens of databases, each with their own schema, contend with file formats that require bespoke data pipelines and viewers, and transition between a roster of tools: PubMed, Jupyter, R, a cluster terminal, and more. Claude Science brings these fragmented tools into a single research environment where scientists can conduct all stages of their work. It helps you analyze literature and execute multi-step research, produces detailed artifacts, and lets you iteratively refine figures and manuscripts until they’re ready for publication. Every output carries an auditable history of how it was made, so you c</p>
+          <p class="recommended"><strong>推荐选题：</strong>Claude Science, an AI workbench for scientists 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>值得优先深挖：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Anthropic (Claude)。</p>
+          <div class="tags"><span>anthropic</span><span>news</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Anthropic (Claude)</li><li>发布时间：2026-07-01</li><li>关键词：anthropic, news</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://deepmind.google/research/evals/" target="_blank" rel="noreferrer">Evals — Google DeepMind</a>
+              <div class="meta">Google DeepMind · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>89</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Evals Explore our comprehensive evaluations across AI capabilities SimpleQA Verified SimpleQA Verified is a 1,000-prompt benchmark for reliably evaluating Large Language Models (LLMs) on short-form factuality and parametric knowledge. The authors from Google DeepMind and Google Research address various limitations of SimpleQA , originally designed by Wei et al. (2024) at OpenAI, including noisy and incorrect labels, topical biases, and question redundancy. SimpleQA Verified was created to provide the research community with a more precise instrument to track genuine progress in factuality, discourage overfitting to benchmark artifacts, and ultimately foster the development of more trustworthy AI systems. View paper View Kaggle Leaderboard View Kaggle Notebook View dataset FACTS Grounding The FACTS Grounding benchmark evaluates the ability of Large Language Models (LLMs) to generate factually accurate responses grounded in provided long-form documents, encompassing a variety of domains. FACTS Grounding moves beyond simple factual question-answering by assessing whether LLM responses are fully grounded to the provided context and correctly synthesize information from a long context document. By providing a standardized evaluation framework, FACTS Grounding aims to promote the development of LLMs that are both knowledgeable and trustworthy, facilitating their responsible deployment in real-world applications. View blog View paper View Kaggle Leaderboard View Kaggle Notebook View</p>
+          <p class="recommended"><strong>推荐选题：</strong>Evals — Google DeepMind 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>值得优先深挖：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Google DeepMind。</p>
+          <div class="tags"><span>deepmind</span><span>research</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Google DeepMind</li><li>发布时间：2026-07-01</li><li>关键词：deepmind, research</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/nvidia/Qwen3.6-27B-NVFP4" target="_blank" rel="noreferrer">nvidia/Qwen3.6-27B-NVFP4</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>65</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">text-generation model by nvidia</p>
+          <p class="recommended"><strong>推荐选题：</strong>nvidia/Qwen3.6-27B-NVFP4 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合进入今日选题池：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>text-generation</span><span>Model Optimizer</span><span>safetensors</span><span>qwen3_5</span><span>nvidia</span><span>ModelOpt</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：176 / 2671</li><li>发布时间：2026-06-30</li><li>关键词：text-generation, Model Optimizer, safetensors, qwen3_5, nvidia</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/InternScience/Agents-A1" target="_blank" rel="noreferrer">InternScience/Agents-A1</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>60</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">text-generation model by InternScience</p>
+          <p class="recommended"><strong>推荐选题：</strong>InternScience/Agents-A1 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>text-generation</span><span>transformers</span><span>safetensors</span><span>qwen3_5_moe</span><span>image-text-to-text</span><span>text-generation</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：142 / 511</li><li>发布时间：2026-07-02</li><li>关键词：text-generation, transformers, safetensors, qwen3_5_moe, image-text-to-text</li></ul>
+          </details>
+        </article>
+      
+      </section>
+    
+
+      <section>
+        <h3>AI 产品与用户入口</h3>
+        
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/KBJ3E75U6E6GTF?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Cursor for iOS</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>80</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Build with coding agents from anywhere</p>
+          <p class="recommended"><strong>推荐选题：</strong>Cursor for iOS 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>值得优先深挖：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Artificial Intelligence</span><span>Development</span><span>Vibe coding</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：569 / 62</li><li>发布时间：2026-06-30</li><li>关键词：Artificial Intelligence, Development, Vibe coding</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/EH536KOIRGF4MD?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Skills Marketplace by Databox</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>80</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Ready-made AI analytics skills for your business data</p>
+          <p class="recommended"><strong>推荐选题：</strong>Skills Marketplace by Databox 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>值得优先深挖：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Analytics</span><span>Marketing</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：416 / 65</li><li>发布时间：2026-06-30</li><li>关键词：Analytics, Marketing, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/ERAFMCUYCEPACK?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Foresight by Lightning Rod</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>80</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Predict anything with AI</p>
+          <p class="recommended"><strong>推荐选题：</strong>Foresight by Lightning Rod 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>值得优先深挖：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>API</span><span>Developer Tools</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：323 / 43</li><li>发布时间：2026-06-30</li><li>关键词：API, Developer Tools, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://twitter.com/claudeai/status/2072402636813607381" target="_blank" rel="noreferrer">Fable 5 is Back</a>
+              <div class="meta">Hacker News · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>78</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by mfiguiere</p>
+          <p class="recommended"><strong>推荐选题：</strong>Fable 5 is Back 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：348 / 329</li><li>发布时间：2026-07-01</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/WP5F37BOUYFY2M?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">v0 Design Systems 2.0</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>74</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Build with your components, colors, fonts, and patterns</p>
+          <p class="recommended"><strong>推荐选题：</strong>v0 Design Systems 2.0 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Developer Tools</span><span>Artificial Intelligence</span><span>Vibe coding</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：192 / 3</li><li>发布时间：2026-06-30</li><li>关键词：Developer Tools, Artificial Intelligence, Vibe coding</li></ul>
+          </details>
+        </article>
+      
+      </section>
+    
+
+      <section>
+        <h3>企业落地与行业应用</h3>
+        
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/langchain4j/langchain4j" target="_blank" rel="noreferrer">langchain4j/langchain4j</a>
+              <div class="meta">GitHub Search:vector-db · 企业落地与行业应用</div>
+            </div>
+            <div class="score">
+              <strong>70</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">LangChain4j is an idiomatic, open-source Java library for building LLM-powered applications on the JVM. It offers a unified API over popular LLM providers and vector stores, and makes implementing tool calling (including MCP support), agents and RAG easy. It integrates seamlessly with enterprise Java frameworks like Quarkus and Spring Boot.</p>
+          <p class="recommended"><strong>推荐选题：</strong>langchain4j/langchain4j 为什么值得关注？（行业场景、落地成本与业务价值）</p>
+          <p>适合进入今日选题池：适合从行业场景、落地成本和业务价值角度切入，来源：GitHub Search:vector-db。</p>
+          <div class="tags"><span>Java</span><span>vector-db</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:vector-db</li><li>热度信号：12494</li><li>发布时间：2026-07-01</li><li>关键词：Java, vector-db</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/pathwaycom/llm-app" target="_blank" rel="noreferrer">pathwaycom/llm-app</a>
+              <div class="meta">GitHub Search:ml · 企业落地与行业应用</div>
+            </div>
+            <div class="score">
+              <strong>69</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Ready-to-run cloud templates for RAG, AI pipelines, and enterprise search with live data. 🐳Docker-friendly.⚡Always in sync with Sharepoint, Google Drive, S3, Kafka, PostgreSQL, real-time data APIs, and more.</p>
+          <p class="recommended"><strong>推荐选题：</strong>pathwaycom/llm-app 为什么值得关注？（行业场景、落地成本与业务价值）</p>
+          <p>适合进入今日选题池：适合从行业场景、落地成本和业务价值角度切入，来源：GitHub Search:ml。</p>
+          <div class="tags"><span>Jupyter Notebook</span><span>ml</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:ml</li><li>热度信号：59161</li><li>发布时间：2026-06-29</li><li>关键词：Jupyter Notebook, ml</li></ul>
+          </details>
+        </article>
+      
+      </section>
+    
+
+      <section>
+        <h3>标杆企业动向、商业格局与投融资</h3>
+        
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/asgeirtj/system_prompts_leaks" target="_blank" rel="noreferrer">asgeirtj/system_prompts_leaks</a>
+              <div class="meta">GitHub Search:ml · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>75</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Extracted system prompts from Anthropic - Claude Fable 5, Opus 4.8, Claude Code, Claude Design. OpenAI - ChatGPT 5.5 Thinking, GPT 5.5 Instant, Codex. Google - Gemini 3.5 Flash, 3.1 Pro, Antigravity. xAI - Grok, Cursor, Copilot, VS Code, Perplexity, and more. Updated regularly.</p>
+          <p class="recommended"><strong>推荐选题：</strong>asgeirtj/system_prompts_leaks 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合进入今日选题池：适合从大厂动作、商业化路径和竞争格局角度切入，来源：GitHub Search:ml。</p>
+          <div class="tags"><span>JavaScript</span><span>ml</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:ml</li><li>热度信号：47701</li><li>发布时间：2026-07-02</li><li>关键词：JavaScript, ml</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/open-webui/open-webui" target="_blank" rel="noreferrer">open-webui/open-webui</a>
+              <div class="meta">GitHub Search:llm · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>74</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">User-friendly AI Interface (Supports Ollama, OpenAI API, ...)</p>
+          <p class="recommended"><strong>推荐选题：</strong>open-webui/open-webui 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合进入今日选题池：适合从大厂动作、商业化路径和竞争格局角度切入，来源：GitHub Search:llm。</p>
+          <div class="tags"><span>Python</span><span>llm</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:llm</li><li>热度信号：143744</li><li>发布时间：2026-07-01</li><li>关键词：Python, llm</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/googleworkspace/cli" target="_blank" rel="noreferrer">googleworkspace/cli</a>
+              <div class="meta">GitHub Search:ai-agent · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>70</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Google Workspace CLI — one command-line tool for Drive, Gmail, Calendar, Sheets, Docs, Chat, Admin, and more. Dynamically built from Google Discovery Service. Includes AI agent skills.</p>
+          <p class="recommended"><strong>推荐选题：</strong>googleworkspace/cli 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合进入今日选题池：适合从大厂动作、商业化路径和竞争格局角度切入，来源：GitHub Search:ai-agent。</p>
+          <div class="tags"><span>Rust</span><span>ai-agent</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:ai-agent</li><li>热度信号：29286</li><li>发布时间：2026-07-01</li><li>关键词：Rust, ai-agent</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://mlq.ai/news/meta-caps-internal-ai-token-spending-after-costs-approach-billions-in-2026/" target="_blank" rel="noreferrer">Meta caps internal AI token spending</a>
+              <div class="meta">Hacker News · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by typeofhuman</p>
+          <p class="recommended"><strong>推荐选题：</strong>Meta caps internal AI token spending 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合进入今日选题池：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：127 / 112</li><li>发布时间：2026-07-01</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.bbc.com/news/articles/cdr42623e1do" target="_blank" rel="noreferrer">Anthropic says US lifts export ban on Fable 5</a>
+              <div class="meta">Hacker News · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>59</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by tobr</p>
+          <p class="recommended"><strong>推荐选题：</strong>Anthropic says US lifts export ban on Fable 5 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合作为观察项：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：18 / 1</li><li>发布时间：2026-07-01</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+      </section>
+    </div>
+    </section>
+
+    <section id="watch">
+      <h2>观察项</h2>
+      <div class="topic-grid">
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/Y6W5362EJBEXX7?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Clade</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>64</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">AI COO that runs your team in tools you already use</p>
+          <p class="recommended"><strong>推荐选题：</strong>Clade 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合作为观察项：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Productivity</span><span>SaaS</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：108 / 17</li><li>发布时间：2026-06-30</li><li>关键词：Productivity, SaaS, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/ZMDA7OEWNFBZ2A?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Bilt.me - Figma</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>63</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">Get a real mobile app from your Figma design</p>
+          <p class="recommended"><strong>推荐选题：</strong>Bilt.me - Figma 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合作为观察项：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Design Tools</span><span>Developer Tools</span><span>No-Code</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：103 / 20</li><li>发布时间：2026-06-30</li><li>关键词：Design Tools, Developer Tools, No-Code</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/NYLHBLYOFRA2XN?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">DropK</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>62</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">The tray that doesn't pretend</p>
+          <p class="recommended"><strong>推荐选题：</strong>DropK 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合作为观察项：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Productivity</span><span>Developer Tools</span><span>Menu Bar Apps</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：94 / 12</li><li>发布时间：2026-06-30</li><li>关键词：Productivity, Developer Tools, Menu Bar Apps</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/InternScience/Agents-A1" target="_blank" rel="noreferrer">InternScience/Agents-A1</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>60</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">text-generation model by InternScience</p>
+          <p class="recommended"><strong>推荐选题：</strong>InternScience/Agents-A1 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>text-generation</span><span>transformers</span><span>safetensors</span><span>qwen3_5_moe</span><span>image-text-to-text</span><span>text-generation</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：142 / 511</li><li>发布时间：2026-07-02</li><li>关键词：text-generation, transformers, safetensors, qwen3_5_moe, image-text-to-text</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/huihui-ai/Huihui-GLM-5.2-abliterated-GGUF" target="_blank" rel="noreferrer">huihui-ai/Huihui-GLM-5.2-abliterated-GGUF</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>60</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">text-generation model by huihui-ai</p>
+          <p class="recommended"><strong>推荐选题：</strong>huihui-ai/Huihui-GLM-5.2-abliterated-GGUF 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>text-generation</span><span>transformers</span><span>gguf</span><span>glm_moe_dsa</span><span>unsloth</span><span>abliterated</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：115 / 901</li><li>发布时间：2026-06-30</li><li>关键词：text-generation, transformers, gguf, glm_moe_dsa, unsloth</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="http://arxiv.org/abs/2607.01185v1" target="_blank" rel="noreferrer">Neural Certificate Pricing for Combinatorial Optimization Problems</a>
+              <div class="meta">ArXiv · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>59</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">Combinatorial optimization (CO) problems are difficult because certifiable discrete structure induces exponential search. One needs to search over the set exponentially many candidates to certify optimality, however, the structural feasibility of a path, packing, or cover can be verified in polynomial time once supplied. In this study, we introduce Neural Certificate Pricing (NCP) that exploits this asymmetry under an unsupervised learning framework. A neural network is trained to predict certificate-level dual prices, while a structured recovery layer constructs the induced primal marginal. NCP can be viewed as amortized separation: instead of enumerating violated inequalities, it learns the residual prices through which their aggregate effect enters recovery. When the certificate-consistency condition holds, the recovered marginal is globally feasible, and a local theory shows that first-order errors in the predicted price induce only second-order loss in objective value. Across three classes of CO problems, NCP either outperforms state-of-the-art neural baselines by large margins or matches them at a fraction of the computation time, and shows stronger out-of-distribution generalization.</p>
+          <p class="recommended"><strong>推荐选题：</strong>Neural Certificate Pricing for Combinatorial Optimization Problems 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：ArXiv。</p>
+          <div class="tags"><span>cs.LG</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：ArXiv</li><li>发布时间：2026-07-01</li><li>关键词：cs.LG</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/nvidia/GLM-5.2-NVFP4" target="_blank" rel="noreferrer">nvidia/GLM-5.2-NVFP4</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>59</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">text-generation model by nvidia</p>
+          <p class="recommended"><strong>推荐选题：</strong>nvidia/GLM-5.2-NVFP4 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>text-generation</span><span>Model Optimizer</span><span>safetensors</span><span>glm_moe_dsa</span><span>nvidia</span><span>ModelOpt</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：200 / 136933</li><li>发布时间：2026-06-26</li><li>关键词：text-generation, Model Optimizer, safetensors, glm_moe_dsa, nvidia</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.bbc.com/news/articles/cdr42623e1do" target="_blank" rel="noreferrer">Anthropic says US lifts export ban on Fable 5</a>
+              <div class="meta">Hacker News · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>59</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by tobr</p>
+          <p class="recommended"><strong>推荐选题：</strong>Anthropic says US lifts export ban on Fable 5 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合作为观察项：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：18 / 1</li><li>发布时间：2026-07-01</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://juejin.cn/post/7655657102968438811" target="_blank" rel="noreferrer">`??` 和 `||` 搞混，线上用户头像全挂了</a>
+              <div class="meta">掘金 · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>58</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">问题场景 上周五快下班，客服群突然炸了： 查前端日志，头像接口返回正常，url 字段有值。再看渲染层代码： 逻辑看似没毛病：有头像用头像，没有就用默认图。但诡异的是，有头像的用户也显示了默认图。 原因</p>
+          <p class="recommended"><strong>推荐选题：</strong>`??` 和 `||` 搞混，线上用户头像全挂了值得关注的三个信号（用户入口、使用场景与产品体验）</p>
+          <p>适合作为观察项：适合从用户入口、使用场景和产品体验角度切入，来源：掘金。</p>
+          <div class="tags"><span>juejin</span><span>前端</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：掘金</li><li>热度信号：6 / 1073</li><li>发布时间：2026-07-02</li><li>关键词：juejin, 前端</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://twitter.com/claudeai/status/2072402638247968855" target="_blank" rel="noreferrer">Anthropic says Fable 5 will now flag and route harmless queries to Opus</a>
+              <div class="meta">Hacker News · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>58</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by astlouis44</p>
+          <p class="recommended"><strong>推荐选题：</strong>Anthropic says Fable 5 will now flag and route harmless queries to Opus 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合作为观察项：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：6 / 2</li><li>发布时间：2026-07-01</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="http://arxiv.org/abs/2607.01224v1" target="_blank" rel="noreferrer">AutoMem: Automated Learning of Memory as a Cognitive Skill</a>
+              <div class="meta">ArXiv · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>57</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">Memory expertise is a learned skill: knowing what to encode, when to retrieve, and how to organize knowledge--a capacity known in cognitive science as metamemory. We bring this perspective to LLMs by treating memory management as a trainable skill. We promote file-system operations to first-class memory actions alongside task actions, letting the model itself decide how to manage its memory. This memory skill improves along two axes: the structure that supports it (prompts, file schemas, action vocabulary), and the proficiency of the model exercising it. Both axes resist manual optimization: episodes in long-horizon tasks run for thousands of steps, and a single memory mistake can hide long before it surfaces, making human review of full trajectories impractical. We introduce AutoMem, a framework that automates both axes. In the first loop, a strong LLM reviews complete agent trajectories and iteratively revises the memory structure that shapes how the agent interacts with its memory files. In the second loop, the agent's own good memory decisions are identified from many episodes and used as training signal to sharpen the model's memory proficiency directly. Across three procedurally generated long-horizon games (Crafter, MiniHack, and NetHack), optimizing memory alone--without modifying the model's task-action behavior--improved the base agent's performance ~2x-4x, bringing a 32B open-weight model competitive with frontier systems such as Claude Opus 4.5 and Gemini 3.1 Pro Thinking. Our results show that memory management is an independently learnable skill, and a high-leverage objective yielding large gains on long-horizon tasks.</p>
+          <p class="recommended"><strong>推荐选题：</strong>AutoMem: Automated Learning of Memory as a Cognitive Skill 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：ArXiv。</p>
+          <div class="tags"><span>cs.AI</span><span>cs.CL</span><span>cs.MA</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：ArXiv</li><li>发布时间：2026-07-01</li><li>关键词：cs.AI, cs.CL, cs.MA</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="http://arxiv.org/abs/2607.01211v1" target="_blank" rel="noreferrer">Are Performance-Optimization Benchmarks Reliably Measuring Coding Agents?</a>
+              <div class="meta">ArXiv · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>57</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">Repository-level performance-optimization benchmarks such as GSO, SWE-Perf and SWE-fficiency evaluate coding agents by applying patches to real repositories and comparing runtime against unoptimized baselines and official reference patches. Their leaderboard scores are increasingly used as evidence of coding-agent progress, but those scores can conflate runtime instability, benchmark-specific scoring rules, and how many tasks are already solved by at least one public submission. We audit these issues across the three benchmarks. First, we replay the official reference patches for 740 code optimization tasks across four common types of Google Cloud machines. Most benchmark tasks can be replayed, but their reference patches satisfy the original benchmark validity rules in every cross-machine replay for only 39/102 GSO tasks, 11/140 SWE-Perf tasks, and 411/498 SWE-fficiency tasks; SWE-Perf is especially fragile because many reference patches produce close-to-zero runtime changes. Second, we show that public submission rankings depend strongly on the benchmark scoring rule. Among eight public submissions shared by GSO and SWE-fficiency, the official rankings disagree on 9 of 28 pairwise submission comparisons, and SWE-fficiency's leaderboard scoring rule assigns the worst ten tasks overly high score weights of 58.5%-82.8%. Third, looking across 10 public submissions for each task, we find that at least one submission matches or beats the reference patch on 85.3% (384/450) of replay-valid GSO and SWE-fficiency tasks, and beats the unoptimized base code on 99.8% (449/450). Our study complements leaderboard scores by identifying tasks with more reliable performance signals, quantifying per-task score contributions, and exposing the remaining performance gaps that are hidden by aggregate rankings.</p>
+          <p class="recommended"><strong>推荐选题：</strong>Are Performance-Optimization Benchmarks Reliably Measuring Coding Agents? 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：ArXiv。</p>
+          <div class="tags"><span>cs.SE</span><span>cs.AI</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：ArXiv</li><li>发布时间：2026-07-01</li><li>关键词：cs.SE, cs.AI</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="http://arxiv.org/abs/2607.01188v1" target="_blank" rel="noreferrer">Optimal Resource Utilization for Autonomous Laboratory Orchestrators</a>
+              <div class="meta">ArXiv · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>57</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">In autonomous laboratories, AI agents suggest the next batch of experiments to do. However, planning and executing those tasks taking full advantage of the available resources is a completely different question. This can be challenging when dealing with real-world hardware constraints, especially so when there are multiple instruments with different capacities and throughputs. Here we demonstrate a 2-step method to address resource utilization for our autonomous platform for metal-organic framework synthesis. First, we use constraint programming to find optimal schedules. This finds schedules that minimizes the total time while still satisfying the limitations and capacities of the hardware. Secondly, we use a system of status dependencies for each task, which allows for the robust execution of the optimal schedules.</p>
+          <p class="recommended"><strong>推荐选题：</strong>Optimal Resource Utilization for Autonomous Laboratory Orchestrators 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：ArXiv。</p>
+          <div class="tags"><span>cs.AI</span><span>cond-mat.mtrl-sci</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：ArXiv</li><li>发布时间：2026-07-01</li><li>关键词：cs.AI, cond-mat.mtrl-sci</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://support.claude.com/en/articles/15424964-claude-fable-5-promotional-access" target="_blank" rel="noreferrer">Claude Fable 5 Promotional Access</a>
+              <div class="meta">Hacker News · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>57</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by zbikowski</p>
+          <p class="recommended"><strong>推荐选题：</strong>Claude Fable 5 Promotional Access 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合作为观察项：适合从用户入口、使用场景和产品体验角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：93 / 78</li><li>发布时间：2026-07-01</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="http://arxiv.org/abs/2607.01153v1" target="_blank" rel="noreferrer">Adversarial Pragmatics for AI Safety Evaluation: A Benchmark for Instruction Conflict, Embedded Commands, and Policy Ambiguity</a>
+              <div class="meta">ArXiv · 政策监管、社会影响与 AI 安全</div>
+            </div>
+            <div class="score">
+              <strong>57</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">Safety evaluations for language models increasingly depend on judgments about ambiguous natural-language behaviour: whether a model has followed an instruction, refused appropriately, complied with a policy, resisted an embedded command, or misreported progress in an agentic task. Existing benchmarks often compress these distinctions into pass/fail labels, obscuring whether failures arise from capability limits, policy ambiguity, instruction conflict, scaffold failure, or unstable evaluator judgments. This paper introduces adversarial pragmatics as a benchmark and annotation protocol for evaluating model behaviour under instruction conflict, embedded commands, quotation, scope ambiguity, deixis, indirect speech acts, and multi-turn agent transcripts. The contribution is empirical and methodological: a linguistically controlled taxonomy, an 18-item seed benchmark with validator-enforced metadata, a 54-row local seed pilot, an expert-evaluation protocol distinguishing task success, policy compliance, safety risk, refusal outcome, and evaluator confidence, and metrics for judge validity, diagnostic ambiguity, and taxonomy drift. The framework turns linguistic judgment methodology into a practical tool for validating safety evals, LLM judges, gold-set construction, prompt-injection tests, and safety documentation.</p>
+          <p class="recommended"><strong>推荐选题：</strong>Adversarial Pragmatics for AI Safety Evaluation: A Benchmark for Instruction Conflict, Embedded Commands, and Policy Ambiguity 为什么值得关注？（政策变化、信任风险与安全治理）</p>
+          <p>适合作为观察项：适合从政策变化、信任风险和安全治理角度切入，来源：ArXiv。</p>
+          <div class="tags"><span>cs.CL</span><span>cs.AI</span><span>cs.SE</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：ArXiv</li><li>发布时间：2026-07-01</li><li>关键词：cs.CL, cs.AI, cs.SE</li></ul>
+          </details>
+        </article>
+      </div>
+    </section>
+
+    <section id="notices">
+      <h2>数据源普通状态提示</h2>
+      <p class="empty">暂无普通状态提示。</p>
+    </section>
+
+    <section id="warnings">
+      <h2>数据源修复提示</h2>
+      <ul><li>Gitee 获取失败；可检查 gitee.com API 是否可访问。</li></ul>
+    </section>
+
+    <footer>AI Topic Radar · 单文件报告 · 不包含私有资料或 API key</footer>
+  </main>
+</body>
+</html>
