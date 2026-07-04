@@ -1,0 +1,1558 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 热点选题池 2026-07-04</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f8fb;
+      --panel: #ffffff;
+      --text: #172033;
+      --muted: #667085;
+      --line: #d8dee9;
+      --accent: #2563eb;
+      --accent-soft: #e8f0ff;
+      --green: #0f8a5f;
+      --shadow: 0 16px 40px rgba(17, 24, 39, 0.08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 40px 20px 64px;
+    }
+    header {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      padding: 28px;
+      margin-bottom: 24px;
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { font-size: 32px; line-height: 1.2; margin-bottom: 12px; }
+    h2 { font-size: 24px; margin: 32px 0 16px; }
+    h3 { font-size: 18px; margin: 24px 0 12px; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .summary {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+    .quick-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .quick-links a, .quick-links span {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 12px;
+      background: #fff;
+      color: var(--text);
+      font-size: 14px;
+    }
+    .topic-grid {
+      display: grid;
+      gap: 14px;
+    }
+    .topic-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+      box-shadow: 0 8px 24px rgba(17, 24, 39, 0.05);
+    }
+    .topic-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 16px;
+      align-items: start;
+    }
+    .topic-title {
+      display: inline-block;
+      font-weight: 700;
+      font-size: 17px;
+      line-height: 1.45;
+      overflow-wrap: anywhere;
+    }
+    .meta {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 4px;
+    }
+    .score {
+      min-width: 72px;
+      border-radius: 8px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      text-align: center;
+      padding: 8px 10px;
+    }
+    .score strong {
+      display: block;
+      font-size: 24px;
+      line-height: 1;
+    }
+    .score span {
+      display: block;
+      margin-top: 4px;
+      font-size: 13px;
+      color: var(--text);
+    }
+    .summary {
+      color: #344054;
+      font-weight: 500;
+    }
+    .recommended {
+      background: #f8fafc;
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      padding: 8px 10px;
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 12px 0;
+    }
+    .tags span {
+      background: #eef2f7;
+      border-radius: 999px;
+      color: #475467;
+      font-size: 12px;
+      padding: 3px 8px;
+    }
+    details {
+      border-top: 1px solid var(--line);
+      margin-top: 12px;
+      padding-top: 10px;
+    }
+    summary {
+      cursor: pointer;
+      color: var(--green);
+      font-weight: 600;
+    }
+    ul { padding-left: 20px; }
+    .empty {
+      color: var(--muted);
+      background: var(--panel);
+      border: 1px dashed var(--line);
+      border-radius: 8px;
+      padding: 14px;
+    }
+    .category-stack {
+      display: grid;
+      gap: 10px;
+    }
+    footer {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 36px;
+    }
+    @media (max-width: 640px) {
+      main { padding: 24px 12px 48px; }
+      header { padding: 20px; }
+      h1 { font-size: 26px; }
+      .topic-head { grid-template-columns: 1fr; }
+      .score { width: 84px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>AI 热点选题池 2026-07-04</h1>
+      <p class="summary">面向 AI 内容运营和产品调研的每日选题监控报告。默认入口为本 HTML 文件，可直接双击查看，也可通过 GitHub Pages 分享。</p>
+      <div class="quick-links">
+        <span>生成时间：2026-07-04 03:52 UTC</span>
+        <a href="./ai-topic-radar.md">Markdown</a>
+        <a href="./topic-pool.json">JSON 选题池</a>
+      </div>
+    </header>
+
+    <section id="top">
+      <h2>今日 Top 深挖选题</h2>
+      <div class="topic-grid">
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropic.com/news/fable-safeguards-jailbreak-framework" target="_blank" rel="noreferrer">More details on Fable 5’s cyber safeguards and our jailbreak framework</a>
+              <div class="meta">Anthropic (Claude) · 政策监管、社会影响与 AI 安全</div>
+            </div>
+            <div class="score">
+              <strong>98</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Announcements More details on Fable 5’s cyber safeguards and our jailbreak framework Jul 2, 2026 Claude Fable 5 has been re-deployed and is now available globally for all users. We’re taking this opportunity to share further information in two areas. First, we provide more information on the cybersecurity safeguards —specifically, the safety classifiers —that we launched with the model. These are the AI systems that accompany the model that detect and block dangerous (or potentially dangerous) cybersecurity uses. Here, we provide a detailed list of the types of harms Fable 5’s classifiers are, and are not, designed to prevent. Second, we lay out an early draft version of our proposed AI jailbreak severity framework , on which we’ve been working with our Glasswing partners. AI jailbreaks are unusual ways of prompting an AI model to bypass its safeguards, thus unblocking the behaviors (like dangerous or potentially dangerous cybersecurity tasks) we seek to prevent. Jailbreaks vary in severity: sometimes they only unblock minor undesirable behaviors, and sometimes they unblock a wide range of harmful outputs, making a model much more dangerous. Yet there is no agreed-upon framework for describing a given jailbreak’s severity. Such a framework would allow AI developers to speak to governments (and vice versa) in consistent terms about the risks posed by each jailbreak. What we’re sharing today reflects our current thinking. Our hope is to spark a helpful discussion across academi</p>
+          <p class="recommended"><strong>推荐选题：</strong>More details on Fable 5’s cyber safeguards and our jailbreak framework 为什么值得关注？（政策变化、信任风险与安全治理）</p>
+          <p>值得优先深挖：适合从政策变化、信任风险和安全治理角度切入，来源：Anthropic (Claude)。</p>
+          <div class="tags"><span>anthropic</span><span>news</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Anthropic (Claude)</li><li>发布时间：2026-07-03</li><li>关键词：anthropic, news</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://deepmind.google/blog/understanding-the-faulty-proteins-linked-to-cancer-and-autism/" target="_blank" rel="noreferrer">Understanding the faulty proteins linked to cancer and autism — Google DeepMind</a>
+              <div class="meta">Google DeepMind · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>96</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">September 26, 2022 Science Understanding the faulty proteins linked to cancer and autism Share Copied AlphaFold is helping researchers uncover how protein-mutations cause disease, and how to prevent them Luigi Vitagliano is a Research Director at the Institute of Biostructures and Bioimaging in Naples, Italy. He shares his AlphaFold story. Being a structural biologist in the age of AlphaFold is like the early days of gold mining. Before this technology, everyone was doing painstaking work to find individual gold nuggets, cleaning them and looking at them one by one. Then, all of a sudden, a gold mine appeared. We couldn’t believe our luck. For 30 years, I’ve been studying the proteins encoded in our DNA. Within most human cells, there are somewhere between 20,000 and 100,000 different proteins. In certain instances, the way the string of amino acids in a protein takes its shape, also known as 'protein folding' can be full of irregularities, and these are linked to lots of diseases. Recently, I’ve been looking at a family of human proteins, known as potassium channel tetramerisation domain (KCTD) proteins, that are particularly poorly understood. What is particularly interesting about mutations in these proteins - caused by genetic mutations - is the range of diseases that they are linked to: from schizophrenia to autism, and leukaemia to colorectal cancers, as well as brain and movement disorders. As new proteins are constantly being made inside cells, old or defective ones n</p>
+          <p class="recommended"><strong>推荐选题：</strong>Understanding the faulty proteins linked to cancer and autism — Google DeepMind 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>值得优先深挖：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Google DeepMind。</p>
+          <div class="tags"><span>deepmind</span><span>blog</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Google DeepMind</li><li>发布时间：2026-07-03</li><li>关键词：deepmind, blog</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://deepmind.google/blog/the-race-to-cure-a-billion-people-from-a-deadly-parasitic-disease/" target="_blank" rel="noreferrer">The race to cure a billion people from a deadly parasitic disease — Google DeepMind</a>
+              <div class="meta">Google DeepMind · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>96</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">July 28, 2022 Science The race to cure a billion people from a deadly parasitic disease Share Copied Researchers accelerate their search of life-saving treatments for leishmaniasis “We were about to give up,” says Dr Benjamin Perry, a medicinal chemist at the Drugs for Neglected Diseases initiative (DNDi) . When Perry joined the organization seven years ago, based in Geneva, Switzerland, his goal was to speed up the discovery of new treatments for two potentially fatal parasitic illnesses, Chagas disease and leishmaniasis . By and large, they achieved a lot of success. For one potential leishmaniasis drug in DNDi’s diverse portfolio, however, progress had slowed almost to a halt. “We couldn’t find ways of making changes that improved the drug molecule,” says Perry. “It either lost all its potency as an anti-parasitic or it kind of stayed the same.” However, things changed when Perry and his collaborators heard about DeepMind’s AI system, AlphaFold. Now, using a combination of scientific detective work and AI, the researchers have cleared a path towards turning the molecule into a real treatment for a devastating disease. New treatments for leishmaniasis can’t come soon enough. The disease is caused by parasites of the genus Leishmania and spreads through sandfly bites in countries across Asia, Africa, the Americas, and the Mediterranean . Visceral leishmaniasis, the most severe form, causes fever, weight loss, anemia, and enlargement of the spleen and liver. “If it’s not trea</p>
+          <p class="recommended"><strong>推荐选题：</strong>The race to cure a billion people from a deadly parasitic disease — Google DeepMind 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>值得优先深挖：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Google DeepMind。</p>
+          <div class="tags"><span>deepmind</span><span>blog</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Google DeepMind</li><li>发布时间：2026-07-03</li><li>关键词：deepmind, blog</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://deepmind.google/blog/understanding-deep-learning-through-neuron-deletion/" target="_blank" rel="noreferrer">Understanding deep learning through neuron deletion — Google DeepMind</a>
+              <div class="meta">Google DeepMind · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>96</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">March 21, 2018 Research Understanding deep learning through neuron deletion Ari Morcos, David Barrett Share Copied Deep neural networks are composed of many individual neurons, which combine in complex and counterintuitive ways to solve a wide range of challenging tasks. This complexity grants neural networks their power but also earns them their reputation as confusing and opaque black boxes. Understanding how deep neural networks function is critical for explaining their decisions and enabling us to build more powerful systems. For instance, imagine the difficulty of trying to build a clock without understanding how individual gears fit together. One approach to understanding neural networks, both in neuroscience and deep learning, is to investigate the role of individual neurons, especially those which are easily interpretable. Our investigation into the importance of single directions for generalisation , soon to appear at the Sixth International Conference on Learning Representations ( ICLR ), uses an approach inspired by decades of experimental neuroscience — exploring the impact of damage — to determine: how important are small groups of neurons in deep neural networks? Are more easily interpretable neurons also more important to the network’s computation? We measured the performance impact of damaging the network by deleting individual neurons as well as groups of neurons. Our experiments led to two surprising findings: Although many previous studies have focused on u</p>
+          <p class="recommended"><strong>推荐选题：</strong>Understanding deep learning through neuron deletion — Google DeepMind 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>值得优先深挖：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Google DeepMind。</p>
+          <div class="tags"><span>deepmind</span><span>blog</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Google DeepMind</li><li>发布时间：2026-07-03</li><li>关键词：deepmind, blog</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://deepmind.google/blog/traffic-prediction-with-advanced-graph-neural-networks/" target="_blank" rel="noreferrer">Traffic prediction with advanced Graph Neural Networks — Google DeepMind</a>
+              <div class="meta">Google DeepMind · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>96</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">September 3, 2020 Research Traffic prediction with advanced Graph Neural Networks Oliver Lange *, Luis Perez * Share Copied By partnering with Google, DeepMind is able to bring the benefits of AI to billions of people all over the world. From reuniting a speech-impaired user with his original voice , to helping users discover personalised apps , we can apply breakthrough research to immediate real-world problems at a Google scale. Today we’re delighted to share the results of our latest partnership, delivering a truly global impact for the more than one billion people that use Google Maps. Our collaboration with Google Maps People rely on Google Maps for accurate traffic predictions and estimated times of arrival (ETAs). These are critical tools that are especially useful when you need to be routed around a traffic jam, if you need to notify friends and family that you’re running late, or if you need to leave in time to attend an important meeting. These features are also useful for businesses such as rideshare companies, which use Google Maps Platform to power their services with information about pickup and dropoff times, along with estimated prices based on trip duration. Researchers at DeepMind have partnered with the Google Maps team to improve the accuracy of real time ETAs by up to 50% in places like Berlin, Jakarta, São Paulo, Sydney, Tokyo, and Washington D.C. by using advanced machine learning techniques including Graph Neural Networks, as the graphic below shows: H</p>
+          <p class="recommended"><strong>推荐选题：</strong>Traffic prediction with advanced Graph Neural Networks — Google DeepMind 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>值得优先深挖：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Google DeepMind。</p>
+          <div class="tags"><span>deepmind</span><span>blog</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Google DeepMind</li><li>发布时间：2026-07-03</li><li>关键词：deepmind, blog</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://deepmind.google/blog/towards-understanding-glasses-with-graph-neural-networks/" target="_blank" rel="noreferrer">Towards understanding glasses with graph neural networks — Google DeepMind</a>
+              <div class="meta">Google DeepMind · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>96</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">April 6, 2020 Research Towards understanding glasses with graph neural networks Victor Bapst, Thomas Keck, Agnieszka Grabska-Barwinska, Craig Donner Share Copied Under a microscope, a pane of window glass doesn’t look like a collection of orderly molecules, as a crystal would, but rather a jumble with no discernable structure. Glass is made by starting with a glowing mixture of high-temperature melted sand and minerals. Once cooled, its viscosity (a measure of the friction in the fluid) increases a trillion-fold, and it becomes a solid, resisting tension from stretching or pulling. Yet the molecules in the glass remain in a seemingly disordered state, much like the original molten liquid – almost as though the disordered liquid state had been flash-frozen in place. The glass transition , then, first appears to be a dramatic arrest in the movement of the glass molecules. Whether this process corresponds to a structural phase transition (as in water freezing, or the superconducting transition ) is a major open question in the field. Understanding the nature of the dynamics of glass is fundamental to understanding how the atomic-scale properties define the visible features of many solid materials. In the words of the recently deceased Nobel Prize laureate Philip W. Anderson , whose pioneering work shaped the field of solid-state physics: The deepest and most interesting unsolved problem in solid state theory is probably the theory of the nature of glass and the glass transition.</p>
+          <p class="recommended"><strong>推荐选题：</strong>Towards understanding glasses with graph neural networks — Google DeepMind 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>值得优先深挖：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Google DeepMind。</p>
+          <div class="tags"><span>deepmind</span><span>blog</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Google DeepMind</li><li>发布时间：2026-07-03</li><li>关键词：deepmind, blog</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://deepmind.google/blog/using-wavenet-technology-to-reunite-speech-impaired-users-with-their-original-voices/" target="_blank" rel="noreferrer">Using WaveNet technology to reunite speech-impaired users with their original voices — Google DeepMind</a>
+              <div class="meta">Google DeepMind · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>96</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">December 18, 2019 Research Using WaveNet technology to reunite speech-impaired users with their original voices Yutian Chen, Norman Casagrande, Yu Zhang *, Michael Brenner * Share Copied This post details a recent project we undertook with Google and ALS campaigner Tim Shaw, as part of Google’s Euphonia project. We demonstrate an early proof of concept of how text-to-speech technologies can synthesise a high-quality, natural sounding voice using minimal recorded speech data. As a teenager, Tim Shaw put everything he had into football practice: his dream was to join the NFL. After playing for Penn State in college, his ambitions were finally realised: the Carolina Panthers drafted him at age 23, and he went on to play for the Chicago Bears and Tennessee Titans, where he broke records as a linebacker. After six years in the NFL, on the cusp of greatness, his performance began to falter. He couldn’t tackle like he once had; his arms slid off the pullup bar. At home, he dropped bags of groceries, and his legs began to buckle underneath him. In 2013 Tim was cut from the Titans but he resolved to make it onto another team. Tim practiced harder than ever, yet his performance continued to decline. Five months later, he finally discovered the reason: he was diagnosed with Amyotrophic lateral sclerosis (ALS, commonly known as Lou Gehrig’s disease). In ALS, the neurons that control a person’s voluntary muscles die, eventually leading to a total loss of control over one’s body. ALS has n</p>
+          <p class="recommended"><strong>推荐选题：</strong>Using WaveNet technology to reunite speech-impaired users with their original voices — Google DeepMind 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>值得优先深挖：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Google DeepMind。</p>
+          <div class="tags"><span>deepmind</span><span>blog</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Google DeepMind</li><li>发布时间：2026-07-03</li><li>关键词：deepmind, blog</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://deepmind.google/blog/the-podcast-episode-8-demis-hassabis-the-interview/" target="_blank" rel="noreferrer">The Podcast: Episode 8: Demis Hassabis - The interview — Google DeepMind</a>
+              <div class="meta">Google DeepMind · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>96</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">September 17, 2019 Company The Podcast: Episode 8: Demis Hassabis - The interview Share Copied In this special extended episode, Hannah Fry meets Demis Hassabis, the CEO and co-founder of DeepMind. She digs into his former life as a chess player, games designer and neuroscientist and explores how his love of chess helped him to get start-up funding, what drives him and his vision, and why AI keeps him up at night. Interviewees: DeepMind CEO and co-founder, Demis Hassabis Notes Listen to this episode and subscribe to the whole series on Apple podcasts , Google podcasts , Spotify , Deezer or your favourite podcast app by searching for “DeepMind: The Podcast”. Find out more about the themes in this episode: Wired: Inside DeepMind's epic mission to solve science's trickiest problem Quanta magazine: How Artificial Intelligence Is Changing Science Demis Hassabis: A systems neuroscience approach to building AGI. Talk at the 2010 Singularity Summit Demis Hassabis: The power of self-learning systems. Talk at MIT 2019 Demis Hassabis: Talk on Creativity and AI Financial Times: The mind in the machine: Demis Hassabis on artificial intelligence (2017) The Times: Interview with Demis Hassabis The Economist Babbage podcast: DeepMind Games Interview with Demis Hassabis from the book Game Changer , which also features an introduction written by Demis If you know of other resources we should link to, please help other listeners by either replying to us on Twitter (#DMpodcast) or emailing us at</p>
+          <p class="recommended"><strong>推荐选题：</strong>The Podcast: Episode 8: Demis Hassabis - The interview — Google DeepMind 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>值得优先深挖：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Google DeepMind。</p>
+          <div class="tags"><span>deepmind</span><span>blog</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Google DeepMind</li><li>发布时间：2026-07-03</li><li>关键词：deepmind, blog</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://deepmind.google/blog/the-podcast-episode-7-towards-the-future/" target="_blank" rel="noreferrer">The Podcast: Episode 7: Towards the future — Google DeepMind</a>
+              <div class="meta">Google DeepMind · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>96</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">September 10, 2019 Company The Podcast: Episode 7: Towards the future Share Copied AI researchers around the world are trying to create a general purpose learning system that can learn to solve a broad range of problems without being taught how. Koray Kavukcuoglu, DeepMind’s Director of Research, describes the journey to get there, and takes Hannah on a whistle-stop tour of DeepMind’s HQ and its research. Interviewees: Koray Kavukcuoglu, Director of Research; Trevor Back, Product Manager for DeepMind’s science research; research scientists Raia Hadsell and Murray Shanahan; and DeepMind CEO and co-founder, Demis Hassabis. Notes Listen to this episode and subscribe to the whole series on Apple podcasts , Google podcasts , Spotify , Deezer or your favourite podcast app by searching for “DeepMind: The Podcast”. Find out more about the themes in this episode: OpenAI: An overview of neural networks and the progress that has been made in AI Shane Legg, DeepMind co-founder: Measuring machine intelligence at the 2010 Singularity Summit Shane Legg and Marcus Hutter: Paper on defining machine intelligence Demis Hassabis: Talk on the history, frontiers and capabilities of AI Robert Wiblin: Positively shaping the development of artificial intelligence Asilomar AI Principles Richard S. Sutton and Andrew G. Barto: Reinforcement Learning: An Introduction If you know of other resources we should link to, please help other listeners by either replying to us on Twitter (#DMpodcast) or emailing </p>
+          <p class="recommended"><strong>推荐选题：</strong>The Podcast: Episode 7: Towards the future — Google DeepMind 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>值得优先深挖：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Google DeepMind。</p>
+          <div class="tags"><span>deepmind</span><span>blog</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Google DeepMind</li><li>发布时间：2026-07-03</li><li>关键词：deepmind, blog</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://deepmind.google/blog/the-podcast-episode-5-out-of-the-lab/" target="_blank" rel="noreferrer">The Podcast: Episode 5: Out of the lab — Google DeepMind</a>
+              <div class="meta">Google DeepMind · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>96</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">August 27, 2019 Company The Podcast: Episode 5: Out of the lab Share Copied The ambition of AI research is to create systems that can help to solve problems in the real world. In this episode, Hannah Fry meets the people building systems that could be used to save the sight of thousands, help us solve one of the most fundamental problems in biology and reduce energy consumption in an effort to combat climate change. But whilst there is great potential, there are also important obstacles that will need to be tackled for AI to be used effectively, safely and fairly. Interviewees: Pearse Keane, consultant ophthalmologist at Moorfields Eye Hospital; Sandy Nelson, Product Manager for DeepMind’s Science Program; and DeepMind Program Manager Sims Witherspoon. Presented by Hannah Fry. Notes Listen to this episode and subscribe to the whole series on Apple podcasts , Google podcasts , Spotify , Deezer or your favourite podcast app by searching for “DeepMind: The Podcast”. Find out more about the themes in this episode: Wired: Inside DeepMind's epic mission to solve science's trickiest problem DeepMind blogs on the partnership with Moorfields NHS eye hospital and predicting eye disease , and Moorfields’ news announcement on its research with DeepMind DeepMind blog: AlphaFold: Using AI for scientific discovery DeepMind blogs on reducing Google’s energy bill for datacentre cooling and how this project has progressed Research paper: Tackling Climate Change with Machine Learning Quanta mag</p>
+          <p class="recommended"><strong>推荐选题：</strong>The Podcast: Episode 5: Out of the lab — Google DeepMind 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>值得优先深挖：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Google DeepMind。</p>
+          <div class="tags"><span>deepmind</span><span>blog</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Google DeepMind</li><li>发布时间：2026-07-03</li><li>关键词：deepmind, blog</li></ul>
+          </details>
+        </article>
+      </div>
+    </section>
+
+    <section id="pool">
+      <h2>入池选题</h2>
+      <div class="topic-grid">
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/F2JPCQ5746WUFS?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Macro</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>74</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Unifies your work into one app with shared memory</p>
+          <p class="recommended"><strong>推荐选题：</strong>Macro 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Productivity</span><span>Task Management</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：190 / 40</li><li>发布时间：2026-07-02</li><li>关键词：Productivity, Task Management, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/jamesob/local-llm" target="_blank" rel="noreferrer">Jamesob's guide to running SOTA LLMs locally</a>
+              <div class="meta">Hacker News · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>74</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by livestyle</p>
+          <p class="recommended"><strong>推荐选题：</strong>Jamesob's guide to running SOTA LLMs locally 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：299 / 136</li><li>发布时间：2026-07-03</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/open-webui/open-webui" target="_blank" rel="noreferrer">open-webui/open-webui</a>
+              <div class="meta">GitHub Search:llm · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>70</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">User-friendly AI Interface (Supports Ollama, OpenAI API, ...)</p>
+          <p class="recommended"><strong>推荐选题：</strong>open-webui/open-webui 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合进入今日选题池：适合从大厂动作、商业化路径和竞争格局角度切入，来源：GitHub Search:llm。</p>
+          <div class="tags"><span>Python</span><span>llm</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:llm</li><li>热度信号：144103</li><li>发布时间：2026-07-02</li><li>关键词：Python, llm</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/microsoft/ML-For-Beginners" target="_blank" rel="noreferrer">microsoft/ML-For-Beginners</a>
+              <div class="meta">GitHub Search:ml · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>70</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">12 weeks, 26 lessons, 52 quizzes, classic Machine Learning for all</p>
+          <p class="recommended"><strong>推荐选题：</strong>microsoft/ML-For-Beginners 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合进入今日选题池：适合从大厂动作、商业化路径和竞争格局角度切入，来源：GitHub Search:ml。</p>
+          <div class="tags"><span>Jupyter Notebook</span><span>ml</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:ml</li><li>热度信号：87675</li><li>发布时间：2026-07-02</li><li>关键词：Jupyter Notebook, ml</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/microsoft/AI-For-Beginners" target="_blank" rel="noreferrer">microsoft/AI-For-Beginners</a>
+              <div class="meta">GitHub Search:ml · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>70</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">12 Weeks, 24 Lessons, AI for All!</p>
+          <p class="recommended"><strong>推荐选题：</strong>microsoft/AI-For-Beginners 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合进入今日选题池：适合从大厂动作、商业化路径和竞争格局角度切入，来源：GitHub Search:ml。</p>
+          <div class="tags"><span>Jupyter Notebook</span><span>ml</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:ml</li><li>热度信号：51558</li><li>发布时间：2026-07-02</li><li>关键词：Jupyter Notebook, ml</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/IM2X7KS5EUXQGF?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Solaris</a>
+              <div class="meta">Product Hunt · 企业落地与行业应用</div>
+            </div>
+            <div class="score">
+              <strong>69</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Your company’s AI adoption and upskilling platform</p>
+          <p class="recommended"><strong>推荐选题：</strong>Solaris 为什么值得关注？（行业场景、落地成本与业务价值）</p>
+          <p>适合进入今日选题池：适合从行业场景、落地成本和业务价值角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Education</span><span>Artificial Intelligence</span><span>Online Learning</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：162 / 26</li><li>发布时间：2026-07-02</li><li>关键词：Education, Artificial Intelligence, Online Learning</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/pathwaycom/llm-app" target="_blank" rel="noreferrer">pathwaycom/llm-app</a>
+              <div class="meta">GitHub Search:ml · 企业落地与行业应用</div>
+            </div>
+            <div class="score">
+              <strong>69</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Ready-to-run cloud templates for RAG, AI pipelines, and enterprise search with live data. 🐳Docker-friendly.⚡Always in sync with Sharepoint, Google Drive, S3, Kafka, PostgreSQL, real-time data APIs, and more.</p>
+          <p class="recommended"><strong>推荐选题：</strong>pathwaycom/llm-app 为什么值得关注？（行业场景、落地成本与业务价值）</p>
+          <p>适合进入今日选题池：适合从行业场景、落地成本和业务价值角度切入，来源：GitHub Search:ml。</p>
+          <div class="tags"><span>Jupyter Notebook</span><span>ml</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:ml</li><li>热度信号：59144</li><li>发布时间：2026-06-29</li><li>关键词：Jupyter Notebook, ml</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/JuliusBrussee/caveman" target="_blank" rel="noreferrer">JuliusBrussee/caveman</a>
+              <div class="meta">GitHub Search:llm · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">🪨 why use many token when few token do trick — Claude Code skill that cuts 65% of tokens by talking like caveman</p>
+          <p class="recommended"><strong>推荐选题：</strong>JuliusBrussee/caveman 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:llm。</p>
+          <div class="tags"><span>JavaScript</span><span>llm</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:llm</li><li>热度信号：83059</li><li>发布时间：2026-07-03</li><li>关键词：JavaScript, llm</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/santifer/career-ops" target="_blank" rel="noreferrer">santifer/career-ops</a>
+              <div class="meta">GitHub Search:ai-agent · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">AI-powered job search system built on Claude Code. 14 skill modes, Go dashboard, PDF generation, batch processing.</p>
+          <p class="recommended"><strong>推荐选题：</strong>santifer/career-ops 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:ai-agent。</p>
+          <div class="tags"><span>JavaScript</span><span>ai-agent</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:ai-agent</li><li>热度信号：58422</li><li>发布时间：2026-07-03</li><li>关键词：JavaScript, ai-agent</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/ZhuLinsen/daily_stock_analysis" target="_blank" rel="noreferrer">ZhuLinsen/daily_stock_analysis</a>
+              <div class="meta">GitHub Search:ai-agent · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">LLM 驱动的多市场股票智能分析系统：多源行情、实时新闻、决策看板与自动推送，支持零成本定时运行。  LLM-powered multi-market stock analysis system with multi-source market data, real-time news, decision dashboard, automated notifications, and cost-free scheduled runs.</p>
+          <p class="recommended"><strong>推荐选题：</strong>ZhuLinsen/daily_stock_analysis 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:ai-agent。</p>
+          <div class="tags"><span>Python</span><span>ai-agent</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:ai-agent</li><li>热度信号：53889</li><li>发布时间：2026-07-04</li><li>关键词：Python, ai-agent</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/Significant-Gravitas/AutoGPT" target="_blank" rel="noreferrer">Significant-Gravitas/AutoGPT</a>
+              <div class="meta">GitHub Search:llm · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.</p>
+          <p class="recommended"><strong>推荐选题：</strong>Significant-Gravitas/AutoGPT 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:llm。</p>
+          <div class="tags"><span>Python</span><span>llm</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:llm</li><li>热度信号：185329</li><li>发布时间：2026-07-04</li><li>关键词：Python, llm</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/bytedance/deer-flow" target="_blank" rel="noreferrer">bytedance/deer-flow</a>
+              <div class="meta">GitHub Search:llm · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">An open-source long-horizon SuperAgent harness that researches, codes, and creates. With the help of sandboxes, memories, tools, skill, subagents and message gateway, it handles different levels of tasks that could take minutes to hours.</p>
+          <p class="recommended"><strong>推荐选题：</strong>bytedance/deer-flow 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:llm。</p>
+          <div class="tags"><span>Python</span><span>llm</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:llm</li><li>热度信号：76027</li><li>发布时间：2026-07-04</li><li>关键词：Python, llm</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/ultralytics/ultralytics" target="_blank" rel="noreferrer">ultralytics/ultralytics</a>
+              <div class="meta">GitHub Search:ml · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Ultralytics YOLO26, YOLO11, YOLOv8 — object detection, instance segmentation, semantic segmentation, image classification, pose estimation, object tracking</p>
+          <p class="recommended"><strong>推荐选题：</strong>ultralytics/ultralytics 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:ml。</p>
+          <div class="tags"><span>Python</span><span>ml</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:ml</li><li>热度信号：59088</li><li>发布时间：2026-07-04</li><li>关键词：Python, ml</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/Mintplex-Labs/anything-llm" target="_blank" rel="noreferrer">Mintplex-Labs/anything-llm</a>
+              <div class="meta">GitHub Search:vector-db · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Stop renting your intelligence. Own it with AnythingLLM. Everything you need for a powerful local-first agent experience </p>
+          <p class="recommended"><strong>推荐选题：</strong>Mintplex-Labs/anything-llm 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:vector-db。</p>
+          <div class="tags"><span>JavaScript</span><span>vector-db</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:vector-db</li><li>热度信号：62540</li><li>发布时间：2026-07-03</li><li>关键词：JavaScript, vector-db</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/thedotmack/claude-mem" target="_blank" rel="noreferrer">thedotmack/claude-mem</a>
+              <div class="meta">GitHub Search:rag · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Persistent Context Across Sessions for Every Agent –  Captures everything your agent does during sessions, compresses it with AI, and injects relevant context back into future sessions. Works with Claude Code, OpenClaw, Codex, Gemini, Hermes, Copilot, OpenCode + More</p>
+          <p class="recommended"><strong>推荐选题：</strong>thedotmack/claude-mem 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:rag。</p>
+          <div class="tags"><span>JavaScript</span><span>rag</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:rag</li><li>热度信号：85714</li><li>发布时间：2026-07-04</li><li>关键词：JavaScript, rag</li></ul>
+          </details>
+        </article>
+      </div>
+    </section>
+
+    <section id="categories">
+      <h2>按五类选题分类摘要</h2>
+      <div class="category-stack">
+      <section>
+        <h3>政策监管、社会影响与 AI 安全</h3>
+        
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropic.com/news/fable-safeguards-jailbreak-framework" target="_blank" rel="noreferrer">More details on Fable 5’s cyber safeguards and our jailbreak framework</a>
+              <div class="meta">Anthropic (Claude) · 政策监管、社会影响与 AI 安全</div>
+            </div>
+            <div class="score">
+              <strong>98</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Announcements More details on Fable 5’s cyber safeguards and our jailbreak framework Jul 2, 2026 Claude Fable 5 has been re-deployed and is now available globally for all users. We’re taking this opportunity to share further information in two areas. First, we provide more information on the cybersecurity safeguards —specifically, the safety classifiers —that we launched with the model. These are the AI systems that accompany the model that detect and block dangerous (or potentially dangerous) cybersecurity uses. Here, we provide a detailed list of the types of harms Fable 5’s classifiers are, and are not, designed to prevent. Second, we lay out an early draft version of our proposed AI jailbreak severity framework , on which we’ve been working with our Glasswing partners. AI jailbreaks are unusual ways of prompting an AI model to bypass its safeguards, thus unblocking the behaviors (like dangerous or potentially dangerous cybersecurity tasks) we seek to prevent. Jailbreaks vary in severity: sometimes they only unblock minor undesirable behaviors, and sometimes they unblock a wide range of harmful outputs, making a model much more dangerous. Yet there is no agreed-upon framework for describing a given jailbreak’s severity. Such a framework would allow AI developers to speak to governments (and vice versa) in consistent terms about the risks posed by each jailbreak. What we’re sharing today reflects our current thinking. Our hope is to spark a helpful discussion across academi</p>
+          <p class="recommended"><strong>推荐选题：</strong>More details on Fable 5’s cyber safeguards and our jailbreak framework 为什么值得关注？（政策变化、信任风险与安全治理）</p>
+          <p>值得优先深挖：适合从政策变化、信任风险和安全治理角度切入，来源：Anthropic (Claude)。</p>
+          <div class="tags"><span>anthropic</span><span>news</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Anthropic (Claude)</li><li>发布时间：2026-07-03</li><li>关键词：anthropic, news</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/empero-ai/Qwythos-9B-Claude-Mythos-5-1M-GGUF" target="_blank" rel="noreferrer">empero-ai/Qwythos-9B-Claude-Mythos-5-1M-GGUF</a>
+              <div class="meta">Hugging Face · 政策监管、社会影响与 AI 安全</div>
+            </div>
+            <div class="score">
+              <strong>54</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">image-text-to-text model by empero-ai</p>
+          <p class="recommended"><strong>推荐选题：</strong>empero-ai/Qwythos-9B-Claude-Mythos-5-1M-GGUF 为什么值得关注？（政策变化、信任风险与安全治理）</p>
+          <p>适合作为观察项：适合从政策变化、信任风险和安全治理角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>image-text-to-text</span><span>gguf</span><span>llama.cpp</span><span>quantized</span><span>qwen3.5</span><span>reasoning</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：1377 / 1366360</li><li>发布时间：2026-06-28</li><li>关键词：image-text-to-text, gguf, llama.cpp, quantized, qwen3.5</li></ul>
+          </details>
+        </article>
+      
+      </section>
+    
+
+      <section>
+        <h3>模型与技术突破</h3>
+        
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://deepmind.google/blog/transforming-the-future-of-music-creation/" target="_blank" rel="noreferrer">Transforming the future of music creation — Google DeepMind</a>
+              <div class="meta">Google DeepMind · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>94</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">November 16, 2023 Research Transforming the future of music creation Share Copied Announcing our most advanced music generation model, and two new AI experiments designed to open a new playground for creativity From jazz to heavy metal, techno to opera, music is a much loved form of creative expression. With complex and densely layered lyrics, melodies, rhythms, and vocals, creating music that’s compelling has been especially challenging for artificial intelligence (AI) systems — until now. Today, in partnership with YouTube , we’re announcing Google DeepMind’s Lyria , our most advanced AI music generation model to date, and two AI experiments designed to open a new playground for creativity: Dream Track – an experiment in YouTube Shorts designed to help deepen connections between artists, creators, and fans through music creation. Music AI tools – a set of tools we’re designing with artists, songwriters, and producers to help bolster their creative processes. To develop these projects, we’ve brought together technical experts from across Google with a diverse range of world-renowned artists and songwriters to explore how generative music technologies can responsibly shape the future of music creation. We’re excited about building new technologies that can enhance the work of professional musicians and the artist community, and deliver a positive contribution to the future of music. An early look at the possibilities as we experiment with AI and music. Introducing the Lyria m</p>
+          <p class="recommended"><strong>推荐选题：</strong>Transforming the future of music creation — Google DeepMind 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>值得优先深挖：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Google DeepMind。</p>
+          <div class="tags"><span>deepmind</span><span>blog</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Google DeepMind</li><li>发布时间：2026-07-03</li><li>关键词：deepmind, blog</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/baidu/Unlimited-OCR" target="_blank" rel="noreferrer">baidu/Unlimited-OCR</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>64</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">image-text-to-text model by baidu</p>
+          <p class="recommended"><strong>推荐选题：</strong>baidu/Unlimited-OCR 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>image-text-to-text</span><span>transformers</span><span>safetensors</span><span>unlimited-ocr</span><span>feature-extraction</span><span>baidu</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：1693 / 885040</li><li>发布时间：2026-07-03</li><li>关键词：image-text-to-text, transformers, safetensors, unlimited-ocr, feature-extraction</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro-DSpark" target="_blank" rel="noreferrer">deepseek-ai/DeepSeek-V4-Pro-DSpark</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>64</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">text-generation model by deepseek-ai</p>
+          <p class="recommended"><strong>推荐选题：</strong>deepseek-ai/DeepSeek-V4-Pro-DSpark 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>text-generation</span><span>transformers</span><span>safetensors</span><span>deepseek_v4</span><span>text-generation</span><span>arxiv:2606.19348</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：346 / 9388</li><li>发布时间：2026-07-04</li><li>关键词：text-generation, transformers, safetensors, deepseek_v4, text-generation</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/InternScience/Agents-A1" target="_blank" rel="noreferrer">InternScience/Agents-A1</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>64</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">text-generation model by InternScience</p>
+          <p class="recommended"><strong>推荐选题：</strong>InternScience/Agents-A1 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>text-generation</span><span>transformers</span><span>safetensors</span><span>qwen3_5_moe</span><span>image-text-to-text</span><span>moe</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：211 / 3530</li><li>发布时间：2026-07-03</li><li>关键词：text-generation, transformers, safetensors, qwen3_5_moe, image-text-to-text</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-DSpark" target="_blank" rel="noreferrer">deepseek-ai/DeepSeek-V4-Flash-DSpark</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>64</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">text-generation model by deepseek-ai</p>
+          <p class="recommended"><strong>推荐选题：</strong>deepseek-ai/DeepSeek-V4-Flash-DSpark 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>text-generation</span><span>transformers</span><span>safetensors</span><span>deepseek_v4</span><span>text-generation</span><span>arxiv:2606.19348</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：144 / 32675</li><li>发布时间：2026-07-04</li><li>关键词：text-generation, transformers, safetensors, deepseek_v4, text-generation</li></ul>
+          </details>
+        </article>
+      
+      </section>
+    
+
+      <section>
+        <h3>AI 产品与用户入口</h3>
+        
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/XBX6EKSLADLB4V?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Context.dev</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>80</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">One API to scrape, enrich, and extract the internet</p>
+          <p class="recommended"><strong>推荐选题：</strong>Context.dev 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>值得优先深挖：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>API</span><span>Artificial Intelligence</span><span>Data</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：829 / 136</li><li>发布时间：2026-07-02</li><li>关键词：API, Artificial Intelligence, Data</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/C2GZROB7OFA5HO?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Needle</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>80</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">The proactive GTM agent in Slack and Teams</p>
+          <p class="recommended"><strong>推荐选题：</strong>Needle 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>值得优先深挖：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Productivity</span><span>Sales</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：298 / 77</li><li>发布时间：2026-07-02</li><li>关键词：Productivity, Sales, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/F2JPCQ5746WUFS?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Macro</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>74</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Unifies your work into one app with shared memory</p>
+          <p class="recommended"><strong>推荐选题：</strong>Macro 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Productivity</span><span>Task Management</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：190 / 40</li><li>发布时间：2026-07-02</li><li>关键词：Productivity, Task Management, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/jamesob/local-llm" target="_blank" rel="noreferrer">Jamesob's guide to running SOTA LLMs locally</a>
+              <div class="meta">Hacker News · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>74</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by livestyle</p>
+          <p class="recommended"><strong>推荐选题：</strong>Jamesob's guide to running SOTA LLMs locally 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：299 / 136</li><li>发布时间：2026-07-03</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/JuliusBrussee/caveman" target="_blank" rel="noreferrer">JuliusBrussee/caveman</a>
+              <div class="meta">GitHub Search:llm · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">🪨 why use many token when few token do trick — Claude Code skill that cuts 65% of tokens by talking like caveman</p>
+          <p class="recommended"><strong>推荐选题：</strong>JuliusBrussee/caveman 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:llm。</p>
+          <div class="tags"><span>JavaScript</span><span>llm</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:llm</li><li>热度信号：83059</li><li>发布时间：2026-07-03</li><li>关键词：JavaScript, llm</li></ul>
+          </details>
+        </article>
+      
+      </section>
+    
+
+      <section>
+        <h3>企业落地与行业应用</h3>
+        
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/IM2X7KS5EUXQGF?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Solaris</a>
+              <div class="meta">Product Hunt · 企业落地与行业应用</div>
+            </div>
+            <div class="score">
+              <strong>69</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Your company’s AI adoption and upskilling platform</p>
+          <p class="recommended"><strong>推荐选题：</strong>Solaris 为什么值得关注？（行业场景、落地成本与业务价值）</p>
+          <p>适合进入今日选题池：适合从行业场景、落地成本和业务价值角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Education</span><span>Artificial Intelligence</span><span>Online Learning</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：162 / 26</li><li>发布时间：2026-07-02</li><li>关键词：Education, Artificial Intelligence, Online Learning</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/pathwaycom/llm-app" target="_blank" rel="noreferrer">pathwaycom/llm-app</a>
+              <div class="meta">GitHub Search:ml · 企业落地与行业应用</div>
+            </div>
+            <div class="score">
+              <strong>69</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Ready-to-run cloud templates for RAG, AI pipelines, and enterprise search with live data. 🐳Docker-friendly.⚡Always in sync with Sharepoint, Google Drive, S3, Kafka, PostgreSQL, real-time data APIs, and more.</p>
+          <p class="recommended"><strong>推荐选题：</strong>pathwaycom/llm-app 为什么值得关注？（行业场景、落地成本与业务价值）</p>
+          <p>适合进入今日选题池：适合从行业场景、落地成本和业务价值角度切入，来源：GitHub Search:ml。</p>
+          <div class="tags"><span>Jupyter Notebook</span><span>ml</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:ml</li><li>热度信号：59144</li><li>发布时间：2026-06-29</li><li>关键词：Jupyter Notebook, ml</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://dev.to/alaikrm/what-a-production-rag-system-actually-looks-like-after-18-months-53fg" target="_blank" rel="noreferrer">What a Production RAG System Actually Looks Like After 18 Months</a>
+              <div class="meta">Dev.to · 企业落地与行业应用</div>
+            </div>
+            <div class="score">
+              <strong>57</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">I want to write the post I wish existed when I started building enterprise RAG systems. Not a...</p>
+          <p class="recommended"><strong>推荐选题：</strong>What a Production RAG System Actually Looks Like After 18 Months 为什么值得关注？（行业场景、落地成本与业务价值）</p>
+          <p>适合作为观察项：适合从行业场景、落地成本和业务价值角度切入，来源：Dev.to。</p>
+          <div class="tags"><span>devto</span><span>ai</span><span>production</span><span>rag</span><span>systemdesign</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Dev.to</li><li>热度信号：1 / 2</li><li>发布时间：2026-07-03</li><li>关键词：devto, ai, production, rag, systemdesign</li></ul>
+          </details>
+        </article>
+      
+      </section>
+    
+
+      <section>
+        <h3>标杆企业动向、商业格局与投融资</h3>
+        
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://deepmind.google/blog/understanding-the-faulty-proteins-linked-to-cancer-and-autism/" target="_blank" rel="noreferrer">Understanding the faulty proteins linked to cancer and autism — Google DeepMind</a>
+              <div class="meta">Google DeepMind · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>96</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">September 26, 2022 Science Understanding the faulty proteins linked to cancer and autism Share Copied AlphaFold is helping researchers uncover how protein-mutations cause disease, and how to prevent them Luigi Vitagliano is a Research Director at the Institute of Biostructures and Bioimaging in Naples, Italy. He shares his AlphaFold story. Being a structural biologist in the age of AlphaFold is like the early days of gold mining. Before this technology, everyone was doing painstaking work to find individual gold nuggets, cleaning them and looking at them one by one. Then, all of a sudden, a gold mine appeared. We couldn’t believe our luck. For 30 years, I’ve been studying the proteins encoded in our DNA. Within most human cells, there are somewhere between 20,000 and 100,000 different proteins. In certain instances, the way the string of amino acids in a protein takes its shape, also known as 'protein folding' can be full of irregularities, and these are linked to lots of diseases. Recently, I’ve been looking at a family of human proteins, known as potassium channel tetramerisation domain (KCTD) proteins, that are particularly poorly understood. What is particularly interesting about mutations in these proteins - caused by genetic mutations - is the range of diseases that they are linked to: from schizophrenia to autism, and leukaemia to colorectal cancers, as well as brain and movement disorders. As new proteins are constantly being made inside cells, old or defective ones n</p>
+          <p class="recommended"><strong>推荐选题：</strong>Understanding the faulty proteins linked to cancer and autism — Google DeepMind 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>值得优先深挖：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Google DeepMind。</p>
+          <div class="tags"><span>deepmind</span><span>blog</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Google DeepMind</li><li>发布时间：2026-07-03</li><li>关键词：deepmind, blog</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://deepmind.google/blog/the-race-to-cure-a-billion-people-from-a-deadly-parasitic-disease/" target="_blank" rel="noreferrer">The race to cure a billion people from a deadly parasitic disease — Google DeepMind</a>
+              <div class="meta">Google DeepMind · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>96</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">July 28, 2022 Science The race to cure a billion people from a deadly parasitic disease Share Copied Researchers accelerate their search of life-saving treatments for leishmaniasis “We were about to give up,” says Dr Benjamin Perry, a medicinal chemist at the Drugs for Neglected Diseases initiative (DNDi) . When Perry joined the organization seven years ago, based in Geneva, Switzerland, his goal was to speed up the discovery of new treatments for two potentially fatal parasitic illnesses, Chagas disease and leishmaniasis . By and large, they achieved a lot of success. For one potential leishmaniasis drug in DNDi’s diverse portfolio, however, progress had slowed almost to a halt. “We couldn’t find ways of making changes that improved the drug molecule,” says Perry. “It either lost all its potency as an anti-parasitic or it kind of stayed the same.” However, things changed when Perry and his collaborators heard about DeepMind’s AI system, AlphaFold. Now, using a combination of scientific detective work and AI, the researchers have cleared a path towards turning the molecule into a real treatment for a devastating disease. New treatments for leishmaniasis can’t come soon enough. The disease is caused by parasites of the genus Leishmania and spreads through sandfly bites in countries across Asia, Africa, the Americas, and the Mediterranean . Visceral leishmaniasis, the most severe form, causes fever, weight loss, anemia, and enlargement of the spleen and liver. “If it’s not trea</p>
+          <p class="recommended"><strong>推荐选题：</strong>The race to cure a billion people from a deadly parasitic disease — Google DeepMind 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>值得优先深挖：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Google DeepMind。</p>
+          <div class="tags"><span>deepmind</span><span>blog</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Google DeepMind</li><li>发布时间：2026-07-03</li><li>关键词：deepmind, blog</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://deepmind.google/blog/understanding-deep-learning-through-neuron-deletion/" target="_blank" rel="noreferrer">Understanding deep learning through neuron deletion — Google DeepMind</a>
+              <div class="meta">Google DeepMind · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>96</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">March 21, 2018 Research Understanding deep learning through neuron deletion Ari Morcos, David Barrett Share Copied Deep neural networks are composed of many individual neurons, which combine in complex and counterintuitive ways to solve a wide range of challenging tasks. This complexity grants neural networks their power but also earns them their reputation as confusing and opaque black boxes. Understanding how deep neural networks function is critical for explaining their decisions and enabling us to build more powerful systems. For instance, imagine the difficulty of trying to build a clock without understanding how individual gears fit together. One approach to understanding neural networks, both in neuroscience and deep learning, is to investigate the role of individual neurons, especially those which are easily interpretable. Our investigation into the importance of single directions for generalisation , soon to appear at the Sixth International Conference on Learning Representations ( ICLR ), uses an approach inspired by decades of experimental neuroscience — exploring the impact of damage — to determine: how important are small groups of neurons in deep neural networks? Are more easily interpretable neurons also more important to the network’s computation? We measured the performance impact of damaging the network by deleting individual neurons as well as groups of neurons. Our experiments led to two surprising findings: Although many previous studies have focused on u</p>
+          <p class="recommended"><strong>推荐选题：</strong>Understanding deep learning through neuron deletion — Google DeepMind 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>值得优先深挖：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Google DeepMind。</p>
+          <div class="tags"><span>deepmind</span><span>blog</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Google DeepMind</li><li>发布时间：2026-07-03</li><li>关键词：deepmind, blog</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://deepmind.google/blog/traffic-prediction-with-advanced-graph-neural-networks/" target="_blank" rel="noreferrer">Traffic prediction with advanced Graph Neural Networks — Google DeepMind</a>
+              <div class="meta">Google DeepMind · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>96</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">September 3, 2020 Research Traffic prediction with advanced Graph Neural Networks Oliver Lange *, Luis Perez * Share Copied By partnering with Google, DeepMind is able to bring the benefits of AI to billions of people all over the world. From reuniting a speech-impaired user with his original voice , to helping users discover personalised apps , we can apply breakthrough research to immediate real-world problems at a Google scale. Today we’re delighted to share the results of our latest partnership, delivering a truly global impact for the more than one billion people that use Google Maps. Our collaboration with Google Maps People rely on Google Maps for accurate traffic predictions and estimated times of arrival (ETAs). These are critical tools that are especially useful when you need to be routed around a traffic jam, if you need to notify friends and family that you’re running late, or if you need to leave in time to attend an important meeting. These features are also useful for businesses such as rideshare companies, which use Google Maps Platform to power their services with information about pickup and dropoff times, along with estimated prices based on trip duration. Researchers at DeepMind have partnered with the Google Maps team to improve the accuracy of real time ETAs by up to 50% in places like Berlin, Jakarta, São Paulo, Sydney, Tokyo, and Washington D.C. by using advanced machine learning techniques including Graph Neural Networks, as the graphic below shows: H</p>
+          <p class="recommended"><strong>推荐选题：</strong>Traffic prediction with advanced Graph Neural Networks — Google DeepMind 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>值得优先深挖：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Google DeepMind。</p>
+          <div class="tags"><span>deepmind</span><span>blog</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Google DeepMind</li><li>发布时间：2026-07-03</li><li>关键词：deepmind, blog</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://deepmind.google/blog/towards-understanding-glasses-with-graph-neural-networks/" target="_blank" rel="noreferrer">Towards understanding glasses with graph neural networks — Google DeepMind</a>
+              <div class="meta">Google DeepMind · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>96</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">April 6, 2020 Research Towards understanding glasses with graph neural networks Victor Bapst, Thomas Keck, Agnieszka Grabska-Barwinska, Craig Donner Share Copied Under a microscope, a pane of window glass doesn’t look like a collection of orderly molecules, as a crystal would, but rather a jumble with no discernable structure. Glass is made by starting with a glowing mixture of high-temperature melted sand and minerals. Once cooled, its viscosity (a measure of the friction in the fluid) increases a trillion-fold, and it becomes a solid, resisting tension from stretching or pulling. Yet the molecules in the glass remain in a seemingly disordered state, much like the original molten liquid – almost as though the disordered liquid state had been flash-frozen in place. The glass transition , then, first appears to be a dramatic arrest in the movement of the glass molecules. Whether this process corresponds to a structural phase transition (as in water freezing, or the superconducting transition ) is a major open question in the field. Understanding the nature of the dynamics of glass is fundamental to understanding how the atomic-scale properties define the visible features of many solid materials. In the words of the recently deceased Nobel Prize laureate Philip W. Anderson , whose pioneering work shaped the field of solid-state physics: The deepest and most interesting unsolved problem in solid state theory is probably the theory of the nature of glass and the glass transition.</p>
+          <p class="recommended"><strong>推荐选题：</strong>Towards understanding glasses with graph neural networks — Google DeepMind 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>值得优先深挖：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Google DeepMind。</p>
+          <div class="tags"><span>deepmind</span><span>blog</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Google DeepMind</li><li>发布时间：2026-07-03</li><li>关键词：deepmind, blog</li></ul>
+          </details>
+        </article>
+      
+      </section>
+    </div>
+    </section>
+
+    <section id="watch">
+      <h2>观察项</h2>
+      <div class="topic-grid">
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/baidu/Unlimited-OCR" target="_blank" rel="noreferrer">baidu/Unlimited-OCR</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>64</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">image-text-to-text model by baidu</p>
+          <p class="recommended"><strong>推荐选题：</strong>baidu/Unlimited-OCR 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>image-text-to-text</span><span>transformers</span><span>safetensors</span><span>unlimited-ocr</span><span>feature-extraction</span><span>baidu</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：1693 / 885040</li><li>发布时间：2026-07-03</li><li>关键词：image-text-to-text, transformers, safetensors, unlimited-ocr, feature-extraction</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro-DSpark" target="_blank" rel="noreferrer">deepseek-ai/DeepSeek-V4-Pro-DSpark</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>64</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">text-generation model by deepseek-ai</p>
+          <p class="recommended"><strong>推荐选题：</strong>deepseek-ai/DeepSeek-V4-Pro-DSpark 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>text-generation</span><span>transformers</span><span>safetensors</span><span>deepseek_v4</span><span>text-generation</span><span>arxiv:2606.19348</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：346 / 9388</li><li>发布时间：2026-07-04</li><li>关键词：text-generation, transformers, safetensors, deepseek_v4, text-generation</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/InternScience/Agents-A1" target="_blank" rel="noreferrer">InternScience/Agents-A1</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>64</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">text-generation model by InternScience</p>
+          <p class="recommended"><strong>推荐选题：</strong>InternScience/Agents-A1 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>text-generation</span><span>transformers</span><span>safetensors</span><span>qwen3_5_moe</span><span>image-text-to-text</span><span>moe</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：211 / 3530</li><li>发布时间：2026-07-03</li><li>关键词：text-generation, transformers, safetensors, qwen3_5_moe, image-text-to-text</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-DSpark" target="_blank" rel="noreferrer">deepseek-ai/DeepSeek-V4-Flash-DSpark</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>64</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">text-generation model by deepseek-ai</p>
+          <p class="recommended"><strong>推荐选题：</strong>deepseek-ai/DeepSeek-V4-Flash-DSpark 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>text-generation</span><span>transformers</span><span>safetensors</span><span>deepseek_v4</span><span>text-generation</span><span>arxiv:2606.19348</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：144 / 32675</li><li>发布时间：2026-07-04</li><li>关键词：text-generation, transformers, safetensors, deepseek_v4, text-generation</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/zai-org/GLM-5.2" target="_blank" rel="noreferrer">zai-org/GLM-5.2</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>60</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">text-generation model by zai-org</p>
+          <p class="recommended"><strong>推荐选题：</strong>zai-org/GLM-5.2 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>text-generation</span><span>transformers</span><span>safetensors</span><span>glm_moe_dsa</span><span>text-generation</span><span>conversational</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：3346 / 191462</li><li>发布时间：2026-07-02</li><li>关键词：text-generation, transformers, safetensors, glm_moe_dsa, text-generation</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.wafer.ai/blog/glm52-amd" target="_blank" rel="noreferrer">GLM5.2 on AMD MI355X at 2626 tok/s/node at over 2x lower cost than Blackwell</a>
+              <div class="meta">Hacker News · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>60</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by latchkey</p>
+          <p class="recommended"><strong>推荐选题：</strong>GLM5.2 on AMD MI355X at 2626 tok/s/node at over 2x lower cost than Blackwell 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合作为观察项：适合从用户入口、使用场景和产品体验角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：132 / 38</li><li>发布时间：2026-07-03</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/nvidia/Qwen3.6-27B-NVFP4" target="_blank" rel="noreferrer">nvidia/Qwen3.6-27B-NVFP4</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>59</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">text-generation model by nvidia</p>
+          <p class="recommended"><strong>推荐选题：</strong>nvidia/Qwen3.6-27B-NVFP4 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>text-generation</span><span>Model Optimizer</span><span>safetensors</span><span>qwen3_5</span><span>nvidia</span><span>ModelOpt</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：233 / 94465</li><li>发布时间：2026-06-30</li><li>关键词：text-generation, Model Optimizer, safetensors, qwen3_5, nvidia</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://mistral.ai/news/leanstral-1-5/" target="_blank" rel="noreferrer">Leanstral 1.5: Proof abundance for all</a>
+              <div class="meta">Hacker News · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>59</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by programLyrique</p>
+          <p class="recommended"><strong>推荐选题：</strong>Leanstral 1.5: Proof abundance for all 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合作为观察项：适合从用户入口、使用场景和产品体验角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：118 / 31</li><li>发布时间：2026-07-03</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/google/tabfm-1.0.0-pytorch" target="_blank" rel="noreferrer">google/tabfm-1.0.0-pytorch</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>58</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">tabular-classification model by google</p>
+          <p class="recommended"><strong>推荐选题：</strong>google/tabfm-1.0.0-pytorch 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>tabular-classification</span><span>tabfm</span><span>safetensors</span><span>tabular</span><span>tabular-regression</span><span>zero-shot</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：152 / 450</li><li>发布时间：2026-07-02</li><li>关键词：tabular-classification, tabfm, safetensors, tabular, tabular-regression</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.ft.com/content/ad033063-60f9-4c0c-8d8a-9193a83e6f60" target="_blank" rel="noreferrer">Anthropic moves to close loopholes that allow Chinese access to Claude</a>
+              <div class="meta">Hacker News · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>58</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by mmarian</p>
+          <p class="recommended"><strong>推荐选题：</strong>Anthropic moves to close loopholes that allow Chinese access to Claude 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合作为观察项：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：5 / 7</li><li>发布时间：2026-07-03</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://juejin.cn/post/7655657102968438811" target="_blank" rel="noreferrer">`??` 和 `||` 搞混，线上用户头像全挂了</a>
+              <div class="meta">掘金 · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>58</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">问题场景 上周五快下班，客服群突然炸了： 查前端日志，头像接口返回正常，url 字段有值。再看渲染层代码： 逻辑看似没毛病：有头像用头像，没有就用默认图。但诡异的是，有头像的用户也显示了默认图。 原因</p>
+          <p class="recommended"><strong>推荐选题：</strong>`??` 和 `||` 搞混，线上用户头像全挂了值得关注的三个信号（用户入口、使用场景与产品体验）</p>
+          <p>适合作为观察项：适合从用户入口、使用场景和产品体验角度切入，来源：掘金。</p>
+          <div class="tags"><span>juejin</span><span>前端</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：掘金</li><li>热度信号：8 / 1259</li><li>发布时间：2026-07-04</li><li>关键词：juejin, 前端</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.scmp.com/tech/big-tech/article/3359375/alibaba-bans-staff-using-claude-code-over-anthropic-spyware-concerns" target="_blank" rel="noreferrer">Alibaba bans staff from using Claude Code over Anthropic spyware concerns</a>
+              <div class="meta">Hacker News · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>57</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by dstala</p>
+          <p class="recommended"><strong>推荐选题：</strong>Alibaba bans staff from using Claude Code over Anthropic spyware concerns 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合作为观察项：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：5 / 2</li><li>发布时间：2026-07-03</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://theguptalog.blogspot.com/2026/07/anthropic-wants-to-develop-its-own-drugs.html" target="_blank" rel="noreferrer">Anthropic wants to develop its own drugs</a>
+              <div class="meta">Hacker News · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>57</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by guptalog</p>
+          <p class="recommended"><strong>推荐选题：</strong>Anthropic wants to develop its own drugs 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合作为观察项：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：5 / 2</li><li>发布时间：2026-07-03</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.nytimes.com/2026/06/30/business/media/openai-movie-artificial-neon-amazon.html" target="_blank" rel="noreferrer">Independent Studio Buys Movie About OpenAI That Amazon Dropped</a>
+              <div class="meta">Hacker News · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>57</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by JumpCrisscross</p>
+          <p class="recommended"><strong>推荐选题：</strong>Independent Studio Buys Movie About OpenAI That Amazon Dropped 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合作为观察项：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：4 / 1</li><li>发布时间：2026-07-03</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://dev.to/alaikrm/what-a-production-rag-system-actually-looks-like-after-18-months-53fg" target="_blank" rel="noreferrer">What a Production RAG System Actually Looks Like After 18 Months</a>
+              <div class="meta">Dev.to · 企业落地与行业应用</div>
+            </div>
+            <div class="score">
+              <strong>57</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">I want to write the post I wish existed when I started building enterprise RAG systems. Not a...</p>
+          <p class="recommended"><strong>推荐选题：</strong>What a Production RAG System Actually Looks Like After 18 Months 为什么值得关注？（行业场景、落地成本与业务价值）</p>
+          <p>适合作为观察项：适合从行业场景、落地成本和业务价值角度切入，来源：Dev.to。</p>
+          <div class="tags"><span>devto</span><span>ai</span><span>production</span><span>rag</span><span>systemdesign</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Dev.to</li><li>热度信号：1 / 2</li><li>发布时间：2026-07-03</li><li>关键词：devto, ai, production, rag, systemdesign</li></ul>
+          </details>
+        </article>
+      </div>
+    </section>
+
+    <section id="notices">
+      <h2>数据源普通状态提示</h2>
+      <p class="empty">暂无普通状态提示。</p>
+    </section>
+
+    <section id="warnings">
+      <h2>数据源修复提示</h2>
+      <ul><li>Gitee 获取失败；可检查 gitee.com API 是否可访问。</li><li>开源中国获取失败；可检查 oschina.net RSS 是否可用。</li></ul>
+    </section>
+
+    <footer>AI Topic Radar · 单文件报告 · 不包含私有资料或 API key</footer>
+  </main>
+</body>
+</html>
