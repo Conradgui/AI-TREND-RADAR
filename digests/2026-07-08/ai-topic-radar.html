@@ -1,0 +1,1558 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 热点选题池 2026-07-08</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f8fb;
+      --panel: #ffffff;
+      --text: #172033;
+      --muted: #667085;
+      --line: #d8dee9;
+      --accent: #2563eb;
+      --accent-soft: #e8f0ff;
+      --green: #0f8a5f;
+      --shadow: 0 16px 40px rgba(17, 24, 39, 0.08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 40px 20px 64px;
+    }
+    header {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      padding: 28px;
+      margin-bottom: 24px;
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { font-size: 32px; line-height: 1.2; margin-bottom: 12px; }
+    h2 { font-size: 24px; margin: 32px 0 16px; }
+    h3 { font-size: 18px; margin: 24px 0 12px; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .summary {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+    .quick-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .quick-links a, .quick-links span {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 12px;
+      background: #fff;
+      color: var(--text);
+      font-size: 14px;
+    }
+    .topic-grid {
+      display: grid;
+      gap: 14px;
+    }
+    .topic-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+      box-shadow: 0 8px 24px rgba(17, 24, 39, 0.05);
+    }
+    .topic-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 16px;
+      align-items: start;
+    }
+    .topic-title {
+      display: inline-block;
+      font-weight: 700;
+      font-size: 17px;
+      line-height: 1.45;
+      overflow-wrap: anywhere;
+    }
+    .meta {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 4px;
+    }
+    .score {
+      min-width: 72px;
+      border-radius: 8px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      text-align: center;
+      padding: 8px 10px;
+    }
+    .score strong {
+      display: block;
+      font-size: 24px;
+      line-height: 1;
+    }
+    .score span {
+      display: block;
+      margin-top: 4px;
+      font-size: 13px;
+      color: var(--text);
+    }
+    .summary {
+      color: #344054;
+      font-weight: 500;
+    }
+    .recommended {
+      background: #f8fafc;
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      padding: 8px 10px;
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 12px 0;
+    }
+    .tags span {
+      background: #eef2f7;
+      border-radius: 999px;
+      color: #475467;
+      font-size: 12px;
+      padding: 3px 8px;
+    }
+    details {
+      border-top: 1px solid var(--line);
+      margin-top: 12px;
+      padding-top: 10px;
+    }
+    summary {
+      cursor: pointer;
+      color: var(--green);
+      font-weight: 600;
+    }
+    ul { padding-left: 20px; }
+    .empty {
+      color: var(--muted);
+      background: var(--panel);
+      border: 1px dashed var(--line);
+      border-radius: 8px;
+      padding: 14px;
+    }
+    .category-stack {
+      display: grid;
+      gap: 10px;
+    }
+    footer {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 36px;
+    }
+    @media (max-width: 640px) {
+      main { padding: 24px 12px 48px; }
+      header { padding: 20px; }
+      h1 { font-size: 26px; }
+      .topic-head { grid-template-columns: 1fr; }
+      .score { width: 84px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>AI 热点选题池 2026-07-08</h1>
+      <p class="summary">面向 AI 内容运营和产品调研的每日选题监控报告。默认入口为本 HTML 文件，可直接双击查看，也可通过 GitHub Pages 分享。</p>
+      <div class="quick-links">
+        <span>生成时间：2026-07-08 03:33 UTC</span>
+        <a href="./ai-topic-radar.md">Markdown</a>
+        <a href="./topic-pool.json">JSON 选题池</a>
+      </div>
+    </header>
+
+    <section id="top">
+      <h2>今日 Top 深挖选题</h2>
+      <div class="topic-grid">
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropic.com/news/claude-sonnet-5" target="_blank" rel="noreferrer">Introducing Claude Sonnet 5</a>
+              <div class="meta">Anthropic (Claude) · 政策监管、社会影响与 AI 安全</div>
+            </div>
+            <div class="score">
+              <strong>98</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Product Introducing Claude Sonnet 5 Jun 30, 2026 Claude Sonnet 5 is built to be the most agentic Sonnet model yet. It can make plans, use tools like browsers and terminals, and run autonomously at a level that, just a few months ago, required larger and more expensive models. For many developers, the agentic AI era began with Sonnet-class models: Claude Sonnet 3.5, 3.6, and 3.7 were the first models that showed impressive skills in coding and tool use. More recently, though, the clearest gains in agentic capabilities have been in our Opus-class models. Sonnet 5 narrows the gap: its performance is close to that of Opus 4.8, but at lower prices. It’s a substantial improvement over its predecessor, Sonnet 4.6, on important aspects of agentic performance like reasoning, tool use, coding, and knowledge work: Scores for Sonnet 5 on a variety of evaluations compared to those of Sonnet 4.6 and Opus 4.8 (a more generally capable model, for reference). The Claude Sonnet 5 System Card reports a broader set of evaluations in detail. Our safety assessments found that Sonnet 5 shows an overall lower rate of undesirable behaviors than Sonnet 4.6, and is generally safer to use in agentic contexts. Evaluations also show that it has a much lower ability to perform cybersecurity tasks than our current Opus models. From today, Claude Sonnet 5 is available across all plans: it is the default model for Free and Pro plans, and is available to Max, Team, and Enterprise users. It’s also available in </p>
+          <p class="recommended"><strong>推荐选题：</strong>Introducing Claude Sonnet 5 为什么值得关注？（政策变化、信任风险与安全治理）</p>
+          <p>值得优先深挖：适合从政策变化、信任风险和安全治理角度切入，来源：Anthropic (Claude)。</p>
+          <div class="tags"><span>anthropic</span><span>news</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Anthropic (Claude)</li><li>发布时间：2026-07-07</li><li>关键词：anthropic, news</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://deepmind.google/research/publications/260960/" target="_blank" rel="noreferrer">The Case for Globally Beneficial Technology — Google DeepMind</a>
+              <div class="meta">Google DeepMind · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>96</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">July 6, 2026 The Case for Globally Beneficial Technology View publication Download Share Copied Abstract To whom do the fruits of advanced technological innovation belong? To their inventors, to the organizations and participants that make such discoveries possible, or to still larger groups of people, encompassing, potentially, all of humanity? This question sits at the heart of the present investigation. The arguments developed here focus on an expansive reading of the entitlement to benefit from technological breakthroughs: we argue they should be designed, developed and distributed in ways that benefit everyone. This central claim, which encompasses technologies such as advanced forms of artificial intelligence (AI), is grounded in an exploration of five moral arguments which involve human rights, beneficence, contingencies of birth, the global tree of knowledge, and global economic justice. Taken together they underpin the argument for globally beneficial technologies. Authors Iason Gabriel, Atoosa Kasirzadeh Venue arXiv</p>
+          <p class="recommended"><strong>推荐选题：</strong>The Case for Globally Beneficial Technology — Google DeepMind 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>值得优先深挖：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Google DeepMind。</p>
+          <div class="tags"><span>deepmind</span><span>research</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Google DeepMind</li><li>发布时间：2026-07-07</li><li>关键词：deepmind, research</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://deepmind.google/blog/creating-plastic-eating-enzymes-that-could-save-us-from-pollution/" target="_blank" rel="noreferrer">Creating plastic-eating enzymes that could save us from pollution — Google DeepMind</a>
+              <div class="meta">Google DeepMind · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>96</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">July 28, 2022 Science Creating plastic-eating enzymes that could save us from pollution Share Copied Researchers are on a quest to develop enzymes that can break down plastics so they can be 100% recycled The world produces about 400 million tonnes of plastic waste each year. Much of it ends up in landfills, and a significant portion is polluting the world’s oceans. Yet even when plastic is recycled, the process degrades the material, limiting its future recyclability. Plastic is a great material; the issue is how we deal with it at its end of life. And we’re really bad at that – so we really need solutions John McGeehan structural biologist While we can attempt to reduce our dependence on plastic, industries like food and medicine can’t simply replace it. So scientists John McGeehan, Rosie Graham, and their colleagues at the Centre for Enzyme Innovation at the University of Portsmouth, are developing a different solution: a fully circular plastic economy. The idea is to use enzymes to break down plastic polymers so that they can be 100% recycled back to their initial state – or even upcycling degraded material back to the quality of virgin plastic. In the video above, John and Rosie explain how a chance email to the AlphaFold team has accelerated their work. Links and further reading: Find out more about the Centre for Enzyme Innovation Read their latest paper here Related posts AlphaFold Learn more Advancing discovery of better drugs and medicine July 2022 Science Learn mor</p>
+          <p class="recommended"><strong>推荐选题：</strong>Creating plastic-eating enzymes that could save us from pollution — Google DeepMind 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>值得优先深挖：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Google DeepMind。</p>
+          <div class="tags"><span>deepmind</span><span>blog</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Google DeepMind</li><li>发布时间：2026-07-07</li><li>关键词：deepmind, blog</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://deepmind.google/blog/computational-predictions-of-protein-structures-associated-with-covid-19/" target="_blank" rel="noreferrer">Computational predictions of protein structures associated with COVID-19 — Google DeepMind</a>
+              <div class="meta">Google DeepMind · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>96</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">August 4, 2020 Research Computational predictions of protein structures associated with COVID-19 Share Copied The scientific community has galvanised in response to the recent COVID-19 outbreak , building on decades of basic research characterising this virus family. Labs at the forefront of the outbreak response shared genomes of the virus in open access databases, which enabled researchers to rapidly develop tests for this novel pathogen. Other labs have shared experimentally-determined and computationally-predicted structures of some of the viral proteins , and still others have shared epidemiological data. We hope to contribute to the scientific effort using the latest version of our AlphaFold system by releasing structure predictions of several under-studied proteins associated with SARS-CoV-2, the virus that causes COVID-19. We emphasise that these structure predictions have not been experimentally verified, but hope they may contribute to the scientific community’s interrogation of how the virus functions, and serve as a hypothesis generation platform for future experimental work in developing therapeutics. We’re indebted to the work of many other labs: this work wouldn’t be possible without the efforts of researchers across the globe who have responded to the COVID-19 outbreak with incredible agility. Knowing a protein’s structure provides an important resource for understanding how it functions, but experiments to determine the structure can take months or longer, an</p>
+          <p class="recommended"><strong>推荐选题：</strong>Computational predictions of protein structures associated with COVID-19 — Google DeepMind 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>值得优先深挖：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Google DeepMind。</p>
+          <div class="tags"><span>deepmind</span><span>blog</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Google DeepMind</li><li>发布时间：2026-07-07</li><li>关键词：deepmind, blog</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://deepmind.google/blog/sima-generalist-ai-agent-for-3d-virtual-environments/" target="_blank" rel="noreferrer">A generalist AI agent for 3D virtual environments — Google DeepMind</a>
+              <div class="meta">Google DeepMind · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>96</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">March 13, 2024 Research A generalist AI agent for 3D virtual environments SIMA Team Share Copied We present new research on a Scalable Instructable Multiworld Agent (SIMA) that can follow natural-language instructions to carry out tasks in a variety of video game settings Video games are a key proving ground for artificial intelligence (AI) systems. Like the real world, games are rich learning environments with responsive, real-time settings and ever-changing goals. From our early work with Atari games , through to our AlphaStar system that plays StarCraft II at human-grandmaster level, Google DeepMind has a long history in AI and games. Today, we’re announcing a new milestone - shifting our focus from individual games towards a general, instructable game-playing AI agent. In a new technical report , we introduce SIMA, short for Scalable Instructable Multiworld Agent, a generalist AI agent for 3D virtual settings. We partnered with game developers to train SIMA on a variety of video games. This research marks the first time an agent has demonstrated it can understand a broad range of gaming worlds, and follow natural-language instructions to carry out tasks within them, as a human might. This work isn't about achieving high game scores. Learning to play even one video game is a technical feat for an AI system, but learning to follow instructions in a variety of game settings could unlock more helpful AI agents for any environment. Our research shows how we can translate the c</p>
+          <p class="recommended"><strong>推荐选题：</strong>A generalist AI agent for 3D virtual environments — Google DeepMind 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>值得优先深挖：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Google DeepMind。</p>
+          <div class="tags"><span>deepmind</span><span>blog</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Google DeepMind</li><li>发布时间：2026-07-07</li><li>关键词：deepmind, blog</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://deepmind.google/blog/alphaproteo-generates-novel-proteins-for-biology-and-health-research/" target="_blank" rel="noreferrer">AlphaProteo generates novel proteins for biology and health research — Google DeepMind</a>
+              <div class="meta">Google DeepMind · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>96</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">September 5, 2024 Science AlphaProteo generates novel proteins for biology and health research Protein Design and Wet Lab teams Share Copied New AI system designs proteins that successfully bind to target molecules, with potential for advancing drug design, disease understanding and more. Every biological process in the body, from cell growth to immune responses, depends on interactions between molecules called proteins. Like a key to a lock, one protein can bind to another, helping regulate critical cellular processes. Protein structure prediction tools like AlphaFold have already given us tremendous insight into how proteins interact with each other to perform their functions, but these tools cannot create new proteins to directly manipulate those interactions. Scientists, however, can create novel proteins that successfully bind to target molecules. These binders can help researchers accelerate progress across a broad spectrum of research, including drug development, cell and tissue imaging, disease understanding and diagnosis – even crop resistance to pests. While recent machine learning approaches to protein design have made great strides, the process is still laborious and requires extensive experimental testing. Today, we introduce AlphaProteo , our first AI system for designing novel, high-strength protein binders to serve as building blocks for biological and health research. This technology has the potential to accelerate our understanding of biological processes, a</p>
+          <p class="recommended"><strong>推荐选题：</strong>AlphaProteo generates novel proteins for biology and health research — Google DeepMind 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>值得优先深挖：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Google DeepMind。</p>
+          <div class="tags"><span>deepmind</span><span>blog</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Google DeepMind</li><li>发布时间：2026-07-07</li><li>关键词：deepmind, blog</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://deepmind.google/blog/enabling-continual-learning-in-neural-networks/" target="_blank" rel="noreferrer">Enabling Continual Learning in Neural Networks — Google DeepMind</a>
+              <div class="meta">Google DeepMind · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>96</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">March 13, 2017 Research Enabling Continual Learning in Neural Networks James Kirkpatrick, Razvan Pascanu, Neil Rabinowitz, Joel Veness, Guillaume Desjardins, Andrei Rusu, Kieran Milan, John Quan, Tiago Ramalho, Agnieszka Grabska-Barwinska, Demis Hassabis, Dharshan Kumaran, Raia Hadsell, C Clopath * (* External authors ) Share Copied Computer programs that learn to perform tasks also typically forget them very quickly. We show that the learning rule can be modified so that a program can remember old tasks when learning a new one. This is an important step towards more intelligent programs that are able to learn progressively and adaptively. Deep neural networks are currently the most successful machine learning technique for solving a variety of tasks including language translation, image classification and image generation. However, they have typically been designed to learn multiple tasks only if the data is presented all at once. As a network trains on a particular task its parameters are adapted to solve the task. When a new task is introduced, new adaptations overwrite the knowledge that the neural network had previously acquired. This phenomenon is known in cognitive science as ‘catastrophic forgetting’, and is considered one of the fundamental limitations of neural networks. By contrast, our brains work in a very different way. We are able to learn incrementally, acquiring skills one at a time and applying our previous knowledge when learning new tasks. As a starting po</p>
+          <p class="recommended"><strong>推荐选题：</strong>Enabling Continual Learning in Neural Networks — Google DeepMind 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>值得优先深挖：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Google DeepMind。</p>
+          <div class="tags"><span>deepmind</span><span>blog</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Google DeepMind</li><li>发布时间：2026-07-07</li><li>关键词：deepmind, blog</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://deepmind.google/blog/deepmind-and-blizzard-to-release-starcraft-ii-as-an-ai-research-environment/" target="_blank" rel="noreferrer">DeepMind and Blizzard to release StarCraft II as an AI research environment — Google DeepMind</a>
+              <div class="meta">Google DeepMind · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>96</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">November 4, 2016 Research DeepMind and Blizzard to release StarCraft II as an AI research environment Oriol Vinyals Share Copied Today at BlizzCon 2016 in Anaheim, California, we announced our collaboration with Blizzard Entertainment to open up StarCraft II to AI and Machine Learning researchers around the world. For almost 20 years, the StarCraft game series has been widely recognised as the pinnacle of 1v1 competitive video games, and among the best PC games of all time. The original StarCraft was an early pioneer in eSports, played at the highest level by elite professional players since the late 90s, and remains incredibly competitive to this day. The StarCraft series’ longevity in competitive gaming is a testament to Blizzard’s design, and their continual effort to balance and refine their games over the years. StarCraft II continues the series’ renowned eSports tradition, and has been the focus of our work with Blizzard. DeepMind is on a scientific mission to push the boundaries of AI, developing programs that can learn to solve any complex problem without needing to be told how. Games are the perfect environment in which to do this, allowing us to develop and test smarter, more flexible AI algorithms quickly and efficiently, and also providing instant feedback on how we’re doing through scores. Over the past five years we’ve helped to pioneer the use of games as AI research environments to drive our machine learning and reinforcement learning research forwards, from 2</p>
+          <p class="recommended"><strong>推荐选题：</strong>DeepMind and Blizzard to release StarCraft II as an AI research environment — Google DeepMind 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>值得优先深挖：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Google DeepMind。</p>
+          <div class="tags"><span>deepmind</span><span>blog</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Google DeepMind</li><li>发布时间：2026-07-07</li><li>关键词：deepmind, blog</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://deepmind.google/blog/differentiable-neural-computers/" target="_blank" rel="noreferrer">Differentiable neural computers — Google DeepMind</a>
+              <div class="meta">Google DeepMind · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>96</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">October 12, 2016 Research Differentiable neural computers Gregory Wayne, Alexander Graves Share Copied In a recent study in Nature , we introduce a form of memory-augmented neural network called a differentiable neural computer, and show that it can learn to use its memory to answer questions about complex, structured data, including artificially generated stories, family trees, and even a map of the London Underground. We also show that it can solve a block puzzle game using reinforcement learning. Plato likened memory to a wax tablet on which an impression, imposed on it once, would remain fixed. He expressed in metaphor the modern notion of plasticity – that our minds can be shaped and reshaped by experience. But the wax of our memories does not just form impressions, it also forms connections, from one memory to the next. Philosophers like John Locke believed that memories connected if they were formed nearby in time and space. Instead of wax, the most potent metaphor expressing this is Marcel Proust’s madeleine cake; for Proust, one taste of the confection as an adult undammed a torrent of associations from his childhood. These episodic memories (event memories) are known to depend on the hippocampus in the human brain. Today, our metaphors for memory have been refined. We no longer think of memory as a wax tablet but as a reconstructive process, whereby experiences are reassembled from their constituent parts. And instead of a simple association between stimuli and beha</p>
+          <p class="recommended"><strong>推荐选题：</strong>Differentiable neural computers — Google DeepMind 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>值得优先深挖：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Google DeepMind。</p>
+          <div class="tags"><span>deepmind</span><span>blog</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Google DeepMind</li><li>发布时间：2026-07-07</li><li>关键词：deepmind, blog</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://deepmind.google/blog/applying-machine-learning-to-radiotherapy-planning-for-head-neck-cancer/" target="_blank" rel="noreferrer">Applying machine learning to radiotherapy planning for head &amp; neck cancer — Google DeepMind</a>
+              <div class="meta">Google DeepMind · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>96</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">August 30, 2016 Company Applying machine learning to radiotherapy planning for head &amp; neck cancer Share Copied We’re excited to announce a new research partnership with the Radiotherapy Department at University College London Hospitals NHS Foundation Trust, which provides world-leading cancer treatment. 1 in 75 men and 1 in 150 women will be diagnosed with oral cancer during their lifetime, and oral cavity cancer has risen by 92% since the 1970s. Head and neck cancer in general affects over 11,000 patients in the UK alone each year. Advances in treatment such as radiotherapy have improved survival rates, but because of the high number of delicate structures concentrated in this area of the body, clinicians have to plan treatment extremely carefully to ensure none of the vital nerves or organs are damaged. That makes a cancer at the back of the mouth or in the sinuses, for example, particularly hard to treat with radiotherapy. So with clinicians in UCLH’s world-leading radiotherapy team we are exploring whether machine learning methods could reduce the amount of time it takes to plan radiotherapy treatment for such cancers. Before radiotherapy can be administered, clinicians have to produce a detailed map of the areas of the body to be treated, and the areas to avoid. The process, known as segmentation, involves drawing around different parts of the anatomy and feeding the information through to a radiotherapy machine, which can then target cancers while leaving healthy tissue</p>
+          <p class="recommended"><strong>推荐选题：</strong>Applying machine learning to radiotherapy planning for head &amp; neck cancer — Google DeepMind 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>值得优先深挖：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Google DeepMind。</p>
+          <div class="tags"><span>deepmind</span><span>blog</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Google DeepMind</li><li>发布时间：2026-07-07</li><li>关键词：deepmind, blog</li></ul>
+          </details>
+        </article>
+      </div>
+    </section>
+
+    <section id="pool">
+      <h2>入池选题</h2>
+      <div class="topic-grid">
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/HWQDIOXH2G3VA3?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">AirKaren</a>
+              <div class="meta">Product Hunt · 企业落地与行业应用</div>
+            </div>
+            <div class="score">
+              <strong>79</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">AI that fights customer service for you</p>
+          <p class="recommended"><strong>推荐选题：</strong>AirKaren 为什么值得关注？（行业场景、落地成本与业务价值）</p>
+          <p>适合进入今日选题池：适合从行业场景、落地成本和业务价值角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Customer Success</span><span>Travel</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：241 / 55</li><li>发布时间：2026-07-06</li><li>关键词：Customer Success, Travel, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/XP65ILK6AEHTCC?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Edgee Claude Code Compressor V2</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>75</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Fewer tokens, same context, 50% cost reduction</p>
+          <p class="recommended"><strong>推荐选题：</strong>Edgee Claude Code Compressor V2 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>API</span><span>Developer Tools</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：196 / 39</li><li>发布时间：2026-07-06</li><li>关键词：API, Developer Tools, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/langchain4j/langchain4j" target="_blank" rel="noreferrer">langchain4j/langchain4j</a>
+              <div class="meta">GitHub Search:vector-db · 企业落地与行业应用</div>
+            </div>
+            <div class="score">
+              <strong>70</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">LangChain4j is an idiomatic, open-source Java library for building LLM-powered applications on the JVM. It offers a unified API over popular LLM providers and vector stores, and makes implementing tool calling (including MCP support), agents and RAG easy. It integrates seamlessly with enterprise Java frameworks like Quarkus and Spring Boot.</p>
+          <p class="recommended"><strong>推荐选题：</strong>langchain4j/langchain4j 为什么值得关注？（行业场景、落地成本与业务价值）</p>
+          <p>适合进入今日选题池：适合从行业场景、落地成本和业务价值角度切入，来源：GitHub Search:vector-db。</p>
+          <div class="tags"><span>Java</span><span>vector-db</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:vector-db</li><li>热度信号：12545</li><li>发布时间：2026-07-08</li><li>关键词：Java, vector-db</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/ACPBRZ46RAWI7E?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">CodeMote</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>69</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Claude Code, Codex, any CLI agent. Driven from your iPhone</p>
+          <p class="recommended"><strong>推荐选题：</strong>CodeMote 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>iOS</span><span>Developer Tools</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：155 / 57</li><li>发布时间：2026-07-06</li><li>关键词：iOS, Developer Tools, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/pathwaycom/llm-app" target="_blank" rel="noreferrer">pathwaycom/llm-app</a>
+              <div class="meta">GitHub Search:rag · 企业落地与行业应用</div>
+            </div>
+            <div class="score">
+              <strong>69</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Ready-to-run cloud templates for RAG, AI pipelines, and enterprise search with live data. 🐳Docker-friendly.⚡Always in sync with Sharepoint, Google Drive, S3, Kafka, PostgreSQL, real-time data APIs, and more.</p>
+          <p class="recommended"><strong>推荐选题：</strong>pathwaycom/llm-app 为什么值得关注？（行业场景、落地成本与业务价值）</p>
+          <p>适合进入今日选题池：适合从行业场景、落地成本和业务价值角度切入，来源：GitHub Search:rag。</p>
+          <div class="tags"><span>Jupyter Notebook</span><span>rag</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:rag</li><li>热度信号：59098</li><li>发布时间：2026-07-05</li><li>关键词：Jupyter Notebook, rag</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/JP4IJONLR6JLA3?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Nixmac</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Nix-darwin that speaks plain English</p>
+          <p class="recommended"><strong>推荐选题：</strong>Nixmac 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Open Source</span><span>Developer Tools</span><span>Artificial Intelligence</span><span>GitHub</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：147 / 35</li><li>发布时间：2026-07-06</li><li>关键词：Open Source, Developer Tools, Artificial Intelligence, GitHub</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/infiniflow/ragflow" target="_blank" rel="noreferrer">infiniflow/ragflow</a>
+              <div class="meta">GitHub Search:rag · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">RAGFlow is a leading open-source Retrieval-Augmented Generation (RAG) engine that fuses cutting-edge RAG with Agent capabilities to create a superior context layer for LLMs</p>
+          <p class="recommended"><strong>推荐选题：</strong>infiniflow/ragflow 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:rag。</p>
+          <div class="tags"><span>Go</span><span>rag</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:rag</li><li>热度信号：84545</li><li>发布时间：2026-07-08</li><li>关键词：Go, rag</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/Graphify-Labs/graphify" target="_blank" rel="noreferrer">Graphify-Labs/graphify</a>
+              <div class="meta">GitHub Search:rag · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">AI coding assistant skill (Claude Code, Codex, OpenCode, Cursor, Gemini CLI, and more). Turn any folder of code, SQL schemas, R scripts, shell scripts, docs, papers, images, or videos into a queryable knowledge graph. App code + database schema + infrastructure in one graph.</p>
+          <p class="recommended"><strong>推荐选题：</strong>Graphify-Labs/graphify 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:rag。</p>
+          <div class="tags"><span>Python</span><span>rag</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:rag</li><li>热度信号：79658</li><li>发布时间：2026-07-08</li><li>关键词：Python, rag</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/Mintplex-Labs/anything-llm" target="_blank" rel="noreferrer">Mintplex-Labs/anything-llm</a>
+              <div class="meta">GitHub Search:rag · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Stop renting your intelligence. Own it with AnythingLLM. Everything you need for a powerful local-first agent experience </p>
+          <p class="recommended"><strong>推荐选题：</strong>Mintplex-Labs/anything-llm 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:rag。</p>
+          <div class="tags"><span>JavaScript</span><span>rag</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:rag</li><li>热度信号：62822</li><li>发布时间：2026-07-07</li><li>关键词：JavaScript, rag</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/headroomlabs-ai/headroom" target="_blank" rel="noreferrer">headroomlabs-ai/headroom</a>
+              <div class="meta">GitHub Search:rag · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 60-95% fewer tokens, same answers. Library, proxy, MCP server.</p>
+          <p class="recommended"><strong>推荐选题：</strong>headroomlabs-ai/headroom 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:rag。</p>
+          <div class="tags"><span>Python</span><span>rag</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:rag</li><li>热度信号：57589</li><li>发布时间：2026-07-08</li><li>关键词：Python, rag</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/Significant-Gravitas/AutoGPT" target="_blank" rel="noreferrer">Significant-Gravitas/AutoGPT</a>
+              <div class="meta">GitHub Search:llm · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.</p>
+          <p class="recommended"><strong>推荐选题：</strong>Significant-Gravitas/AutoGPT 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:llm。</p>
+          <div class="tags"><span>Python</span><span>llm</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:llm</li><li>热度信号：185428</li><li>发布时间：2026-07-07</li><li>关键词：Python, llm</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/santifer/career-ops" target="_blank" rel="noreferrer">santifer/career-ops</a>
+              <div class="meta">GitHub Search:ai-agent · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Open-source AI job search: scan job portals, score listings A-F, tailor your CV, track applications — runs locally in your AI coding CLI (Claude Code, Gemini, Codex, OpenCode…)</p>
+          <p class="recommended"><strong>推荐选题：</strong>santifer/career-ops 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:ai-agent。</p>
+          <div class="tags"><span>JavaScript</span><span>ai-agent</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:ai-agent</li><li>热度信号：59062</li><li>发布时间：2026-07-07</li><li>关键词：JavaScript, ai-agent</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/ZhuLinsen/daily_stock_analysis" target="_blank" rel="noreferrer">ZhuLinsen/daily_stock_analysis</a>
+              <div class="meta">GitHub Search:ai-agent · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">LLM 驱动的多市场股票智能分析系统：多源行情、实时新闻、决策看板与自动推送，支持零成本定时运行。  LLM-powered multi-market stock analysis system with multi-source market data, real-time news, decision dashboard, automated notifications, and cost-free scheduled runs.</p>
+          <p class="recommended"><strong>推荐选题：</strong>ZhuLinsen/daily_stock_analysis 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:ai-agent。</p>
+          <div class="tags"><span>Python</span><span>ai-agent</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:ai-agent</li><li>热度信号：55611</li><li>发布时间：2026-07-08</li><li>关键词：Python, ai-agent</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/meilisearch/meilisearch" target="_blank" rel="noreferrer">meilisearch/meilisearch</a>
+              <div class="meta">GitHub Search:vector-db · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">A lightning-fast search engine API bringing AI-powered hybrid search to your sites and applications.</p>
+          <p class="recommended"><strong>推荐选题：</strong>meilisearch/meilisearch 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:vector-db。</p>
+          <div class="tags"><span>Rust</span><span>vector-db</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:vector-db</li><li>热度信号：58452</li><li>发布时间：2026-07-07</li><li>关键词：Rust, vector-db</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/ultralytics/ultralytics" target="_blank" rel="noreferrer">ultralytics/ultralytics</a>
+              <div class="meta">GitHub Search:ml · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Ultralytics YOLO26, YOLO11, YOLOv8 — object detection, instance segmentation, semantic segmentation, image classification, pose estimation, object tracking</p>
+          <p class="recommended"><strong>推荐选题：</strong>ultralytics/ultralytics 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:ml。</p>
+          <div class="tags"><span>Python</span><span>ml</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:ml</li><li>热度信号：59227</li><li>发布时间：2026-07-07</li><li>关键词：Python, ml</li></ul>
+          </details>
+        </article>
+      </div>
+    </section>
+
+    <section id="categories">
+      <h2>按五类选题分类摘要</h2>
+      <div class="category-stack">
+      <section>
+        <h3>政策监管、社会影响与 AI 安全</h3>
+        
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropic.com/news/claude-sonnet-5" target="_blank" rel="noreferrer">Introducing Claude Sonnet 5</a>
+              <div class="meta">Anthropic (Claude) · 政策监管、社会影响与 AI 安全</div>
+            </div>
+            <div class="score">
+              <strong>98</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Product Introducing Claude Sonnet 5 Jun 30, 2026 Claude Sonnet 5 is built to be the most agentic Sonnet model yet. It can make plans, use tools like browsers and terminals, and run autonomously at a level that, just a few months ago, required larger and more expensive models. For many developers, the agentic AI era began with Sonnet-class models: Claude Sonnet 3.5, 3.6, and 3.7 were the first models that showed impressive skills in coding and tool use. More recently, though, the clearest gains in agentic capabilities have been in our Opus-class models. Sonnet 5 narrows the gap: its performance is close to that of Opus 4.8, but at lower prices. It’s a substantial improvement over its predecessor, Sonnet 4.6, on important aspects of agentic performance like reasoning, tool use, coding, and knowledge work: Scores for Sonnet 5 on a variety of evaluations compared to those of Sonnet 4.6 and Opus 4.8 (a more generally capable model, for reference). The Claude Sonnet 5 System Card reports a broader set of evaluations in detail. Our safety assessments found that Sonnet 5 shows an overall lower rate of undesirable behaviors than Sonnet 4.6, and is generally safer to use in agentic contexts. Evaluations also show that it has a much lower ability to perform cybersecurity tasks than our current Opus models. From today, Claude Sonnet 5 is available across all plans: it is the default model for Free and Pro plans, and is available to Max, Team, and Enterprise users. It’s also available in </p>
+          <p class="recommended"><strong>推荐选题：</strong>Introducing Claude Sonnet 5 为什么值得关注？（政策变化、信任风险与安全治理）</p>
+          <p>值得优先深挖：适合从政策变化、信任风险和安全治理角度切入，来源：Anthropic (Claude)。</p>
+          <div class="tags"><span>anthropic</span><span>news</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Anthropic (Claude)</li><li>发布时间：2026-07-07</li><li>关键词：anthropic, news</li></ul>
+          </details>
+        </article>
+      
+      </section>
+    
+
+      <section>
+        <h3>模型与技术突破</h3>
+        
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="http://arxiv.org/abs/2607.06489v1" target="_blank" rel="noreferrer">Multi-Agent Deep Reinforcement Learning for Multi Objective Battery Management in Dairy Farms</a>
+              <div class="meta">ArXiv · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>59</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">The dairy industry in Ireland has a large potential for the integration of renewable energy and the reduction of carbon emissions. However, researchers of distributed generation control are mainly focused on residential and commercial applications. To contribute to the effective integration of renewable energy in the dairy sector, this paper presents a multi-objective optimisation control system based on differential evolution and multi agent Deep Reinforcement Learning. The proposed control is organised in two layers: the upper layer uses dynamic pricing, and the lower layer is based on multi-agent reinforcement learning for battery management. This paper also simulates the electrical response of the proposed control system in a rural distribution circuit. The simulation results show that the proposed control framework can improve profits from energy arbitrage up to 18% compared to using Rule-based models, increase the use of distributed generation without significantly increasing cost, and comply with the Irish grid code in terms of voltage variation.</p>
+          <p class="recommended"><strong>推荐选题：</strong>Multi-Agent Deep Reinforcement Learning for Multi Objective Battery Management in Dairy Farms 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：ArXiv。</p>
+          <div class="tags"><span>cs.AI</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：ArXiv</li><li>发布时间：2026-07-07</li><li>关键词：cs.AI</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/google/tabfm-1.0.0-pytorch" target="_blank" rel="noreferrer">google/tabfm-1.0.0-pytorch</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>59</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">tabular-classification model by google</p>
+          <p class="recommended"><strong>推荐选题：</strong>google/tabfm-1.0.0-pytorch 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>tabular-classification</span><span>tabfm</span><span>safetensors</span><span>tabular</span><span>tabular-regression</span><span>zero-shot</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：290 / 9458</li><li>发布时间：2026-07-04</li><li>关键词：tabular-classification, tabfm, safetensors, tabular, tabular-regression</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="http://arxiv.org/abs/2607.06529v1" target="_blank" rel="noreferrer">Life Style Levels: Neighborhood Delineation using Geospatial Data</a>
+              <div class="meta">ArXiv · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>57</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">Fine-scale socioeconomic information is often unavailable across rapidly ur-banizing regions of the developing world, like India, limiting the ability to delineate intra-urban variations in affluence and deprivation. This study pro-poses a scalable, grid-based urban delineation framework using building morphology derived from open-source satellite imagery. Urban areas across 59 Indian cities and towns are partitioned into high-resolution spatial grids and characterized using interpretable morphological indicators, which are combined into a transparent, rule-based scoring framework to delineate areas with contrasting levels of urban affluence. The resulting classifications are validated through ground-level Google Street View observations, revealing a sharp contrast between the grid classes which are consistent with the ex-pected effects of the lifestyle affluence indicators. We further investigate density-based clustering of building footprints in Mumbai to identify dense urban settlements, demonstrating that the resulting clusters exhibit substan-tial spatial overlap with known informal settlements across the city. Finally, we conduct an exploratory analysis mapping consumer loan delinquency across the derived affluence classes. By relying entirely on publicly available geospatial data, the proposed framework provides a scalable, interpretable, and cost-effective approach for granular urban affluence mapping across In-dian cities.</p>
+          <p class="recommended"><strong>推荐选题：</strong>Life Style Levels: Neighborhood Delineation using Geospatial Data 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：ArXiv。</p>
+          <div class="tags"><span>cs.CL</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：ArXiv</li><li>发布时间：2026-07-07</li><li>关键词：cs.CL</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="http://arxiv.org/abs/2607.06505v1" target="_blank" rel="noreferrer">Industry Classification of GitHub Repositories Using the North American Industry Classification System (NAICS)</a>
+              <div class="meta">ArXiv · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>57</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">GitHub hosts hundreds of millions of public repositories, but the platform exposes no native mapping from repositories to standardized industry sectors. This gap limits empirical work on the geography of innovation, the industrial composition of open-source production, and the diffusion of new technologies across economic sectors. We present NAICS-GH, a publicly released corpus of 6,588 GitHub repositories drawn from source pools covering the United States, the European Union, and Australia, each labeled with a 2-digit sector from the North American Industry Classification System (NAICS 2022). Labels are produced by a retrieve-and-verify pipeline that combines BAAI/bge-large-en embeddings, FAISS retrieval, and GPT-4.1 rubric scoring. The pipeline narrows about 1.37 million source repositories to 31,178 candidate repository-sector pairs and retains 6,588 high-confidence labels with score at least 8. Re-running the retrieval pipeline end to end reproduces the candidate set to within 0.03 percent. On a 2,421-repository human-validated random sample, the released labels attain 96.98 percent precision, with Wilson 95 percent confidence interval [96.23, 97.59]. We benchmark six pretrained encoders on the released corpus; RoBERTa-large reaches 86.45 percent F1 and 86.35 percent accuracy on a held-out 20 percent test set. The dataset, Croissant metadata, pipeline code, prompts, and fine-tuned checkpoint are released under CC-BY-4.0 and MIT licenses.</p>
+          <p class="recommended"><strong>推荐选题：</strong>Industry Classification of GitHub Repositories Using the North American Industry Classification System (NAICS) 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：ArXiv。</p>
+          <div class="tags"><span>cs.SE</span><span>cs.AI</span><span>cs.DB</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：ArXiv</li><li>发布时间：2026-07-07</li><li>关键词：cs.SE, cs.AI, cs.DB</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="http://arxiv.org/abs/2607.06411v1" target="_blank" rel="noreferrer">RuBench: A Repository-Level Agentic Coding Benchmark with Natively Authored Russian Task Specifications</a>
+              <div class="meta">ArXiv · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>57</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">Developers increasingly delegate real maintenance work to product-grade coding agents, and many state tasks in their native language, in the style of a customer request rather than a curated English issue. Existing repository-level agentic benchmarks do not measure this setting: their task statements are English by design. We introduce RuBench 1.0, a benchmark of 25 tasks mined from recent fix commits in five live open-source repositories (aiohttp, aiogram, Laravel, NestJS, Fastify; Python, PHP, TypeScript, JavaScript), where each task is specified natively in Russian -- written from scratch in the style of an actual customer request, not translated -- and judged by the upstream maintainer's regression tests, which we withhold from release. All 25 fix commits postdate the training-data cutoffs of every evaluated model, giving a contamination argument that holds task-by-task. We evaluate deployed product configurations (CLI agent + model + reasoning effort) -- Claude Code with Opus 4.8, Sonnet 5, and Haiku 4.5, and Codex CLI with GPT-5.5 -- with three independent runs each, reporting pass@1 with task-level confidence intervals, paired comparisons, dollar cost, and token usage. The best configuration resolves 78.7% of tasks; at N=25 only the gaps to the weakest model are statistically resolvable, which we state explicitly. Auditing full trajectories of a fifth, hors-concours configuration (Claude Code + Fable 5, July 2, 2026 release), we caught the product silently substituting the model: on 5 of 25 tasks (20%) an official safeguard fallback re-routed routine HTTP-protocol fixes to Opus 4.8 -- direct, reproducible evidence that the deployed product, not the model, is the unit actually measured. We release task statements, metadata, full agent trajectories, and diffs; grading oracles are withheld, with a SHA-256 manifest committed at publication time.</p>
+          <p class="recommended"><strong>推荐选题：</strong>RuBench: A Repository-Level Agentic Coding Benchmark with Natively Authored Russian Task Specifications 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：ArXiv。</p>
+          <div class="tags"><span>cs.SE</span><span>cs.AI</span><span>cs.CL</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：ArXiv</li><li>发布时间：2026-07-07</li><li>关键词：cs.SE, cs.AI, cs.CL</li></ul>
+          </details>
+        </article>
+      
+      </section>
+    
+
+      <section>
+        <h3>AI 产品与用户入口</h3>
+        
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/XAHTE3V55ECFBX?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">AnySearch</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>80</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Real-time structured search trusted by agents and developers</p>
+          <p class="recommended"><strong>推荐选题：</strong>AnySearch 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>值得优先深挖：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Developer Tools</span><span>Artificial Intelligence</span><span>Search</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：569 / 118</li><li>发布时间：2026-07-06</li><li>关键词：Developer Tools, Artificial Intelligence, Search</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/Z5R26SULXDA4LD?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Typeahead 2.0</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>80</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Private AI autocomplete for every app on your Mac</p>
+          <p class="recommended"><strong>推荐选题：</strong>Typeahead 2.0 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>值得优先深挖：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Productivity</span><span>Writing</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：478 / 81</li><li>发布时间：2026-07-06</li><li>关键词：Productivity, Writing, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/26DNQXDCV6O3BU?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Octolens</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>80</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Social listening for the agent era</p>
+          <p class="recommended"><strong>推荐选题：</strong>Octolens 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>值得优先深挖：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Marketing</span><span>Developer Tools</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：409 / 67</li><li>发布时间：2026-07-06</li><li>关键词：Marketing, Developer Tools, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/XP65ILK6AEHTCC?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Edgee Claude Code Compressor V2</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>75</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Fewer tokens, same context, 50% cost reduction</p>
+          <p class="recommended"><strong>推荐选题：</strong>Edgee Claude Code Compressor V2 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>API</span><span>Developer Tools</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：196 / 39</li><li>发布时间：2026-07-06</li><li>关键词：API, Developer Tools, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/ACPBRZ46RAWI7E?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">CodeMote</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>69</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Claude Code, Codex, any CLI agent. Driven from your iPhone</p>
+          <p class="recommended"><strong>推荐选题：</strong>CodeMote 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>iOS</span><span>Developer Tools</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：155 / 57</li><li>发布时间：2026-07-06</li><li>关键词：iOS, Developer Tools, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+      </section>
+    
+
+      <section>
+        <h3>企业落地与行业应用</h3>
+        
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/HWQDIOXH2G3VA3?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">AirKaren</a>
+              <div class="meta">Product Hunt · 企业落地与行业应用</div>
+            </div>
+            <div class="score">
+              <strong>79</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">AI that fights customer service for you</p>
+          <p class="recommended"><strong>推荐选题：</strong>AirKaren 为什么值得关注？（行业场景、落地成本与业务价值）</p>
+          <p>适合进入今日选题池：适合从行业场景、落地成本和业务价值角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Customer Success</span><span>Travel</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：241 / 55</li><li>发布时间：2026-07-06</li><li>关键词：Customer Success, Travel, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/langchain4j/langchain4j" target="_blank" rel="noreferrer">langchain4j/langchain4j</a>
+              <div class="meta">GitHub Search:vector-db · 企业落地与行业应用</div>
+            </div>
+            <div class="score">
+              <strong>70</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">LangChain4j is an idiomatic, open-source Java library for building LLM-powered applications on the JVM. It offers a unified API over popular LLM providers and vector stores, and makes implementing tool calling (including MCP support), agents and RAG easy. It integrates seamlessly with enterprise Java frameworks like Quarkus and Spring Boot.</p>
+          <p class="recommended"><strong>推荐选题：</strong>langchain4j/langchain4j 为什么值得关注？（行业场景、落地成本与业务价值）</p>
+          <p>适合进入今日选题池：适合从行业场景、落地成本和业务价值角度切入，来源：GitHub Search:vector-db。</p>
+          <div class="tags"><span>Java</span><span>vector-db</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:vector-db</li><li>热度信号：12545</li><li>发布时间：2026-07-08</li><li>关键词：Java, vector-db</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/pathwaycom/llm-app" target="_blank" rel="noreferrer">pathwaycom/llm-app</a>
+              <div class="meta">GitHub Search:rag · 企业落地与行业应用</div>
+            </div>
+            <div class="score">
+              <strong>69</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Ready-to-run cloud templates for RAG, AI pipelines, and enterprise search with live data. 🐳Docker-friendly.⚡Always in sync with Sharepoint, Google Drive, S3, Kafka, PostgreSQL, real-time data APIs, and more.</p>
+          <p class="recommended"><strong>推荐选题：</strong>pathwaycom/llm-app 为什么值得关注？（行业场景、落地成本与业务价值）</p>
+          <p>适合进入今日选题池：适合从行业场景、落地成本和业务价值角度切入，来源：GitHub Search:rag。</p>
+          <div class="tags"><span>Jupyter Notebook</span><span>rag</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:rag</li><li>热度信号：59098</li><li>发布时间：2026-07-05</li><li>关键词：Jupyter Notebook, rag</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/5KV4W6CGM2E33B?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">qbrin </a>
+              <div class="meta">Product Hunt · 企业落地与行业应用</div>
+            </div>
+            <div class="score">
+              <strong>61</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">Enterprise AI trust layer with citations &amp; 20x fewer tokens</p>
+          <p class="recommended"><strong>推荐选题：</strong>qbrin 为什么值得关注？（行业场景、落地成本与业务价值）</p>
+          <p>适合作为观察项：适合从行业场景、落地成本和业务价值角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Productivity</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：40 / 19</li><li>发布时间：2026-07-06</li><li>关键词：Productivity, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+      </section>
+    
+
+      <section>
+        <h3>标杆企业动向、商业格局与投融资</h3>
+        
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://deepmind.google/research/publications/260960/" target="_blank" rel="noreferrer">The Case for Globally Beneficial Technology — Google DeepMind</a>
+              <div class="meta">Google DeepMind · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>96</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">July 6, 2026 The Case for Globally Beneficial Technology View publication Download Share Copied Abstract To whom do the fruits of advanced technological innovation belong? To their inventors, to the organizations and participants that make such discoveries possible, or to still larger groups of people, encompassing, potentially, all of humanity? This question sits at the heart of the present investigation. The arguments developed here focus on an expansive reading of the entitlement to benefit from technological breakthroughs: we argue they should be designed, developed and distributed in ways that benefit everyone. This central claim, which encompasses technologies such as advanced forms of artificial intelligence (AI), is grounded in an exploration of five moral arguments which involve human rights, beneficence, contingencies of birth, the global tree of knowledge, and global economic justice. Taken together they underpin the argument for globally beneficial technologies. Authors Iason Gabriel, Atoosa Kasirzadeh Venue arXiv</p>
+          <p class="recommended"><strong>推荐选题：</strong>The Case for Globally Beneficial Technology — Google DeepMind 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>值得优先深挖：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Google DeepMind。</p>
+          <div class="tags"><span>deepmind</span><span>research</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Google DeepMind</li><li>发布时间：2026-07-07</li><li>关键词：deepmind, research</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://deepmind.google/blog/creating-plastic-eating-enzymes-that-could-save-us-from-pollution/" target="_blank" rel="noreferrer">Creating plastic-eating enzymes that could save us from pollution — Google DeepMind</a>
+              <div class="meta">Google DeepMind · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>96</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">July 28, 2022 Science Creating plastic-eating enzymes that could save us from pollution Share Copied Researchers are on a quest to develop enzymes that can break down plastics so they can be 100% recycled The world produces about 400 million tonnes of plastic waste each year. Much of it ends up in landfills, and a significant portion is polluting the world’s oceans. Yet even when plastic is recycled, the process degrades the material, limiting its future recyclability. Plastic is a great material; the issue is how we deal with it at its end of life. And we’re really bad at that – so we really need solutions John McGeehan structural biologist While we can attempt to reduce our dependence on plastic, industries like food and medicine can’t simply replace it. So scientists John McGeehan, Rosie Graham, and their colleagues at the Centre for Enzyme Innovation at the University of Portsmouth, are developing a different solution: a fully circular plastic economy. The idea is to use enzymes to break down plastic polymers so that they can be 100% recycled back to their initial state – or even upcycling degraded material back to the quality of virgin plastic. In the video above, John and Rosie explain how a chance email to the AlphaFold team has accelerated their work. Links and further reading: Find out more about the Centre for Enzyme Innovation Read their latest paper here Related posts AlphaFold Learn more Advancing discovery of better drugs and medicine July 2022 Science Learn mor</p>
+          <p class="recommended"><strong>推荐选题：</strong>Creating plastic-eating enzymes that could save us from pollution — Google DeepMind 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>值得优先深挖：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Google DeepMind。</p>
+          <div class="tags"><span>deepmind</span><span>blog</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Google DeepMind</li><li>发布时间：2026-07-07</li><li>关键词：deepmind, blog</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://deepmind.google/blog/computational-predictions-of-protein-structures-associated-with-covid-19/" target="_blank" rel="noreferrer">Computational predictions of protein structures associated with COVID-19 — Google DeepMind</a>
+              <div class="meta">Google DeepMind · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>96</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">August 4, 2020 Research Computational predictions of protein structures associated with COVID-19 Share Copied The scientific community has galvanised in response to the recent COVID-19 outbreak , building on decades of basic research characterising this virus family. Labs at the forefront of the outbreak response shared genomes of the virus in open access databases, which enabled researchers to rapidly develop tests for this novel pathogen. Other labs have shared experimentally-determined and computationally-predicted structures of some of the viral proteins , and still others have shared epidemiological data. We hope to contribute to the scientific effort using the latest version of our AlphaFold system by releasing structure predictions of several under-studied proteins associated with SARS-CoV-2, the virus that causes COVID-19. We emphasise that these structure predictions have not been experimentally verified, but hope they may contribute to the scientific community’s interrogation of how the virus functions, and serve as a hypothesis generation platform for future experimental work in developing therapeutics. We’re indebted to the work of many other labs: this work wouldn’t be possible without the efforts of researchers across the globe who have responded to the COVID-19 outbreak with incredible agility. Knowing a protein’s structure provides an important resource for understanding how it functions, but experiments to determine the structure can take months or longer, an</p>
+          <p class="recommended"><strong>推荐选题：</strong>Computational predictions of protein structures associated with COVID-19 — Google DeepMind 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>值得优先深挖：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Google DeepMind。</p>
+          <div class="tags"><span>deepmind</span><span>blog</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Google DeepMind</li><li>发布时间：2026-07-07</li><li>关键词：deepmind, blog</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://deepmind.google/blog/sima-generalist-ai-agent-for-3d-virtual-environments/" target="_blank" rel="noreferrer">A generalist AI agent for 3D virtual environments — Google DeepMind</a>
+              <div class="meta">Google DeepMind · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>96</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">March 13, 2024 Research A generalist AI agent for 3D virtual environments SIMA Team Share Copied We present new research on a Scalable Instructable Multiworld Agent (SIMA) that can follow natural-language instructions to carry out tasks in a variety of video game settings Video games are a key proving ground for artificial intelligence (AI) systems. Like the real world, games are rich learning environments with responsive, real-time settings and ever-changing goals. From our early work with Atari games , through to our AlphaStar system that plays StarCraft II at human-grandmaster level, Google DeepMind has a long history in AI and games. Today, we’re announcing a new milestone - shifting our focus from individual games towards a general, instructable game-playing AI agent. In a new technical report , we introduce SIMA, short for Scalable Instructable Multiworld Agent, a generalist AI agent for 3D virtual settings. We partnered with game developers to train SIMA on a variety of video games. This research marks the first time an agent has demonstrated it can understand a broad range of gaming worlds, and follow natural-language instructions to carry out tasks within them, as a human might. This work isn't about achieving high game scores. Learning to play even one video game is a technical feat for an AI system, but learning to follow instructions in a variety of game settings could unlock more helpful AI agents for any environment. Our research shows how we can translate the c</p>
+          <p class="recommended"><strong>推荐选题：</strong>A generalist AI agent for 3D virtual environments — Google DeepMind 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>值得优先深挖：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Google DeepMind。</p>
+          <div class="tags"><span>deepmind</span><span>blog</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Google DeepMind</li><li>发布时间：2026-07-07</li><li>关键词：deepmind, blog</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://deepmind.google/blog/alphaproteo-generates-novel-proteins-for-biology-and-health-research/" target="_blank" rel="noreferrer">AlphaProteo generates novel proteins for biology and health research — Google DeepMind</a>
+              <div class="meta">Google DeepMind · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>96</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">September 5, 2024 Science AlphaProteo generates novel proteins for biology and health research Protein Design and Wet Lab teams Share Copied New AI system designs proteins that successfully bind to target molecules, with potential for advancing drug design, disease understanding and more. Every biological process in the body, from cell growth to immune responses, depends on interactions between molecules called proteins. Like a key to a lock, one protein can bind to another, helping regulate critical cellular processes. Protein structure prediction tools like AlphaFold have already given us tremendous insight into how proteins interact with each other to perform their functions, but these tools cannot create new proteins to directly manipulate those interactions. Scientists, however, can create novel proteins that successfully bind to target molecules. These binders can help researchers accelerate progress across a broad spectrum of research, including drug development, cell and tissue imaging, disease understanding and diagnosis – even crop resistance to pests. While recent machine learning approaches to protein design have made great strides, the process is still laborious and requires extensive experimental testing. Today, we introduce AlphaProteo , our first AI system for designing novel, high-strength protein binders to serve as building blocks for biological and health research. This technology has the potential to accelerate our understanding of biological processes, a</p>
+          <p class="recommended"><strong>推荐选题：</strong>AlphaProteo generates novel proteins for biology and health research — Google DeepMind 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>值得优先深挖：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Google DeepMind。</p>
+          <div class="tags"><span>deepmind</span><span>blog</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Google DeepMind</li><li>发布时间：2026-07-07</li><li>关键词：deepmind, blog</li></ul>
+          </details>
+        </article>
+      
+      </section>
+    </div>
+    </section>
+
+    <section id="watch">
+      <h2>观察项</h2>
+      <div class="topic-grid">
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://ketanjoshi.co/2026/07/01/googles-exponential-path-to-climate-wrecking-digital-bloat/" target="_blank" rel="noreferrer">Google’s exponential path to climate-wrecking digital bloat</a>
+              <div class="meta">Lobste.rs · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>64</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">Comments: 8 by undefined</p>
+          <p class="recommended"><strong>推荐选题：</strong>Google’s exponential path to climate-wrecking digital bloat 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合作为观察项：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Lobste.rs。</p>
+          <div class="tags"><span>lobsters</span><span>ai</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Lobste.rs</li><li>热度信号：81 / 8</li><li>发布时间：2026-07-07</li><li>关键词：lobsters, ai</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/W6G5H3YD6OKKYB?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">HirePilot</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>63</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">AI job search assistant that saves time &amp; lands interviews</p>
+          <p class="recommended"><strong>推荐选题：</strong>HirePilot 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合作为观察项：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Productivity</span><span>Artificial Intelligence</span><span>Career</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：94 / 103</li><li>发布时间：2026-07-06</li><li>关键词：Productivity, Artificial Intelligence, Career</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/5KV4W6CGM2E33B?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">qbrin </a>
+              <div class="meta">Product Hunt · 企业落地与行业应用</div>
+            </div>
+            <div class="score">
+              <strong>61</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">Enterprise AI trust layer with citations &amp; 20x fewer tokens</p>
+          <p class="recommended"><strong>推荐选题：</strong>qbrin 为什么值得关注？（行业场景、落地成本与业务价值）</p>
+          <p>适合作为观察项：适合从行业场景、落地成本和业务价值角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Productivity</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：40 / 19</li><li>发布时间：2026-07-06</li><li>关键词：Productivity, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="http://arxiv.org/abs/2607.06489v1" target="_blank" rel="noreferrer">Multi-Agent Deep Reinforcement Learning for Multi Objective Battery Management in Dairy Farms</a>
+              <div class="meta">ArXiv · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>59</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">The dairy industry in Ireland has a large potential for the integration of renewable energy and the reduction of carbon emissions. However, researchers of distributed generation control are mainly focused on residential and commercial applications. To contribute to the effective integration of renewable energy in the dairy sector, this paper presents a multi-objective optimisation control system based on differential evolution and multi agent Deep Reinforcement Learning. The proposed control is organised in two layers: the upper layer uses dynamic pricing, and the lower layer is based on multi-agent reinforcement learning for battery management. This paper also simulates the electrical response of the proposed control system in a rural distribution circuit. The simulation results show that the proposed control framework can improve profits from energy arbitrage up to 18% compared to using Rule-based models, increase the use of distributed generation without significantly increasing cost, and comply with the Irish grid code in terms of voltage variation.</p>
+          <p class="recommended"><strong>推荐选题：</strong>Multi-Agent Deep Reinforcement Learning for Multi Objective Battery Management in Dairy Farms 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：ArXiv。</p>
+          <div class="tags"><span>cs.AI</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：ArXiv</li><li>发布时间：2026-07-07</li><li>关键词：cs.AI</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/google/tabfm-1.0.0-pytorch" target="_blank" rel="noreferrer">google/tabfm-1.0.0-pytorch</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>59</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">tabular-classification model by google</p>
+          <p class="recommended"><strong>推荐选题：</strong>google/tabfm-1.0.0-pytorch 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>tabular-classification</span><span>tabfm</span><span>safetensors</span><span>tabular</span><span>tabular-regression</span><span>zero-shot</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：290 / 9458</li><li>发布时间：2026-07-04</li><li>关键词：tabular-classification, tabfm, safetensors, tabular, tabular-regression</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://dev.to/yuhaolin2005/i-built-a-self-referential-ai-system-then-anthropic-discovered-the-same-architecture-in-claude-3m73" target="_blank" rel="noreferrer">I Built a Self-Referential AI System. Then Anthropic Discovered the Same Architecture in Claude.</a>
+              <div class="meta">Dev.to · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>59</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">LLMs drift. They forget rules mid-conversation. They cannot verify their own output. These are not...</p>
+          <p class="recommended"><strong>推荐选题：</strong>I Built a Self-Referential AI System. Then Anthropic Discovered the Same Architecture in Claude. 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合作为观察项：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Dev.to。</p>
+          <div class="tags"><span>devto</span><span>ai</span><span>jspace</span><span>promptengineering</span><span>deepseek</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Dev.to</li><li>热度信号：2 / 1</li><li>发布时间：2026-07-07</li><li>关键词：devto, ai, jspace, promptengineering, deepseek</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://dev.to/obelucca__/how-to-build-a-collaborative-mindset-with-ai-and-how-it-helped-me-build-quita-448n" target="_blank" rel="noreferrer">How to Build a Collaborative Mindset with AI (and How It Helped Me Build Quita)</a>
+              <div class="meta">Dev.to · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>59</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">While taking Google's AI Fundamentals course, I ran into a topic that sounds simple but completely...</p>
+          <p class="recommended"><strong>推荐选题：</strong>How to Build a Collaborative Mindset with AI (and How It Helped Me Build Quita) 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合作为观察项：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Dev.to。</p>
+          <div class="tags"><span>devto</span><span>ai</span><span>buildinpublic</span><span>architecture</span><span>springboot</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Dev.to</li><li>热度信号：2 / 0</li><li>发布时间：2026-07-07</li><li>关键词：devto, ai, buildinpublic, architecture, springboot</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://dev.to/gabrielemastrapasqua/adding-gpu-backends-to-a-pure-c-tts-engine-metal-cuda-and-the-rented-mac-trick-16hh" target="_blank" rel="noreferrer">Adding GPU backends to a pure-C TTS engine: Metal, CUDA, and the rented-Mac trick</a>
+              <div class="meta">Dev.to · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>59</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">How we bolted opt-in Apple Metal and NVIDIA CUDA backends onto a pure-C Qwen3-TTS engine — resident fused pipelines, server request-batching, and measuring it all on a Mac mini M2 rented by the hour. Plus the two 'obvious' optimizations we killed with data.</p>
+          <p class="recommended"><strong>推荐选题：</strong>Adding GPU backends to a pure-C TTS engine: Metal, CUDA, and the rented-Mac trick 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合作为观察项：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Dev.to。</p>
+          <div class="tags"><span>devto</span><span>c</span><span>cuda</span><span>metal</span><span>machinelearning</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Dev.to</li><li>热度信号：2 / 1</li><li>发布时间：2026-07-07</li><li>关键词：devto, c, cuda, metal, machinelearning</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://juejin.cn/post/7656739536886710314" target="_blank" rel="noreferrer">牛逼，NextJs 从 16.3 开始全面拥抱 Agent Native 🥰🥰🥰</a>
+              <div class="meta">掘金 · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>58</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">过去讨论 Next.js 更新，关注点多半落在构建速度、渲染性能、缓存策略和 React API 上。 到了 16.3，框架的边界明显扩大了。Instant Navigations 发布公告 把用户侧</p>
+          <p class="recommended"><strong>推荐选题：</strong>牛逼，NextJs 从 16.3 开始全面拥抱 Agent Native 🥰🥰🥰值得关注的三个信号（用户入口、使用场景与产品体验）</p>
+          <p>适合作为观察项：适合从用户入口、使用场景和产品体验角度切入，来源：掘金。</p>
+          <div class="tags"><span>juejin</span><span>前端</span><span>后端</span><span>面试</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：掘金</li><li>热度信号：7 / 993</li><li>发布时间：2026-07-08</li><li>关键词：juejin, 前端, 后端, 面试</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/rowboatlabs/rowboat" target="_blank" rel="noreferrer">Show HN: Rowboat – Open-source, local-first alternative to Claude Desktop</a>
+              <div class="meta">Hacker News · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>58</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by segmenta</p>
+          <p class="recommended"><strong>推荐选题：</strong>Show HN: Rowboat – Open-source, local-first alternative to Claude Desktop 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合作为观察项：适合从用户入口、使用场景和产品体验角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：112 / 27</li><li>发布时间：2026-07-07</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://abnormal.ai/blog/abnormal-response-to-anthropic-lawsuit" target="_blank" rel="noreferrer">Abnormal.ai Response to Anthropic Lawsuit</a>
+              <div class="meta">Hacker News · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>58</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by babelfish</p>
+          <p class="recommended"><strong>推荐选题：</strong>Abnormal.ai Response to Anthropic Lawsuit 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合作为观察项：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：10 / 2</li><li>发布时间：2026-07-07</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="http://arxiv.org/abs/2607.06529v1" target="_blank" rel="noreferrer">Life Style Levels: Neighborhood Delineation using Geospatial Data</a>
+              <div class="meta">ArXiv · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>57</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">Fine-scale socioeconomic information is often unavailable across rapidly ur-banizing regions of the developing world, like India, limiting the ability to delineate intra-urban variations in affluence and deprivation. This study pro-poses a scalable, grid-based urban delineation framework using building morphology derived from open-source satellite imagery. Urban areas across 59 Indian cities and towns are partitioned into high-resolution spatial grids and characterized using interpretable morphological indicators, which are combined into a transparent, rule-based scoring framework to delineate areas with contrasting levels of urban affluence. The resulting classifications are validated through ground-level Google Street View observations, revealing a sharp contrast between the grid classes which are consistent with the ex-pected effects of the lifestyle affluence indicators. We further investigate density-based clustering of building footprints in Mumbai to identify dense urban settlements, demonstrating that the resulting clusters exhibit substan-tial spatial overlap with known informal settlements across the city. Finally, we conduct an exploratory analysis mapping consumer loan delinquency across the derived affluence classes. By relying entirely on publicly available geospatial data, the proposed framework provides a scalable, interpretable, and cost-effective approach for granular urban affluence mapping across In-dian cities.</p>
+          <p class="recommended"><strong>推荐选题：</strong>Life Style Levels: Neighborhood Delineation using Geospatial Data 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：ArXiv。</p>
+          <div class="tags"><span>cs.CL</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：ArXiv</li><li>发布时间：2026-07-07</li><li>关键词：cs.CL</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="http://arxiv.org/abs/2607.06505v1" target="_blank" rel="noreferrer">Industry Classification of GitHub Repositories Using the North American Industry Classification System (NAICS)</a>
+              <div class="meta">ArXiv · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>57</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">GitHub hosts hundreds of millions of public repositories, but the platform exposes no native mapping from repositories to standardized industry sectors. This gap limits empirical work on the geography of innovation, the industrial composition of open-source production, and the diffusion of new technologies across economic sectors. We present NAICS-GH, a publicly released corpus of 6,588 GitHub repositories drawn from source pools covering the United States, the European Union, and Australia, each labeled with a 2-digit sector from the North American Industry Classification System (NAICS 2022). Labels are produced by a retrieve-and-verify pipeline that combines BAAI/bge-large-en embeddings, FAISS retrieval, and GPT-4.1 rubric scoring. The pipeline narrows about 1.37 million source repositories to 31,178 candidate repository-sector pairs and retains 6,588 high-confidence labels with score at least 8. Re-running the retrieval pipeline end to end reproduces the candidate set to within 0.03 percent. On a 2,421-repository human-validated random sample, the released labels attain 96.98 percent precision, with Wilson 95 percent confidence interval [96.23, 97.59]. We benchmark six pretrained encoders on the released corpus; RoBERTa-large reaches 86.45 percent F1 and 86.35 percent accuracy on a held-out 20 percent test set. The dataset, Croissant metadata, pipeline code, prompts, and fine-tuned checkpoint are released under CC-BY-4.0 and MIT licenses.</p>
+          <p class="recommended"><strong>推荐选题：</strong>Industry Classification of GitHub Repositories Using the North American Industry Classification System (NAICS) 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：ArXiv。</p>
+          <div class="tags"><span>cs.SE</span><span>cs.AI</span><span>cs.DB</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：ArXiv</li><li>发布时间：2026-07-07</li><li>关键词：cs.SE, cs.AI, cs.DB</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="http://arxiv.org/abs/2607.06411v1" target="_blank" rel="noreferrer">RuBench: A Repository-Level Agentic Coding Benchmark with Natively Authored Russian Task Specifications</a>
+              <div class="meta">ArXiv · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>57</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">Developers increasingly delegate real maintenance work to product-grade coding agents, and many state tasks in their native language, in the style of a customer request rather than a curated English issue. Existing repository-level agentic benchmarks do not measure this setting: their task statements are English by design. We introduce RuBench 1.0, a benchmark of 25 tasks mined from recent fix commits in five live open-source repositories (aiohttp, aiogram, Laravel, NestJS, Fastify; Python, PHP, TypeScript, JavaScript), where each task is specified natively in Russian -- written from scratch in the style of an actual customer request, not translated -- and judged by the upstream maintainer's regression tests, which we withhold from release. All 25 fix commits postdate the training-data cutoffs of every evaluated model, giving a contamination argument that holds task-by-task. We evaluate deployed product configurations (CLI agent + model + reasoning effort) -- Claude Code with Opus 4.8, Sonnet 5, and Haiku 4.5, and Codex CLI with GPT-5.5 -- with three independent runs each, reporting pass@1 with task-level confidence intervals, paired comparisons, dollar cost, and token usage. The best configuration resolves 78.7% of tasks; at N=25 only the gaps to the weakest model are statistically resolvable, which we state explicitly. Auditing full trajectories of a fifth, hors-concours configuration (Claude Code + Fable 5, July 2, 2026 release), we caught the product silently substituting the model: on 5 of 25 tasks (20%) an official safeguard fallback re-routed routine HTTP-protocol fixes to Opus 4.8 -- direct, reproducible evidence that the deployed product, not the model, is the unit actually measured. We release task statements, metadata, full agent trajectories, and diffs; grading oracles are withheld, with a SHA-256 manifest committed at publication time.</p>
+          <p class="recommended"><strong>推荐选题：</strong>RuBench: A Repository-Level Agentic Coding Benchmark with Natively Authored Russian Task Specifications 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：ArXiv。</p>
+          <div class="tags"><span>cs.SE</span><span>cs.AI</span><span>cs.CL</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：ArXiv</li><li>发布时间：2026-07-07</li><li>关键词：cs.SE, cs.AI, cs.CL</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://twitter.com/evanreiser/status/2074577564006519020" target="_blank" rel="noreferrer">Anthropic files lawsuit against Abnormal</a>
+              <div class="meta">Hacker News · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>57</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by warthog</p>
+          <p class="recommended"><strong>推荐选题：</strong>Anthropic files lawsuit against Abnormal 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合作为观察项：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：5 / 0</li><li>发布时间：2026-07-07</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      </div>
+    </section>
+
+    <section id="notices">
+      <h2>数据源普通状态提示</h2>
+      <p class="empty">暂无普通状态提示。</p>
+    </section>
+
+    <section id="warnings">
+      <h2>数据源修复提示</h2>
+      <ul><li>Gitee 获取失败；可检查 gitee.com API 是否可访问。</li></ul>
+    </section>
+
+    <footer>AI Topic Radar · 单文件报告 · 不包含私有资料或 API key</footer>
+  </main>
+</body>
+</html>
