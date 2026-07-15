@@ -4,7 +4,6 @@
 
 它不是一个简单的信息搬运脚本，而是把分散的 AI 行业信号转成可排序、可解释、可交付的选题决策流：先采集公开证据，再用评分框架判断优先级，最后沉淀成报告、结构化数据和自动化分发链路。
 
-本项目基于 [`duanyytop/agents-radar`](https://github.com/duanyytop/agents-radar) 改造。
 
 > **关联项目**：本仓库的扩展版本 [AI-TREND-RADAR-RAG](https://github.com/Conradgui/AI-TREND-RADAR-RAG) 在数据管道基础上构建了 Graph RAG + Agentic RAG 智能查询系统，支持通过自然语言对话查询历史选题数据、分析趋势。详见[开发方向](#关联项目与开发方向)。
 
