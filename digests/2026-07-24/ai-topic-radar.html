@@ -1,0 +1,1602 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 热点选题池 2026-07-24</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f8fb;
+      --panel: #ffffff;
+      --text: #172033;
+      --muted: #667085;
+      --line: #d8dee9;
+      --accent: #2563eb;
+      --accent-soft: #e8f0ff;
+      --green: #0f8a5f;
+      --shadow: 0 16px 40px rgba(17, 24, 39, 0.08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 40px 20px 64px;
+    }
+    header {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      padding: 28px;
+      margin-bottom: 24px;
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { font-size: 32px; line-height: 1.2; margin-bottom: 12px; }
+    h2 { font-size: 24px; margin: 32px 0 16px; }
+    h3 { font-size: 18px; margin: 24px 0 12px; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .summary {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+    .quick-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .quick-links a, .quick-links span {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 12px;
+      background: #fff;
+      color: var(--text);
+      font-size: 14px;
+    }
+    .topic-grid {
+      display: grid;
+      gap: 14px;
+    }
+    .topic-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+      box-shadow: 0 8px 24px rgba(17, 24, 39, 0.05);
+    }
+    .topic-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 16px;
+      align-items: start;
+    }
+    .topic-title {
+      display: inline-block;
+      font-weight: 700;
+      font-size: 17px;
+      line-height: 1.45;
+      overflow-wrap: anywhere;
+    }
+    .meta {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 4px;
+    }
+    .score {
+      min-width: 72px;
+      border-radius: 8px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      text-align: center;
+      padding: 8px 10px;
+    }
+    .score strong {
+      display: block;
+      font-size: 24px;
+      line-height: 1;
+    }
+    .score span {
+      display: block;
+      margin-top: 4px;
+      font-size: 13px;
+      color: var(--text);
+    }
+    .summary {
+      color: #344054;
+      font-weight: 500;
+    }
+    .recommended {
+      background: #f8fafc;
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      padding: 8px 10px;
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 12px 0;
+    }
+    .tags span {
+      background: #eef2f7;
+      border-radius: 999px;
+      color: #475467;
+      font-size: 12px;
+      padding: 3px 8px;
+    }
+    details {
+      border-top: 1px solid var(--line);
+      margin-top: 12px;
+      padding-top: 10px;
+    }
+    summary {
+      cursor: pointer;
+      color: var(--green);
+      font-weight: 600;
+    }
+    ul { padding-left: 20px; }
+    .empty {
+      color: var(--muted);
+      background: var(--panel);
+      border: 1px dashed var(--line);
+      border-radius: 8px;
+      padding: 14px;
+    }
+    .category-stack {
+      display: grid;
+      gap: 10px;
+    }
+    footer {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 36px;
+    }
+    @media (max-width: 640px) {
+      main { padding: 24px 12px 48px; }
+      header { padding: 20px; }
+      h1 { font-size: 26px; }
+      .topic-head { grid-template-columns: 1fr; }
+      .score { width: 84px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>AI 热点选题池 2026-07-24</h1>
+      <p class="summary">面向 AI 内容运营和产品调研的每日选题监控报告。默认入口为本 HTML 文件，可直接双击查看，也可通过 GitHub Pages 分享。</p>
+      <div class="quick-links">
+        <span>生成时间：2026-07-24 03:30 UTC</span>
+        <a href="./ai-topic-radar.md">Markdown</a>
+        <a href="./topic-pool.json">JSON 选题池</a>
+      </div>
+    </header>
+
+    <section id="top">
+      <h2>今日 Top 深挖选题</h2>
+      <div class="topic-grid">
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://openai.com/index/health-in-chatgpt/" target="_blank" rel="noreferrer">Health In Chatgpt</a>
+              <div class="meta">OpenAI · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>98</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary"></p>
+          <p class="recommended"><strong>推荐选题：</strong>Health In Chatgpt 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>值得优先深挖：适合从大厂动作、商业化路径和竞争格局角度切入，来源：OpenAI。</p>
+          <div class="tags"><span>openai</span><span>index</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：OpenAI</li><li>发布时间：2026-07-24</li><li>关键词：openai, index</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropic.com/news/claude-for-creative-work-dev" target="_blank" rel="noreferrer">[dev] Claude for Creative Work</a>
+              <div class="meta">Anthropic (Claude) · 企业落地与行业应用</div>
+            </div>
+            <div class="score">
+              <strong>98</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Announcements [dev] Claude for Creative Work Apr 28, 2026 Creative professionals look to technology to expand what&amp;#x27;s possible in their work. Claude can&amp;#x27;t replace taste or imagination, but it can open up new ways of working—faster and more ambitious ideation, a more expansive skill set, and the ability for creatives to take on larger-scale projects. AI can also help shoulder the parts of the creative process that eat up time by handling repetitive tasks and eliminating manual toil. Key to both these goals is integrating Claude into the tools the creative industry already knows and trusts. Today, we’re releasing a set of connectors—tools that let Claude work alongside the software creative professionals rely on, so creatives can extend their reach. Connecting Claude to creative tools Connectors allow Claude to access other platforms and tools directly. We are adding several new connectors that are designed to make it easier to use Claude for creative work: Ableton grounds Claude’s answers in official product documentation for Live and Push. Adobe for creativity enables users to bring images, videos, and designs to life, drawing from 50+ tools across Creative Cloud apps including Photoshop, Premiere, Express, and more. Affinity by Canva automates repetitive production tasks across pro creative workflows - such as batch image adjustments, layer renaming, and file export - and generates custom features directly in the app. Autodesk Fusion allows designers and engineers w</p>
+          <p class="recommended"><strong>推荐选题：</strong>[dev] Claude for Creative Work 为什么值得关注？（行业场景、落地成本与业务价值）</p>
+          <p>值得优先深挖：适合从行业场景、落地成本和业务价值角度切入，来源：Anthropic (Claude)。</p>
+          <div class="tags"><span>anthropic</span><span>news</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Anthropic (Claude)</li><li>发布时间：2026-07-23</li><li>关键词：anthropic, news</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropic.com/news/claude-opus-4-5" target="_blank" rel="noreferrer">Introducing Claude Opus 4.5</a>
+              <div class="meta">Anthropic (Claude) · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>98</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Announcements Introducing Claude Opus 4.5 Nov 24, 2025 Our newest model, Claude Opus 4.5, is available today. It’s intelligent, efficient, and the best model in the world for coding, agents, and computer use. It’s also meaningfully better at everyday tasks like deep research and working with slides and spreadsheets. Opus 4.5 is a step forward in what AI systems can do, and a preview of larger changes to how work gets done. Claude Opus 4.5 is state-of-the-art on tests of real-world software engineering: Opus 4.5 is available today on our apps, our API, and on all three major cloud platforms. If you’re a developer, simply use claude-opus-4-5-20251101 via the Claude API . Pricing is now $5/$25 per million tokens—making Opus-level capabilities accessible to even more users, teams, and enterprises. Alongside Opus, we’re releasing updates to the Claude Developer Platform , Claude Code , and our consumer apps . There are new tools for longer-running agents and new ways to use Claude in Excel, Chrome, and on desktop. In the Claude apps, lengthy conversations no longer hit a wall. See our product-focused section below for details. First impressions As our Anthropic colleagues tested the model before release, we heard remarkably consistent feedback. Testers noted that Claude Opus 4.5 handles ambiguity and reasons about tradeoffs without hand-holding. They told us that, when pointed at a complex, multi-system bug, Opus 4.5 figures out the fix. They said that tasks that were near-impossi</p>
+          <p class="recommended"><strong>推荐选题：</strong>Introducing Claude Opus 4.5 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>值得优先深挖：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Anthropic (Claude)。</p>
+          <div class="tags"><span>anthropic</span><span>news</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Anthropic (Claude)</li><li>发布时间：2026-07-23</li><li>关键词：anthropic, news</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://deepmind.google/blog/our-approach-to-bioresilience/" target="_blank" rel="noreferrer">Google DeepMind and Isomorphic Labs approach to bioresilience — Google DeepMind</a>
+              <div class="meta">Google DeepMind · 政策监管、社会影响与 AI 安全</div>
+            </div>
+            <div class="score">
+              <strong>94</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">July 16, 2026 Responsibility &amp; Safety Our approach to bioresilience Google DeepMind and Isomorphic Labs Share Copied The global biosecurity landscape is rapidly evolving. Shifting natural ecosystems, global travel and the potential misuse of AI require greater vigilance — yet AI is also a critical tool for our response. We need frontier AI models, and the scientific advances they will enable , to respond to these challenges and help make society more resilient to events like future outbreaks. Today, Google DeepMind and Isomorphic Labs are sharing our joint approach to bioresilience . Our work is twofold - to prevent threat actors from misusing our models, and to ensure that governments, scientists, biosecurity experts and our teams can harness these technologies to build a more resilient world. Over the past 12 months, we have advanced more than 15 partnerships with government bodies, biosecurity organizations, and research groups to prevent threat actors from misusing our models, detect new outbreaks quickly and respond quickly and effectively. Inside our bioresilience program We believe society must harness AI’s advancing capabilities to address infectious diseases and prepare for future outbreaks. Breakthroughs like Google DeepMind’s AlphaFold , which mapped the 3D structures of nearly all known proteins; Isomorphic Labs’ AI-powered Drug Design Engine (IsoDDE), which provides the real-world accuracy required to navigate novel biological systems with unprecedented precision</p>
+          <p class="recommended"><strong>推荐选题：</strong>Google DeepMind and Isomorphic Labs approach to bioresilience — Google DeepMind 为什么值得关注？（政策变化、信任风险与安全治理）</p>
+          <p>值得优先深挖：适合从政策变化、信任风险和安全治理角度切入，来源：Google DeepMind。</p>
+          <div class="tags"><span>deepmind</span><span>blog</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Google DeepMind</li><li>发布时间：2026-07-23</li><li>关键词：deepmind, blog</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropic.com/news/claude-opus-4-7" target="_blank" rel="noreferrer">Introducing Claude Opus 4.7</a>
+              <div class="meta">Anthropic (Claude) · 政策监管、社会影响与 AI 安全</div>
+            </div>
+            <div class="score">
+              <strong>93</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Product Announcements Introducing Claude Opus 4.7 Apr 16, 2026 Our latest model, Claude Opus 4.7, is now generally available. Opus 4.7 is a notable improvement on Opus 4.6 in advanced software engineering, with particular gains on the most difficult tasks. Users report being able to hand off their hardest coding work—the kind that previously needed close supervision—to Opus 4.7 with confidence. Opus 4.7 handles complex, long-running tasks with rigor and consistency, pays precise attention to instructions, and devises ways to verify its own outputs before reporting back. The model also has substantially better vision: it can see images in greater resolution. It’s more tasteful and creative when completing professional tasks, producing higher-quality interfaces, slides, and docs. And—although it is less broadly capable than our most powerful model, Claude Mythos Preview—it shows better results than Opus 4.6 across a range of benchmarks: Last week we announced Project Glasswing , highlighting the risks—and benefits—of AI models for cybersecurity. We stated that we would keep Claude Mythos Preview’s release limited and test new cyber safeguards on less capable models first. Opus 4.7 is the first such model: its cyber capabilities are not as advanced as those of Mythos Preview (indeed, during its training we experimented with efforts to differentially reduce these capabilities). We are releasing Opus 4.7 with safeguards that automatically detect and block requests that indicate pr</p>
+          <p class="recommended"><strong>推荐选题：</strong>Introducing Claude Opus 4.7 为什么值得关注？（政策变化、信任风险与安全治理）</p>
+          <p>值得优先深挖：适合从政策变化、信任风险和安全治理角度切入，来源：Anthropic (Claude)。</p>
+          <div class="tags"><span>anthropic</span><span>news</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Anthropic (Claude)</li><li>发布时间：2026-07-23</li><li>关键词：anthropic, news</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://deepmind.google/blog/google-deepmind-at-iclr-2024/" target="_blank" rel="noreferrer">Google DeepMind at ICLR 2024 — Google DeepMind</a>
+              <div class="meta">Google DeepMind · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>89</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">May 3, 2024 Research Google DeepMind at ICLR 2024 Share Copied Developing next-gen AI agents, exploring new modalities, and pioneering foundational learning Next week, AI researchers from around the globe will converge at the 12th International Conference on Learning Representations (ICLR), set to take place May 7-11 in Vienna, Austria. Raia Hadsell, Vice President of Research at Google DeepMind, will deliver a keynote reflecting on the last 20 years in the field, highlighting how lessons learned are shaping the future of AI for the benefit of humanity. We’ll also offer live demonstrations showcasing how we bring our foundational research into reality, from the development of Robotics Transformers to the creation of toolkits and open-source models like Gemma . Teams from across Google DeepMind will present more than 70 papers this year. Some research highlights: Google Research at ICLR 2024 Problem-solving agents and human-inspired approaches Large language models (LLMs) are already revolutionizing advanced AI tools, yet their full potential remains untapped. For instance, LLM-based AI agents capable of taking effective actions could transform digital assistants into more helpful and intuitive AI tools. AI assistants that follow natural language instructions to carry out web-based tasks on people’s behalf would be a huge timesaver. In an oral presentation we introduce WebAgent , an LLM-driven agent that learns from self-experience to navigate and manage complex tasks on real-</p>
+          <p class="recommended"><strong>推荐选题：</strong>Google DeepMind at ICLR 2024 — Google DeepMind 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>值得优先深挖：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Google DeepMind。</p>
+          <div class="tags"><span>deepmind</span><span>blog</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Google DeepMind</li><li>发布时间：2026-07-23</li><li>关键词：deepmind, blog</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://deepmind.google/blog/introducing-gemini-3-5-flash-cyber/" target="_blank" rel="noreferrer">Introducing Gemini 3.5 Flash Cyber — Google DeepMind</a>
+              <div class="meta">Google DeepMind · 政策监管、社会影响与 AI 安全</div>
+            </div>
+            <div class="score">
+              <strong>89</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">July 21, 2026 Models Introducing Gemini 3.5 Flash Cyber Raluca Ada Popa and Four Flynn Share Copied Google has invested in cybersecurity for years, pioneering automated vulnerability discovery to secure the world’s codebases. Tools like CodeMender , our code security agent, can automatically find and fix critical software vulnerabilities. But as AI agents become more capable at finding vulnerabilities faster than defenders can fix them, addressing this global threat requires a highly capable, affordable, and scalable approach. Today, we’re expanding our longtime efforts to better prepare defenders by introducing Gemini 3.5 Flash Cyber, our lightweight cybersecurity model built on top of 3.5 Flash and fine-tuned to find, validate, and patch vulnerabilities quickly and efficiently, making it more effective at these tasks than Gemini’s mainline Flash models. Flash’s performance and efficiency makes it an ideal foundation for our cybersecurity model efforts. By building on top of Flash, 3.5 Flash Cyber offers a cost-efficient and highly capable alternative to large, costly cybersecurity models. Given the dual-use nature of this technology, we have taken an intentional approach to how we deploy 3.5 Flash Cyber. As part of a limited-access pilot program, 3.5 Flash Cyber will be exclusively available to governments and trusted partners via CodeMender soon, expanding over time. This will give frontline defenders a head start in finding and fixing critical vulnerabilities before they </p>
+          <p class="recommended"><strong>推荐选题：</strong>Introducing Gemini 3.5 Flash Cyber — Google DeepMind 为什么值得关注？（政策变化、信任风险与安全治理）</p>
+          <p>值得优先深挖：适合从政策变化、信任风险和安全治理角度切入，来源：Google DeepMind。</p>
+          <div class="tags"><span>deepmind</span><span>blog</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Google DeepMind</li><li>发布时间：2026-07-23</li><li>关键词：deepmind, blog</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/7WFK7BDIY5DLKG?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Humalike x Hermes</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>80</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Social intelligence plugin for Hermes Agent</p>
+          <p class="recommended"><strong>推荐选题：</strong>Humalike x Hermes 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>值得优先深挖：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>API</span><span>Developer Tools</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：511 / 95</li><li>发布时间：2026-07-22</li><li>关键词：API, Developer Tools, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/XQORCUD6WISVS4?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">box</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>80</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Simple computers for agent w/ full VMs</p>
+          <p class="recommended"><strong>推荐选题：</strong>box 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>值得优先深挖：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Developer Tools</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：265 / 51</li><li>发布时间：2026-07-22</li><li>关键词：Developer Tools, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      </div>
+    </section>
+
+    <section id="pool">
+      <h2>入池选题</h2>
+      <div class="topic-grid">
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/QTI2CZCO32XRUF?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">ACME.BOT</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>77</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">No-slop AI SEO agent that interviews you first</p>
+          <p class="recommended"><strong>推荐选题：</strong>ACME.BOT 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Marketing</span><span>SEO</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：216 / 53</li><li>发布时间：2026-07-22</li><li>关键词：Marketing, SEO, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/2L6BNQROL433FT?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Gemini 3.6 Flash Family</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>75</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Gemini 3.6 Flash, 3.5 Flash-Lite, and 3.5 Flash Cyber</p>
+          <p class="recommended"><strong>推荐选题：</strong>Gemini 3.6 Flash Family 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>SaaS</span><span>Artificial Intelligence</span><span>Development</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：197 / 12</li><li>发布时间：2026-07-22</li><li>关键词：SaaS, Artificial Intelligence, Development</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/open-webui/open-webui" target="_blank" rel="noreferrer">open-webui/open-webui</a>
+              <div class="meta">GitHub Search:llm · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>74</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">User-friendly AI Interface (Supports Ollama, OpenAI API, ...)</p>
+          <p class="recommended"><strong>推荐选题：</strong>open-webui/open-webui 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合进入今日选题池：适合从大厂动作、商业化路径和竞争格局角度切入，来源：GitHub Search:llm。</p>
+          <div class="tags"><span>Python</span><span>llm</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:llm</li><li>热度信号：146520</li><li>发布时间：2026-07-24</li><li>关键词：Python, llm</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/PIAVHXT5GCZFUV?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Kastra</a>
+              <div class="meta">Product Hunt · 政策监管、社会影响与 AI 安全</div>
+            </div>
+            <div class="score">
+              <strong>72</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Runtime authorization for Claude, Cursor, Codex and OpenClaw</p>
+          <p class="recommended"><strong>推荐选题：</strong>Kastra 为什么值得关注？（政策变化、信任风险与安全治理）</p>
+          <p>适合进入今日选题池：适合从政策变化、信任风险和安全治理角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Developer Tools</span><span>Artificial Intelligence</span><span>GitHub</span><span>Security</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：391 / 145</li><li>发布时间：2026-07-22</li><li>关键词：Developer Tools, Artificial Intelligence, GitHub, Security</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.axios.com/2026/07/22/openai-anthropic-open-models-trump-china" target="_blank" rel="noreferrer">OpenAI and Anthropic unite against open-weight AI risks to their bottom line</a>
+              <div class="meta">Hacker News · 政策监管、社会影响与 AI 安全</div>
+            </div>
+            <div class="score">
+              <strong>72</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by yogthos</p>
+          <p class="recommended"><strong>推荐选题：</strong>OpenAI and Anthropic unite against open-weight AI risks to their bottom line 为什么值得关注？（政策变化、信任风险与安全治理）</p>
+          <p>适合进入今日选题池：适合从政策变化、信任风险和安全治理角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：281 / 313</li><li>发布时间：2026-07-23</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/langchain4j/langchain4j" target="_blank" rel="noreferrer">langchain4j/langchain4j</a>
+              <div class="meta">GitHub Search:vector-db · 企业落地与行业应用</div>
+            </div>
+            <div class="score">
+              <strong>71</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">LangChain4j is an idiomatic, open-source Java library for building LLM-powered applications on the JVM. It offers a unified API over popular LLM providers and vector stores, and makes implementing tool calling (including MCP support), agents and RAG easy. It integrates seamlessly with enterprise Java frameworks like Quarkus and Spring Boot.</p>
+          <p class="recommended"><strong>推荐选题：</strong>langchain4j/langchain4j 为什么值得关注？（行业场景、落地成本与业务价值）</p>
+          <p>适合进入今日选题池：适合从行业场景、落地成本和业务价值角度切入，来源：GitHub Search:vector-db。</p>
+          <div class="tags"><span>Java</span><span>vector-db</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:vector-db</li><li>热度信号：12676</li><li>发布时间：2026-07-23</li><li>关键词：Java, vector-db</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/googleworkspace/cli" target="_blank" rel="noreferrer">googleworkspace/cli</a>
+              <div class="meta">GitHub Search:ai-agent · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>70</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Google Workspace CLI — one command-line tool for Drive, Gmail, Calendar, Sheets, Docs, Chat, Admin, and more. Dynamically built from Google Discovery Service. Includes AI agent skills.</p>
+          <p class="recommended"><strong>推荐选题：</strong>googleworkspace/cli 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合进入今日选题池：适合从大厂动作、商业化路径和竞争格局角度切入，来源：GitHub Search:ai-agent。</p>
+          <div class="tags"><span>Rust</span><span>ai-agent</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:ai-agent</li><li>热度信号：29953</li><li>发布时间：2026-07-22</li><li>关键词：Rust, ai-agent</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/nvidia/Cosmos3-Edge" target="_blank" rel="noreferrer">nvidia/Cosmos3-Edge</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>69</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary"> model by nvidia</p>
+          <p class="recommended"><strong>推荐选题：</strong>nvidia/Cosmos3-Edge 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合进入今日选题池：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>cosmos</span><span>diffusers</span><span>safetensors</span><span>cosmos3_edge</span><span>nvidia</span><span>cosmos3</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：103 / 28493</li><li>发布时间：2026-07-24</li><li>关键词：cosmos, diffusers, safetensors, cosmos3_edge, nvidia</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/Y2DPUGKOC2RG5O?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">AgentManager</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Never miss a Claude Code session waiting for your input</p>
+          <p class="recommended"><strong>推荐选题：</strong>AgentManager 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Mac</span><span>Developer Tools</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：140 / 63</li><li>发布时间：2026-07-22</li><li>关键词：Mac, Developer Tools, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/Significant-Gravitas/AutoGPT" target="_blank" rel="noreferrer">Significant-Gravitas/AutoGPT</a>
+              <div class="meta">GitHub Search:llm · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.</p>
+          <p class="recommended"><strong>推荐选题：</strong>Significant-Gravitas/AutoGPT 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:llm。</p>
+          <div class="tags"><span>Python</span><span>llm</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:llm</li><li>热度信号：185663</li><li>发布时间：2026-07-24</li><li>关键词：Python, llm</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/ultralytics/ultralytics" target="_blank" rel="noreferrer">ultralytics/ultralytics</a>
+              <div class="meta">GitHub Search:ml · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Ultralytics YOLO26, YOLO11, YOLOv8 — object detection, instance segmentation, semantic segmentation, image classification, pose estimation, object tracking</p>
+          <p class="recommended"><strong>推荐选题：</strong>ultralytics/ultralytics 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:ml。</p>
+          <div class="tags"><span>Python</span><span>ml</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:ml</li><li>热度信号：59802</li><li>发布时间：2026-07-24</li><li>关键词：Python, ml</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/thedotmack/claude-mem" target="_blank" rel="noreferrer">thedotmack/claude-mem</a>
+              <div class="meta">GitHub Search:rag · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Persistent Context Across Sessions for Every Agent –  Captures everything your agent does during sessions, compresses it with AI, and injects relevant context back into future sessions. Works with Claude Code, OpenClaw, Codex, Gemini, Hermes, Copilot, OpenCode + More</p>
+          <p class="recommended"><strong>推荐选题：</strong>thedotmack/claude-mem 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:rag。</p>
+          <div class="tags"><span>JavaScript</span><span>rag</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:rag</li><li>热度信号：88389</li><li>发布时间：2026-07-23</li><li>关键词：JavaScript, rag</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/infiniflow/ragflow" target="_blank" rel="noreferrer">infiniflow/ragflow</a>
+              <div class="meta">GitHub Search:rag · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">RAGFlow is a leading open-source Retrieval-Augmented Generation (RAG) engine that fuses cutting-edge RAG with Agent capabilities to create a superior context layer for LLMs</p>
+          <p class="recommended"><strong>推荐选题：</strong>infiniflow/ragflow 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:rag。</p>
+          <div class="tags"><span>Go</span><span>rag</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:rag</li><li>热度信号：85813</li><li>发布时间：2026-07-24</li><li>关键词：Go, rag</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/Mintplex-Labs/anything-llm" target="_blank" rel="noreferrer">Mintplex-Labs/anything-llm</a>
+              <div class="meta">GitHub Search:rag · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Stop renting your intelligence. Own it with AnythingLLM. Everything you need for a powerful local-first agent experience </p>
+          <p class="recommended"><strong>推荐选题：</strong>Mintplex-Labs/anything-llm 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:rag。</p>
+          <div class="tags"><span>JavaScript</span><span>rag</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:rag</li><li>热度信号：63755</li><li>发布时间：2026-07-23</li><li>关键词：JavaScript, rag</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/headroomlabs-ai/headroom" target="_blank" rel="noreferrer">headroomlabs-ai/headroom</a>
+              <div class="meta">GitHub Search:rag · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 20% fewer tokens for coding agents, 60-95% fewer tokens for JSON, same answers. Library, proxy, MCP server.</p>
+          <p class="recommended"><strong>推荐选题：</strong>headroomlabs-ai/headroom 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:rag。</p>
+          <div class="tags"><span>Python</span><span>rag</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:rag</li><li>热度信号：61865</li><li>发布时间：2026-07-24</li><li>关键词：Python, rag</li></ul>
+          </details>
+        </article>
+      </div>
+    </section>
+
+    <section id="categories">
+      <h2>按五类选题分类摘要</h2>
+      <div class="category-stack">
+      <section>
+        <h3>政策监管、社会影响与 AI 安全</h3>
+        
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://deepmind.google/blog/our-approach-to-bioresilience/" target="_blank" rel="noreferrer">Google DeepMind and Isomorphic Labs approach to bioresilience — Google DeepMind</a>
+              <div class="meta">Google DeepMind · 政策监管、社会影响与 AI 安全</div>
+            </div>
+            <div class="score">
+              <strong>94</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">July 16, 2026 Responsibility &amp; Safety Our approach to bioresilience Google DeepMind and Isomorphic Labs Share Copied The global biosecurity landscape is rapidly evolving. Shifting natural ecosystems, global travel and the potential misuse of AI require greater vigilance — yet AI is also a critical tool for our response. We need frontier AI models, and the scientific advances they will enable , to respond to these challenges and help make society more resilient to events like future outbreaks. Today, Google DeepMind and Isomorphic Labs are sharing our joint approach to bioresilience . Our work is twofold - to prevent threat actors from misusing our models, and to ensure that governments, scientists, biosecurity experts and our teams can harness these technologies to build a more resilient world. Over the past 12 months, we have advanced more than 15 partnerships with government bodies, biosecurity organizations, and research groups to prevent threat actors from misusing our models, detect new outbreaks quickly and respond quickly and effectively. Inside our bioresilience program We believe society must harness AI’s advancing capabilities to address infectious diseases and prepare for future outbreaks. Breakthroughs like Google DeepMind’s AlphaFold , which mapped the 3D structures of nearly all known proteins; Isomorphic Labs’ AI-powered Drug Design Engine (IsoDDE), which provides the real-world accuracy required to navigate novel biological systems with unprecedented precision</p>
+          <p class="recommended"><strong>推荐选题：</strong>Google DeepMind and Isomorphic Labs approach to bioresilience — Google DeepMind 为什么值得关注？（政策变化、信任风险与安全治理）</p>
+          <p>值得优先深挖：适合从政策变化、信任风险和安全治理角度切入，来源：Google DeepMind。</p>
+          <div class="tags"><span>deepmind</span><span>blog</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Google DeepMind</li><li>发布时间：2026-07-23</li><li>关键词：deepmind, blog</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropic.com/news/claude-opus-4-7" target="_blank" rel="noreferrer">Introducing Claude Opus 4.7</a>
+              <div class="meta">Anthropic (Claude) · 政策监管、社会影响与 AI 安全</div>
+            </div>
+            <div class="score">
+              <strong>93</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Product Announcements Introducing Claude Opus 4.7 Apr 16, 2026 Our latest model, Claude Opus 4.7, is now generally available. Opus 4.7 is a notable improvement on Opus 4.6 in advanced software engineering, with particular gains on the most difficult tasks. Users report being able to hand off their hardest coding work—the kind that previously needed close supervision—to Opus 4.7 with confidence. Opus 4.7 handles complex, long-running tasks with rigor and consistency, pays precise attention to instructions, and devises ways to verify its own outputs before reporting back. The model also has substantially better vision: it can see images in greater resolution. It’s more tasteful and creative when completing professional tasks, producing higher-quality interfaces, slides, and docs. And—although it is less broadly capable than our most powerful model, Claude Mythos Preview—it shows better results than Opus 4.6 across a range of benchmarks: Last week we announced Project Glasswing , highlighting the risks—and benefits—of AI models for cybersecurity. We stated that we would keep Claude Mythos Preview’s release limited and test new cyber safeguards on less capable models first. Opus 4.7 is the first such model: its cyber capabilities are not as advanced as those of Mythos Preview (indeed, during its training we experimented with efforts to differentially reduce these capabilities). We are releasing Opus 4.7 with safeguards that automatically detect and block requests that indicate pr</p>
+          <p class="recommended"><strong>推荐选题：</strong>Introducing Claude Opus 4.7 为什么值得关注？（政策变化、信任风险与安全治理）</p>
+          <p>值得优先深挖：适合从政策变化、信任风险和安全治理角度切入，来源：Anthropic (Claude)。</p>
+          <div class="tags"><span>anthropic</span><span>news</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Anthropic (Claude)</li><li>发布时间：2026-07-23</li><li>关键词：anthropic, news</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://deepmind.google/blog/introducing-gemini-3-5-flash-cyber/" target="_blank" rel="noreferrer">Introducing Gemini 3.5 Flash Cyber — Google DeepMind</a>
+              <div class="meta">Google DeepMind · 政策监管、社会影响与 AI 安全</div>
+            </div>
+            <div class="score">
+              <strong>89</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">July 21, 2026 Models Introducing Gemini 3.5 Flash Cyber Raluca Ada Popa and Four Flynn Share Copied Google has invested in cybersecurity for years, pioneering automated vulnerability discovery to secure the world’s codebases. Tools like CodeMender , our code security agent, can automatically find and fix critical software vulnerabilities. But as AI agents become more capable at finding vulnerabilities faster than defenders can fix them, addressing this global threat requires a highly capable, affordable, and scalable approach. Today, we’re expanding our longtime efforts to better prepare defenders by introducing Gemini 3.5 Flash Cyber, our lightweight cybersecurity model built on top of 3.5 Flash and fine-tuned to find, validate, and patch vulnerabilities quickly and efficiently, making it more effective at these tasks than Gemini’s mainline Flash models. Flash’s performance and efficiency makes it an ideal foundation for our cybersecurity model efforts. By building on top of Flash, 3.5 Flash Cyber offers a cost-efficient and highly capable alternative to large, costly cybersecurity models. Given the dual-use nature of this technology, we have taken an intentional approach to how we deploy 3.5 Flash Cyber. As part of a limited-access pilot program, 3.5 Flash Cyber will be exclusively available to governments and trusted partners via CodeMender soon, expanding over time. This will give frontline defenders a head start in finding and fixing critical vulnerabilities before they </p>
+          <p class="recommended"><strong>推荐选题：</strong>Introducing Gemini 3.5 Flash Cyber — Google DeepMind 为什么值得关注？（政策变化、信任风险与安全治理）</p>
+          <p>值得优先深挖：适合从政策变化、信任风险和安全治理角度切入，来源：Google DeepMind。</p>
+          <div class="tags"><span>deepmind</span><span>blog</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Google DeepMind</li><li>发布时间：2026-07-23</li><li>关键词：deepmind, blog</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/PIAVHXT5GCZFUV?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Kastra</a>
+              <div class="meta">Product Hunt · 政策监管、社会影响与 AI 安全</div>
+            </div>
+            <div class="score">
+              <strong>72</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Runtime authorization for Claude, Cursor, Codex and OpenClaw</p>
+          <p class="recommended"><strong>推荐选题：</strong>Kastra 为什么值得关注？（政策变化、信任风险与安全治理）</p>
+          <p>适合进入今日选题池：适合从政策变化、信任风险和安全治理角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Developer Tools</span><span>Artificial Intelligence</span><span>GitHub</span><span>Security</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：391 / 145</li><li>发布时间：2026-07-22</li><li>关键词：Developer Tools, Artificial Intelligence, GitHub, Security</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.axios.com/2026/07/22/openai-anthropic-open-models-trump-china" target="_blank" rel="noreferrer">OpenAI and Anthropic unite against open-weight AI risks to their bottom line</a>
+              <div class="meta">Hacker News · 政策监管、社会影响与 AI 安全</div>
+            </div>
+            <div class="score">
+              <strong>72</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by yogthos</p>
+          <p class="recommended"><strong>推荐选题：</strong>OpenAI and Anthropic unite against open-weight AI risks to their bottom line 为什么值得关注？（政策变化、信任风险与安全治理）</p>
+          <p>适合进入今日选题池：适合从政策变化、信任风险和安全治理角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：281 / 313</li><li>发布时间：2026-07-23</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+      </section>
+    
+
+      <section>
+        <h3>模型与技术突破</h3>
+        
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropic.com/news/claude-opus-4-5" target="_blank" rel="noreferrer">Introducing Claude Opus 4.5</a>
+              <div class="meta">Anthropic (Claude) · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>98</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Announcements Introducing Claude Opus 4.5 Nov 24, 2025 Our newest model, Claude Opus 4.5, is available today. It’s intelligent, efficient, and the best model in the world for coding, agents, and computer use. It’s also meaningfully better at everyday tasks like deep research and working with slides and spreadsheets. Opus 4.5 is a step forward in what AI systems can do, and a preview of larger changes to how work gets done. Claude Opus 4.5 is state-of-the-art on tests of real-world software engineering: Opus 4.5 is available today on our apps, our API, and on all three major cloud platforms. If you’re a developer, simply use claude-opus-4-5-20251101 via the Claude API . Pricing is now $5/$25 per million tokens—making Opus-level capabilities accessible to even more users, teams, and enterprises. Alongside Opus, we’re releasing updates to the Claude Developer Platform , Claude Code , and our consumer apps . There are new tools for longer-running agents and new ways to use Claude in Excel, Chrome, and on desktop. In the Claude apps, lengthy conversations no longer hit a wall. See our product-focused section below for details. First impressions As our Anthropic colleagues tested the model before release, we heard remarkably consistent feedback. Testers noted that Claude Opus 4.5 handles ambiguity and reasons about tradeoffs without hand-holding. They told us that, when pointed at a complex, multi-system bug, Opus 4.5 figures out the fix. They said that tasks that were near-impossi</p>
+          <p class="recommended"><strong>推荐选题：</strong>Introducing Claude Opus 4.5 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>值得优先深挖：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Anthropic (Claude)。</p>
+          <div class="tags"><span>anthropic</span><span>news</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Anthropic (Claude)</li><li>发布时间：2026-07-23</li><li>关键词：anthropic, news</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://deepmind.google/blog/google-deepmind-at-iclr-2024/" target="_blank" rel="noreferrer">Google DeepMind at ICLR 2024 — Google DeepMind</a>
+              <div class="meta">Google DeepMind · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>89</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">May 3, 2024 Research Google DeepMind at ICLR 2024 Share Copied Developing next-gen AI agents, exploring new modalities, and pioneering foundational learning Next week, AI researchers from around the globe will converge at the 12th International Conference on Learning Representations (ICLR), set to take place May 7-11 in Vienna, Austria. Raia Hadsell, Vice President of Research at Google DeepMind, will deliver a keynote reflecting on the last 20 years in the field, highlighting how lessons learned are shaping the future of AI for the benefit of humanity. We’ll also offer live demonstrations showcasing how we bring our foundational research into reality, from the development of Robotics Transformers to the creation of toolkits and open-source models like Gemma . Teams from across Google DeepMind will present more than 70 papers this year. Some research highlights: Google Research at ICLR 2024 Problem-solving agents and human-inspired approaches Large language models (LLMs) are already revolutionizing advanced AI tools, yet their full potential remains untapped. For instance, LLM-based AI agents capable of taking effective actions could transform digital assistants into more helpful and intuitive AI tools. AI assistants that follow natural language instructions to carry out web-based tasks on people’s behalf would be a huge timesaver. In an oral presentation we introduce WebAgent , an LLM-driven agent that learns from self-experience to navigate and manage complex tasks on real-</p>
+          <p class="recommended"><strong>推荐选题：</strong>Google DeepMind at ICLR 2024 — Google DeepMind 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>值得优先深挖：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Google DeepMind。</p>
+          <div class="tags"><span>deepmind</span><span>blog</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Google DeepMind</li><li>发布时间：2026-07-23</li><li>关键词：deepmind, blog</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/nvidia/Cosmos3-Edge" target="_blank" rel="noreferrer">nvidia/Cosmos3-Edge</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>69</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary"> model by nvidia</p>
+          <p class="recommended"><strong>推荐选题：</strong>nvidia/Cosmos3-Edge 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合进入今日选题池：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>cosmos</span><span>diffusers</span><span>safetensors</span><span>cosmos3_edge</span><span>nvidia</span><span>cosmos3</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：103 / 28493</li><li>发布时间：2026-07-24</li><li>关键词：cosmos, diffusers, safetensors, cosmos3_edge, nvidia</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/baidu/Unlimited-OCR" target="_blank" rel="noreferrer">baidu/Unlimited-OCR</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>64</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">image-text-to-text model by baidu</p>
+          <p class="recommended"><strong>推荐选题：</strong>baidu/Unlimited-OCR 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>image-text-to-text</span><span>transformers</span><span>safetensors</span><span>unlimited-ocr</span><span>feature-extraction</span><span>baidu</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：2902 / 2414259</li><li>发布时间：2026-07-23</li><li>关键词：image-text-to-text, transformers, safetensors, unlimited-ocr, feature-extraction</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/thinkingmachines/Inkling" target="_blank" rel="noreferrer">thinkingmachines/Inkling</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>64</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">image-text-to-text model by thinkingmachines</p>
+          <p class="recommended"><strong>推荐选题：</strong>thinkingmachines/Inkling 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>image-text-to-text</span><span>transformers</span><span>safetensors</span><span>inkling_mm_model</span><span>image-text-to-text</span><span>conversational</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：1509 / 24669</li><li>发布时间：2026-07-23</li><li>关键词：image-text-to-text, transformers, safetensors, inkling_mm_model, image-text-to-text</li></ul>
+          </details>
+        </article>
+      
+      </section>
+    
+
+      <section>
+        <h3>AI 产品与用户入口</h3>
+        
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/7WFK7BDIY5DLKG?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Humalike x Hermes</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>80</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Social intelligence plugin for Hermes Agent</p>
+          <p class="recommended"><strong>推荐选题：</strong>Humalike x Hermes 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>值得优先深挖：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>API</span><span>Developer Tools</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：511 / 95</li><li>发布时间：2026-07-22</li><li>关键词：API, Developer Tools, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/XQORCUD6WISVS4?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">box</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>80</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Simple computers for agent w/ full VMs</p>
+          <p class="recommended"><strong>推荐选题：</strong>box 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>值得优先深挖：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Developer Tools</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：265 / 51</li><li>发布时间：2026-07-22</li><li>关键词：Developer Tools, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/QTI2CZCO32XRUF?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">ACME.BOT</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>77</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">No-slop AI SEO agent that interviews you first</p>
+          <p class="recommended"><strong>推荐选题：</strong>ACME.BOT 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Marketing</span><span>SEO</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：216 / 53</li><li>发布时间：2026-07-22</li><li>关键词：Marketing, SEO, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/2L6BNQROL433FT?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Gemini 3.6 Flash Family</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>75</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Gemini 3.6 Flash, 3.5 Flash-Lite, and 3.5 Flash Cyber</p>
+          <p class="recommended"><strong>推荐选题：</strong>Gemini 3.6 Flash Family 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>SaaS</span><span>Artificial Intelligence</span><span>Development</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：197 / 12</li><li>发布时间：2026-07-22</li><li>关键词：SaaS, Artificial Intelligence, Development</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/Y2DPUGKOC2RG5O?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">AgentManager</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Never miss a Claude Code session waiting for your input</p>
+          <p class="recommended"><strong>推荐选题：</strong>AgentManager 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Mac</span><span>Developer Tools</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：140 / 63</li><li>发布时间：2026-07-22</li><li>关键词：Mac, Developer Tools, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+      </section>
+    
+
+      <section>
+        <h3>企业落地与行业应用</h3>
+        
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropic.com/news/claude-for-creative-work-dev" target="_blank" rel="noreferrer">[dev] Claude for Creative Work</a>
+              <div class="meta">Anthropic (Claude) · 企业落地与行业应用</div>
+            </div>
+            <div class="score">
+              <strong>98</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Announcements [dev] Claude for Creative Work Apr 28, 2026 Creative professionals look to technology to expand what&amp;#x27;s possible in their work. Claude can&amp;#x27;t replace taste or imagination, but it can open up new ways of working—faster and more ambitious ideation, a more expansive skill set, and the ability for creatives to take on larger-scale projects. AI can also help shoulder the parts of the creative process that eat up time by handling repetitive tasks and eliminating manual toil. Key to both these goals is integrating Claude into the tools the creative industry already knows and trusts. Today, we’re releasing a set of connectors—tools that let Claude work alongside the software creative professionals rely on, so creatives can extend their reach. Connecting Claude to creative tools Connectors allow Claude to access other platforms and tools directly. We are adding several new connectors that are designed to make it easier to use Claude for creative work: Ableton grounds Claude’s answers in official product documentation for Live and Push. Adobe for creativity enables users to bring images, videos, and designs to life, drawing from 50+ tools across Creative Cloud apps including Photoshop, Premiere, Express, and more. Affinity by Canva automates repetitive production tasks across pro creative workflows - such as batch image adjustments, layer renaming, and file export - and generates custom features directly in the app. Autodesk Fusion allows designers and engineers w</p>
+          <p class="recommended"><strong>推荐选题：</strong>[dev] Claude for Creative Work 为什么值得关注？（行业场景、落地成本与业务价值）</p>
+          <p>值得优先深挖：适合从行业场景、落地成本和业务价值角度切入，来源：Anthropic (Claude)。</p>
+          <div class="tags"><span>anthropic</span><span>news</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Anthropic (Claude)</li><li>发布时间：2026-07-23</li><li>关键词：anthropic, news</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/langchain4j/langchain4j" target="_blank" rel="noreferrer">langchain4j/langchain4j</a>
+              <div class="meta">GitHub Search:vector-db · 企业落地与行业应用</div>
+            </div>
+            <div class="score">
+              <strong>71</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">LangChain4j is an idiomatic, open-source Java library for building LLM-powered applications on the JVM. It offers a unified API over popular LLM providers and vector stores, and makes implementing tool calling (including MCP support), agents and RAG easy. It integrates seamlessly with enterprise Java frameworks like Quarkus and Spring Boot.</p>
+          <p class="recommended"><strong>推荐选题：</strong>langchain4j/langchain4j 为什么值得关注？（行业场景、落地成本与业务价值）</p>
+          <p>适合进入今日选题池：适合从行业场景、落地成本和业务价值角度切入，来源：GitHub Search:vector-db。</p>
+          <div class="tags"><span>Java</span><span>vector-db</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:vector-db</li><li>热度信号：12676</li><li>发布时间：2026-07-23</li><li>关键词：Java, vector-db</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.infoq.cn/article/9sEaQuLww0wAu016qH5R" target="_blank" rel="noreferrer">谷歌联合多家企业发布 Agentic Resource Discovery 规范，为 AI Agent 建立统一资源发现机制</a>
+              <div class="meta">InfoQ 中国 · 企业落地与行业应用</div>
+            </div>
+            <div class="score">
+              <strong>53</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">谷歌联合多家行业合作伙伴发布了 Agentic Resource Discovery（ARD，面向 Agent 的资源发现）规范。这项开放标准意在让 AI Agent 能够跨组织发布、发现并验证外部工具、API 和服务。ARD 是为解决当前 AI Agent 基础设施中的一个关键问题：虽然各类工具和能力已经广泛存在，但缺乏统一的发现机制和信任体系。</p>
+          <p class="recommended"><strong>推荐选题：</strong>谷歌联合多家企业发布 Agentic Resource Discovery 规范，为 AI Agent 建立统一资源发现机制值得关注的三个信号（行业场景、落地成本与业务价值）</p>
+          <p>适合作为观察项：适合从行业场景、落地成本和业务价值角度切入，来源：InfoQ 中国。</p>
+          <div class="tags"><span>infoq-cn</span><span>企业动态</span><span>AI 工程化</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：InfoQ 中国</li><li>发布时间：+058527-02</li><li>关键词：infoq-cn, 企业动态, AI 工程化</li></ul>
+          </details>
+        </article>
+      
+      </section>
+    
+
+      <section>
+        <h3>标杆企业动向、商业格局与投融资</h3>
+        
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://openai.com/index/health-in-chatgpt/" target="_blank" rel="noreferrer">Health In Chatgpt</a>
+              <div class="meta">OpenAI · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>98</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary"></p>
+          <p class="recommended"><strong>推荐选题：</strong>Health In Chatgpt 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>值得优先深挖：适合从大厂动作、商业化路径和竞争格局角度切入，来源：OpenAI。</p>
+          <div class="tags"><span>openai</span><span>index</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：OpenAI</li><li>发布时间：2026-07-24</li><li>关键词：openai, index</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/open-webui/open-webui" target="_blank" rel="noreferrer">open-webui/open-webui</a>
+              <div class="meta">GitHub Search:llm · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>74</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">User-friendly AI Interface (Supports Ollama, OpenAI API, ...)</p>
+          <p class="recommended"><strong>推荐选题：</strong>open-webui/open-webui 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合进入今日选题池：适合从大厂动作、商业化路径和竞争格局角度切入，来源：GitHub Search:llm。</p>
+          <div class="tags"><span>Python</span><span>llm</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:llm</li><li>热度信号：146520</li><li>发布时间：2026-07-24</li><li>关键词：Python, llm</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/googleworkspace/cli" target="_blank" rel="noreferrer">googleworkspace/cli</a>
+              <div class="meta">GitHub Search:ai-agent · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>70</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Google Workspace CLI — one command-line tool for Drive, Gmail, Calendar, Sheets, Docs, Chat, Admin, and more. Dynamically built from Google Discovery Service. Includes AI agent skills.</p>
+          <p class="recommended"><strong>推荐选题：</strong>googleworkspace/cli 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合进入今日选题池：适合从大厂动作、商业化路径和竞争格局角度切入，来源：GitHub Search:ai-agent。</p>
+          <div class="tags"><span>Rust</span><span>ai-agent</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:ai-agent</li><li>热度信号：29953</li><li>发布时间：2026-07-22</li><li>关键词：Rust, ai-agent</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://news.ycombinator.com/item?id=49024620" target="_blank" rel="noreferrer">Launch HN: Screenpipe (YC S26) – Record how you work and turn that into agents</a>
+              <div class="meta">Hacker News · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>64</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by louis030195</p>
+          <p class="recommended"><strong>推荐选题：</strong>Launch HN: Screenpipe (YC S26) – Record how you work and turn that into agents 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合作为观察项：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：62 / 49</li><li>发布时间：2026-07-23</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://news.ycombinator.com/item?id=49019663" target="_blank" rel="noreferrer">Ask HN: If OpenAI hacked HuggingFace, why aren't OpenAI prosecuted?</a>
+              <div class="meta">Hacker News · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>60</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by sam_lowry_</p>
+          <p class="recommended"><strong>推荐选题：</strong>Ask HN: If OpenAI hacked HuggingFace, why aren't OpenAI prosecuted? 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合作为观察项：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：25 / 32</li><li>发布时间：2026-07-23</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+      </section>
+    </div>
+    </section>
+
+    <section id="watch">
+      <h2>观察项</h2>
+      <div class="topic-grid">
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/baidu/Unlimited-OCR" target="_blank" rel="noreferrer">baidu/Unlimited-OCR</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>64</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">image-text-to-text model by baidu</p>
+          <p class="recommended"><strong>推荐选题：</strong>baidu/Unlimited-OCR 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>image-text-to-text</span><span>transformers</span><span>safetensors</span><span>unlimited-ocr</span><span>feature-extraction</span><span>baidu</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：2902 / 2414259</li><li>发布时间：2026-07-23</li><li>关键词：image-text-to-text, transformers, safetensors, unlimited-ocr, feature-extraction</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/thinkingmachines/Inkling" target="_blank" rel="noreferrer">thinkingmachines/Inkling</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>64</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">image-text-to-text model by thinkingmachines</p>
+          <p class="recommended"><strong>推荐选题：</strong>thinkingmachines/Inkling 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>image-text-to-text</span><span>transformers</span><span>safetensors</span><span>inkling_mm_model</span><span>image-text-to-text</span><span>conversational</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：1509 / 24669</li><li>发布时间：2026-07-23</li><li>关键词：image-text-to-text, transformers, safetensors, inkling_mm_model, image-text-to-text</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/Nanbeige/Nanbeige4.2-3B" target="_blank" rel="noreferrer">Nanbeige/Nanbeige4.2-3B</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>64</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">text-generation model by Nanbeige</p>
+          <p class="recommended"><strong>推荐选题：</strong>Nanbeige/Nanbeige4.2-3B 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>text-generation</span><span>transformers</span><span>safetensors</span><span>nanbeige</span><span>text-generation</span><span>llm</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：326 / 4532</li><li>发布时间：2026-07-23</li><li>关键词：text-generation, transformers, safetensors, nanbeige, text-generation</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/unsloth/Laguna-S-2.1-GGUF" target="_blank" rel="noreferrer">unsloth/Laguna-S-2.1-GGUF</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>64</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">text-generation model by unsloth</p>
+          <p class="recommended"><strong>推荐选题：</strong>unsloth/Laguna-S-2.1-GGUF 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>text-generation</span><span>transformers</span><span>gguf</span><span>laguna-s-2.1</span><span>unsloth</span><span>vllm</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：151 / 28542</li><li>发布时间：2026-07-23</li><li>关键词：text-generation, transformers, gguf, laguna-s-2.1, unsloth</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/poolside/Laguna-S-2.1-GGUF" target="_blank" rel="noreferrer">poolside/Laguna-S-2.1-GGUF</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>64</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary"> model by poolside</p>
+          <p class="recommended"><strong>推荐选题：</strong>poolside/Laguna-S-2.1-GGUF 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>gguf</span><span>base_model:poolside/Laguna-S-2.1</span><span>base_model:quantized:poolside/Laguna-S-2.1</span><span>endpoints_compatible</span><span>region:us</span><span>conversational</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：115 / 25360</li><li>发布时间：2026-07-23</li><li>关键词：gguf, base_model:poolside/Laguna-S-2.1, base_model:quantized:poolside/Laguna-S-2.1, endpoints_compatible, region:us</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/LuffyTheFox/Qwen3.6-35B-A3B-Uncensored-Genesis-Hermes-V5-GGUF" target="_blank" rel="noreferrer">LuffyTheFox/Qwen3.6-35B-A3B-Uncensored-Genesis-Hermes-V5-GGUF</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>64</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">image-text-to-text model by LuffyTheFox</p>
+          <p class="recommended"><strong>推荐选题：</strong>LuffyTheFox/Qwen3.6-35B-A3B-Uncensored-Genesis-Hermes-V5-GGUF 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>image-text-to-text</span><span>hermes</span><span>gguf</span><span>uncensored</span><span>qwen3.6</span><span>moe</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：118 / 24982</li><li>发布时间：2026-07-23</li><li>关键词：image-text-to-text, hermes, gguf, uncensored, qwen3.6</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://news.ycombinator.com/item?id=49024620" target="_blank" rel="noreferrer">Launch HN: Screenpipe (YC S26) – Record how you work and turn that into agents</a>
+              <div class="meta">Hacker News · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>64</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by louis030195</p>
+          <p class="recommended"><strong>推荐选题：</strong>Launch HN: Screenpipe (YC S26) – Record how you work and turn that into agents 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合作为观察项：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：62 / 49</li><li>发布时间：2026-07-23</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://news.ycombinator.com/item?id=49026810" target="_blank" rel="noreferrer">Show HN: Echo – Fable-level results at 1/3 the cost using open-weight models</a>
+              <div class="meta">Hacker News · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>63</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by adam_rida</p>
+          <p class="recommended"><strong>推荐选题：</strong>Show HN: Echo – Fable-level results at 1/3 the cost using open-weight models 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：262 / 125</li><li>发布时间：2026-07-23</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/poolside/Laguna-S-2.1" target="_blank" rel="noreferrer">poolside/Laguna-S-2.1</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>60</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">text-generation model by poolside</p>
+          <p class="recommended"><strong>推荐选题：</strong>poolside/Laguna-S-2.1 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>text-generation</span><span>transformers</span><span>safetensors</span><span>laguna</span><span>text-generation</span><span>laguna-s-2.1</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：521 / 13285</li><li>发布时间：2026-07-22</li><li>关键词：text-generation, transformers, safetensors, laguna, text-generation</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://news.ycombinator.com/item?id=49019663" target="_blank" rel="noreferrer">Ask HN: If OpenAI hacked HuggingFace, why aren't OpenAI prosecuted?</a>
+              <div class="meta">Hacker News · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>60</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by sam_lowry_</p>
+          <p class="recommended"><strong>推荐选题：</strong>Ask HN: If OpenAI hacked HuggingFace, why aren't OpenAI prosecuted? 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合作为观察项：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：25 / 32</li><li>发布时间：2026-07-23</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/Motif-Technologies/Motif-3-Beta" target="_blank" rel="noreferrer">Motif-Technologies/Motif-3-Beta</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>60</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">text-generation model by Motif-Technologies</p>
+          <p class="recommended"><strong>推荐选题：</strong>Motif-Technologies/Motif-3-Beta 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>text-generation</span><span>transformers</span><span>safetensors</span><span>Motif</span><span>feature-extraction</span><span>motif</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：174 / 1856</li><li>发布时间：2026-07-22</li><li>关键词：text-generation, transformers, safetensors, Motif, feature-extraction</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/poolside/Laguna-S-2.1-NVFP4" target="_blank" rel="noreferrer">poolside/Laguna-S-2.1-NVFP4</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>60</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">text-generation model by poolside</p>
+          <p class="recommended"><strong>推荐选题：</strong>poolside/Laguna-S-2.1-NVFP4 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>text-generation</span><span>vllm</span><span>safetensors</span><span>laguna</span><span>laguna-s-2.1</span><span>text-generation</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：118 / 52235</li><li>发布时间：2026-07-22</li><li>关键词：text-generation, vllm, safetensors, laguna, laguna-s-2.1</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/fdtn-ai/antares-1b" target="_blank" rel="noreferrer">fdtn-ai/antares-1b</a>
+              <div class="meta">Hugging Face · 政策监管、社会影响与 AI 安全</div>
+            </div>
+            <div class="score">
+              <strong>60</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">text-generation model by fdtn-ai</p>
+          <p class="recommended"><strong>推荐选题：</strong>fdtn-ai/antares-1b 为什么值得关注？（政策变化、信任风险与安全治理）</p>
+          <p>适合作为观察项：适合从政策变化、信任风险和安全治理角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>text-generation</span><span>transformers</span><span>safetensors</span><span>granitemoehybrid</span><span>text-generation</span><span>security</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：122 / 2747</li><li>发布时间：2026-07-22</li><li>关键词：text-generation, transformers, safetensors, granitemoehybrid, text-generation</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/OpenMOSS-Team/MOSS-Transcribe-Diarize" target="_blank" rel="noreferrer">OpenMOSS-Team/MOSS-Transcribe-Diarize</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>60</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">audio-text-to-text model by OpenMOSS-Team</p>
+          <p class="recommended"><strong>推荐选题：</strong>OpenMOSS-Team/MOSS-Transcribe-Diarize 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>audio-text-to-text</span><span>transformers</span><span>safetensors</span><span>moss_transcribe_diarize</span><span>text-generation</span><span>moss</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：320 / 111598</li><li>发布时间：2026-07-22</li><li>关键词：audio-text-to-text, transformers, safetensors, moss_transcribe_diarize, text-generation</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://modelplane.ai/blog/ai-coding-subsidy-multiple" target="_blank" rel="noreferrer">Anthropic is subsidizing our AI coding at 13x. How long will it last?</a>
+              <div class="meta">Hacker News · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>59</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by bassamtabbara</p>
+          <p class="recommended"><strong>推荐选题：</strong>Anthropic is subsidizing our AI coding at 13x. How long will it last? 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合作为观察项：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：19 / 1</li><li>发布时间：2026-07-23</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      </div>
+    </section>
+
+    <section id="notices">
+      <h2>数据源普通状态提示</h2>
+      <p class="empty">暂无普通状态提示。</p>
+    </section>
+
+    <section id="warnings">
+      <h2>数据源修复提示</h2>
+      <ul><li>Gitee 获取失败；可检查 gitee.com API 是否可访问。</li></ul>
+    </section>
+
+    <footer>AI Topic Radar · 单文件报告 · 不包含私有资料或 API key</footer>
+  </main>
+</body>
+</html>
