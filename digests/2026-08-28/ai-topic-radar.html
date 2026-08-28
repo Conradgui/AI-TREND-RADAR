@@ -1,0 +1,1580 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 热点选题池 2026-08-28</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f8fb;
+      --panel: #ffffff;
+      --text: #172033;
+      --muted: #667085;
+      --line: #d8dee9;
+      --accent: #2563eb;
+      --accent-soft: #e8f0ff;
+      --green: #0f8a5f;
+      --shadow: 0 16px 40px rgba(17, 24, 39, 0.08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 40px 20px 64px;
+    }
+    header {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      padding: 28px;
+      margin-bottom: 24px;
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { font-size: 32px; line-height: 1.2; margin-bottom: 12px; }
+    h2 { font-size: 24px; margin: 32px 0 16px; }
+    h3 { font-size: 18px; margin: 24px 0 12px; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .summary {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+    .quick-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .quick-links a, .quick-links span {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 12px;
+      background: #fff;
+      color: var(--text);
+      font-size: 14px;
+    }
+    .topic-grid {
+      display: grid;
+      gap: 14px;
+    }
+    .topic-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+      box-shadow: 0 8px 24px rgba(17, 24, 39, 0.05);
+    }
+    .topic-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 16px;
+      align-items: start;
+    }
+    .topic-title {
+      display: inline-block;
+      font-weight: 700;
+      font-size: 17px;
+      line-height: 1.45;
+      overflow-wrap: anywhere;
+    }
+    .meta {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 4px;
+    }
+    .score {
+      min-width: 72px;
+      border-radius: 8px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      text-align: center;
+      padding: 8px 10px;
+    }
+    .score strong {
+      display: block;
+      font-size: 24px;
+      line-height: 1;
+    }
+    .score span {
+      display: block;
+      margin-top: 4px;
+      font-size: 13px;
+      color: var(--text);
+    }
+    .summary {
+      color: #344054;
+      font-weight: 500;
+    }
+    .recommended {
+      background: #f8fafc;
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      padding: 8px 10px;
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 12px 0;
+    }
+    .tags span {
+      background: #eef2f7;
+      border-radius: 999px;
+      color: #475467;
+      font-size: 12px;
+      padding: 3px 8px;
+    }
+    details {
+      border-top: 1px solid var(--line);
+      margin-top: 12px;
+      padding-top: 10px;
+    }
+    summary {
+      cursor: pointer;
+      color: var(--green);
+      font-weight: 600;
+    }
+    ul { padding-left: 20px; }
+    .empty {
+      color: var(--muted);
+      background: var(--panel);
+      border: 1px dashed var(--line);
+      border-radius: 8px;
+      padding: 14px;
+    }
+    .category-stack {
+      display: grid;
+      gap: 10px;
+    }
+    footer {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 36px;
+    }
+    @media (max-width: 640px) {
+      main { padding: 24px 12px 48px; }
+      header { padding: 20px; }
+      h1 { font-size: 26px; }
+      .topic-head { grid-template-columns: 1fr; }
+      .score { width: 84px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>AI 热点选题池 2026-08-28</h1>
+      <p class="summary">面向 AI 内容运营和产品调研的每日选题监控报告。默认入口为本 HTML 文件，可直接双击查看，也可通过 GitHub Pages 分享。</p>
+      <div class="quick-links">
+        <span>生成时间：2026-08-28 11:07 UTC</span>
+        <a href="./ai-topic-radar.md">Markdown</a>
+        <a href="./topic-pool.json">JSON 选题池</a>
+      </div>
+    </header>
+
+    <section id="top">
+      <h2>今日 Top 深挖选题</h2>
+      <div class="topic-grid">
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropic.com/news/expanding-support-for-scientists" target="_blank" rel="noreferrer">Expanding our support for scientists</a>
+              <div class="meta">Anthropic (Claude) · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>100</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Announcements Expanding our support for scientists Aug 27, 2026 As Claude becomes increasingly capable at scientific research, we are focusing on building products and programs to support the research community. In June, we launched Claude Science , a product that integrates the tools that researchers most commonly use, produces auditable artifacts, and provides flexible access to computing resources. We have also continued to broaden our AI for Science program , which provides free credits to researchers working on high-impact scientific projects. Starting today, we are announcing a significant expansion of these efforts. We are opening 10,000 seats for scientists around the world to access Claude subscriptions for free and at discounted rates for one year through our new Claude team plan for scientists . Standard seats will be free and premium seats with 5x usage limits will be available for $15 per month. Over the coming months, we intend to extend this program well beyond the initial 10,000 seats. Alongside these subscriptions, we are also expanding the scope and scale of our AI for Science program. To date, we’ve largely supported scientists using Claude for biological sciences. We are now looking to offer credits for researchers in other scientific fields as well, including those working on ambitious, compute heavy-research, of the kind that resulted in progress on the Riemann zeta function and Claude’s work on protein design . By helping scientists access and increase </p>
+          <p class="recommended"><strong>推荐选题：</strong>Expanding our support for scientists 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>值得优先深挖：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Anthropic (Claude)。</p>
+          <div class="tags"><span>anthropic</span><span>news</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Anthropic (Claude)</li><li>发布时间：2026-08-28</li><li>关键词：anthropic, news</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropic.com/news/ai-for-science-program" target="_blank" rel="noreferrer">Introducing Anthropic&amp;#x27;s AI for Science Program</a>
+              <div class="meta">Anthropic (Claude) · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>98</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Announcements Beneficial Deployments Introducing Anthropic&amp;#x27;s AI for Science Program May 5, 2025 Today, we’re launching Anthropic&amp;#x27;s AI for Science program – a new initiative designed to accelerate scientific research and discovery through access to our API. This program will provide free API credits to support researchers working on high-impact scientific projects, with a particular focus on biology and life sciences applications. Why AI for Science? At Anthropic, we believe that AI has the potential to significantly accelerate scientific progress. Advanced AI reasoning and language capabilities can help researchers analyze complex scientific data, generate hypotheses, design experiments, and communicate findings more effectively. By reducing the time and resources needed for scientific discovery, we can help address some of humanity&amp;#x27;s most pressing challenges. This initiative aligns with our vision of building AI systems that bring value to humanity, as discussed in our CEO Dario Amodei&amp;#x27;s Machines of Loving Grace . We&amp;#x27;re particularly interested in supporting applications where AI can assist in accelerating processes related to understanding complex biological systems, analyzing genetic data, accelerating drug discovery especially for some of the largest global disease burdens, increasing agricultural productivity, and more. Program Details The AI for Science program will offer significant API credits to qualified researchers who will be selected based</p>
+          <p class="recommended"><strong>推荐选题：</strong>Introducing Anthropic&amp;#x27;s AI for Science Program 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>值得优先深挖：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Anthropic (Claude)。</p>
+          <div class="tags"><span>anthropic</span><span>news</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Anthropic (Claude)</li><li>发布时间：2026-08-27</li><li>关键词：anthropic, news</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropic.com/news/advancing-claude-for-education" target="_blank" rel="noreferrer">Advancing Claude for Education</a>
+              <div class="meta">Anthropic (Claude) · 企业落地与行业应用</div>
+            </div>
+            <div class="score">
+              <strong>98</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Product Beneficial Deployments Advancing Claude for Education Jul 9, 2025 Today, we’re sharing a first look at upcoming integrations with Canvas, Panopto, and Wiley that bring Claude to Canvas and rich educational context to student conversations in Claude for Education . Additionally, we’ve expanded our student ambassador and builder programs, launched our first free AI Fluency course , and welcomed several new institutions—including the University of San Francisco School of Law and Northumbria University—further advancing responsible AI adoption in higher education. Bringing educational context to Claude To make Claude a more powerful study companion, we’re building toward a future where students can reference readings, lecture recordings, visualizations, and textbook content directly within their conversations. Today, we’re sharing a first look at integrations with popular educational tools and resources rolling out over the next few weeks. Students and educators will be able to connect Wiley and Panopto to Claude using pre-built MCP servers. With these integrations, users can reference lecture transcripts from Panopto and dive deep into their universities’ collections of authoritative, peer-reviewed content on Wiley—all within their Claude conversations. “The future of research depends on keeping high-quality, peer-reviewed content central to AI-powered discovery,&quot; says Josh Jarrett, Senior Vice President of AI Growth at Wiley. &quot;This partnership sets the standard for inte</p>
+          <p class="recommended"><strong>推荐选题：</strong>Advancing Claude for Education 为什么值得关注？（行业场景、落地成本与业务价值）</p>
+          <p>值得优先深挖：适合从行业场景、落地成本和业务价值角度切入，来源：Anthropic (Claude)。</p>
+          <div class="tags"><span>anthropic</span><span>news</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Anthropic (Claude)</li><li>发布时间：2026-08-27</li><li>关键词：anthropic, news</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropic.com/news/anthropic-and-iceland-announce-one-of-the-world-s-first-national-ai-education-pilots" target="_blank" rel="noreferrer">Anthropic and Iceland announce one of the world’s first national AI education pilots</a>
+              <div class="meta">Anthropic (Claude) · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>98</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Announcements Beneficial Deployments Anthropic and Iceland announce one of the world’s first national AI education pilots Nov 4, 2025 Today, Anthropic and Iceland&amp;#x27;s Ministry of Education and Children are announcing a partnership to bring Claude to teachers across the nation, launching one of the world&amp;#x27;s first comprehensive national AI education pilots. This initiative will give teachers from every region of Iceland—from Reykjavik to the most remote villages—access to advanced AI tools as the country explores how artificial intelligence can transform education. Iceland launches transformative AI education initiative With this new initiative, hundreds of teachers across all of Iceland will gain access to Claude to help support lesson preparation, receiving the AI technology as well as educational resources, training materials, and a dedicated support network. The pilot will explore how artificial intelligence can benefit Icelandic schools, support teachers in their instruction and preparation, and enhance student learning. &quot;We&amp;#x27;re proud to partner with Iceland&amp;#x27;s Ministry of Education and Children to help teachers save time and create better learning experiences for their students,&quot; said Anthropic&amp;#x27;s Head of Public Sector Thiyagu Ramasamy. &quot;This initiative exemplifies how governments can harness AI to enhance public services while preserving their core values. For too long, teachers have been weighed down by paperwork and administrative tasks—hidden burden</p>
+          <p class="recommended"><strong>推荐选题：</strong>Anthropic and Iceland announce one of the world’s first national AI education pilots 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>值得优先深挖：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Anthropic (Claude)。</p>
+          <div class="tags"><span>anthropic</span><span>news</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Anthropic (Claude)</li><li>发布时间：2026-08-27</li><li>关键词：anthropic, news</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropic.com/news/accelerating-scientific-research" target="_blank" rel="noreferrer">How scientists are using Claude to accelerate research and discovery</a>
+              <div class="meta">Anthropic (Claude) · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>98</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Case Study Beneficial Deployments How scientists are using Claude to accelerate research and discovery Jan 15, 2026 Last October we launched Claude for Life Sciences—a suite of connectors and skills that made Claude a better scientific collaborator. Since then, we&amp;#x27;ve invested heavily in making Claude the most capable model for scientific work , with Opus 4.5 showing significant improvements in figure interpretation, computational biology, and protein understanding benchmarks. These advances, informed by our partnerships with researchers in academia and industry, reflect our commitment to understanding exactly how scientists are using AI to accelerate progress. We’ve also been working closely with scientists through our AI for Science program, which provides free API credits to leading researchers working on high-impact scientific projects around the world. These researchers have developed custom systems that use Claude in ways that go far beyond tasks like literature reviews or coding assistance. In the labs we spoke to, Claude is a collaborator that works across all stages of the research process: making it easier and more cost-effective to understand which experiments to run, using a variety of tools to help compress projects that normally take months into hours, and finding patterns in massive datasets that humans might overlook. In many cases it’s eliminating bottlenecks, handling tasks that require deep knowledge and have previously been impossible to scale; in some</p>
+          <p class="recommended"><strong>推荐选题：</strong>How scientists are using Claude to accelerate research and discovery 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>值得优先深挖：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Anthropic (Claude)。</p>
+          <div class="tags"><span>anthropic</span><span>news</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Anthropic (Claude)</li><li>发布时间：2026-08-27</li><li>关键词：anthropic, news</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropic.com/news/anthropic-teach-for-all" target="_blank" rel="noreferrer">Anthropic and Teach For All launch global AI training initiative for educators</a>
+              <div class="meta">Anthropic (Claude) · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>98</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Announcements Beneficial Deployments Anthropic and Teach For All launch global AI training initiative for educators Jan 21, 2026 Anthropic is partnering with Teach For All to bring AI tools and training to educators in 63 countries. Through the AI Literacy &amp; Creator Collective (LCC), more than 100,000 teachers and alumni across Teach For All&amp;#x27;s network—which serves more than 1.5 million students—will have the opportunity to develop AI fluency and adapt Claude to serve real classroom needs. Building on the approach pioneered by Teach For America, Teach For All is a global network of independent organizations working to expand educational opportunity. Over the past 15 years, it has grown into one of the world&amp;#x27;s largest and most respected communities of educators serving students in under-resourced schools. Its network spans organizations like Teach For India, Enseña Chile, and Teach For Nigeria—each locally led but connected through a common mission and cross-network collaboration. Built on shared learning What makes this partnership distinctive is its approach. Teachers are positioned not as passive consumers of AI tools, but as co-architects shaping how AI develops. Through the AI LCC, Anthropic provides access to Claude, while educators provide on-the-ground feedback to inform how the product evolves. “For AI to reach its potential to make education more equitable, teachers need to be the ones shaping how it&amp;#x27;s used and providing input on how it&amp;#x27;s designed,</p>
+          <p class="recommended"><strong>推荐选题：</strong>Anthropic and Teach For All launch global AI training initiative for educators 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>值得优先深挖：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Anthropic (Claude)。</p>
+          <div class="tags"><span>anthropic</span><span>news</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Anthropic (Claude)</li><li>发布时间：2026-08-27</li><li>关键词：anthropic, news</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropic.com/news/rwandan-government-partnership-ai-education" target="_blank" rel="noreferrer">Anthropic partners with Rwandan Government and ALX to bring AI education to hundreds of thousands of learners across Africa</a>
+              <div class="meta">Anthropic (Claude) · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>98</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Announcements Beneficial Deployments Anthropic partners with Rwandan Government and ALX to bring AI education to hundreds of thousands of learners across Africa Nov 18, 2025 Anthropic is announcing a new partnership with the Government of Rwanda and African tech training provider ALX to bring Chidi—a learning companion built on Claude—to hundreds of thousands of learners across Africa. Rwanda&amp;#x27;s ICT &amp; Innovation and Education ministries are deploying Chidi within their national education system, while ALX will bring the tool to students across the continent through their technology training programs. With this initiative, university graduates and young professionals in countries across Africa will be able to use Chidi to learn new skills, like data analytics or cloud computing. And teachers in Rwanda can use it to plan lessons and help them support their students. This partnership represents one of the largest AI for education deployments on the continent, uniting ALX&amp;#x27;s commitment to empowering African talent, Anthropic&amp;#x27;s vision for accessible and responsible AI, and Rwanda&amp;#x27;s Vision 2050 to build an AI-ready workforce and accelerate digital transformation across Rwanda. Partnering with the Government of Rwanda Through this initiative, the Rwandan government will bring AI tools directly into the national education system. The government will enable AI training for up to 2,000 teachers, as well as a group of civil servants across the country, who will learn t</p>
+          <p class="recommended"><strong>推荐选题：</strong>Anthropic partners with Rwandan Government and ALX to bring AI education to hundreds of thousands of learners across Africa 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>值得优先深挖：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Anthropic (Claude)。</p>
+          <div class="tags"><span>anthropic</span><span>news</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Anthropic (Claude)</li><li>发布时间：2026-08-27</li><li>关键词：anthropic, news</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropic.com/news/anthropic-partners-with-allen-institute-and-howard-hughes-medical-institute" target="_blank" rel="noreferrer">Anthropic partners with Allen Institute and Howard Hughes Medical Institute to accelerate scientific discovery</a>
+              <div class="meta">Anthropic (Claude) · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>98</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Societal Impacts Beneficial Deployments Anthropic partners with Allen Institute and Howard Hughes Medical Institute to accelerate scientific discovery Feb 2, 2026 Modern biological research generates data at unprecedented scale—from single-cell sequencing to whole-brain connectomics—yet transforming that data into validated biological insights remains a fundamental bottleneck. Knowledge synthesis, hypothesis generation, and experimental interpretation still depend on manual processes that can&amp;#x27;t keep pace with the data being produced. Today, Anthropic is announcing two flagship partnerships designed to close that gap. The Allen Institute and Howard Hughes Medical Institute (HHMI) will serve as founding partners in life sciences, extending Claude’s capabilities to frontier scientific research and enabling teams of scientists to work more effectively together and take on ambitious scientific challenges. Each collaboration brings together Anthropic&amp;#x27;s expertise in foundation models, agentic systems, and interpretability with world-class research institutions tackling distinct but complementary problems in biology and biomedical science. These partnerships position Claude at the center of scientific experimentation and will build a foundation in which scientists actively use Claude to plan and execute experiments. Both partnerships are committed to transparency and advances that will help the broader scientific community rigorously deploy AI tools across many scientific d</p>
+          <p class="recommended"><strong>推荐选题：</strong>Anthropic partners with Allen Institute and Howard Hughes Medical Institute to accelerate scientific discovery 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>值得优先深挖：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Anthropic (Claude)。</p>
+          <div class="tags"><span>anthropic</span><span>news</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Anthropic (Claude)</li><li>发布时间：2026-08-27</li><li>关键词：anthropic, news</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropic.com/news/anthropic-codepath-partnership" target="_blank" rel="noreferrer">Anthropic partners with CodePath to bring Claude to the US’s largest collegiate computer science program</a>
+              <div class="meta">Anthropic (Claude) · 企业落地与行业应用</div>
+            </div>
+            <div class="score">
+              <strong>98</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Announcements Beneficial Deployments Anthropic partners with CodePath to bring Claude to the US’s largest collegiate computer science program Feb 13, 2026 Anthropic is partnering with CodePath, the nation’s largest provider of collegiate computer science education, to redesign its coding curriculum as AI reshapes the field of software development. CodePath will put Claude and Claude Code at the center of its courses and career programs, giving more than 20,000 students at community colleges, state schools, and HBCUs access to frontier AI tools as part of their education. Over 40% of CodePath students come from families earning under $50,000 a year, and CodePath aims to provide them with industry-vetted courses and access to career networks traditionally reserved for students at wealthier institutions. What we’re building CodePath is integrating Claude into its AI courses—including Foundations of AI Engineering, Applications of AI Engineering, and AI Open-Source Capstone—so students can learn to build with tools like Claude Code and contribute to real-world open-source projects. In the fall of 2025, over 100 CodePath students piloted Claude Code to contribute to open-source projects like GitLab, Puter, and Dokploy. Students said they found the experience both valuable and challenging. “Claude Code was instrumental in my learning process, especially since I came into the project with very little experience in the programming languages used in the repository [including TypeScrip</p>
+          <p class="recommended"><strong>推荐选题：</strong>Anthropic partners with CodePath to bring Claude to the US’s largest collegiate computer science program 为什么值得关注？（行业场景、落地成本与业务价值）</p>
+          <p>值得优先深挖：适合从行业场景、落地成本和业务价值角度切入，来源：Anthropic (Claude)。</p>
+          <div class="tags"><span>anthropic</span><span>news</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Anthropic (Claude)</li><li>发布时间：2026-08-27</li><li>关键词：anthropic, news</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropic.com/news/anthropic-rwanda-mou" target="_blank" rel="noreferrer">Anthropic and the Government of Rwanda sign MOU for AI in health and education</a>
+              <div class="meta">Anthropic (Claude) · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>98</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Announcements Beneficial Deployments Anthropic and the Government of Rwanda sign MOU for AI in health and education Feb 17, 2026 The Government of Rwanda and Anthropic have signed a three-year Memorandum of Understanding to formalize and expand our partnership, bringing AI to Rwanda’s education, health, and public sector systems. This agreement builds on the ALX education partnership we announced in November 2025 and marks the first time Anthropic has formalized a multi-sector partnership through a government MOU on the African continent. Our collaboration spans three areas: Accelerating Rwanda’s health goals: Anthropic will support the Ministry of Health to tackle its ambitious national health goals, including its plan to eliminate cervical cancer and its ongoing eﬀorts to reduce malaria and maternal mortality. Enabling Rwanda’s public sector developers: Developer teams across government institutions will use Claude and Claude Code. Along with hands-on training, capacity building, and API credits, this access will support Rwanda’s broader efforts to integrate AI into other public sector areas. Deepening our education partnership in Rwanda and throughout the region: The MOU formally codifies our fall 2025 education agreement , which included 2,000 Claude Pro licenses for educators across Rwanda, AI literacy training for public servants, and the deployment of a Claude-powered AI learning companion across eight African countries. Accelerating AI for health, education, and the p</p>
+          <p class="recommended"><strong>推荐选题：</strong>Anthropic and the Government of Rwanda sign MOU for AI in health and education 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>值得优先深挖：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Anthropic (Claude)。</p>
+          <div class="tags"><span>anthropic</span><span>news</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Anthropic (Claude)</li><li>发布时间：2026-08-27</li><li>关键词：anthropic, news</li></ul>
+          </details>
+        </article>
+      </div>
+    </section>
+
+    <section id="pool">
+      <h2>入池选题</h2>
+      <div class="topic-grid">
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.nytimes.com/2026/08/27/technology/anthropic-government-blacklisting-ruling.html" target="_blank" rel="noreferrer">Judge Rules Trump Administration’s Blacklisting of Anthropic Was Illegal</a>
+              <div class="meta">Hacker News · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>78</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by jbegley</p>
+          <p class="recommended"><strong>推荐选题：</strong>Judge Rules Trump Administration’s Blacklisting of Anthropic Was Illegal 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合进入今日选题池：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：252 / 113</li><li>发布时间：2026-08-28</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/5JRWFAAE2P7DIW?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Traccia</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>74</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Finally, a vendor-neutral AI Agent Control Plane.</p>
+          <p class="recommended"><strong>推荐选题：</strong>Traccia 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Open Source</span><span>Developer Tools</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：189 / 12</li><li>发布时间：2026-08-27</li><li>关键词：Open Source, Developer Tools, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/open-webui/open-webui" target="_blank" rel="noreferrer">open-webui/open-webui</a>
+              <div class="meta">GitHub Search:llm · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>74</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">User-friendly AI Interface (Supports Ollama, OpenAI API, ...)</p>
+          <p class="recommended"><strong>推荐选题：</strong>open-webui/open-webui 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合进入今日选题池：适合从大厂动作、商业化路径和竞争格局角度切入，来源：GitHub Search:llm。</p>
+          <div class="tags"><span>Python</span><span>llm</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:llm</li><li>热度信号：150205</li><li>发布时间：2026-08-27</li><li>关键词：Python, llm</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/4USMUFE5GNEFA6?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Lenz</a>
+              <div class="meta">Product Hunt · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>72</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Independent, multi-model fact-checking API for AI workflows</p>
+          <p class="recommended"><strong>推荐选题：</strong>Lenz 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合进入今日选题池：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：248 / 36</li><li>发布时间：2026-08-27</li><li>关键词：Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/langchain4j/langchain4j" target="_blank" rel="noreferrer">langchain4j/langchain4j</a>
+              <div class="meta">GitHub Search:vector-db · 企业落地与行业应用</div>
+            </div>
+            <div class="score">
+              <strong>71</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">LangChain4j is an idiomatic, open-source Java library for building LLM-powered applications on the JVM. It offers a unified API over popular LLM providers and vector stores, and makes implementing tool calling (including MCP support), agents and RAG easy. It integrates seamlessly with enterprise Java frameworks like Quarkus and Spring Boot.</p>
+          <p class="recommended"><strong>推荐选题：</strong>langchain4j/langchain4j 为什么值得关注？（行业场景、落地成本与业务价值）</p>
+          <p>适合进入今日选题池：适合从行业场景、落地成本和业务价值角度切入，来源：GitHub Search:vector-db。</p>
+          <div class="tags"><span>Java</span><span>vector-db</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:vector-db</li><li>热度信号：12972</li><li>发布时间：2026-08-28</li><li>关键词：Java, vector-db</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/JBVAAWRYCWB575?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Gemini 3.5 Transcribe</a>
+              <div class="meta">Product Hunt · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>70</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Our most precise speech-to-text model yet</p>
+          <p class="recommended"><strong>推荐选题：</strong>Gemini 3.5 Transcribe 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合进入今日选题池：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Artificial Intelligence</span><span>Audio</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：220 / 5</li><li>发布时间：2026-08-27</li><li>关键词：Artificial Intelligence, Audio</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/orcarouter/Qwen3.8-27B-Uncensored-MLX" target="_blank" rel="noreferrer">orcarouter/Qwen3.8-27B-Uncensored-MLX</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>69</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">image-text-to-text model by orcarouter</p>
+          <p class="recommended"><strong>推荐选题：</strong>orcarouter/Qwen3.8-27B-Uncensored-MLX 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合进入今日选题池：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>image-text-to-text</span><span>mlx</span><span>safetensors</span><span>qwen3_5</span><span>abliterated</span><span>qwen3.8</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：1175 / 83352</li><li>发布时间：2026-08-27</li><li>关键词：image-text-to-text, mlx, safetensors, qwen3_5, abliterated</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/RSJUDWOS6W4RS6?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">GitNexus (Akon Labs)</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">The open-source kernel for coding agents</p>
+          <p class="recommended"><strong>推荐选题：</strong>GitNexus (Akon Labs) 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Open Source</span><span>Developer Tools</span><span>Artificial Intelligence</span><span>GitHub</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：144 / 9</li><li>发布时间：2026-08-27</li><li>关键词：Open Source, Developer Tools, Artificial Intelligence, GitHub</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/ultralytics/ultralytics" target="_blank" rel="noreferrer">ultralytics/ultralytics</a>
+              <div class="meta">GitHub Search:ml · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Ultralytics YOLO26, YOLO11, YOLOv8 — object detection, instance segmentation, semantic segmentation, image classification, pose estimation, object tracking</p>
+          <p class="recommended"><strong>推荐选题：</strong>ultralytics/ultralytics 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:ml。</p>
+          <div class="tags"><span>Python</span><span>ml</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:ml</li><li>热度信号：61032</li><li>发布时间：2026-08-28</li><li>关键词：Python, ml</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/Significant-Gravitas/AutoGPT" target="_blank" rel="noreferrer">Significant-Gravitas/AutoGPT</a>
+              <div class="meta">GitHub Search:llm · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.</p>
+          <p class="recommended"><strong>推荐选题：</strong>Significant-Gravitas/AutoGPT 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:llm。</p>
+          <div class="tags"><span>Python</span><span>llm</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:llm</li><li>热度信号：186963</li><li>发布时间：2026-08-28</li><li>关键词：Python, llm</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/Graphify-Labs/graphify" target="_blank" rel="noreferrer">Graphify-Labs/graphify</a>
+              <div class="meta">GitHub Search:llm · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Turn any codebase, with its docs, SQL schemas, configs, and PDFs, into a queryable knowledge graph. A /graphify skill for Claude Code, Cursor, Codex, and Gemini CLI: local deterministic AST parsing, every edge explained, no vector store.</p>
+          <p class="recommended"><strong>推荐选题：</strong>Graphify-Labs/graphify 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:llm。</p>
+          <div class="tags"><span>Python</span><span>llm</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:llm</li><li>热度信号：111772</li><li>发布时间：2026-08-28</li><li>关键词：Python, llm</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/JuliusBrussee/caveman" target="_blank" rel="noreferrer">JuliusBrussee/caveman</a>
+              <div class="meta">GitHub Search:llm · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">🪨 why use many token when few token do trick — Claude Code skill that cuts 65% of tokens by talking like caveman</p>
+          <p class="recommended"><strong>推荐选题：</strong>JuliusBrussee/caveman 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:llm。</p>
+          <div class="tags"><span>Go</span><span>llm</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:llm</li><li>热度信号：101536</li><li>发布时间：2026-08-27</li><li>关键词：Go, llm</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/santifer/career-ops" target="_blank" rel="noreferrer">santifer/career-ops</a>
+              <div class="meta">GitHub Search:ai-agent · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Open-source AI job search: scan job portals, evaluate listings into a structured A-H report with a global 1-5 score, tailor your CV, track applications — runs locally in your AI coding CLI (Claude Code, Codex, OpenCode, Antigravity…)</p>
+          <p class="recommended"><strong>推荐选题：</strong>santifer/career-ops 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:ai-agent。</p>
+          <div class="tags"><span>JavaScript</span><span>ai-agent</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:ai-agent</li><li>热度信号：69020</li><li>发布时间：2026-08-28</li><li>关键词：JavaScript, ai-agent</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/ZhuLinsen/daily_stock_analysis" target="_blank" rel="noreferrer">ZhuLinsen/daily_stock_analysis</a>
+              <div class="meta">GitHub Search:ai-agent · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">LLM 驱动的多市场股票智能分析系统：多源行情、实时新闻、决策看板与自动推送，支持零成本定时运行。  LLM-powered multi-market stock analysis system with multi-source market data, real-time news, decision dashboard, automated notifications, and cost-free scheduled runs.</p>
+          <p class="recommended"><strong>推荐选题：</strong>ZhuLinsen/daily_stock_analysis 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:ai-agent。</p>
+          <div class="tags"><span>Python</span><span>ai-agent</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:ai-agent</li><li>热度信号：64183</li><li>发布时间：2026-08-28</li><li>关键词：Python, ai-agent</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/CherryHQ/cherry-studio" target="_blank" rel="noreferrer">CherryHQ/cherry-studio</a>
+              <div class="meta">GitHub Search:ai-agent · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">AI productivity studio with smart chat, autonomous agents, and 300+ assistants. Unified access to frontier LLMs</p>
+          <p class="recommended"><strong>推荐选题：</strong>CherryHQ/cherry-studio 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:ai-agent。</p>
+          <div class="tags"><span>TypeScript</span><span>ai-agent</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:ai-agent</li><li>热度信号：51186</li><li>发布时间：2026-08-28</li><li>关键词：TypeScript, ai-agent</li></ul>
+          </details>
+        </article>
+      </div>
+    </section>
+
+    <section id="categories">
+      <h2>按五类选题分类摘要</h2>
+      <div class="category-stack">
+      <section>
+        <h3>政策监管、社会影响与 AI 安全</h3>
+        
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropic.com/news/claude-corps" target="_blank" rel="noreferrer">Introducing Claude Corps</a>
+              <div class="meta">Anthropic (Claude) · 政策监管、社会影响与 AI 安全</div>
+            </div>
+            <div class="score">
+              <strong>98</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Announcements Policy Beneficial Deployments Introducing Claude Corps Jun 11, 2026 We’re launching Claude Corps , a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America. We’ll teach 1,000 fellows how to use Claude well, match them with nonprofits across America, and pay them to spend a year—full-time, in-person—helping host organizations to advance their missions. Our goals are twofold: that host organizations are equipped with valuable tools and systems, and fellows build AI skills that will serve them in their careers. The benefits of transformative AI systems could come at the cost of significant disruption. The companies building this technology have a responsibility to make sure the benefits are fully realized and widely shared, and to invest directly in the workers absorbing the change. As such, we’re committing an initial $150m to this program. If Claude Corps works, we&amp;#x27;ll have a foundation for something much larger: a model for widening AI&amp;#x27;s benefits during a period of vast economic change. We’re announcing Claude Corps alongside our policy framework for addressing AI&amp;#x27;s impact on work. How Claude Corps works Claude Corps is set up as a partnership between three organizations. Anthropic will fund the program, lead its overall strategy, and provide Claude expertise. CodePath , an Anthropic nonprofit partner and America’s largest provider of collegiate computer scie</p>
+          <p class="recommended"><strong>推荐选题：</strong>Introducing Claude Corps 为什么值得关注？（政策变化、信任风险与安全治理）</p>
+          <p>值得优先深挖：适合从政策变化、信任风险和安全治理角度切入，来源：Anthropic (Claude)。</p>
+          <div class="tags"><span>anthropic</span><span>news</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Anthropic (Claude)</li><li>发布时间：2026-08-27</li><li>关键词：anthropic, news</li></ul>
+          </details>
+        </article>
+      
+      </section>
+    
+
+      <section>
+        <h3>模型与技术突破</h3>
+        
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropic.com/news/ai-for-science-program" target="_blank" rel="noreferrer">Introducing Anthropic&amp;#x27;s AI for Science Program</a>
+              <div class="meta">Anthropic (Claude) · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>98</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Announcements Beneficial Deployments Introducing Anthropic&amp;#x27;s AI for Science Program May 5, 2025 Today, we’re launching Anthropic&amp;#x27;s AI for Science program – a new initiative designed to accelerate scientific research and discovery through access to our API. This program will provide free API credits to support researchers working on high-impact scientific projects, with a particular focus on biology and life sciences applications. Why AI for Science? At Anthropic, we believe that AI has the potential to significantly accelerate scientific progress. Advanced AI reasoning and language capabilities can help researchers analyze complex scientific data, generate hypotheses, design experiments, and communicate findings more effectively. By reducing the time and resources needed for scientific discovery, we can help address some of humanity&amp;#x27;s most pressing challenges. This initiative aligns with our vision of building AI systems that bring value to humanity, as discussed in our CEO Dario Amodei&amp;#x27;s Machines of Loving Grace . We&amp;#x27;re particularly interested in supporting applications where AI can assist in accelerating processes related to understanding complex biological systems, analyzing genetic data, accelerating drug discovery especially for some of the largest global disease burdens, increasing agricultural productivity, and more. Program Details The AI for Science program will offer significant API credits to qualified researchers who will be selected based</p>
+          <p class="recommended"><strong>推荐选题：</strong>Introducing Anthropic&amp;#x27;s AI for Science Program 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>值得优先深挖：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Anthropic (Claude)。</p>
+          <div class="tags"><span>anthropic</span><span>news</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Anthropic (Claude)</li><li>发布时间：2026-08-27</li><li>关键词：anthropic, news</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropic.com/news/anthropic-and-iceland-announce-one-of-the-world-s-first-national-ai-education-pilots" target="_blank" rel="noreferrer">Anthropic and Iceland announce one of the world’s first national AI education pilots</a>
+              <div class="meta">Anthropic (Claude) · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>98</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Announcements Beneficial Deployments Anthropic and Iceland announce one of the world’s first national AI education pilots Nov 4, 2025 Today, Anthropic and Iceland&amp;#x27;s Ministry of Education and Children are announcing a partnership to bring Claude to teachers across the nation, launching one of the world&amp;#x27;s first comprehensive national AI education pilots. This initiative will give teachers from every region of Iceland—from Reykjavik to the most remote villages—access to advanced AI tools as the country explores how artificial intelligence can transform education. Iceland launches transformative AI education initiative With this new initiative, hundreds of teachers across all of Iceland will gain access to Claude to help support lesson preparation, receiving the AI technology as well as educational resources, training materials, and a dedicated support network. The pilot will explore how artificial intelligence can benefit Icelandic schools, support teachers in their instruction and preparation, and enhance student learning. &quot;We&amp;#x27;re proud to partner with Iceland&amp;#x27;s Ministry of Education and Children to help teachers save time and create better learning experiences for their students,&quot; said Anthropic&amp;#x27;s Head of Public Sector Thiyagu Ramasamy. &quot;This initiative exemplifies how governments can harness AI to enhance public services while preserving their core values. For too long, teachers have been weighed down by paperwork and administrative tasks—hidden burden</p>
+          <p class="recommended"><strong>推荐选题：</strong>Anthropic and Iceland announce one of the world’s first national AI education pilots 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>值得优先深挖：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Anthropic (Claude)。</p>
+          <div class="tags"><span>anthropic</span><span>news</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Anthropic (Claude)</li><li>发布时间：2026-08-27</li><li>关键词：anthropic, news</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropic.com/news/accelerating-scientific-research" target="_blank" rel="noreferrer">How scientists are using Claude to accelerate research and discovery</a>
+              <div class="meta">Anthropic (Claude) · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>98</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Case Study Beneficial Deployments How scientists are using Claude to accelerate research and discovery Jan 15, 2026 Last October we launched Claude for Life Sciences—a suite of connectors and skills that made Claude a better scientific collaborator. Since then, we&amp;#x27;ve invested heavily in making Claude the most capable model for scientific work , with Opus 4.5 showing significant improvements in figure interpretation, computational biology, and protein understanding benchmarks. These advances, informed by our partnerships with researchers in academia and industry, reflect our commitment to understanding exactly how scientists are using AI to accelerate progress. We’ve also been working closely with scientists through our AI for Science program, which provides free API credits to leading researchers working on high-impact scientific projects around the world. These researchers have developed custom systems that use Claude in ways that go far beyond tasks like literature reviews or coding assistance. In the labs we spoke to, Claude is a collaborator that works across all stages of the research process: making it easier and more cost-effective to understand which experiments to run, using a variety of tools to help compress projects that normally take months into hours, and finding patterns in massive datasets that humans might overlook. In many cases it’s eliminating bottlenecks, handling tasks that require deep knowledge and have previously been impossible to scale; in some</p>
+          <p class="recommended"><strong>推荐选题：</strong>How scientists are using Claude to accelerate research and discovery 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>值得优先深挖：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Anthropic (Claude)。</p>
+          <div class="tags"><span>anthropic</span><span>news</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Anthropic (Claude)</li><li>发布时间：2026-08-27</li><li>关键词：anthropic, news</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropic.com/news/anthropic-teach-for-all" target="_blank" rel="noreferrer">Anthropic and Teach For All launch global AI training initiative for educators</a>
+              <div class="meta">Anthropic (Claude) · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>98</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Announcements Beneficial Deployments Anthropic and Teach For All launch global AI training initiative for educators Jan 21, 2026 Anthropic is partnering with Teach For All to bring AI tools and training to educators in 63 countries. Through the AI Literacy &amp; Creator Collective (LCC), more than 100,000 teachers and alumni across Teach For All&amp;#x27;s network—which serves more than 1.5 million students—will have the opportunity to develop AI fluency and adapt Claude to serve real classroom needs. Building on the approach pioneered by Teach For America, Teach For All is a global network of independent organizations working to expand educational opportunity. Over the past 15 years, it has grown into one of the world&amp;#x27;s largest and most respected communities of educators serving students in under-resourced schools. Its network spans organizations like Teach For India, Enseña Chile, and Teach For Nigeria—each locally led but connected through a common mission and cross-network collaboration. Built on shared learning What makes this partnership distinctive is its approach. Teachers are positioned not as passive consumers of AI tools, but as co-architects shaping how AI develops. Through the AI LCC, Anthropic provides access to Claude, while educators provide on-the-ground feedback to inform how the product evolves. “For AI to reach its potential to make education more equitable, teachers need to be the ones shaping how it&amp;#x27;s used and providing input on how it&amp;#x27;s designed,</p>
+          <p class="recommended"><strong>推荐选题：</strong>Anthropic and Teach For All launch global AI training initiative for educators 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>值得优先深挖：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Anthropic (Claude)。</p>
+          <div class="tags"><span>anthropic</span><span>news</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Anthropic (Claude)</li><li>发布时间：2026-08-27</li><li>关键词：anthropic, news</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropic.com/news/rwandan-government-partnership-ai-education" target="_blank" rel="noreferrer">Anthropic partners with Rwandan Government and ALX to bring AI education to hundreds of thousands of learners across Africa</a>
+              <div class="meta">Anthropic (Claude) · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>98</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Announcements Beneficial Deployments Anthropic partners with Rwandan Government and ALX to bring AI education to hundreds of thousands of learners across Africa Nov 18, 2025 Anthropic is announcing a new partnership with the Government of Rwanda and African tech training provider ALX to bring Chidi—a learning companion built on Claude—to hundreds of thousands of learners across Africa. Rwanda&amp;#x27;s ICT &amp; Innovation and Education ministries are deploying Chidi within their national education system, while ALX will bring the tool to students across the continent through their technology training programs. With this initiative, university graduates and young professionals in countries across Africa will be able to use Chidi to learn new skills, like data analytics or cloud computing. And teachers in Rwanda can use it to plan lessons and help them support their students. This partnership represents one of the largest AI for education deployments on the continent, uniting ALX&amp;#x27;s commitment to empowering African talent, Anthropic&amp;#x27;s vision for accessible and responsible AI, and Rwanda&amp;#x27;s Vision 2050 to build an AI-ready workforce and accelerate digital transformation across Rwanda. Partnering with the Government of Rwanda Through this initiative, the Rwandan government will bring AI tools directly into the national education system. The government will enable AI training for up to 2,000 teachers, as well as a group of civil servants across the country, who will learn t</p>
+          <p class="recommended"><strong>推荐选题：</strong>Anthropic partners with Rwandan Government and ALX to bring AI education to hundreds of thousands of learners across Africa 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>值得优先深挖：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Anthropic (Claude)。</p>
+          <div class="tags"><span>anthropic</span><span>news</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Anthropic (Claude)</li><li>发布时间：2026-08-27</li><li>关键词：anthropic, news</li></ul>
+          </details>
+        </article>
+      
+      </section>
+    
+
+      <section>
+        <h3>AI 产品与用户入口</h3>
+        
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/YLZ2MF3E6WGU67?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Skydive</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>80</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Build cloud agents that work across your tools</p>
+          <p class="recommended"><strong>推荐选题：</strong>Skydive 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>值得优先深挖：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：396 / 94</li><li>发布时间：2026-08-27</li><li>关键词：Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/BLPV3H4S2Y7TQX?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Enter Pro</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>80</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">The AI-native platform to build and scale your apps</p>
+          <p class="recommended"><strong>推荐选题：</strong>Enter Pro 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>值得优先深挖：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Developer Tools</span><span>Artificial Intelligence</span><span>No-Code</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：377 / 67</li><li>发布时间：2026-08-27</li><li>关键词：Developer Tools, Artificial Intelligence, No-Code</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/DCVFCRIIY6FU7L?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Speko</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>80</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">OpenRouter for Voice</p>
+          <p class="recommended"><strong>推荐选题：</strong>Speko 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>值得优先深挖：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Developer Tools</span><span>Artificial Intelligence</span><span>Audio</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：239 / 17</li><li>发布时间：2026-08-27</li><li>关键词：Developer Tools, Artificial Intelligence, Audio</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/5JRWFAAE2P7DIW?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Traccia</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>74</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Finally, a vendor-neutral AI Agent Control Plane.</p>
+          <p class="recommended"><strong>推荐选题：</strong>Traccia 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Open Source</span><span>Developer Tools</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：189 / 12</li><li>发布时间：2026-08-27</li><li>关键词：Open Source, Developer Tools, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/RSJUDWOS6W4RS6?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">GitNexus (Akon Labs)</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">The open-source kernel for coding agents</p>
+          <p class="recommended"><strong>推荐选题：</strong>GitNexus (Akon Labs) 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Open Source</span><span>Developer Tools</span><span>Artificial Intelligence</span><span>GitHub</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：144 / 9</li><li>发布时间：2026-08-27</li><li>关键词：Open Source, Developer Tools, Artificial Intelligence, GitHub</li></ul>
+          </details>
+        </article>
+      
+      </section>
+    
+
+      <section>
+        <h3>企业落地与行业应用</h3>
+        
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropic.com/news/advancing-claude-for-education" target="_blank" rel="noreferrer">Advancing Claude for Education</a>
+              <div class="meta">Anthropic (Claude) · 企业落地与行业应用</div>
+            </div>
+            <div class="score">
+              <strong>98</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Product Beneficial Deployments Advancing Claude for Education Jul 9, 2025 Today, we’re sharing a first look at upcoming integrations with Canvas, Panopto, and Wiley that bring Claude to Canvas and rich educational context to student conversations in Claude for Education . Additionally, we’ve expanded our student ambassador and builder programs, launched our first free AI Fluency course , and welcomed several new institutions—including the University of San Francisco School of Law and Northumbria University—further advancing responsible AI adoption in higher education. Bringing educational context to Claude To make Claude a more powerful study companion, we’re building toward a future where students can reference readings, lecture recordings, visualizations, and textbook content directly within their conversations. Today, we’re sharing a first look at integrations with popular educational tools and resources rolling out over the next few weeks. Students and educators will be able to connect Wiley and Panopto to Claude using pre-built MCP servers. With these integrations, users can reference lecture transcripts from Panopto and dive deep into their universities’ collections of authoritative, peer-reviewed content on Wiley—all within their Claude conversations. “The future of research depends on keeping high-quality, peer-reviewed content central to AI-powered discovery,&quot; says Josh Jarrett, Senior Vice President of AI Growth at Wiley. &quot;This partnership sets the standard for inte</p>
+          <p class="recommended"><strong>推荐选题：</strong>Advancing Claude for Education 为什么值得关注？（行业场景、落地成本与业务价值）</p>
+          <p>值得优先深挖：适合从行业场景、落地成本和业务价值角度切入，来源：Anthropic (Claude)。</p>
+          <div class="tags"><span>anthropic</span><span>news</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Anthropic (Claude)</li><li>发布时间：2026-08-27</li><li>关键词：anthropic, news</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropic.com/news/anthropic-codepath-partnership" target="_blank" rel="noreferrer">Anthropic partners with CodePath to bring Claude to the US’s largest collegiate computer science program</a>
+              <div class="meta">Anthropic (Claude) · 企业落地与行业应用</div>
+            </div>
+            <div class="score">
+              <strong>98</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Announcements Beneficial Deployments Anthropic partners with CodePath to bring Claude to the US’s largest collegiate computer science program Feb 13, 2026 Anthropic is partnering with CodePath, the nation’s largest provider of collegiate computer science education, to redesign its coding curriculum as AI reshapes the field of software development. CodePath will put Claude and Claude Code at the center of its courses and career programs, giving more than 20,000 students at community colleges, state schools, and HBCUs access to frontier AI tools as part of their education. Over 40% of CodePath students come from families earning under $50,000 a year, and CodePath aims to provide them with industry-vetted courses and access to career networks traditionally reserved for students at wealthier institutions. What we’re building CodePath is integrating Claude into its AI courses—including Foundations of AI Engineering, Applications of AI Engineering, and AI Open-Source Capstone—so students can learn to build with tools like Claude Code and contribute to real-world open-source projects. In the fall of 2025, over 100 CodePath students piloted Claude Code to contribute to open-source projects like GitLab, Puter, and Dokploy. Students said they found the experience both valuable and challenging. “Claude Code was instrumental in my learning process, especially since I came into the project with very little experience in the programming languages used in the repository [including TypeScrip</p>
+          <p class="recommended"><strong>推荐选题：</strong>Anthropic partners with CodePath to bring Claude to the US’s largest collegiate computer science program 为什么值得关注？（行业场景、落地成本与业务价值）</p>
+          <p>值得优先深挖：适合从行业场景、落地成本和业务价值角度切入，来源：Anthropic (Claude)。</p>
+          <div class="tags"><span>anthropic</span><span>news</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Anthropic (Claude)</li><li>发布时间：2026-08-27</li><li>关键词：anthropic, news</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropic.com/news/claude-for-teachers" target="_blank" rel="noreferrer">Introducing Claude for Teachers</a>
+              <div class="meta">Anthropic (Claude) · 企业落地与行业应用</div>
+            </div>
+            <div class="score">
+              <strong>98</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Product Beneficial Deployments Introducing Claude for Teachers Jul 14, 2026 We&amp;#x27;re introducing Claude for Teachers , providing verified K-12 educators in the US free access to premium Claude capabilities, a library of teaching skills, and a direct connection to evidence-based curricula, mapped to academic standards in all 50 states. Why we’re building for teachers Decades of research show that practices like differentiation, mastery-based learning, and small group instruction reliably improve student achievement, but teachers are often short on time and resources to implement them. Budgets are stretched, classes may be too large to meet every student&amp;#x27;s individual needs, and planning often spills into evenings. This strain is heaviest in under-resourced schools. Claude for Teachers is designed to close the gap between educational best practices and what a teacher&amp;#x27;s week allows. Early evidence suggests that while the impact of AI tools for students is mixed and depends on the implementation, AI tools for teachers can strengthen instructional practice and improve student outcomes. This is the aim of Claude for Teachers: support the craft behind great teaching and protect what teachers value most—time with their students. Connected to evidence-based curricula and the K-12 ecosystem Claude for Teachers connects to Learning Commons , giving Claude access to academic standards across all 50 states—and beneath each standard, the smaller learning competencies it&amp;#x27;s b</p>
+          <p class="recommended"><strong>推荐选题：</strong>Introducing Claude for Teachers 为什么值得关注？（行业场景、落地成本与业务价值）</p>
+          <p>值得优先深挖：适合从行业场景、落地成本和业务价值角度切入，来源：Anthropic (Claude)。</p>
+          <div class="tags"><span>anthropic</span><span>news</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Anthropic (Claude)</li><li>发布时间：2026-08-27</li><li>关键词：anthropic, news</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/langchain4j/langchain4j" target="_blank" rel="noreferrer">langchain4j/langchain4j</a>
+              <div class="meta">GitHub Search:vector-db · 企业落地与行业应用</div>
+            </div>
+            <div class="score">
+              <strong>71</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">LangChain4j is an idiomatic, open-source Java library for building LLM-powered applications on the JVM. It offers a unified API over popular LLM providers and vector stores, and makes implementing tool calling (including MCP support), agents and RAG easy. It integrates seamlessly with enterprise Java frameworks like Quarkus and Spring Boot.</p>
+          <p class="recommended"><strong>推荐选题：</strong>langchain4j/langchain4j 为什么值得关注？（行业场景、落地成本与业务价值）</p>
+          <p>适合进入今日选题池：适合从行业场景、落地成本和业务价值角度切入，来源：GitHub Search:vector-db。</p>
+          <div class="tags"><span>Java</span><span>vector-db</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:vector-db</li><li>热度信号：12972</li><li>发布时间：2026-08-28</li><li>关键词：Java, vector-db</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/FJSKF3B2RRZPS4?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Wondering Canvas</a>
+              <div class="meta">Product Hunt · 企业落地与行业应用</div>
+            </div>
+            <div class="score">
+              <strong>63</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">Visual ChatGPT in Parallel</p>
+          <p class="recommended"><strong>推荐选题：</strong>Wondering Canvas 为什么值得关注？（行业场景、落地成本与业务价值）</p>
+          <p>适合作为观察项：适合从行业场景、落地成本和业务价值角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Productivity</span><span>Education</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：110 / 11</li><li>发布时间：2026-08-27</li><li>关键词：Productivity, Education, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+      </section>
+    
+
+      <section>
+        <h3>标杆企业动向、商业格局与投融资</h3>
+        
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropic.com/news/expanding-support-for-scientists" target="_blank" rel="noreferrer">Expanding our support for scientists</a>
+              <div class="meta">Anthropic (Claude) · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>100</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Announcements Expanding our support for scientists Aug 27, 2026 As Claude becomes increasingly capable at scientific research, we are focusing on building products and programs to support the research community. In June, we launched Claude Science , a product that integrates the tools that researchers most commonly use, produces auditable artifacts, and provides flexible access to computing resources. We have also continued to broaden our AI for Science program , which provides free credits to researchers working on high-impact scientific projects. Starting today, we are announcing a significant expansion of these efforts. We are opening 10,000 seats for scientists around the world to access Claude subscriptions for free and at discounted rates for one year through our new Claude team plan for scientists . Standard seats will be free and premium seats with 5x usage limits will be available for $15 per month. Over the coming months, we intend to extend this program well beyond the initial 10,000 seats. Alongside these subscriptions, we are also expanding the scope and scale of our AI for Science program. To date, we’ve largely supported scientists using Claude for biological sciences. We are now looking to offer credits for researchers in other scientific fields as well, including those working on ambitious, compute heavy-research, of the kind that resulted in progress on the Riemann zeta function and Claude’s work on protein design . By helping scientists access and increase </p>
+          <p class="recommended"><strong>推荐选题：</strong>Expanding our support for scientists 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>值得优先深挖：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Anthropic (Claude)。</p>
+          <div class="tags"><span>anthropic</span><span>news</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Anthropic (Claude)</li><li>发布时间：2026-08-28</li><li>关键词：anthropic, news</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.nytimes.com/2026/08/27/technology/anthropic-government-blacklisting-ruling.html" target="_blank" rel="noreferrer">Judge Rules Trump Administration’s Blacklisting of Anthropic Was Illegal</a>
+              <div class="meta">Hacker News · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>78</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by jbegley</p>
+          <p class="recommended"><strong>推荐选题：</strong>Judge Rules Trump Administration’s Blacklisting of Anthropic Was Illegal 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合进入今日选题池：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：252 / 113</li><li>发布时间：2026-08-28</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/open-webui/open-webui" target="_blank" rel="noreferrer">open-webui/open-webui</a>
+              <div class="meta">GitHub Search:llm · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>74</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">User-friendly AI Interface (Supports Ollama, OpenAI API, ...)</p>
+          <p class="recommended"><strong>推荐选题：</strong>open-webui/open-webui 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合进入今日选题池：适合从大厂动作、商业化路径和竞争格局角度切入，来源：GitHub Search:llm。</p>
+          <div class="tags"><span>Python</span><span>llm</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:llm</li><li>热度信号：150205</li><li>发布时间：2026-08-27</li><li>关键词：Python, llm</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://dev.to/izgorodin/is-agent-memory-just-rag-with-extra-steps-we-opened-the-source-code-to-find-out-349i" target="_blank" rel="noreferrer">Is Agent Memory Just RAG With Extra Steps? We Opened the Source Code to Find Out</a>
+              <div class="meta">Dev.to · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>61</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">Under every agent memory launch, the same comment appears: &quot;so it's RAG with extra steps.&quot; Instead of...</p>
+          <p class="recommended"><strong>推荐选题：</strong>Is Agent Memory Just RAG With Extra Steps? We Opened the Source Code to Find Out 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合作为观察项：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Dev.to。</p>
+          <div class="tags"><span>devto</span><span>ai</span><span>agents</span><span>rag</span><span>llm</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Dev.to</li><li>热度信号：3 / 2</li><li>发布时间：2026-08-27</li><li>关键词：devto, ai, agents, rag, llm</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.nytimes.com/2026/08/27/technology/meta-anthropic-frenemies.html" target="_blank" rel="noreferrer">Meta projected to spend $10B on Anthropic AI</a>
+              <div class="meta">Hacker News · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>58</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by louiereederson</p>
+          <p class="recommended"><strong>推荐选题：</strong>Meta projected to spend $10B on Anthropic AI 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合作为观察项：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：12 / 2</li><li>发布时间：2026-08-27</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+      </section>
+    </div>
+    </section>
+
+    <section id="watch">
+      <h2>观察项</h2>
+      <div class="topic-grid">
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/ZI2UPV3XXIEI34?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Kira Community</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>64</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">Curate moments with #hashtag</p>
+          <p class="recommended"><strong>推荐选题：</strong>Kira Community 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合作为观察项：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Social Media</span><span>Artificial Intelligence</span><span>Community</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：113 / 11</li><li>发布时间：2026-08-27</li><li>关键词：Social Media, Artificial Intelligence, Community</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/unsloth/Qwen3.8-Flash-Next-GGUF" target="_blank" rel="noreferrer">unsloth/Qwen3.8-Flash-Next-GGUF</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>64</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">image-text-to-text model by unsloth</p>
+          <p class="recommended"><strong>推荐选题：</strong>unsloth/Qwen3.8-Flash-Next-GGUF 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>image-text-to-text</span><span>gguf</span><span>unsloth</span><span>image-text-to-text</span><span>base_model:Qwen/Qwen3.8-Flash-Next</span><span>base_model:quantized:Qwen/Qwen3.8-Flash-Next</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：480 / 4354</li><li>发布时间：2026-08-28</li><li>关键词：image-text-to-text, gguf, unsloth, image-text-to-text, base_model:Qwen/Qwen3.8-Flash-Next</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/orcarouter/Qwen3.8-27B-Uncensored-FP8" target="_blank" rel="noreferrer">orcarouter/Qwen3.8-27B-Uncensored-FP8</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>64</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">image-text-to-text model by orcarouter</p>
+          <p class="recommended"><strong>推荐选题：</strong>orcarouter/Qwen3.8-27B-Uncensored-FP8 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>image-text-to-text</span><span>transformers</span><span>safetensors</span><span>qwen3_5</span><span>image-text-to-text</span><span>abliterated</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：1216 / 273577</li><li>发布时间：2026-08-27</li><li>关键词：image-text-to-text, transformers, safetensors, qwen3_5, image-text-to-text</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/Lightricks/LTX-2.5" target="_blank" rel="noreferrer">Lightricks/LTX-2.5</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>64</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">image-to-video model by Lightricks</p>
+          <p class="recommended"><strong>推荐选题：</strong>Lightricks/LTX-2.5 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>image-to-video</span><span>diffusion-single-file</span><span>image-to-video</span><span>text-to-video</span><span>video-to-video</span><span>image-text-to-video</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：1954 / 912729</li><li>发布时间：2026-08-27</li><li>关键词：image-to-video, diffusion-single-file, image-to-video, text-to-video, video-to-video</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/orcarouter/Qwen3.8-27B-Uncensored-GGUF" target="_blank" rel="noreferrer">orcarouter/Qwen3.8-27B-Uncensored-GGUF</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>64</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">image-text-to-text model by orcarouter</p>
+          <p class="recommended"><strong>推荐选题：</strong>orcarouter/Qwen3.8-27B-Uncensored-GGUF 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>image-text-to-text</span><span>gguf</span><span>abliterated</span><span>qwen</span><span>qwen3</span><span>qwen3.8</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：505 / 188460</li><li>发布时间：2026-08-27</li><li>关键词：image-text-to-text, gguf, abliterated, qwen, qwen3</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/orcarouter/Qwen3.8-27B-Uncensored" target="_blank" rel="noreferrer">orcarouter/Qwen3.8-27B-Uncensored</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>64</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">image-text-to-text model by orcarouter</p>
+          <p class="recommended"><strong>推荐选题：</strong>orcarouter/Qwen3.8-27B-Uncensored 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>image-text-to-text</span><span>transformers</span><span>safetensors</span><span>qwen3_5</span><span>image-text-to-text</span><span>abliterated</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：199 / 18598</li><li>发布时间：2026-08-27</li><li>关键词：image-text-to-text, transformers, safetensors, qwen3_5, image-text-to-text</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/RW2G5BAUK2RYQI?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Pluto</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>64</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">Your professional profile is now an AI agent</p>
+          <p class="recommended"><strong>推荐选题：</strong>Pluto 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合作为观察项：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Artificial Intelligence</span><span>Virtual Assistants</span><span>Career</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：112 / 26</li><li>发布时间：2026-08-27</li><li>关键词：Artificial Intelligence, Virtual Assistants, Career</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/elyosh/OpenTIE/" target="_blank" rel="noreferrer">Show HN: OpenTIE and OpenXWA, Modern Ports of Tie Fighter and X-Wing Alliance</a>
+              <div class="meta">Hacker News · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>63</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by elyosh</p>
+          <p class="recommended"><strong>推荐选题：</strong>Show HN: OpenTIE and OpenXWA, Modern Ports of Tie Fighter and X-Wing Alliance 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合作为观察项：适合从用户入口、使用场景和产品体验角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：168 / 42</li><li>发布时间：2026-08-27</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/FJSKF3B2RRZPS4?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Wondering Canvas</a>
+              <div class="meta">Product Hunt · 企业落地与行业应用</div>
+            </div>
+            <div class="score">
+              <strong>63</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">Visual ChatGPT in Parallel</p>
+          <p class="recommended"><strong>推荐选题：</strong>Wondering Canvas 为什么值得关注？（行业场景、落地成本与业务价值）</p>
+          <p>适合作为观察项：适合从行业场景、落地成本和业务价值角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Productivity</span><span>Education</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：110 / 11</li><li>发布时间：2026-08-27</li><li>关键词：Productivity, Education, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://dev.to/izgorodin/is-agent-memory-just-rag-with-extra-steps-we-opened-the-source-code-to-find-out-349i" target="_blank" rel="noreferrer">Is Agent Memory Just RAG With Extra Steps? We Opened the Source Code to Find Out</a>
+              <div class="meta">Dev.to · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>61</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">Under every agent memory launch, the same comment appears: &quot;so it's RAG with extra steps.&quot; Instead of...</p>
+          <p class="recommended"><strong>推荐选题：</strong>Is Agent Memory Just RAG With Extra Steps? We Opened the Source Code to Find Out 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合作为观察项：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Dev.to。</p>
+          <div class="tags"><span>devto</span><span>ai</span><span>agents</span><span>rag</span><span>llm</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Dev.to</li><li>热度信号：3 / 2</li><li>发布时间：2026-08-27</li><li>关键词：devto, ai, agents, rag, llm</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/Qwen/Qwen3.8-Flash-Next" target="_blank" rel="noreferrer">Qwen/Qwen3.8-Flash-Next</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>60</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">image-text-to-text model by Qwen</p>
+          <p class="recommended"><strong>推荐选题：</strong>Qwen/Qwen3.8-Flash-Next 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>image-text-to-text</span><span>transformers</span><span>safetensors</span><span>qwen4_exp</span><span>image-text-to-text</span><span>conversational</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：4045 / 4810</li><li>发布时间：2026-08-27</li><li>关键词：image-text-to-text, transformers, safetensors, qwen4_exp, image-text-to-text</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/zai-org/GLM-5.3-Flash" target="_blank" rel="noreferrer">zai-org/GLM-5.3-Flash</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>60</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">text-generation model by zai-org</p>
+          <p class="recommended"><strong>推荐选题：</strong>zai-org/GLM-5.3-Flash 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>text-generation</span><span>transformers</span><span>safetensors</span><span>glm5_next</span><span>image-text-to-text</span><span>text-generation</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：1409 / 34</li><li>发布时间：2026-08-27</li><li>关键词：text-generation, transformers, safetensors, glm5_next, image-text-to-text</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/huihui-ai/Huihui-Qwen3.8-27B-abliterated-GGUF" target="_blank" rel="noreferrer">huihui-ai/Huihui-Qwen3.8-27B-abliterated-GGUF</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>60</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">image-text-to-text model by huihui-ai</p>
+          <p class="recommended"><strong>推荐选题：</strong>huihui-ai/Huihui-Qwen3.8-27B-abliterated-GGUF 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>image-text-to-text</span><span>transformers</span><span>gguf</span><span>abliterated</span><span>uncensored</span><span>huihui</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：409 / 1355482</li><li>发布时间：2026-08-27</li><li>关键词：image-text-to-text, transformers, gguf, abliterated, uncensored</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/Qwen/Qwen3.8-Flash-Next-FP8" target="_blank" rel="noreferrer">Qwen/Qwen3.8-Flash-Next-FP8</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>60</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">image-text-to-text model by Qwen</p>
+          <p class="recommended"><strong>推荐选题：</strong>Qwen/Qwen3.8-Flash-Next-FP8 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>image-text-to-text</span><span>transformers</span><span>safetensors</span><span>qwen4_exp</span><span>image-text-to-text</span><span>conversational</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：137 / 2219</li><li>发布时间：2026-08-27</li><li>关键词：image-text-to-text, transformers, safetensors, qwen4_exp, image-text-to-text</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/alibaba-pai/MiniMax-H3-Acc-LoRAs" target="_blank" rel="noreferrer">alibaba-pai/MiniMax-H3-Acc-LoRAs</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>60</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">text-to-video model by alibaba-pai</p>
+          <p class="recommended"><strong>推荐选题：</strong>alibaba-pai/MiniMax-H3-Acc-LoRAs 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>text-to-video</span><span>videox_fun</span><span>text-to-video</span><span>arxiv:2607.26004</span><span>base_model:MiniMaxAI/MiniMax-H3</span><span>base_model:finetune:MiniMaxAI/MiniMax-H3</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：124 / 609</li><li>发布时间：2026-08-27</li><li>关键词：text-to-video, videox_fun, text-to-video, arxiv:2607.26004, base_model:MiniMaxAI/MiniMax-H3</li></ul>
+          </details>
+        </article>
+      </div>
+    </section>
+
+    <section id="notices">
+      <h2>数据源普通状态提示</h2>
+      <p class="empty">暂无普通状态提示。</p>
+    </section>
+
+    <section id="warnings">
+      <h2>数据源修复提示</h2>
+      <ul><li>36kr 获取失败；可检查网络或 RSS 源是否可用。</li><li>Gitee 获取失败；可检查 gitee.com API 是否可访问。</li></ul>
+    </section>
+
+    <footer>AI Topic Radar · 单文件报告 · 不包含私有资料或 API key</footer>
+  </main>
+</body>
+</html>
