@@ -1,0 +1,1470 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 热点选题池 2026-09-23</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f8fb;
+      --panel: #ffffff;
+      --text: #172033;
+      --muted: #667085;
+      --line: #d8dee9;
+      --accent: #2563eb;
+      --accent-soft: #e8f0ff;
+      --green: #0f8a5f;
+      --shadow: 0 16px 40px rgba(17, 24, 39, 0.08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 40px 20px 64px;
+    }
+    header {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      padding: 28px;
+      margin-bottom: 24px;
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { font-size: 32px; line-height: 1.2; margin-bottom: 12px; }
+    h2 { font-size: 24px; margin: 32px 0 16px; }
+    h3 { font-size: 18px; margin: 24px 0 12px; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .summary {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+    .quick-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .quick-links a, .quick-links span {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 12px;
+      background: #fff;
+      color: var(--text);
+      font-size: 14px;
+    }
+    .topic-grid {
+      display: grid;
+      gap: 14px;
+    }
+    .topic-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+      box-shadow: 0 8px 24px rgba(17, 24, 39, 0.05);
+    }
+    .topic-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 16px;
+      align-items: start;
+    }
+    .topic-title {
+      display: inline-block;
+      font-weight: 700;
+      font-size: 17px;
+      line-height: 1.45;
+      overflow-wrap: anywhere;
+    }
+    .meta {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 4px;
+    }
+    .score {
+      min-width: 72px;
+      border-radius: 8px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      text-align: center;
+      padding: 8px 10px;
+    }
+    .score strong {
+      display: block;
+      font-size: 24px;
+      line-height: 1;
+    }
+    .score span {
+      display: block;
+      margin-top: 4px;
+      font-size: 13px;
+      color: var(--text);
+    }
+    .summary {
+      color: #344054;
+      font-weight: 500;
+    }
+    .recommended {
+      background: #f8fafc;
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      padding: 8px 10px;
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 12px 0;
+    }
+    .tags span {
+      background: #eef2f7;
+      border-radius: 999px;
+      color: #475467;
+      font-size: 12px;
+      padding: 3px 8px;
+    }
+    details {
+      border-top: 1px solid var(--line);
+      margin-top: 12px;
+      padding-top: 10px;
+    }
+    summary {
+      cursor: pointer;
+      color: var(--green);
+      font-weight: 600;
+    }
+    ul { padding-left: 20px; }
+    .empty {
+      color: var(--muted);
+      background: var(--panel);
+      border: 1px dashed var(--line);
+      border-radius: 8px;
+      padding: 14px;
+    }
+    .category-stack {
+      display: grid;
+      gap: 10px;
+    }
+    footer {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 36px;
+    }
+    @media (max-width: 640px) {
+      main { padding: 24px 12px 48px; }
+      header { padding: 20px; }
+      h1 { font-size: 26px; }
+      .topic-head { grid-template-columns: 1fr; }
+      .score { width: 84px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>AI 热点选题池 2026-09-23</h1>
+      <p class="summary">面向 AI 内容运营和产品调研的每日选题监控报告。默认入口为本 HTML 文件，可直接双击查看，也可通过 GitHub Pages 分享。</p>
+      <div class="quick-links">
+        <span>生成时间：2026-09-23 04:30 UTC</span>
+        <a href="./ai-topic-radar.md">Markdown</a>
+        <a href="./topic-pool.json">JSON 选题池</a>
+      </div>
+    </header>
+
+    <section id="top">
+      <h2>今日 Top 深挖选题</h2>
+      <div class="topic-grid">
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://openai.com/index/introducing-gpt-6-sol-and-luna/" target="_blank" rel="noreferrer">Introducing Gpt 6 Sol And Luna</a>
+              <div class="meta">OpenAI · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>98</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary"></p>
+          <p class="recommended"><strong>推荐选题：</strong>Introducing Gpt 6 Sol And Luna 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>值得优先深挖：适合从大厂动作、商业化路径和竞争格局角度切入，来源：OpenAI。</p>
+          <div class="tags"><span>openai</span><span>index</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：OpenAI</li><li>发布时间：2026-09-22</li><li>关键词：openai, index</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://openai.com/index/better-prompt-caching-for-gpt-6/" target="_blank" rel="noreferrer">Better Prompt Caching For Gpt 6</a>
+              <div class="meta">OpenAI · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>98</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary"></p>
+          <p class="recommended"><strong>推荐选题：</strong>Better Prompt Caching For Gpt 6 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>值得优先深挖：适合从大厂动作、商业化路径和竞争格局角度切入，来源：OpenAI。</p>
+          <div class="tags"><span>openai</span><span>index</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：OpenAI</li><li>发布时间：2026-09-22</li><li>关键词：openai, index</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://openai.com/index/priorities-principles-third-party-assessments/" target="_blank" rel="noreferrer">Priorities Principles Third Party Assessments</a>
+              <div class="meta">OpenAI · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>98</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary"></p>
+          <p class="recommended"><strong>推荐选题：</strong>Priorities Principles Third Party Assessments 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>值得优先深挖：适合从大厂动作、商业化路径和竞争格局角度切入，来源：OpenAI。</p>
+          <div class="tags"><span>openai</span><span>index</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：OpenAI</li><li>发布时间：2026-09-22</li><li>关键词：openai, index</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.cryptocellar.org/bgac/the-mvueh-break.html" target="_blank" rel="noreferrer">OpenAI GPT–6 Astra breaks Enigma message that has resisted solution since 2005</a>
+              <div class="meta">Hacker News · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>87</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by sohkamyung</p>
+          <p class="recommended"><strong>推荐选题：</strong>OpenAI GPT–6 Astra breaks Enigma message that has resisted solution since 2005 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>值得优先深挖：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：601 / 372</li><li>发布时间：2026-09-22</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/XJ7UD64LPY5QDA?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Jev</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>80</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Fast, structured AI decisions for software automation</p>
+          <p class="recommended"><strong>推荐选题：</strong>Jev 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>值得优先深挖：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>API</span><span>Developer Tools</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：524 / 14</li><li>发布时间：2026-09-21</li><li>关键词：API, Developer Tools, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/WKWWYZ4NNBTCM7?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Superset Mobile</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>80</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Your coding agents, now in your pocket</p>
+          <p class="recommended"><strong>推荐选题：</strong>Superset Mobile 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>值得优先深挖：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>iOS</span><span>Artificial Intelligence</span><span>Development</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：501 / 128</li><li>发布时间：2026-09-21</li><li>关键词：iOS, Artificial Intelligence, Development</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/EXXMVNBYWQYZ32?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Sai</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>80</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">The autonomous computer fleet at your command</p>
+          <p class="recommended"><strong>推荐选题：</strong>Sai 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>值得优先深挖：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Productivity</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：418 / 48</li><li>发布时间：2026-09-21</li><li>关键词：Productivity, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://arcturus-labs.com/blog/2026/09/21/will-openai-eat-jevs-lunch/" target="_blank" rel="noreferrer">OpenAI is well positioned to fast-follow Jev</a>
+              <div class="meta">Hacker News · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>80</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by JohnBerryman</p>
+          <p class="recommended"><strong>推荐选题：</strong>OpenAI is well positioned to fast-follow Jev 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>值得优先深挖：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：273 / 198</li><li>发布时间：2026-09-22</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      </div>
+    </section>
+
+    <section id="pool">
+      <h2>入池选题</h2>
+      <div class="topic-grid">
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropic.com/claude-opus-5-5" target="_blank" rel="noreferrer">Claude Opus 5.5</a>
+              <div class="meta">Hacker News · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>79</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by km144</p>
+          <p class="recommended"><strong>推荐选题：</strong>Claude Opus 5.5 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：1328 / 864</li><li>发布时间：2026-09-22</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/Z2PYMQAZ4BLH3U?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Hyrax AI</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>78</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">The AI architect for your entire codebase</p>
+          <p class="recommended"><strong>推荐选题：</strong>Hyrax AI 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Developer Tools</span><span>Artificial Intelligence</span><span>GitHub</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：222 / 13</li><li>发布时间：2026-09-21</li><li>关键词：Developer Tools, Artificial Intelligence, GitHub</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://foxscript.org/" target="_blank" rel="noreferrer">Microsoft killed FoxPro in 2007. Anyway, here's FoxPro revived</a>
+              <div class="meta">Hacker News · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>76</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by boredjohnny</p>
+          <p class="recommended"><strong>推荐选题：</strong>Microsoft killed FoxPro in 2007. Anyway, here's FoxPro revived 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合进入今日选题池：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：233 / 149</li><li>发布时间：2026-09-22</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/open-webui/open-webui" target="_blank" rel="noreferrer">open-webui/open-webui</a>
+              <div class="meta">GitHub Search:rag · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>74</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">User-friendly AI Interface (Supports Ollama, OpenAI API, ...)</p>
+          <p class="recommended"><strong>推荐选题：</strong>open-webui/open-webui 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合进入今日选题池：适合从大厂动作、商业化路径和竞争格局角度切入，来源：GitHub Search:rag。</p>
+          <div class="tags"><span>Python</span><span>rag</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:rag</li><li>热度信号：152860</li><li>发布时间：2026-09-22</li><li>关键词：Python, rag</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/7QMMNEZ7CJTVIJ?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Arcjet</a>
+              <div class="meta">Product Hunt · 政策监管、社会影响与 AI 安全</div>
+            </div>
+            <div class="score">
+              <strong>72</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Secure the AI agents you're building at runtime</p>
+          <p class="recommended"><strong>推荐选题：</strong>Arcjet 为什么值得关注？（政策变化、信任风险与安全治理）</p>
+          <p>适合进入今日选题池：适合从政策变化、信任风险和安全治理角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Developer Tools</span><span>SDK</span><span>Security</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：394 / 78</li><li>发布时间：2026-09-21</li><li>关键词：Developer Tools, SDK, Security</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/langchain4j/langchain4j" target="_blank" rel="noreferrer">langchain4j/langchain4j</a>
+              <div class="meta">GitHub Search:vector-db · 企业落地与行业应用</div>
+            </div>
+            <div class="score">
+              <strong>71</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">LangChain4j is an idiomatic, open-source Java library for building LLM-powered applications on the JVM. It offers a unified API over popular LLM providers and vector stores, and makes implementing tool calling (including MCP support), agents and RAG easy. It integrates seamlessly with enterprise Java frameworks like Quarkus and Spring Boot.</p>
+          <p class="recommended"><strong>推荐选题：</strong>langchain4j/langchain4j 为什么值得关注？（行业场景、落地成本与业务价值）</p>
+          <p>适合进入今日选题池：适合从行业场景、落地成本和业务价值角度切入，来源：GitHub Search:vector-db。</p>
+          <div class="tags"><span>Java</span><span>vector-db</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:vector-db</li><li>热度信号：13147</li><li>发布时间：2026-09-22</li><li>关键词：Java, vector-db</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://artificialanalysis.ai/models/claude-opus-5-5" target="_blank" rel="noreferrer">Claude Opus 5.5 Intelligence, Performance and Price Analysis (Max)</a>
+              <div class="meta">Hacker News · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>70</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by theanonymousone</p>
+          <p class="recommended"><strong>推荐选题：</strong>Claude Opus 5.5 Intelligence, Performance and Price Analysis (Max) 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：256 / 77</li><li>发布时间：2026-09-22</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/prism-ml/Ternary-Bonsai-2-27B-mlx-2bit" target="_blank" rel="noreferrer">prism-ml/Ternary-Bonsai-2-27B-mlx-2bit</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>69</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">text-generation model by prism-ml</p>
+          <p class="recommended"><strong>推荐选题：</strong>prism-ml/Ternary-Bonsai-2-27B-mlx-2bit 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合进入今日选题池：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>text-generation</span><span>mlx</span><span>safetensors</span><span>prism_hadamard_qwen35</span><span>ternary</span><span>2-bit</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：338 / 43477</li><li>发布时间：2026-09-22</li><li>关键词：text-generation, mlx, safetensors, prism_hadamard_qwen35, ternary</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/Graphify-Labs/graphify" target="_blank" rel="noreferrer">Graphify-Labs/graphify</a>
+              <div class="meta">GitHub Search:rag · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Turn any codebase, with its docs, SQL schemas, configs, and PDFs, into a queryable knowledge graph. A /graphify skill for Claude Code, Cursor, Codex, and Gemini CLI: local deterministic AST parsing, every edge explained, no vector store.</p>
+          <p class="recommended"><strong>推荐选题：</strong>Graphify-Labs/graphify 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:rag。</p>
+          <div class="tags"><span>Python</span><span>rag</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:rag</li><li>热度信号：120618</li><li>发布时间：2026-09-22</li><li>关键词：Python, rag</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/thedotmack/claude-mem" target="_blank" rel="noreferrer">thedotmack/claude-mem</a>
+              <div class="meta">GitHub Search:rag · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Persistent Context Across Sessions for Every Agent –  Captures everything your agent does during sessions, compresses it with AI, and injects relevant context back into future sessions. Works with Claude Code, OpenClaw, Codex, Gemini, Hermes, Copilot, OpenCode + More</p>
+          <p class="recommended"><strong>推荐选题：</strong>thedotmack/claude-mem 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:rag。</p>
+          <div class="tags"><span>TypeScript</span><span>rag</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:rag</li><li>热度信号：94495</li><li>发布时间：2026-09-22</li><li>关键词：TypeScript, rag</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/infiniflow/ragflow" target="_blank" rel="noreferrer">infiniflow/ragflow</a>
+              <div class="meta">GitHub Search:rag · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">RAGFlow is a leading open-source Retrieval-Augmented Generation (RAG) engine that fuses cutting-edge RAG with Agent capabilities to create a superior context layer for LLMs</p>
+          <p class="recommended"><strong>推荐选题：</strong>infiniflow/ragflow 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:rag。</p>
+          <div class="tags"><span>Go</span><span>rag</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:rag</li><li>热度信号：91190</li><li>发布时间：2026-09-23</li><li>关键词：Go, rag</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/headroomlabs-ai/headroom" target="_blank" rel="noreferrer">headroomlabs-ai/headroom</a>
+              <div class="meta">GitHub Search:rag · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 20% fewer tokens for coding agents, 60-95% fewer tokens for JSON, same answers. Library, proxy, MCP server.</p>
+          <p class="recommended"><strong>推荐选题：</strong>headroomlabs-ai/headroom 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:rag。</p>
+          <div class="tags"><span>Python</span><span>rag</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:rag</li><li>热度信号：73549</li><li>发布时间：2026-09-23</li><li>关键词：Python, rag</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/Mintplex-Labs/anything-llm" target="_blank" rel="noreferrer">Mintplex-Labs/anything-llm</a>
+              <div class="meta">GitHub Search:rag · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Stop renting your intelligence. Own it with AnythingLLM. Everything you need for a powerful local-first agent experience </p>
+          <p class="recommended"><strong>推荐选题：</strong>Mintplex-Labs/anything-llm 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:rag。</p>
+          <div class="tags"><span>JavaScript</span><span>rag</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:rag</li><li>热度信号：66345</li><li>发布时间：2026-09-22</li><li>关键词：JavaScript, rag</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/mem0ai/mem0" target="_blank" rel="noreferrer">mem0ai/mem0</a>
+              <div class="meta">GitHub Search:rag · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">The Memory Layer for AI Agents - Drop-in memory infrastructure for AI agents and apps. Context that persists. Built for production.</p>
+          <p class="recommended"><strong>推荐选题：</strong>mem0ai/mem0 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:rag。</p>
+          <div class="tags"><span>Python</span><span>rag</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:rag</li><li>热度信号：65853</li><li>发布时间：2026-09-22</li><li>关键词：Python, rag</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/ultralytics/ultralytics" target="_blank" rel="noreferrer">ultralytics/ultralytics</a>
+              <div class="meta">GitHub Search:ml · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Ultralytics YOLO27, YOLO26, YOLO11, YOLOv8 — object detection, instance segmentation, semantic segmentation, image classification, pose estimation, object tracking</p>
+          <p class="recommended"><strong>推荐选题：</strong>ultralytics/ultralytics 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:ml。</p>
+          <div class="tags"><span>Python</span><span>ml</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:ml</li><li>热度信号：61915</li><li>发布时间：2026-09-22</li><li>关键词：Python, ml</li></ul>
+          </details>
+        </article>
+      </div>
+    </section>
+
+    <section id="categories">
+      <h2>按五类选题分类摘要</h2>
+      <div class="category-stack">
+      <section>
+        <h3>政策监管、社会影响与 AI 安全</h3>
+        
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/7QMMNEZ7CJTVIJ?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Arcjet</a>
+              <div class="meta">Product Hunt · 政策监管、社会影响与 AI 安全</div>
+            </div>
+            <div class="score">
+              <strong>72</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Secure the AI agents you're building at runtime</p>
+          <p class="recommended"><strong>推荐选题：</strong>Arcjet 为什么值得关注？（政策变化、信任风险与安全治理）</p>
+          <p>适合进入今日选题池：适合从政策变化、信任风险和安全治理角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Developer Tools</span><span>SDK</span><span>Security</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：394 / 78</li><li>发布时间：2026-09-21</li><li>关键词：Developer Tools, SDK, Security</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="http://arxiv.org/abs/2609.26761v1" target="_blank" rel="noreferrer">A2M: Trace-Optimized Agent Hijacking in the MCP Ecosystem</a>
+              <div class="meta">ArXiv · 政策监管、社会影响与 AI 安全</div>
+            </div>
+            <div class="score">
+              <strong>57</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">Agents using the Model Context Protocol (MCP) rely on semantic matching to select tools from third-party servers, exposing a semantic supply-chain risk through attacker-controlled metadata and outputs. We introduce A2M (Attraction-to-Manipulation), a two-stage black-box framework for hijacking MCP agents. The Attraction phase optimizes tool metadata to increase invocation probability; the Manipulation phase uses execution traces to refine adversarial tool returns that steer agents toward attacker-desired outcomes. On LiveMCPBench, direct attacks optimized and evaluated on GLM-4.6 achieve a macro-average malicious tool invocation rate of 93.6% across four scenarios, increase weighted token costs to 32.4$\times$ the benign baseline under Cognitive Denial of Service, and attain a mean attack success rate of 74.4% across Information Exfiltration, Environment Integrity Compromise, and Reasoning Derailment. Transfer to four other models without re-optimization yields corresponding macro-averages of 63.6%, 2.7$\times$, and 24.5%. These findings motivate stronger tool vetting and runtime isolation in MCP ecosystems. Code is publicly available at https://github.com/Lilaizhen/A2M.</p>
+          <p class="recommended"><strong>推荐选题：</strong>A2M: Trace-Optimized Agent Hijacking in the MCP Ecosystem 为什么值得关注？（政策变化、信任风险与安全治理）</p>
+          <p>适合作为观察项：适合从政策变化、信任风险和安全治理角度切入，来源：ArXiv。</p>
+          <div class="tags"><span>cs.CR</span><span>cs.AI</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：ArXiv</li><li>发布时间：2026-09-22</li><li>关键词：cs.CR, cs.AI</li></ul>
+          </details>
+        </article>
+      
+      </section>
+    
+
+      <section>
+        <h3>模型与技术突破</h3>
+        
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/prism-ml/Ternary-Bonsai-2-27B-mlx-2bit" target="_blank" rel="noreferrer">prism-ml/Ternary-Bonsai-2-27B-mlx-2bit</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>69</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">text-generation model by prism-ml</p>
+          <p class="recommended"><strong>推荐选题：</strong>prism-ml/Ternary-Bonsai-2-27B-mlx-2bit 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合进入今日选题池：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>text-generation</span><span>mlx</span><span>safetensors</span><span>prism_hadamard_qwen35</span><span>ternary</span><span>2-bit</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：338 / 43477</li><li>发布时间：2026-09-22</li><li>关键词：text-generation, mlx, safetensors, prism_hadamard_qwen35, ternary</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/abenzerps/Qwen-Image-2.1-Uncensored-GGUF" target="_blank" rel="noreferrer">abenzerps/Qwen-Image-2.1-Uncensored-GGUF</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>64</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">text-to-image model by abenzerps</p>
+          <p class="recommended"><strong>推荐选题：</strong>abenzerps/Qwen-Image-2.1-Uncensored-GGUF 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>text-to-image</span><span>gguf</span><span>qwen</span><span>image-generation</span><span>comfyui</span><span>comfyui-gguf</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：1180 / 182313</li><li>发布时间：2026-09-22</li><li>关键词：text-to-image, gguf, qwen, image-generation, comfyui</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/Comfy-Org/Qwen-Image-2.1" target="_blank" rel="noreferrer">Comfy-Org/Qwen-Image-2.1</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>64</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary"> model by Comfy-Org</p>
+          <p class="recommended"><strong>推荐选题：</strong>Comfy-Org/Qwen-Image-2.1 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>diffusion-single-file</span><span>comfyui</span><span>base_model:Qwen/Qwen-Image-2.1</span><span>base_model:finetune:Qwen/Qwen-Image-2.1</span><span>license:other</span><span>region:us</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：574 / 1429925</li><li>发布时间：2026-09-22</li><li>关键词：diffusion-single-file, comfyui, base_model:Qwen/Qwen-Image-2.1, base_model:finetune:Qwen/Qwen-Image-2.1, license:other</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/Altworld/Hemmingway-1" target="_blank" rel="noreferrer">Altworld/Hemmingway-1</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>64</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">text-generation model by Altworld</p>
+          <p class="recommended"><strong>推荐选题：</strong>Altworld/Hemmingway-1 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>text-generation</span><span>transformers</span><span>safetensors</span><span>qwen3_5_text</span><span>text-generation</span><span>qwen3.8</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：505 / 2745</li><li>发布时间：2026-09-22</li><li>关键词：text-generation, transformers, safetensors, qwen3_5_text, text-generation</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/yandex/AliceAI-Foundation-80B-A3B-Base" target="_blank" rel="noreferrer">yandex/AliceAI-Foundation-80B-A3B-Base</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>64</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">text-generation model by yandex</p>
+          <p class="recommended"><strong>推荐选题：</strong>yandex/AliceAI-Foundation-80B-A3B-Base 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>text-generation</span><span>transformers</span><span>safetensors</span><span>alice_ai</span><span>text-generation</span><span>custom_code</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：279 / 1516</li><li>发布时间：2026-09-22</li><li>关键词：text-generation, transformers, safetensors, alice_ai, text-generation</li></ul>
+          </details>
+        </article>
+      
+      </section>
+    
+
+      <section>
+        <h3>AI 产品与用户入口</h3>
+        
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/XJ7UD64LPY5QDA?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Jev</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>80</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Fast, structured AI decisions for software automation</p>
+          <p class="recommended"><strong>推荐选题：</strong>Jev 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>值得优先深挖：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>API</span><span>Developer Tools</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：524 / 14</li><li>发布时间：2026-09-21</li><li>关键词：API, Developer Tools, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/WKWWYZ4NNBTCM7?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Superset Mobile</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>80</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Your coding agents, now in your pocket</p>
+          <p class="recommended"><strong>推荐选题：</strong>Superset Mobile 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>值得优先深挖：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>iOS</span><span>Artificial Intelligence</span><span>Development</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：501 / 128</li><li>发布时间：2026-09-21</li><li>关键词：iOS, Artificial Intelligence, Development</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/EXXMVNBYWQYZ32?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Sai</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>80</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">The autonomous computer fleet at your command</p>
+          <p class="recommended"><strong>推荐选题：</strong>Sai 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>值得优先深挖：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Productivity</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：418 / 48</li><li>发布时间：2026-09-21</li><li>关键词：Productivity, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropic.com/claude-opus-5-5" target="_blank" rel="noreferrer">Claude Opus 5.5</a>
+              <div class="meta">Hacker News · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>79</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by km144</p>
+          <p class="recommended"><strong>推荐选题：</strong>Claude Opus 5.5 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：1328 / 864</li><li>发布时间：2026-09-22</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/Z2PYMQAZ4BLH3U?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Hyrax AI</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>78</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">The AI architect for your entire codebase</p>
+          <p class="recommended"><strong>推荐选题：</strong>Hyrax AI 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Developer Tools</span><span>Artificial Intelligence</span><span>GitHub</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：222 / 13</li><li>发布时间：2026-09-21</li><li>关键词：Developer Tools, Artificial Intelligence, GitHub</li></ul>
+          </details>
+        </article>
+      
+      </section>
+    
+
+      <section>
+        <h3>企业落地与行业应用</h3>
+        
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/langchain4j/langchain4j" target="_blank" rel="noreferrer">langchain4j/langchain4j</a>
+              <div class="meta">GitHub Search:vector-db · 企业落地与行业应用</div>
+            </div>
+            <div class="score">
+              <strong>71</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">LangChain4j is an idiomatic, open-source Java library for building LLM-powered applications on the JVM. It offers a unified API over popular LLM providers and vector stores, and makes implementing tool calling (including MCP support), agents and RAG easy. It integrates seamlessly with enterprise Java frameworks like Quarkus and Spring Boot.</p>
+          <p class="recommended"><strong>推荐选题：</strong>langchain4j/langchain4j 为什么值得关注？（行业场景、落地成本与业务价值）</p>
+          <p>适合进入今日选题池：适合从行业场景、落地成本和业务价值角度切入，来源：GitHub Search:vector-db。</p>
+          <div class="tags"><span>Java</span><span>vector-db</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:vector-db</li><li>热度信号：13147</li><li>发布时间：2026-09-22</li><li>关键词：Java, vector-db</li></ul>
+          </details>
+        </article>
+      
+      </section>
+    
+
+      <section>
+        <h3>标杆企业动向、商业格局与投融资</h3>
+        
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://openai.com/index/introducing-gpt-6-sol-and-luna/" target="_blank" rel="noreferrer">Introducing Gpt 6 Sol And Luna</a>
+              <div class="meta">OpenAI · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>98</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary"></p>
+          <p class="recommended"><strong>推荐选题：</strong>Introducing Gpt 6 Sol And Luna 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>值得优先深挖：适合从大厂动作、商业化路径和竞争格局角度切入，来源：OpenAI。</p>
+          <div class="tags"><span>openai</span><span>index</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：OpenAI</li><li>发布时间：2026-09-22</li><li>关键词：openai, index</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://openai.com/index/better-prompt-caching-for-gpt-6/" target="_blank" rel="noreferrer">Better Prompt Caching For Gpt 6</a>
+              <div class="meta">OpenAI · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>98</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary"></p>
+          <p class="recommended"><strong>推荐选题：</strong>Better Prompt Caching For Gpt 6 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>值得优先深挖：适合从大厂动作、商业化路径和竞争格局角度切入，来源：OpenAI。</p>
+          <div class="tags"><span>openai</span><span>index</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：OpenAI</li><li>发布时间：2026-09-22</li><li>关键词：openai, index</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://openai.com/index/priorities-principles-third-party-assessments/" target="_blank" rel="noreferrer">Priorities Principles Third Party Assessments</a>
+              <div class="meta">OpenAI · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>98</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary"></p>
+          <p class="recommended"><strong>推荐选题：</strong>Priorities Principles Third Party Assessments 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>值得优先深挖：适合从大厂动作、商业化路径和竞争格局角度切入，来源：OpenAI。</p>
+          <div class="tags"><span>openai</span><span>index</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：OpenAI</li><li>发布时间：2026-09-22</li><li>关键词：openai, index</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.cryptocellar.org/bgac/the-mvueh-break.html" target="_blank" rel="noreferrer">OpenAI GPT–6 Astra breaks Enigma message that has resisted solution since 2005</a>
+              <div class="meta">Hacker News · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>87</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by sohkamyung</p>
+          <p class="recommended"><strong>推荐选题：</strong>OpenAI GPT–6 Astra breaks Enigma message that has resisted solution since 2005 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>值得优先深挖：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：601 / 372</li><li>发布时间：2026-09-22</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://arcturus-labs.com/blog/2026/09/21/will-openai-eat-jevs-lunch/" target="_blank" rel="noreferrer">OpenAI is well positioned to fast-follow Jev</a>
+              <div class="meta">Hacker News · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>80</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by JohnBerryman</p>
+          <p class="recommended"><strong>推荐选题：</strong>OpenAI is well positioned to fast-follow Jev 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>值得优先深挖：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：273 / 198</li><li>发布时间：2026-09-22</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+      </section>
+    </div>
+    </section>
+
+    <section id="watch">
+      <h2>观察项</h2>
+      <div class="topic-grid">
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/AXX3ZUQ4DMTXSE?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">AI Creative Insights by Decode</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>64</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">Predict which ad wins before you spend on media</p>
+          <p class="recommended"><strong>推荐选题：</strong>AI Creative Insights by Decode 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合作为观察项：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Marketing</span><span>Advertising</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：111 / 12</li><li>发布时间：2026-09-21</li><li>关键词：Marketing, Advertising, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/abenzerps/Qwen-Image-2.1-Uncensored-GGUF" target="_blank" rel="noreferrer">abenzerps/Qwen-Image-2.1-Uncensored-GGUF</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>64</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">text-to-image model by abenzerps</p>
+          <p class="recommended"><strong>推荐选题：</strong>abenzerps/Qwen-Image-2.1-Uncensored-GGUF 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>text-to-image</span><span>gguf</span><span>qwen</span><span>image-generation</span><span>comfyui</span><span>comfyui-gguf</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：1180 / 182313</li><li>发布时间：2026-09-22</li><li>关键词：text-to-image, gguf, qwen, image-generation, comfyui</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/Comfy-Org/Qwen-Image-2.1" target="_blank" rel="noreferrer">Comfy-Org/Qwen-Image-2.1</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>64</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary"> model by Comfy-Org</p>
+          <p class="recommended"><strong>推荐选题：</strong>Comfy-Org/Qwen-Image-2.1 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>diffusion-single-file</span><span>comfyui</span><span>base_model:Qwen/Qwen-Image-2.1</span><span>base_model:finetune:Qwen/Qwen-Image-2.1</span><span>license:other</span><span>region:us</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：574 / 1429925</li><li>发布时间：2026-09-22</li><li>关键词：diffusion-single-file, comfyui, base_model:Qwen/Qwen-Image-2.1, base_model:finetune:Qwen/Qwen-Image-2.1, license:other</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/Altworld/Hemmingway-1" target="_blank" rel="noreferrer">Altworld/Hemmingway-1</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>64</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">text-generation model by Altworld</p>
+          <p class="recommended"><strong>推荐选题：</strong>Altworld/Hemmingway-1 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>text-generation</span><span>transformers</span><span>safetensors</span><span>qwen3_5_text</span><span>text-generation</span><span>qwen3.8</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：505 / 2745</li><li>发布时间：2026-09-22</li><li>关键词：text-generation, transformers, safetensors, qwen3_5_text, text-generation</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/yandex/AliceAI-Foundation-80B-A3B-Base" target="_blank" rel="noreferrer">yandex/AliceAI-Foundation-80B-A3B-Base</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>64</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">text-generation model by yandex</p>
+          <p class="recommended"><strong>推荐选题：</strong>yandex/AliceAI-Foundation-80B-A3B-Base 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>text-generation</span><span>transformers</span><span>safetensors</span><span>alice_ai</span><span>text-generation</span><span>custom_code</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：279 / 1516</li><li>发布时间：2026-09-22</li><li>关键词：text-generation, transformers, safetensors, alice_ai, text-generation</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.coveragecat.com/" target="_blank" rel="noreferrer">Launch HN: Coverage Cat (YC S22) – Umbrella insurance via your personal agent</a>
+              <div class="meta">Hacker News · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>63</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by botacode</p>
+          <p class="recommended"><strong>推荐选题：</strong>Launch HN: Coverage Cat (YC S22) – Umbrella insurance via your personal agent 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合作为观察项：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：45 / 28</li><li>发布时间：2026-09-22</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/CRNJP2FMTCSIDB?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Cronhq</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>62</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">Cron jobs that actually run</p>
+          <p class="recommended"><strong>推荐选题：</strong>Cronhq 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合作为观察项：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Open Source</span><span>SaaS</span><span>Developer Tools</span><span>GitHub</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：93 / 12</li><li>发布时间：2026-09-21</li><li>关键词：Open Source, SaaS, Developer Tools, GitHub</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://juejin.cn/post/7686054741464694826" target="_blank" rel="noreferrer">周下载量1.1亿的Tailwind，为什么养不活自己？</a>
+              <div class="meta">掘金 · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>61</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">一、杀死Tailwind的，恰恰是AI Tailwind的商业模式曾经很清晰：框架免费开源，靠卖付费组件库（Tailwind Plus、ui.sh）赚钱。开发者通过官方文档了解这些产品，文档是唯一的获</p>
+          <p class="recommended"><strong>推荐选题：</strong>周下载量1.1亿的Tailwind，为什么养不活自己？值得关注的三个信号（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合作为观察项：适合从大厂动作、商业化路径和竞争格局角度切入，来源：掘金。</p>
+          <div class="tags"><span>juejin</span><span>前端</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：掘金</li><li>热度信号：7 / 1349</li><li>发布时间：2026-09-23</li><li>关键词：juejin, 前端</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.assbench.com/" target="_blank" rel="noreferrer">LLM Ass Bench</a>
+              <div class="meta">Hacker News · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>61</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by fragmede</p>
+          <p class="recommended"><strong>推荐选题：</strong>LLM Ass Bench 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合作为观察项：适合从用户入口、使用场景和产品体验角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：142 / 40</li><li>发布时间：2026-09-22</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/A2PNJKNLRWSJIA?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">slop-grader</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>61</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">Jev-AI CLI tool that evaluates text against custom rulesets</p>
+          <p class="recommended"><strong>推荐选题：</strong>slop-grader 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合作为观察项：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Writing</span><span>Advertising</span><span>Artificial Intelligence</span><span>GitHub</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：89 / 10</li><li>发布时间：2026-09-21</li><li>关键词：Writing, Advertising, Artificial Intelligence, GitHub</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/WNTWNSWEDBY4XO?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Milliseconds.ai</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>61</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">Fast AI decisions on text and images, via one API</p>
+          <p class="recommended"><strong>推荐选题：</strong>Milliseconds.ai 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合作为观察项：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>API</span><span>Developer Tools</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：89 / 6</li><li>发布时间：2026-09-21</li><li>关键词：API, Developer Tools, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/Qwen/Qwen-Image-2.1" target="_blank" rel="noreferrer">Qwen/Qwen-Image-2.1</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>60</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">text-to-image model by Qwen</p>
+          <p class="recommended"><strong>推荐选题：</strong>Qwen/Qwen-Image-2.1 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>text-to-image</span><span>diffusers</span><span>safetensors</span><span>qwen</span><span>image-generation</span><span>image-editing</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：1825 / 16242</li><li>发布时间：2026-09-21</li><li>关键词：text-to-image, diffusers, safetensors, qwen, image-generation</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL" target="_blank" rel="noreferrer">XiaomiMiMo/MiMo-V2.6-Pro-RL</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>60</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">text-generation model by XiaomiMiMo</p>
+          <p class="recommended"><strong>推荐选题：</strong>XiaomiMiMo/MiMo-V2.6-Pro-RL 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>text-generation</span><span>transformers</span><span>safetensors</span><span>mimo_v2</span><span>text-generation</span><span>multimodal</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：401 / 985</li><li>发布时间：2026-09-22</li><li>关键词：text-generation, transformers, safetensors, mimo_v2, text-generation</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL" target="_blank" rel="noreferrer">XiaomiMiMo/MiMo-V2.6-Flash-RL</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>60</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">text-generation model by XiaomiMiMo</p>
+          <p class="recommended"><strong>推荐选题：</strong>XiaomiMiMo/MiMo-V2.6-Flash-RL 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>text-generation</span><span>transformers</span><span>safetensors</span><span>mimo_v2</span><span>text-generation</span><span>multimodal</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：394 / 2641</li><li>发布时间：2026-09-22</li><li>关键词：text-generation, transformers, safetensors, mimo_v2, text-generation</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B" target="_blank" rel="noreferrer">XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>60</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">image-text-to-text model by XiaomiMiMo</p>
+          <p class="recommended"><strong>推荐选题：</strong>XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>image-text-to-text</span><span>transformers</span><span>safetensors</span><span>qwen3_5</span><span>image-text-to-text</span><span>mimo_v2</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：352 / 804</li><li>发布时间：2026-09-22</li><li>关键词：image-text-to-text, transformers, safetensors, qwen3_5, image-text-to-text</li></ul>
+          </details>
+        </article>
+      </div>
+    </section>
+
+    <section id="notices">
+      <h2>数据源普通状态提示</h2>
+      <p class="empty">暂无普通状态提示。</p>
+    </section>
+
+    <section id="warnings">
+      <h2>数据源修复提示</h2>
+      <ul><li>36kr 获取失败；可检查网络或 RSS 源是否可用。</li><li>Gitee 获取失败；可检查 gitee.com API 是否可访问。</li></ul>
+    </section>
+
+    <footer>AI Topic Radar · 单文件报告 · 不包含私有资料或 API key</footer>
+  </main>
+</body>
+</html>
