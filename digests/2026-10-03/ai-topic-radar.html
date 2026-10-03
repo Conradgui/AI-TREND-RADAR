@@ -1,0 +1,1427 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 热点选题池 2026-10-03</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f8fb;
+      --panel: #ffffff;
+      --text: #172033;
+      --muted: #667085;
+      --line: #d8dee9;
+      --accent: #2563eb;
+      --accent-soft: #e8f0ff;
+      --green: #0f8a5f;
+      --shadow: 0 16px 40px rgba(17, 24, 39, 0.08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 40px 20px 64px;
+    }
+    header {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      padding: 28px;
+      margin-bottom: 24px;
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { font-size: 32px; line-height: 1.2; margin-bottom: 12px; }
+    h2 { font-size: 24px; margin: 32px 0 16px; }
+    h3 { font-size: 18px; margin: 24px 0 12px; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .summary {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+    .quick-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .quick-links a, .quick-links span {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 12px;
+      background: #fff;
+      color: var(--text);
+      font-size: 14px;
+    }
+    .topic-grid {
+      display: grid;
+      gap: 14px;
+    }
+    .topic-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+      box-shadow: 0 8px 24px rgba(17, 24, 39, 0.05);
+    }
+    .topic-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 16px;
+      align-items: start;
+    }
+    .topic-title {
+      display: inline-block;
+      font-weight: 700;
+      font-size: 17px;
+      line-height: 1.45;
+      overflow-wrap: anywhere;
+    }
+    .meta {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 4px;
+    }
+    .score {
+      min-width: 72px;
+      border-radius: 8px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      text-align: center;
+      padding: 8px 10px;
+    }
+    .score strong {
+      display: block;
+      font-size: 24px;
+      line-height: 1;
+    }
+    .score span {
+      display: block;
+      margin-top: 4px;
+      font-size: 13px;
+      color: var(--text);
+    }
+    .summary {
+      color: #344054;
+      font-weight: 500;
+    }
+    .recommended {
+      background: #f8fafc;
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      padding: 8px 10px;
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 12px 0;
+    }
+    .tags span {
+      background: #eef2f7;
+      border-radius: 999px;
+      color: #475467;
+      font-size: 12px;
+      padding: 3px 8px;
+    }
+    details {
+      border-top: 1px solid var(--line);
+      margin-top: 12px;
+      padding-top: 10px;
+    }
+    summary {
+      cursor: pointer;
+      color: var(--green);
+      font-weight: 600;
+    }
+    ul { padding-left: 20px; }
+    .empty {
+      color: var(--muted);
+      background: var(--panel);
+      border: 1px dashed var(--line);
+      border-radius: 8px;
+      padding: 14px;
+    }
+    .category-stack {
+      display: grid;
+      gap: 10px;
+    }
+    footer {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 36px;
+    }
+    @media (max-width: 640px) {
+      main { padding: 24px 12px 48px; }
+      header { padding: 20px; }
+      h1 { font-size: 26px; }
+      .topic-head { grid-template-columns: 1fr; }
+      .score { width: 84px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>AI 热点选题池 2026-10-03</h1>
+      <p class="summary">面向 AI 内容运营和产品调研的每日选题监控报告。默认入口为本 HTML 文件，可直接双击查看，也可通过 GitHub Pages 分享。</p>
+      <div class="quick-links">
+        <span>生成时间：2026-10-03 05:02 UTC</span>
+        <a href="./ai-topic-radar.md">Markdown</a>
+        <a href="./topic-pool.json">JSON 选题池</a>
+      </div>
+    </header>
+
+    <section id="top">
+      <h2>今日 Top 深挖选题</h2>
+      <div class="topic-grid">
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropic.com/news/claude-frontier-academy" target="_blank" rel="noreferrer">Claude Frontier Academy: $100M to train 10,000 engineers</a>
+              <div class="meta">Anthropic (Claude) · 企业落地与行业应用</div>
+            </div>
+            <div class="score">
+              <strong>98</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Announcements Anthropic invests $100 million to train 10,000 engineers and tackle the enterprise AI talent gap Oct 2, 2026 Learn more The first-of-its-kind Academy trains Frontier Deployed Engineers using the same standard of skills as Anthropic’s own engineers, starting with cohorts from Accenture, Bain, Capgemini, Commonwealth Bank of Australia, Deloitte, McKinsey, Morgan Stanley, Novo Nordisk and others. Today we are launching Claude Frontier Academy to solve one of the most pressing issues in AI implementation: talent. Backed by a $100 million commitment, Anthropic aims to train 10,000 Frontier Deployed Engineers (FDEs) by the end of 2027. Engineers from Accenture, Bain, Capgemini, Commonwealth Bank of Australia, Deloitte, McKinsey, Morgan Stanley and Novo Nordisk are in the first cohorts. Every enterprise is racing to bring AI into its organization, but the people with the skills to make it work inside a real business have become the hardest talent to find. Inside the companies we work with, a small group of deeply skilled people drives an outsized share of what AI delivers. The Academy is the first of its kind from an AI company, built from our own work deploying Claude inside the world’s largest enterprises and the professional services organizations that serve them. “A small team of high-agency people with the right skills, access to Claude, and a deep understanding of how their business runs can transform an entire company. The hard part is building that depth of tal</p>
+          <p class="recommended"><strong>推荐选题：</strong>Claude Frontier Academy: $100M to train 10,000 engineers 为什么值得关注？（行业场景、落地成本与业务价值）</p>
+          <p>值得优先深挖：适合从行业场景、落地成本和业务价值角度切入，来源：Anthropic (Claude)。</p>
+          <div class="tags"><span>anthropic</span><span>news</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Anthropic (Claude)</li><li>发布时间：2026-10-02</li><li>关键词：anthropic, news</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://openai.com/index/practical-guide-building-gpt-6/" target="_blank" rel="noreferrer">Practical Guide Building Gpt 6</a>
+              <div class="meta">OpenAI · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>98</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary"></p>
+          <p class="recommended"><strong>推荐选题：</strong>Practical Guide Building Gpt 6 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>值得优先深挖：适合从大厂动作、商业化路径和竞争格局角度切入，来源：OpenAI。</p>
+          <div class="tags"><span>openai</span><span>index</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：OpenAI</li><li>发布时间：2026-10-03</li><li>关键词：openai, index</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/IMIJETJFC5TCPY?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Dots by OpenAI</a>
+              <div class="meta">Product Hunt · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>88</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Always on agents built to handle everything</p>
+          <p class="recommended"><strong>推荐选题：</strong>Dots by OpenAI 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>值得优先深挖：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Productivity</span><span>Task Management</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：290 / 10</li><li>发布时间：2026-10-01</li><li>关键词：Productivity, Task Management, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/OROVPQZ3Y6HPUR?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Monospace from Directus</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>80</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">The governed API layer for every app, person, and agent</p>
+          <p class="recommended"><strong>推荐选题：</strong>Monospace from Directus 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>值得优先深挖：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>API</span><span>Developer Tools</span><span>Data</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：456 / 95</li><li>发布时间：2026-10-01</li><li>关键词：API, Developer Tools, Data</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/DCVAH43A532K2G?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Yedric.ai</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>80</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Let users control your SaaS with natural language</p>
+          <p class="recommended"><strong>推荐选题：</strong>Yedric.ai 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>值得优先深挖：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>SaaS</span><span>Developer Tools</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：323 / 26</li><li>发布时间：2026-10-01</li><li>关键词：SaaS, Developer Tools, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      </div>
+    </section>
+
+    <section id="pool">
+      <h2>入池选题</h2>
+      <div class="topic-grid">
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/KWE7TOKRKBWP42?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Omnia Agent</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>77</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">The AI Agent that does 95% of your GEO work</p>
+          <p class="recommended"><strong>推荐选题：</strong>Omnia Agent 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Marketing</span><span>SEO</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：213 / 21</li><li>发布时间：2026-10-01</li><li>关键词：Marketing, SEO, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/FQMZCQAIVIIJTE?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Polylane</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>74</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">AI agents that fix production before you wake up</p>
+          <p class="recommended"><strong>推荐选题：</strong>Polylane 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Developer Tools</span><span>Artificial Intelligence</span><span>Tech</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：192 / 30</li><li>发布时间：2026-10-01</li><li>关键词：Developer Tools, Artificial Intelligence, Tech</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/YC57NDYO5VZR64?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">DSH Desktop</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>72</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Official app for DeepSeek’s open-source agent harness</p>
+          <p class="recommended"><strong>推荐选题：</strong>DSH Desktop 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Productivity</span><span>Open Source</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：172 / 9</li><li>发布时间：2026-10-01</li><li>关键词：Productivity, Open Source, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/langchain4j/langchain4j" target="_blank" rel="noreferrer">langchain4j/langchain4j</a>
+              <div class="meta">GitHub Search:vector-db · 企业落地与行业应用</div>
+            </div>
+            <div class="score">
+              <strong>71</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">LangChain4j is an idiomatic, open-source Java library for building LLM-powered applications on the JVM. It offers a unified API over popular LLM providers and vector stores, and makes implementing tool calling (including MCP support), agents and RAG easy. It integrates seamlessly with enterprise Java frameworks like Quarkus and Spring Boot.</p>
+          <p class="recommended"><strong>推荐选题：</strong>langchain4j/langchain4j 为什么值得关注？（行业场景、落地成本与业务价值）</p>
+          <p>适合进入今日选题池：适合从行业场景、落地成本和业务价值角度切入，来源：GitHub Search:vector-db。</p>
+          <div class="tags"><span>Java</span><span>vector-db</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:vector-db</li><li>热度信号：13198</li><li>发布时间：2026-10-02</li><li>关键词：Java, vector-db</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/open-webui/open-webui" target="_blank" rel="noreferrer">open-webui/open-webui</a>
+              <div class="meta">GitHub Search:llm · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>70</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">User-friendly AI Interface (Supports Ollama, OpenAI API, ...)</p>
+          <p class="recommended"><strong>推荐选题：</strong>open-webui/open-webui 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合进入今日选题池：适合从大厂动作、商业化路径和竞争格局角度切入，来源：GitHub Search:llm。</p>
+          <div class="tags"><span>Python</span><span>llm</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:llm</li><li>热度信号：153834</li><li>发布时间：2026-10-02</li><li>关键词：Python, llm</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/DietrichGebert/ponytail" target="_blank" rel="noreferrer">DietrichGebert/ponytail</a>
+              <div class="meta">GitHub Search:llm · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote.</p>
+          <p class="recommended"><strong>推荐选题：</strong>DietrichGebert/ponytail 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:llm。</p>
+          <div class="tags"><span>JavaScript</span><span>llm</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:llm</li><li>热度信号：151995</li><li>发布时间：2026-10-03</li><li>关键词：JavaScript, llm</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/firecrawl/firecrawl" target="_blank" rel="noreferrer">firecrawl/firecrawl</a>
+              <div class="meta">GitHub Search:llm · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">🔥 Supercharge your AI agents with data from the web and beyond. A web data API to search, scrape, and access more sources.</p>
+          <p class="recommended"><strong>推荐选题：</strong>firecrawl/firecrawl 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:llm。</p>
+          <div class="tags"><span>TypeScript</span><span>llm</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:llm</li><li>热度信号：188007</li><li>发布时间：2026-10-03</li><li>关键词：TypeScript, llm</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/Significant-Gravitas/AutoGPT" target="_blank" rel="noreferrer">Significant-Gravitas/AutoGPT</a>
+              <div class="meta">GitHub Search:llm · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.</p>
+          <p class="recommended"><strong>推荐选题：</strong>Significant-Gravitas/AutoGPT 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:llm。</p>
+          <div class="tags"><span>Python</span><span>llm</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:llm</li><li>热度信号：187643</li><li>发布时间：2026-10-03</li><li>关键词：Python, llm</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/Graphify-Labs/graphify" target="_blank" rel="noreferrer">Graphify-Labs/graphify</a>
+              <div class="meta">GitHub Search:llm · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Turn any codebase, with its docs, SQL schemas, configs, and PDFs, into a queryable knowledge graph. A /graphify skill for Claude Code, Cursor, Codex, and Gemini CLI: local deterministic AST parsing, every edge explained, no vector store.</p>
+          <p class="recommended"><strong>推荐选题：</strong>Graphify-Labs/graphify 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:llm。</p>
+          <div class="tags"><span>Python</span><span>llm</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:llm</li><li>热度信号：123370</li><li>发布时间：2026-10-02</li><li>关键词：Python, llm</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/career-ops-hq/career-ops" target="_blank" rel="noreferrer">career-ops-hq/career-ops</a>
+              <div class="meta">GitHub Search:ai-agent · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Open-source AI job search agent and job finder: scan job boards, score each job 1-5 against your CV before you apply, tailor an ATS-friendly resume and cover letter, get interview prep and a job application tracker. It helps you fill in each application; you press Submit. Runs locally in your AI coding CLI (Claude Code, Codex, OpenCode and more).</p>
+          <p class="recommended"><strong>推荐选题：</strong>career-ops-hq/career-ops 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:ai-agent。</p>
+          <div class="tags"><span>JavaScript</span><span>ai-agent</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:ai-agent</li><li>热度信号：73329</li><li>发布时间：2026-10-03</li><li>关键词：JavaScript, ai-agent</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/ZhuLinsen/daily_stock_analysis" target="_blank" rel="noreferrer">ZhuLinsen/daily_stock_analysis</a>
+              <div class="meta">GitHub Search:ai-agent · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">LLM 驱动的多市场股票智能分析系统：多源行情、实时新闻、决策看板与自动推送，支持零成本定时运行。  LLM-powered multi-market stock analysis system with multi-source market data, real-time news, decision dashboard, automated notifications, and cost-free scheduled runs.</p>
+          <p class="recommended"><strong>推荐选题：</strong>ZhuLinsen/daily_stock_analysis 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:ai-agent。</p>
+          <div class="tags"><span>Python</span><span>ai-agent</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:ai-agent</li><li>热度信号：65855</li><li>发布时间：2026-10-03</li><li>关键词：Python, ai-agent</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/CherryHQ/cherry-studio" target="_blank" rel="noreferrer">CherryHQ/cherry-studio</a>
+              <div class="meta">GitHub Search:ai-agent · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">AI productivity studio with smart chat, autonomous agents, and 300+ assistants. Unified access to frontier LLMs</p>
+          <p class="recommended"><strong>推荐选题：</strong>CherryHQ/cherry-studio 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:ai-agent。</p>
+          <div class="tags"><span>TypeScript</span><span>ai-agent</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:ai-agent</li><li>热度信号：52329</li><li>发布时间：2026-10-03</li><li>关键词：TypeScript, ai-agent</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/Mintplex-Labs/anything-llm" target="_blank" rel="noreferrer">Mintplex-Labs/anything-llm</a>
+              <div class="meta">GitHub Search:vector-db · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Stop renting your intelligence. Own it with AnythingLLM. Everything you need for a powerful local-first agent experience </p>
+          <p class="recommended"><strong>推荐选题：</strong>Mintplex-Labs/anything-llm 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:vector-db。</p>
+          <div class="tags"><span>JavaScript</span><span>vector-db</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:vector-db</li><li>热度信号：66677</li><li>发布时间：2026-10-03</li><li>关键词：JavaScript, vector-db</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/meilisearch/meilisearch" target="_blank" rel="noreferrer">meilisearch/meilisearch</a>
+              <div class="meta">GitHub Search:vector-db · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">A lightning-fast search engine API bringing AI-powered hybrid search to your sites and applications.</p>
+          <p class="recommended"><strong>推荐选题：</strong>meilisearch/meilisearch 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:vector-db。</p>
+          <div class="tags"><span>Rust</span><span>vector-db</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:vector-db</li><li>热度信号：59473</li><li>发布时间：2026-10-02</li><li>关键词：Rust, vector-db</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/ultralytics/ultralytics" target="_blank" rel="noreferrer">ultralytics/ultralytics</a>
+              <div class="meta">GitHub Search:ml · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Ultralytics YOLO27, YOLO26, YOLO11, YOLOv8 — object detection, instance segmentation, semantic segmentation, image classification, pose estimation, object tracking</p>
+          <p class="recommended"><strong>推荐选题：</strong>ultralytics/ultralytics 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:ml。</p>
+          <div class="tags"><span>Python</span><span>ml</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:ml</li><li>热度信号：62166</li><li>发布时间：2026-10-03</li><li>关键词：Python, ml</li></ul>
+          </details>
+        </article>
+      </div>
+    </section>
+
+    <section id="categories">
+      <h2>按五类选题分类摘要</h2>
+      <div class="category-stack">
+      <section>
+        <h3>政策监管、社会影响与 AI 安全</h3>
+        <p class="empty">暂无条目。</p>
+      </section>
+    
+
+      <section>
+        <h3>模型与技术突破</h3>
+        
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/FermionResearch/Phonon-2" target="_blank" rel="noreferrer">FermionResearch/Phonon-2</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>65</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">automatic-speech-recognition model by FermionResearch</p>
+          <p class="recommended"><strong>推荐选题：</strong>FermionResearch/Phonon-2 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合进入今日选题池：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>automatic-speech-recognition</span><span>mlx</span><span>parakeet_tdt_five_value</span><span>apple-silicon</span><span>speech-to-text</span><span>asr</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：154 / 2126</li><li>发布时间：2026-10-01</li><li>关键词：automatic-speech-recognition, mlx, parakeet_tdt_five_value, apple-silicon, speech-to-text</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/Lightricks/LTX-2.5" target="_blank" rel="noreferrer">Lightricks/LTX-2.5</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>64</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">image-to-video model by Lightricks</p>
+          <p class="recommended"><strong>推荐选题：</strong>Lightricks/LTX-2.5 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>image-to-video</span><span>diffusion-single-file</span><span>image-to-video</span><span>text-to-video</span><span>video-to-video</span><span>image-text-to-video</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：6006 / 1584129</li><li>发布时间：2026-10-02</li><li>关键词：image-to-video, diffusion-single-file, image-to-video, text-to-video, video-to-video</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/Cloudflare/clef" target="_blank" rel="noreferrer">Cloudflare/clef</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>60</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">image-text-to-text model by Cloudflare</p>
+          <p class="recommended"><strong>推荐选题：</strong>Cloudflare/clef 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>image-text-to-text</span><span>transformers</span><span>safetensors</span><span>qwen3_5</span><span>image-text-to-text</span><span>clef</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：813 / 824</li><li>发布时间：2026-10-01</li><li>关键词：image-text-to-text, transformers, safetensors, qwen3_5, image-text-to-text</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/Cloudflare/clef-flash" target="_blank" rel="noreferrer">Cloudflare/clef-flash</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>60</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">image-text-to-text model by Cloudflare</p>
+          <p class="recommended"><strong>推荐选题：</strong>Cloudflare/clef-flash 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>image-text-to-text</span><span>transformers</span><span>safetensors</span><span>qwen3_5</span><span>image-text-to-text</span><span>clef</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：277 / 1303</li><li>发布时间：2026-10-01</li><li>关键词：image-text-to-text, transformers, safetensors, qwen3_5, image-text-to-text</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/orcarouter/OrcaSAQ-2-Cyber-27B-Uncensored-GGUF" target="_blank" rel="noreferrer">orcarouter/OrcaSAQ-2-Cyber-27B-Uncensored-GGUF</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>60</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">text-generation model by orcarouter</p>
+          <p class="recommended"><strong>推荐选题：</strong>orcarouter/OrcaSAQ-2-Cyber-27B-Uncensored-GGUF 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>text-generation</span><span>llama.cpp</span><span>gguf</span><span>qwen</span><span>qwen3.8</span><span>qwen3_5</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：275 / 9533</li><li>发布时间：2026-10-02</li><li>关键词：text-generation, llama.cpp, gguf, qwen, qwen3.8</li></ul>
+          </details>
+        </article>
+      
+      </section>
+    
+
+      <section>
+        <h3>AI 产品与用户入口</h3>
+        
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/OROVPQZ3Y6HPUR?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Monospace from Directus</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>80</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">The governed API layer for every app, person, and agent</p>
+          <p class="recommended"><strong>推荐选题：</strong>Monospace from Directus 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>值得优先深挖：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>API</span><span>Developer Tools</span><span>Data</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：456 / 95</li><li>发布时间：2026-10-01</li><li>关键词：API, Developer Tools, Data</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/DCVAH43A532K2G?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Yedric.ai</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>80</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Let users control your SaaS with natural language</p>
+          <p class="recommended"><strong>推荐选题：</strong>Yedric.ai 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>值得优先深挖：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>SaaS</span><span>Developer Tools</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：323 / 26</li><li>发布时间：2026-10-01</li><li>关键词：SaaS, Developer Tools, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/KWE7TOKRKBWP42?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Omnia Agent</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>77</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">The AI Agent that does 95% of your GEO work</p>
+          <p class="recommended"><strong>推荐选题：</strong>Omnia Agent 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Marketing</span><span>SEO</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：213 / 21</li><li>发布时间：2026-10-01</li><li>关键词：Marketing, SEO, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/FQMZCQAIVIIJTE?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Polylane</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>74</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">AI agents that fix production before you wake up</p>
+          <p class="recommended"><strong>推荐选题：</strong>Polylane 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Developer Tools</span><span>Artificial Intelligence</span><span>Tech</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：192 / 30</li><li>发布时间：2026-10-01</li><li>关键词：Developer Tools, Artificial Intelligence, Tech</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/YC57NDYO5VZR64?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">DSH Desktop</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>72</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Official app for DeepSeek’s open-source agent harness</p>
+          <p class="recommended"><strong>推荐选题：</strong>DSH Desktop 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Productivity</span><span>Open Source</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：172 / 9</li><li>发布时间：2026-10-01</li><li>关键词：Productivity, Open Source, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+      </section>
+    
+
+      <section>
+        <h3>企业落地与行业应用</h3>
+        
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropic.com/news/claude-frontier-academy" target="_blank" rel="noreferrer">Claude Frontier Academy: $100M to train 10,000 engineers</a>
+              <div class="meta">Anthropic (Claude) · 企业落地与行业应用</div>
+            </div>
+            <div class="score">
+              <strong>98</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Announcements Anthropic invests $100 million to train 10,000 engineers and tackle the enterprise AI talent gap Oct 2, 2026 Learn more The first-of-its-kind Academy trains Frontier Deployed Engineers using the same standard of skills as Anthropic’s own engineers, starting with cohorts from Accenture, Bain, Capgemini, Commonwealth Bank of Australia, Deloitte, McKinsey, Morgan Stanley, Novo Nordisk and others. Today we are launching Claude Frontier Academy to solve one of the most pressing issues in AI implementation: talent. Backed by a $100 million commitment, Anthropic aims to train 10,000 Frontier Deployed Engineers (FDEs) by the end of 2027. Engineers from Accenture, Bain, Capgemini, Commonwealth Bank of Australia, Deloitte, McKinsey, Morgan Stanley and Novo Nordisk are in the first cohorts. Every enterprise is racing to bring AI into its organization, but the people with the skills to make it work inside a real business have become the hardest talent to find. Inside the companies we work with, a small group of deeply skilled people drives an outsized share of what AI delivers. The Academy is the first of its kind from an AI company, built from our own work deploying Claude inside the world’s largest enterprises and the professional services organizations that serve them. “A small team of high-agency people with the right skills, access to Claude, and a deep understanding of how their business runs can transform an entire company. The hard part is building that depth of tal</p>
+          <p class="recommended"><strong>推荐选题：</strong>Claude Frontier Academy: $100M to train 10,000 engineers 为什么值得关注？（行业场景、落地成本与业务价值）</p>
+          <p>值得优先深挖：适合从行业场景、落地成本和业务价值角度切入，来源：Anthropic (Claude)。</p>
+          <div class="tags"><span>anthropic</span><span>news</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Anthropic (Claude)</li><li>发布时间：2026-10-02</li><li>关键词：anthropic, news</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/langchain4j/langchain4j" target="_blank" rel="noreferrer">langchain4j/langchain4j</a>
+              <div class="meta">GitHub Search:vector-db · 企业落地与行业应用</div>
+            </div>
+            <div class="score">
+              <strong>71</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">LangChain4j is an idiomatic, open-source Java library for building LLM-powered applications on the JVM. It offers a unified API over popular LLM providers and vector stores, and makes implementing tool calling (including MCP support), agents and RAG easy. It integrates seamlessly with enterprise Java frameworks like Quarkus and Spring Boot.</p>
+          <p class="recommended"><strong>推荐选题：</strong>langchain4j/langchain4j 为什么值得关注？（行业场景、落地成本与业务价值）</p>
+          <p>适合进入今日选题池：适合从行业场景、落地成本和业务价值角度切入，来源：GitHub Search:vector-db。</p>
+          <div class="tags"><span>Java</span><span>vector-db</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:vector-db</li><li>热度信号：13198</li><li>发布时间：2026-10-02</li><li>关键词：Java, vector-db</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/QZFWCHS3EBGAVT?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Chat.sh</a>
+              <div class="meta">Product Hunt · 企业落地与行业应用</div>
+            </div>
+            <div class="score">
+              <strong>65</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">The help center I built after Intercom's search broke</p>
+          <p class="recommended"><strong>推荐选题：</strong>Chat.sh 为什么值得关注？（行业场景、落地成本与业务价值）</p>
+          <p>适合进入今日选题池：适合从行业场景、落地成本和业务价值角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Customer Success</span><span>SaaS</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：125 / 9</li><li>发布时间：2026-10-01</li><li>关键词：Customer Success, SaaS, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.infoq.cn/article/z9VP6ZQ3vCxTrk1VdU5D" target="_blank" rel="noreferrer">一个忘关的开关，与企业Agent的全栈技术账单</a>
+              <div class="meta">InfoQ 中国 · 企业落地与行业应用</div>
+            </div>
+            <div class="score">
+              <strong>51</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary"></p>
+          <p class="recommended"><strong>推荐选题：</strong>一个忘关的开关，与企业Agent的全栈技术账单值得关注的三个信号（行业场景、落地成本与业务价值）</p>
+          <p>适合作为观察项：适合从行业场景、落地成本和业务价值角度切入，来源：InfoQ 中国。</p>
+          <div class="tags"><span>infoq-cn</span><span>阿里巴巴</span><span>行业深度</span><span>AI 工程化</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：InfoQ 中国</li><li>发布时间：+058716-05</li><li>关键词：infoq-cn, 阿里巴巴, 行业深度, AI 工程化</li></ul>
+          </details>
+        </article>
+      
+      </section>
+    
+
+      <section>
+        <h3>标杆企业动向、商业格局与投融资</h3>
+        
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://openai.com/index/practical-guide-building-gpt-6/" target="_blank" rel="noreferrer">Practical Guide Building Gpt 6</a>
+              <div class="meta">OpenAI · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>98</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary"></p>
+          <p class="recommended"><strong>推荐选题：</strong>Practical Guide Building Gpt 6 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>值得优先深挖：适合从大厂动作、商业化路径和竞争格局角度切入，来源：OpenAI。</p>
+          <div class="tags"><span>openai</span><span>index</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：OpenAI</li><li>发布时间：2026-10-03</li><li>关键词：openai, index</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/IMIJETJFC5TCPY?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Dots by OpenAI</a>
+              <div class="meta">Product Hunt · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>88</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">Always on agents built to handle everything</p>
+          <p class="recommended"><strong>推荐选题：</strong>Dots by OpenAI 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>值得优先深挖：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Productivity</span><span>Task Management</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：290 / 10</li><li>发布时间：2026-10-01</li><li>关键词：Productivity, Task Management, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/open-webui/open-webui" target="_blank" rel="noreferrer">open-webui/open-webui</a>
+              <div class="meta">GitHub Search:llm · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>70</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">User-friendly AI Interface (Supports Ollama, OpenAI API, ...)</p>
+          <p class="recommended"><strong>推荐选题：</strong>open-webui/open-webui 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合进入今日选题池：适合从大厂动作、商业化路径和竞争格局角度切入，来源：GitHub Search:llm。</p>
+          <div class="tags"><span>Python</span><span>llm</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:llm</li><li>热度信号：153834</li><li>发布时间：2026-10-02</li><li>关键词：Python, llm</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://dev.to/gde/repacked-qat-gemma-4-on-one-tpu-v5e-12b-serves-at-675-tokens-per-second-15dd" target="_blank" rel="noreferrer">Repacked QAT Gemma 4 on One TPU v5e: 12B Serves at 675 Tokens per Second</a>
+              <div class="meta">Dev.to · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>60</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">Google's quantization-aware-trained Gemma 4 weights, repacked into int4 and int8 formats vLLM serves on TPU. On one v5e chip the repacks serve every size from E2B to 26B, read the suite level with bf16 through 12B, score up to 2.4 points above Google's own 4-bit exports at the same speed, and put 12B on the chip at 11.31 GiB and 675 output tokens per second.</p>
+          <p class="recommended"><strong>推荐选题：</strong>Repacked QAT Gemma 4 on One TPU v5e: 12B Serves at 675 Tokens per Second 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合作为观察项：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Dev.to。</p>
+          <div class="tags"><span>devto</span><span>gemma</span><span>googlecloud</span><span>machinelearning</span><span>llm</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Dev.to</li><li>热度信号：7 / 0</li><li>发布时间：2026-10-02</li><li>关键词：devto, gemma, googlecloud, machinelearning, llm</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://dev.to/gde/gemma-4-qat-on-one-tpu-v5e-what-runs-and-what-doesnt-2gii" target="_blank" rel="noreferrer">Gemma 4 QAT on One TPU v5e: What Runs and What Doesn't</a>
+              <div class="meta">Dev.to · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>59</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">Google's quantization-aware-trained Gemma 4 weights, repacked into int4 and int8 formats vLLM serves on TPU, on one v5e chip. What runs: every size from E2B to 26B, level with bf16 through 12B, up to 2.4 points above Google's own 4-bit exports at the same speed, and 12B at 675 output tokens per second. What doesn't: bf16 above E2B, 31B in any build, and 26B past a 2,176-token context.</p>
+          <p class="recommended"><strong>推荐选题：</strong>Gemma 4 QAT on One TPU v5e: What Runs and What Doesn't 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合作为观察项：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Dev.to。</p>
+          <div class="tags"><span>devto</span><span>gemma</span><span>googlecloud</span><span>machinelearning</span><span>llm</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Dev.to</li><li>热度信号：3 / 0</li><li>发布时间：2026-10-02</li><li>关键词：devto, gemma, googlecloud, machinelearning, llm</li></ul>
+          </details>
+        </article>
+      
+      </section>
+    </div>
+    </section>
+
+    <section id="watch">
+      <h2>观察项</h2>
+      <div class="topic-grid">
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/Lightricks/LTX-2.5" target="_blank" rel="noreferrer">Lightricks/LTX-2.5</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>64</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">image-to-video model by Lightricks</p>
+          <p class="recommended"><strong>推荐选题：</strong>Lightricks/LTX-2.5 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>image-to-video</span><span>diffusion-single-file</span><span>image-to-video</span><span>text-to-video</span><span>video-to-video</span><span>image-text-to-video</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：6006 / 1584129</li><li>发布时间：2026-10-02</li><li>关键词：image-to-video, diffusion-single-file, image-to-video, text-to-video, video-to-video</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/YAOKSFHFNADYUT?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Bracket</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>64</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">The memory layer for your business</p>
+          <p class="recommended"><strong>推荐选题：</strong>Bracket 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合作为观察项：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Productivity</span><span>SaaS</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：109 / 12</li><li>发布时间：2026-10-01</li><li>关键词：Productivity, SaaS, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/RFUC3OFNIQ4657?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Helo</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>63</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">An independent email API from former Postmark folks</p>
+          <p class="recommended"><strong>推荐选题：</strong>Helo 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合作为观察项：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Email</span><span>API</span><span>Developer Tools</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：101 / 7</li><li>发布时间：2026-10-01</li><li>关键词：Email, API, Developer Tools</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/Cloudflare/clef" target="_blank" rel="noreferrer">Cloudflare/clef</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>60</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">image-text-to-text model by Cloudflare</p>
+          <p class="recommended"><strong>推荐选题：</strong>Cloudflare/clef 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>image-text-to-text</span><span>transformers</span><span>safetensors</span><span>qwen3_5</span><span>image-text-to-text</span><span>clef</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：813 / 824</li><li>发布时间：2026-10-01</li><li>关键词：image-text-to-text, transformers, safetensors, qwen3_5, image-text-to-text</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/Cloudflare/clef-flash" target="_blank" rel="noreferrer">Cloudflare/clef-flash</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>60</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">image-text-to-text model by Cloudflare</p>
+          <p class="recommended"><strong>推荐选题：</strong>Cloudflare/clef-flash 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>image-text-to-text</span><span>transformers</span><span>safetensors</span><span>qwen3_5</span><span>image-text-to-text</span><span>clef</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：277 / 1303</li><li>发布时间：2026-10-01</li><li>关键词：image-text-to-text, transformers, safetensors, qwen3_5, image-text-to-text</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/orcarouter/OrcaSAQ-2-Cyber-27B-Uncensored-GGUF" target="_blank" rel="noreferrer">orcarouter/OrcaSAQ-2-Cyber-27B-Uncensored-GGUF</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>60</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">text-generation model by orcarouter</p>
+          <p class="recommended"><strong>推荐选题：</strong>orcarouter/OrcaSAQ-2-Cyber-27B-Uncensored-GGUF 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>text-generation</span><span>llama.cpp</span><span>gguf</span><span>qwen</span><span>qwen3.8</span><span>qwen3_5</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：275 / 9533</li><li>发布时间：2026-10-02</li><li>关键词：text-generation, llama.cpp, gguf, qwen, qwen3.8</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash" target="_blank" rel="noreferrer">deepseek-ai/DeepSeek-V4.1-Flash</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>60</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">image-text-to-text model by deepseek-ai</p>
+          <p class="recommended"><strong>推荐选题：</strong>deepseek-ai/DeepSeek-V4.1-Flash 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>image-text-to-text</span><span>transformers</span><span>safetensors</span><span>deepseek_v41</span><span>text-generation</span><span>image-text-to-text</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：4017 / 767871</li><li>发布时间：2026-10-01</li><li>关键词：image-text-to-text, transformers, safetensors, deepseek_v41, text-generation</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://wagtail.org/blog/one-month-on-glm-53-flash/" target="_blank" rel="noreferrer">One month coding with GLM 5.3 Flash</a>
+              <div class="meta">Hacker News · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>60</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by ThibWeb</p>
+          <p class="recommended"><strong>推荐选题：</strong>One month coding with GLM 5.3 Flash 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合作为观察项：适合从用户入口、使用场景和产品体验角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：130 / 105</li><li>发布时间：2026-10-02</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://dev.to/gde/repacked-qat-gemma-4-on-one-tpu-v5e-12b-serves-at-675-tokens-per-second-15dd" target="_blank" rel="noreferrer">Repacked QAT Gemma 4 on One TPU v5e: 12B Serves at 675 Tokens per Second</a>
+              <div class="meta">Dev.to · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>60</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">Google's quantization-aware-trained Gemma 4 weights, repacked into int4 and int8 formats vLLM serves on TPU. On one v5e chip the repacks serve every size from E2B to 26B, read the suite level with bf16 through 12B, score up to 2.4 points above Google's own 4-bit exports at the same speed, and put 12B on the chip at 11.31 GiB and 675 output tokens per second.</p>
+          <p class="recommended"><strong>推荐选题：</strong>Repacked QAT Gemma 4 on One TPU v5e: 12B Serves at 675 Tokens per Second 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合作为观察项：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Dev.to。</p>
+          <div class="tags"><span>devto</span><span>gemma</span><span>googlecloud</span><span>machinelearning</span><span>llm</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Dev.to</li><li>热度信号：7 / 0</li><li>发布时间：2026-10-02</li><li>关键词：devto, gemma, googlecloud, machinelearning, llm</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://dev.to/gde/gemma-4-qat-on-one-tpu-v5e-what-runs-and-what-doesnt-2gii" target="_blank" rel="noreferrer">Gemma 4 QAT on One TPU v5e: What Runs and What Doesn't</a>
+              <div class="meta">Dev.to · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>59</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">Google's quantization-aware-trained Gemma 4 weights, repacked into int4 and int8 formats vLLM serves on TPU, on one v5e chip. What runs: every size from E2B to 26B, level with bf16 through 12B, up to 2.4 points above Google's own 4-bit exports at the same speed, and 12B at 675 output tokens per second. What doesn't: bf16 above E2B, 31B in any build, and 26B past a 2,176-token context.</p>
+          <p class="recommended"><strong>推荐选题：</strong>Gemma 4 QAT on One TPU v5e: What Runs and What Doesn't 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合作为观察项：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Dev.to。</p>
+          <div class="tags"><span>devto</span><span>gemma</span><span>googlecloud</span><span>machinelearning</span><span>llm</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Dev.to</li><li>热度信号：3 / 0</li><li>发布时间：2026-10-02</li><li>关键词：devto, gemma, googlecloud, machinelearning, llm</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://dev.to/jaehyun_cho_0dff271e0d2e5/i-counted-tokens-for-the-same-data-in-7-formats-pretty-json-costs-3x-csv-8a2" target="_blank" rel="noreferrer">Pretty JSON costs 3 CSV in tokens. Columnar JSON costs the same. (I measured 9 formats)</a>
+              <div class="meta">Dev.to · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>59</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">Most of us paste data into LLM prompts as JSON, often straight from JSON.stringify(data, null, 2). I...</p>
+          <p class="recommended"><strong>推荐选题：</strong>Pretty JSON costs 3 CSV in tokens. Columnar JSON costs the same. (I measured 9 formats) 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合作为观察项：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Dev.to。</p>
+          <div class="tags"><span>devto</span><span>ai</span><span>llm</span><span>json</span><span>openai</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Dev.to</li><li>热度信号：1 / 1</li><li>发布时间：2026-10-02</li><li>关键词：devto, ai, llm, json, openai</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://gmapscrawl.com/google-maps-scraper-mcp" target="_blank" rel="noreferrer">Show HN: Google Maps Scraper MCP</a>
+              <div class="meta">Hacker News · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>58</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by qwikhost</p>
+          <p class="recommended"><strong>推荐选题：</strong>Show HN: Google Maps Scraper MCP 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合作为观察项：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：9 / 4</li><li>发布时间：2026-10-03</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.abc.net.au/news/2026-10-02/rogue-open-ai-agent-breach-nsw-government-website/107223108" target="_blank" rel="noreferrer">OpenAI hacks 2nd Australian Government Department</a>
+              <div class="meta">Hacker News · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>58</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by killingtime74</p>
+          <p class="recommended"><strong>推荐选题：</strong>OpenAI hacks 2nd Australian Government Department 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合作为观察项：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：6 / 6</li><li>发布时间：2026-10-02</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.thelettersfromleo.com/p/nyt-anthropic-nearly-walked-out-on" target="_blank" rel="noreferrer">Anthropic Nearly Walked Out on Pope Leo XIV's AI Encyclical</a>
+              <div class="meta">Hacker News · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>57</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by hliyan</p>
+          <p class="recommended"><strong>推荐选题：</strong>Anthropic Nearly Walked Out on Pope Leo XIV's AI Encyclical 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合作为观察项：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：5 / 1</li><li>发布时间：2026-10-02</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="http://arxiv.org/abs/2610.02122v1" target="_blank" rel="noreferrer">Argo-Bench: Evaluating Data Agents on Enterprise-Scale Workflows</a>
+              <div class="meta">ArXiv · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>55</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">Real-world enterprise data science and analytics workflows require reasoning across dozens of tables, performing statistical analyses, and acting on the results. Established text-to-SQL benchmarks evaluate query generation alone, and audits have found their answer keys frequently wrong. Because real enterprise warehouses are too sensitive to release, these benchmarks are built on public datasets where a business event fits in a single table. We introduce Argo-Bench, an evaluation framework comprising 210 data science and analytics tasks. Drawing on public data, peer-reviewed industry literature, and regulatory filings, we simulate a food delivery platform in New York City at true scale, with 81 million orders in 2024, grounded economics, fraud patterns, and marketplace incentives. We export this world to an ERP warehouse of 235 tables and 7.5 billion rows, modeled on the Oracle E-Business Suite schema. The simulator's ground-truth state is withheld from the warehouse the agent sees, so tasks require reconstructing facts by navigating the warehouse before acting on them. Argo-Bench goes beyond text-to-SQL: the agent files actions such as banning fraudulent accounts, allocating courier incentive budgets, or issuing back pay, and the grader scores each by its consequences in the simulator. Every task has an executable reference solution that demonstrates solvability using only the warehouse. The strongest of 14 frontier and open-weight models scores 95 or higher on only 34.8% of tasks and averages 59.5 points. We hope Argo-Bench drives progress toward agents that understand, navigate, and act within real data environments.</p>
+          <p class="recommended"><strong>推荐选题：</strong>Argo-Bench: Evaluating Data Agents on Enterprise-Scale Workflows 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：ArXiv。</p>
+          <div class="tags"><span>cs.CL</span><span>cs.AI</span><span>cs.DB</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：ArXiv</li><li>发布时间：2026-10-01</li><li>关键词：cs.CL, cs.AI, cs.DB</li></ul>
+          </details>
+        </article>
+      </div>
+    </section>
+
+    <section id="notices">
+      <h2>数据源普通状态提示</h2>
+      <p class="empty">暂无普通状态提示。</p>
+    </section>
+
+    <section id="warnings">
+      <h2>数据源修复提示</h2>
+      <ul><li>36kr 获取失败；可检查网络或 RSS 源是否可用。</li><li>Gitee 获取失败；可检查 gitee.com API 是否可访问。</li></ul>
+    </section>
+
+    <footer>AI Topic Radar · 单文件报告 · 不包含私有资料或 API key</footer>
+  </main>
+</body>
+</html>
