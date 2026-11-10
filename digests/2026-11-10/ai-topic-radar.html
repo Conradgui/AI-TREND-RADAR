@@ -1,0 +1,1536 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 热点选题池 2026-11-10</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f8fb;
+      --panel: #ffffff;
+      --text: #172033;
+      --muted: #667085;
+      --line: #d8dee9;
+      --accent: #2563eb;
+      --accent-soft: #e8f0ff;
+      --green: #0f8a5f;
+      --shadow: 0 16px 40px rgba(17, 24, 39, 0.08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 40px 20px 64px;
+    }
+    header {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      padding: 28px;
+      margin-bottom: 24px;
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { font-size: 32px; line-height: 1.2; margin-bottom: 12px; }
+    h2 { font-size: 24px; margin: 32px 0 16px; }
+    h3 { font-size: 18px; margin: 24px 0 12px; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .summary {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+    .quick-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .quick-links a, .quick-links span {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 12px;
+      background: #fff;
+      color: var(--text);
+      font-size: 14px;
+    }
+    .topic-grid {
+      display: grid;
+      gap: 14px;
+    }
+    .topic-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+      box-shadow: 0 8px 24px rgba(17, 24, 39, 0.05);
+    }
+    .topic-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 16px;
+      align-items: start;
+    }
+    .topic-title {
+      display: inline-block;
+      font-weight: 700;
+      font-size: 17px;
+      line-height: 1.45;
+      overflow-wrap: anywhere;
+    }
+    .meta {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 4px;
+    }
+    .score {
+      min-width: 72px;
+      border-radius: 8px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      text-align: center;
+      padding: 8px 10px;
+    }
+    .score strong {
+      display: block;
+      font-size: 24px;
+      line-height: 1;
+    }
+    .score span {
+      display: block;
+      margin-top: 4px;
+      font-size: 13px;
+      color: var(--text);
+    }
+    .summary {
+      color: #344054;
+      font-weight: 500;
+    }
+    .recommended {
+      background: #f8fafc;
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      padding: 8px 10px;
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 12px 0;
+    }
+    .tags span {
+      background: #eef2f7;
+      border-radius: 999px;
+      color: #475467;
+      font-size: 12px;
+      padding: 3px 8px;
+    }
+    details {
+      border-top: 1px solid var(--line);
+      margin-top: 12px;
+      padding-top: 10px;
+    }
+    summary {
+      cursor: pointer;
+      color: var(--green);
+      font-weight: 600;
+    }
+    ul { padding-left: 20px; }
+    .empty {
+      color: var(--muted);
+      background: var(--panel);
+      border: 1px dashed var(--line);
+      border-radius: 8px;
+      padding: 14px;
+    }
+    .category-stack {
+      display: grid;
+      gap: 10px;
+    }
+    footer {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 36px;
+    }
+    @media (max-width: 640px) {
+      main { padding: 24px 12px 48px; }
+      header { padding: 20px; }
+      h1 { font-size: 26px; }
+      .topic-head { grid-template-columns: 1fr; }
+      .score { width: 84px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>AI 热点选题池 2026-11-10</h1>
+      <p class="summary">面向 AI 内容运营和产品调研的每日选题监控报告。默认入口为本 HTML 文件，可直接双击查看，也可通过 GitHub Pages 分享。</p>
+      <div class="quick-links">
+        <span>生成时间：2026-11-10 06:59 UTC</span>
+        <a href="./ai-topic-radar.md">Markdown</a>
+        <a href="./topic-pool.json">JSON 选题池</a>
+      </div>
+    </header>
+
+    <section id="top">
+      <h2>今日 Top 深挖选题</h2>
+      <div class="topic-grid">
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://openai.com/index/control-room/" target="_blank" rel="noreferrer">Control Room</a>
+              <div class="meta">OpenAI · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>98</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary"></p>
+          <p class="recommended"><strong>推荐选题：</strong>Control Room 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>值得优先深挖：适合从大厂动作、商业化路径和竞争格局角度切入，来源：OpenAI。</p>
+          <div class="tags"><span>openai</span><span>index</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：OpenAI</li><li>发布时间：2026-11-10</li><li>关键词：openai, index</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://openai.com/index/chatgpt-enterprise-aws-marketplace/" target="_blank" rel="noreferrer">Chatgpt Enterprise Aws Marketplace</a>
+              <div class="meta">OpenAI · 企业落地与行业应用</div>
+            </div>
+            <div class="score">
+              <strong>96</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary"></p>
+          <p class="recommended"><strong>推荐选题：</strong>Chatgpt Enterprise Aws Marketplace 为什么值得关注？（行业场景、落地成本与业务价值）</p>
+          <p>值得优先深挖：适合从行业场景、落地成本和业务价值角度切入，来源：OpenAI。</p>
+          <div class="tags"><span>openai</span><span>index</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：OpenAI</li><li>发布时间：2026-11-10</li><li>关键词：openai, index</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropic.com/research/claude-electronics-design" target="_blank" rel="noreferrer">Claude can design electronic prototypes from start to finish</a>
+              <div class="meta">Anthropic (Claude) · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>93</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">01 Reasoning through geometric problems Testing Claude on real-world electronics design 01 Reasoning through geometric problems 02 Revising designs 03 Using software and documentation 04 Keeping track of constraints and downstream effects 05 Designing for real-world manufacturing 06 Limitations and next steps Published Nov 9, 2026 Team Science A little over a year ago, we began testing how well Claude could design basic electronic circuits. We collaborated with Diode Computers , 1 a company that designs and manufactures circuit boards, to train Claude on simple tasks—for example, on reading a chip’s datasheet and working out which parts a chip needs in order to run. The models we experimented with back then couldn’t reliably lay out a circuit board; they also struggled to design components that fit together. Now, Claude can both design and prototype electronic hardware from start to finish. Engineering an electronic device requires working through many complex steps and practical constraints. You have to not only design and simulate a circuit board, but also reason about the board’s physical layout and how it will behave, model the mechanical components, and write firmware—all while keeping track of which parts are readily available and what a factory is set up to build. To see how newer Claude models have improved in this area, we collaborated with Diode again, this time asking Claude Fable 5.2 to design three electronic devices: a speakerphone, a voice-assistant hub, and a </p>
+          <p class="recommended"><strong>推荐选题：</strong>Claude can design electronic prototypes from start to finish 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>值得优先深挖：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Anthropic (Claude)。</p>
+          <div class="tags"><span>anthropic</span><span>research</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Anthropic (Claude)</li><li>发布时间：2026-11-09</li><li>关键词：anthropic, research</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropic.com/research/provable-inference" target="_blank" rel="noreferrer">Progress on provable inference for large language models</a>
+              <div class="meta">Anthropic (Claude) · 政策监管、社会影响与 AI 安全</div>
+            </div>
+            <div class="score">
+              <strong>93</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">01 Executive summary Progress on provable inference for large language models Read the technical report 01 Executive summary 02 Introduction 03 Trust challenges in AI proliferation 04 Our system: FlashProve 05 Trustworthiness from formal verification 06 Prior work 07 Limitations Published Nov 2, 2026 Team Frontier Red Team Topics Transparency Cybersecurity Global stability Open source Coding See more... Related articles Frontier Red Team Oct 22, 2026 LLMs are making formal software verification feasible at a much larger scale View more Roy Rinberg (Anthropic), Alex Allain (Anthropic); Alessandro Chiesa (EPFL, StarkWare), Miranda Christ (MIT, RESI), Rahul Dalal (Anthropic STEM Fellows Program, Succinct), Giacomo Fenzi (EPFL), Ben Mayer (Anthropic Fellows Program, MIT), Guy Weissenberg (EPFL) Executive summary When you talk to a friend in person, you have many ways to know it is really them: you can see them, hear them, shake their hand. When you talk to an AI model, you have almost none. A user querying a model today cannot check that the responses came from the specific model that a developer claims is responding, as opposed to one secretly substituted in by a routing service for cost reasons, or even by an attacker who has tampered with the token stream. Judging from the model’s output alone is unreliable, even if it produces high-quality responses. Cryptographic proofs of inference solve this problem: they let a model provider commit to a model and then prove that each resp</p>
+          <p class="recommended"><strong>推荐选题：</strong>Progress on provable inference for large language models 为什么值得关注？（政策变化、信任风险与安全治理）</p>
+          <p>值得优先深挖：适合从政策变化、信任风险和安全治理角度切入，来源：Anthropic (Claude)。</p>
+          <div class="tags"><span>anthropic</span><span>research</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Anthropic (Claude)</li><li>发布时间：2026-11-09</li><li>关键词：anthropic, research</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://deepmind.google/research/publications/250558/" target="_blank" rel="noreferrer">Reasoning or Rationalization? Moral Robustness as a Frontier for Non-Verifiable Reasoning in LLMs — Google DeepMind</a>
+              <div class="meta">Google DeepMind · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>89</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">June 10, 2026 Reasoning or Rationalization? Moral Robustness as a Frontier for Non-Verifiable Reasoning in LLMs View publication Download Share Copied Abstract As LLMs increasingly serve in advisory and deliberative roles, users rely on them for non-verifiable reasoning in domains lacking objective ground truths. However, traditional evaluations of LLM reasoning focus almost exclusively on fact-based domains, such as mathematics and science, leaving uncertainty over whether and to what degree models can handle ambiguous, subjective, or value-laden problems over time. To address this concern, we examine moral reasoning as a paradigmatic subdomain of non-verifiable reasoning. We define moral robustness as a model’s capacity to exhibit sound moral reasoning across time and contexts, and we introduce a scalable, adversarial, multi-turn evaluation framework to empirically measure this capability. We simulate 128,000 user-agent moral deliberations across ten frontier LLMs, varying premise relevance, premise order, conversation duration, and the user’s stated moral view. We find that models successfully ignore morally-irrelevant distractors, but shift their verdicts by as much as 7.5%, on average, towards the user’s preferred moral view, and vary their reasoning depending on factors such as order (flipping final moral verdicts by order in 15-31% of the cases) and duration (altering moral verdicts between single-turn and multi-turn in 16-31% of the cases). Our analysis indicates that</p>
+          <p class="recommended"><strong>推荐选题：</strong>Reasoning or Rationalization? Moral Robustness as a Frontier for Non-Verifiable Reasoning in LLMs — Google DeepMind 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>值得优先深挖：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Google DeepMind。</p>
+          <div class="tags"><span>deepmind</span><span>research</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Google DeepMind</li><li>发布时间：2026-11-09</li><li>关键词：deepmind, research</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/I2M2MPP6UQVT6W?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">AXL</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>80</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">GTM copilot for AI product founders: 1,200+ actions via MCP</p>
+          <p class="recommended"><strong>推荐选题：</strong>AXL 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>值得优先深挖：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Sales</span><span>Marketing</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：284 / 66</li><li>发布时间：2026-11-08</li><li>关键词：Sales, Marketing, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      </div>
+    </section>
+
+    <section id="pool">
+      <h2>入池选题</h2>
+      <div class="topic-grid">
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropic.com/claude-fable-and-mythos-5-2" target="_blank" rel="noreferrer">Claude Fable 5.2 and Mythos 5.2</a>
+              <div class="meta">Hacker News · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>79</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by meetpateltech</p>
+          <p class="recommended"><strong>推荐选题：</strong>Claude Fable 5.2 and Mythos 5.2 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：973 / 6</li><li>发布时间：2026-11-09</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/ZVZ33J42Q2NP4A?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Sage2 by Levanto Labs</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>77</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Turn live talk into structured data and instant actions</p>
+          <p class="recommended"><strong>推荐选题：</strong>Sage2 by Levanto Labs 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>API</span><span>Developer Tools</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：218 / 4</li><li>发布时间：2026-11-08</li><li>关键词：API, Developer Tools, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://artificialanalysis.ai/models/claude-fable-5-2" target="_blank" rel="noreferrer">Claude Fable 5.2 scores 65 on Artificial Analysis, highest so far</a>
+              <div class="meta">Hacker News · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>77</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by theanonymousone</p>
+          <p class="recommended"><strong>推荐选题：</strong>Claude Fable 5.2 scores 65 on Artificial Analysis, highest so far 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：334 / 242</li><li>发布时间：2026-11-09</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/open-webui/open-webui" target="_blank" rel="noreferrer">open-webui/open-webui</a>
+              <div class="meta">GitHub Search:llm · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>74</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">User-friendly AI Interface (Supports Ollama, OpenAI API, ...)</p>
+          <p class="recommended"><strong>推荐选题：</strong>open-webui/open-webui 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合进入今日选题池：适合从大厂动作、商业化路径和竞争格局角度切入，来源：GitHub Search:llm。</p>
+          <div class="tags"><span>Svelte</span><span>llm</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:llm</li><li>热度信号：158261</li><li>发布时间：2026-11-10</li><li>关键词：Svelte, llm</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropocenemagazine.org/2026/10/magenta-solar-panels-may-be-agrivoltaics-cleverest-trick-yet/" target="_blank" rel="noreferrer">Semi-transparent, colored cadmium telluride photovoltaic panels in agrivoltaics</a>
+              <div class="meta">Hacker News · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>74</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by speckx</p>
+          <p class="recommended"><strong>推荐选题：</strong>Semi-transparent, colored cadmium telluride photovoltaic panels in agrivoltaics 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：299 / 196</li><li>发布时间：2026-11-09</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/langchain4j/langchain4j" target="_blank" rel="noreferrer">langchain4j/langchain4j</a>
+              <div class="meta">GitHub Search:vector-db · 企业落地与行业应用</div>
+            </div>
+            <div class="score">
+              <strong>71</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">LangChain4j is an idiomatic, open-source Java library for building LLM-powered applications on the JVM. It offers a unified API over popular LLM providers and vector stores, and makes implementing tool calling (including MCP support), agents and RAG easy. It integrates seamlessly with enterprise Java frameworks like Quarkus and Spring Boot.</p>
+          <p class="recommended"><strong>推荐选题：</strong>langchain4j/langchain4j 为什么值得关注？（行业场景、落地成本与业务价值）</p>
+          <p>适合进入今日选题池：适合从行业场景、落地成本和业务价值角度切入，来源：GitHub Search:vector-db。</p>
+          <div class="tags"><span>Java</span><span>vector-db</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:vector-db</li><li>热度信号：13382</li><li>发布时间：2026-11-10</li><li>关键词：Java, vector-db</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/KH3KUD3PZ5P7SH?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">DocsAlot for customer support</a>
+              <div class="meta">Product Hunt · 企业落地与行业应用</div>
+            </div>
+            <div class="score">
+              <strong>70</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Slack and Discord bot that answers your customers questions</p>
+          <p class="recommended"><strong>推荐选题：</strong>DocsAlot for customer support 为什么值得关注？（行业场景、落地成本与业务价值）</p>
+          <p>适合进入今日选题池：适合从行业场景、落地成本和业务价值角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Slack</span><span>SaaS</span><span>Developer Tools</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：165 / 19</li><li>发布时间：2026-11-08</li><li>关键词：Slack, SaaS, Developer Tools</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/R664WMF3WWTS65?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Deduplication </a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>70</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Which Meaning Owns the Word? </p>
+          <p class="recommended"><strong>推荐选题：</strong>Deduplication 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Developer Tools</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：161 / 6</li><li>发布时间：2026-11-08</li><li>关键词：Developer Tools</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/GUMMVH7DF5TXYG?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Zigzag Browser</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>69</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">The polished, native Mac browser for life after Arc</p>
+          <p class="recommended"><strong>推荐选题：</strong>Zigzag Browser 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Mac</span><span>Open Source</span><span>GitHub</span><span>Apple</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：111 / 33</li><li>发布时间：2026-11-08</li><li>关键词：Mac, Open Source, GitHub, Apple</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/LV54W7UK6JWYO7?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">NoMac</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Your AI agent's own Mac, billed per minute. No subscription</p>
+          <p class="recommended"><strong>推荐选题：</strong>NoMac 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Mac</span><span>Developer Tools</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：143 / 22</li><li>发布时间：2026-11-08</li><li>关键词：Mac, Developer Tools, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/ZhuLinsen/daily_stock_analysis" target="_blank" rel="noreferrer">ZhuLinsen/daily_stock_analysis</a>
+              <div class="meta">GitHub Search:ai-agent · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">LLM 驱动的多市场股票智能分析系统：多源行情、实时新闻、决策看板与自动推送，支持零成本定时运行。  LLM-powered multi-market stock analysis system with multi-source market data, real-time news, decision dashboard, automated notifications, and cost-free scheduled runs.</p>
+          <p class="recommended"><strong>推荐选题：</strong>ZhuLinsen/daily_stock_analysis 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:ai-agent。</p>
+          <div class="tags"><span>Python</span><span>ai-agent</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:ai-agent</li><li>热度信号：69234</li><li>发布时间：2026-11-09</li><li>关键词：Python, ai-agent</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/career-ops-hq/career-ops" target="_blank" rel="noreferrer">career-ops-hq/career-ops</a>
+              <div class="meta">GitHub Search:ai-agent · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Open-source AI job search agent and job finder: scan job boards, score each job 1-5 against your CV before you apply, tailor an ATS-friendly resume and cover letter, get interview prep and an application tracker. It helps you fill in each application; you press Submit. Runs locally in Codex, OpenCode and other AI CLIs, or as a Claude Code plugin.</p>
+          <p class="recommended"><strong>推荐选题：</strong>career-ops-hq/career-ops 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:ai-agent。</p>
+          <div class="tags"><span>JavaScript</span><span>ai-agent</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:ai-agent</li><li>热度信号：81542</li><li>发布时间：2026-11-10</li><li>关键词：JavaScript, ai-agent</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/hugohe3/ppt-master" target="_blank" rel="noreferrer">hugohe3/ppt-master</a>
+              <div class="meta">GitHub Search:ai-agent · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">AI turns documents or topics into real, native PowerPoint decks—with native shapes, transitions and animations, data-backed charts and tables on demand, audio narration from speaker notes, and support for your own .pptx templates. · by Hugo He</p>
+          <p class="recommended"><strong>推荐选题：</strong>hugohe3/ppt-master 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:ai-agent。</p>
+          <div class="tags"><span>Python</span><span>ai-agent</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:ai-agent</li><li>热度信号：75370</li><li>发布时间：2026-11-09</li><li>关键词：Python, ai-agent</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/ultralytics/ultralytics" target="_blank" rel="noreferrer">ultralytics/ultralytics</a>
+              <div class="meta">GitHub Search:ml · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Ultralytics YOLO27, YOLO26, YOLO11, YOLOv8 — object detection, instance segmentation, semantic segmentation, image classification, pose estimation, object tracking</p>
+          <p class="recommended"><strong>推荐选题：</strong>ultralytics/ultralytics 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:ml。</p>
+          <div class="tags"><span>Python</span><span>ml</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:ml</li><li>热度信号：63258</li><li>发布时间：2026-11-10</li><li>关键词：Python, ml</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/firecrawl/firecrawl" target="_blank" rel="noreferrer">firecrawl/firecrawl</a>
+              <div class="meta">GitHub Search:llm · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>68</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Supercharge your AI agents with data from the web and beyond. Building the library for superintelligence. 🔥</p>
+          <p class="recommended"><strong>推荐选题：</strong>firecrawl/firecrawl 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：GitHub Search:llm。</p>
+          <div class="tags"><span>TypeScript</span><span>llm</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:llm</li><li>热度信号：200258</li><li>发布时间：2026-11-10</li><li>关键词：TypeScript, llm</li></ul>
+          </details>
+        </article>
+      </div>
+    </section>
+
+    <section id="categories">
+      <h2>按五类选题分类摘要</h2>
+      <div class="category-stack">
+      <section>
+        <h3>政策监管、社会影响与 AI 安全</h3>
+        
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropic.com/research/provable-inference" target="_blank" rel="noreferrer">Progress on provable inference for large language models</a>
+              <div class="meta">Anthropic (Claude) · 政策监管、社会影响与 AI 安全</div>
+            </div>
+            <div class="score">
+              <strong>93</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">01 Executive summary Progress on provable inference for large language models Read the technical report 01 Executive summary 02 Introduction 03 Trust challenges in AI proliferation 04 Our system: FlashProve 05 Trustworthiness from formal verification 06 Prior work 07 Limitations Published Nov 2, 2026 Team Frontier Red Team Topics Transparency Cybersecurity Global stability Open source Coding See more... Related articles Frontier Red Team Oct 22, 2026 LLMs are making formal software verification feasible at a much larger scale View more Roy Rinberg (Anthropic), Alex Allain (Anthropic); Alessandro Chiesa (EPFL, StarkWare), Miranda Christ (MIT, RESI), Rahul Dalal (Anthropic STEM Fellows Program, Succinct), Giacomo Fenzi (EPFL), Ben Mayer (Anthropic Fellows Program, MIT), Guy Weissenberg (EPFL) Executive summary When you talk to a friend in person, you have many ways to know it is really them: you can see them, hear them, shake their hand. When you talk to an AI model, you have almost none. A user querying a model today cannot check that the responses came from the specific model that a developer claims is responding, as opposed to one secretly substituted in by a routing service for cost reasons, or even by an attacker who has tampered with the token stream. Judging from the model’s output alone is unreliable, even if it produces high-quality responses. Cryptographic proofs of inference solve this problem: they let a model provider commit to a model and then prove that each resp</p>
+          <p class="recommended"><strong>推荐选题：</strong>Progress on provable inference for large language models 为什么值得关注？（政策变化、信任风险与安全治理）</p>
+          <p>值得优先深挖：适合从政策变化、信任风险和安全治理角度切入，来源：Anthropic (Claude)。</p>
+          <div class="tags"><span>anthropic</span><span>research</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Anthropic (Claude)</li><li>发布时间：2026-11-09</li><li>关键词：anthropic, research</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="http://arxiv.org/abs/2611.12377v1" target="_blank" rel="noreferrer">Detecting Shadow AI: Unsanctioned LLM Agents on Enterprise Endpoints: A Taxonomy, an Open Detector and a Controlled Evaluation</a>
+              <div class="meta">ArXiv · 政策监管、社会影响与 AI 安全</div>
+            </div>
+            <div class="score">
+              <strong>59</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">Shadow IT, the use of technology that the IT organisation has not approved, is a long-standing governance problem. We argue that autonomous AI agents can make it grow much faster: agents make building tools nearly free, act with their user's privileges, and leave behind scripts, automations and MCP servers that are themselves unsanctioned. A simple compounding model shows that, under its assumptions, shadow IT grows exponentially once agentic artifacts reproduce faster than the organisation retires them; retiring them starts with detecting them. We then ask whether unsanctioned agents can be detected on Windows endpoints. We propose a taxonomy of nine classes of agents and six layers of endpoint footprint, and argue that rules based only on the structure of processes and connections cannot separate an agent from its behavioural twin, the same program talking to a non-AI service. We present Agent Detector, an open-source Windows detector that anchors behaviour to the identity of the remote service and correlates it with configuration, installation and execution history, using a catalog of 39 tools and 184 LLM endpoint entries; it informs users through a notice they must acknowledge instead of blocking. On a controlled bench of 12 synthetic agents, 3 AI components and 9 benign workloads, repeated 5 times on one workstation, two behavioural rules flagged every behavioural twin, while Agent Detector flagged none and detected every agent in the majority of runs. Its limits are temporal: a connection to a provider behind a shared content-delivery network is attributable only while the DNS cache holds the provider's name, one to five minutes, and an intermittent agent was seen by about one scan in three. A scan costs about 154 ms. The bench is too small to rank detectors; it maps what each kind of evidence can see: unsanctioned agents can be partly detected, and not by behaviour alone.</p>
+          <p class="recommended"><strong>推荐选题：</strong>Detecting Shadow AI: Unsanctioned LLM Agents on Enterprise Endpoints: A Taxonomy, an Open Detector and a Controlled Evaluation 为什么值得关注？（政策变化、信任风险与安全治理）</p>
+          <p>适合作为观察项：适合从政策变化、信任风险和安全治理角度切入，来源：ArXiv。</p>
+          <div class="tags"><span>cs.AI</span><span>cs.CR</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：ArXiv</li><li>发布时间：2026-11-09</li><li>关键词：cs.AI, cs.CR</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="http://arxiv.org/abs/2611.12385v1" target="_blank" rel="noreferrer">Clinical predictions using artificial intelligence in neurosurgery and its subspecialties: a systematic review and meta-analysis</a>
+              <div class="meta">ArXiv · 政策监管、社会影响与 AI 安全</div>
+            </div>
+            <div class="score">
+              <strong>57</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">Artificial intelligence models for clinical prediction are proliferating across neurosurgery, but their aggregate discriminative performance, distribution along the care pathway and methodological quality are unclear. We systematically reviewed and meta-analysed these studies in neurosurgery and its subspecialities along with their risk of bias appraisal. We performed a PRISMA search for peer-reviewed original studies using AI to predict a clinical outcome in neurosurgical populations. Metrics were pooled using random effects modelling. Each study was classified as diagnostic, prognostic or forecasting and was assigned an evidence level. Clinical prediction task sub-stratification analysis was performed. Risk-of-bias was assessed using PROBAST. 1063 studies were included. Across 451 studies reporting AUC, pooled discrimination was 0.86, ranging from 0.84 (spine) to 0.87 (neuro-oncology), with extreme heterogeneity. Performance varied by clinical pathway stage, highest for diagnosis, grading and molecular tasks and lowest for post-operative tasks. Only 51 studies were using prospective data with external validation, whereas 619 rested on internal validation alone or no validation. 89 percent studies were at high risk-of-bias, driven by the analysis domain. AI models report high performance across all the neurosurgical subspecialities, concordant across AUC, accuracy, sensitivity and specificity and robust to risk-of-bias stratification. Performance is highest for imaging-anchored diagnostic tasks and lowest at decision-facing post-operative stage. However, the literature is dominated by optimism-prone, internally-validated and poorly calibrated models with extreme heterogeneity. External validation, calibration analysis and reporting guidelines adherence remain prerequisites for clinical adoption.</p>
+          <p class="recommended"><strong>推荐选题：</strong>Clinical predictions using artificial intelligence in neurosurgery and its subspecialties: a systematic review and meta-analysis 为什么值得关注？（政策变化、信任风险与安全治理）</p>
+          <p>适合作为观察项：适合从政策变化、信任风险和安全治理角度切入，来源：ArXiv。</p>
+          <div class="tags"><span>q-bio.TO</span><span>cs.AI</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：ArXiv</li><li>发布时间：2026-11-09</li><li>关键词：q-bio.TO, cs.AI</li></ul>
+          </details>
+        </article>
+      
+      </section>
+    
+
+      <section>
+        <h3>模型与技术突破</h3>
+        
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropic.com/research/claude-electronics-design" target="_blank" rel="noreferrer">Claude can design electronic prototypes from start to finish</a>
+              <div class="meta">Anthropic (Claude) · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>93</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">01 Reasoning through geometric problems Testing Claude on real-world electronics design 01 Reasoning through geometric problems 02 Revising designs 03 Using software and documentation 04 Keeping track of constraints and downstream effects 05 Designing for real-world manufacturing 06 Limitations and next steps Published Nov 9, 2026 Team Science A little over a year ago, we began testing how well Claude could design basic electronic circuits. We collaborated with Diode Computers , 1 a company that designs and manufactures circuit boards, to train Claude on simple tasks—for example, on reading a chip’s datasheet and working out which parts a chip needs in order to run. The models we experimented with back then couldn’t reliably lay out a circuit board; they also struggled to design components that fit together. Now, Claude can both design and prototype electronic hardware from start to finish. Engineering an electronic device requires working through many complex steps and practical constraints. You have to not only design and simulate a circuit board, but also reason about the board’s physical layout and how it will behave, model the mechanical components, and write firmware—all while keeping track of which parts are readily available and what a factory is set up to build. To see how newer Claude models have improved in this area, we collaborated with Diode again, this time asking Claude Fable 5.2 to design three electronic devices: a speakerphone, a voice-assistant hub, and a </p>
+          <p class="recommended"><strong>推荐选题：</strong>Claude can design electronic prototypes from start to finish 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>值得优先深挖：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Anthropic (Claude)。</p>
+          <div class="tags"><span>anthropic</span><span>research</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Anthropic (Claude)</li><li>发布时间：2026-11-09</li><li>关键词：anthropic, research</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://deepmind.google/research/publications/250558/" target="_blank" rel="noreferrer">Reasoning or Rationalization? Moral Robustness as a Frontier for Non-Verifiable Reasoning in LLMs — Google DeepMind</a>
+              <div class="meta">Google DeepMind · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>89</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">June 10, 2026 Reasoning or Rationalization? Moral Robustness as a Frontier for Non-Verifiable Reasoning in LLMs View publication Download Share Copied Abstract As LLMs increasingly serve in advisory and deliberative roles, users rely on them for non-verifiable reasoning in domains lacking objective ground truths. However, traditional evaluations of LLM reasoning focus almost exclusively on fact-based domains, such as mathematics and science, leaving uncertainty over whether and to what degree models can handle ambiguous, subjective, or value-laden problems over time. To address this concern, we examine moral reasoning as a paradigmatic subdomain of non-verifiable reasoning. We define moral robustness as a model’s capacity to exhibit sound moral reasoning across time and contexts, and we introduce a scalable, adversarial, multi-turn evaluation framework to empirically measure this capability. We simulate 128,000 user-agent moral deliberations across ten frontier LLMs, varying premise relevance, premise order, conversation duration, and the user’s stated moral view. We find that models successfully ignore morally-irrelevant distractors, but shift their verdicts by as much as 7.5%, on average, towards the user’s preferred moral view, and vary their reasoning depending on factors such as order (flipping final moral verdicts by order in 15-31% of the cases) and duration (altering moral verdicts between single-turn and multi-turn in 16-31% of the cases). Our analysis indicates that</p>
+          <p class="recommended"><strong>推荐选题：</strong>Reasoning or Rationalization? Moral Robustness as a Frontier for Non-Verifiable Reasoning in LLMs — Google DeepMind 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>值得优先深挖：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Google DeepMind。</p>
+          <div class="tags"><span>deepmind</span><span>research</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Google DeepMind</li><li>发布时间：2026-11-09</li><li>关键词：deepmind, research</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/R4MZ6WWP7QAB6Z?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Inkling 2 Small</a>
+              <div class="meta">Product Hunt · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>66</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">A model that can see and refine what it builds</p>
+          <p class="recommended"><strong>推荐选题：</strong>Inkling 2 Small 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合进入今日选题池：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Artificial Intelligence</span><span>Development</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：192 / 4</li><li>发布时间：2026-11-08</li><li>关键词：Artificial Intelligence, Development</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/LiquidAI/LFM3-1.7B" target="_blank" rel="noreferrer">LiquidAI/LFM3-1.7B</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>64</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">text-generation model by LiquidAI</p>
+          <p class="recommended"><strong>推荐选题：</strong>LiquidAI/LFM3-1.7B 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>text-generation</span><span>transformers</span><span>safetensors</span><span>lfm3</span><span>text-generation</span><span>liquid</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：1576 / 78750</li><li>发布时间：2026-11-09</li><li>关键词：text-generation, transformers, safetensors, lfm3, text-generation</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/mradermacher/DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic-i1-GGUF" target="_blank" rel="noreferrer">mradermacher/DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic-i1-GGUF</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>64</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary"> model by mradermacher</p>
+          <p class="recommended"><strong>推荐选题：</strong>mradermacher/DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic-i1-GGUF 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>transformers</span><span>gguf</span><span>text-generation-inference</span><span>unsloth</span><span>qwen3_5</span><span>reasoning</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：217 / 217408</li><li>发布时间：2026-11-09</li><li>关键词：transformers, gguf, text-generation-inference, unsloth, qwen3_5</li></ul>
+          </details>
+        </article>
+      
+      </section>
+    
+
+      <section>
+        <h3>AI 产品与用户入口</h3>
+        
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/I2M2MPP6UQVT6W?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">AXL</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>80</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary">GTM copilot for AI product founders: 1,200+ actions via MCP</p>
+          <p class="recommended"><strong>推荐选题：</strong>AXL 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>值得优先深挖：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Sales</span><span>Marketing</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：284 / 66</li><li>发布时间：2026-11-08</li><li>关键词：Sales, Marketing, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropic.com/claude-fable-and-mythos-5-2" target="_blank" rel="noreferrer">Claude Fable 5.2 and Mythos 5.2</a>
+              <div class="meta">Hacker News · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>79</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by meetpateltech</p>
+          <p class="recommended"><strong>推荐选题：</strong>Claude Fable 5.2 and Mythos 5.2 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：973 / 6</li><li>发布时间：2026-11-09</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/ZVZ33J42Q2NP4A?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Sage2 by Levanto Labs</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>77</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Turn live talk into structured data and instant actions</p>
+          <p class="recommended"><strong>推荐选题：</strong>Sage2 by Levanto Labs 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>API</span><span>Developer Tools</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：218 / 4</li><li>发布时间：2026-11-08</li><li>关键词：API, Developer Tools, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://artificialanalysis.ai/models/claude-fable-5-2" target="_blank" rel="noreferrer">Claude Fable 5.2 scores 65 on Artificial Analysis, highest so far</a>
+              <div class="meta">Hacker News · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>77</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by theanonymousone</p>
+          <p class="recommended"><strong>推荐选题：</strong>Claude Fable 5.2 scores 65 on Artificial Analysis, highest so far 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：334 / 242</li><li>发布时间：2026-11-09</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.anthropocenemagazine.org/2026/10/magenta-solar-panels-may-be-agrivoltaics-cleverest-trick-yet/" target="_blank" rel="noreferrer">Semi-transparent, colored cadmium telluride photovoltaic panels in agrivoltaics</a>
+              <div class="meta">Hacker News · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>74</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by speckx</p>
+          <p class="recommended"><strong>推荐选题：</strong>Semi-transparent, colored cadmium telluride photovoltaic panels in agrivoltaics 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合进入今日选题池：适合从用户入口、使用场景和产品体验角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：299 / 196</li><li>发布时间：2026-11-09</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+      </section>
+    
+
+      <section>
+        <h3>企业落地与行业应用</h3>
+        
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://openai.com/index/chatgpt-enterprise-aws-marketplace/" target="_blank" rel="noreferrer">Chatgpt Enterprise Aws Marketplace</a>
+              <div class="meta">OpenAI · 企业落地与行业应用</div>
+            </div>
+            <div class="score">
+              <strong>96</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary"></p>
+          <p class="recommended"><strong>推荐选题：</strong>Chatgpt Enterprise Aws Marketplace 为什么值得关注？（行业场景、落地成本与业务价值）</p>
+          <p>值得优先深挖：适合从行业场景、落地成本和业务价值角度切入，来源：OpenAI。</p>
+          <div class="tags"><span>openai</span><span>index</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：OpenAI</li><li>发布时间：2026-11-10</li><li>关键词：openai, index</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/langchain4j/langchain4j" target="_blank" rel="noreferrer">langchain4j/langchain4j</a>
+              <div class="meta">GitHub Search:vector-db · 企业落地与行业应用</div>
+            </div>
+            <div class="score">
+              <strong>71</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">LangChain4j is an idiomatic, open-source Java library for building LLM-powered applications on the JVM. It offers a unified API over popular LLM providers and vector stores, and makes implementing tool calling (including MCP support), agents and RAG easy. It integrates seamlessly with enterprise Java frameworks like Quarkus and Spring Boot.</p>
+          <p class="recommended"><strong>推荐选题：</strong>langchain4j/langchain4j 为什么值得关注？（行业场景、落地成本与业务价值）</p>
+          <p>适合进入今日选题池：适合从行业场景、落地成本和业务价值角度切入，来源：GitHub Search:vector-db。</p>
+          <div class="tags"><span>Java</span><span>vector-db</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:vector-db</li><li>热度信号：13382</li><li>发布时间：2026-11-10</li><li>关键词：Java, vector-db</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/KH3KUD3PZ5P7SH?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">DocsAlot for customer support</a>
+              <div class="meta">Product Hunt · 企业落地与行业应用</div>
+            </div>
+            <div class="score">
+              <strong>70</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Slack and Discord bot that answers your customers questions</p>
+          <p class="recommended"><strong>推荐选题：</strong>DocsAlot for customer support 为什么值得关注？（行业场景、落地成本与业务价值）</p>
+          <p>适合进入今日选题池：适合从行业场景、落地成本和业务价值角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Slack</span><span>SaaS</span><span>Developer Tools</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：165 / 19</li><li>发布时间：2026-11-08</li><li>关键词：Slack, SaaS, Developer Tools</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.infoq.cn/article/rsMuS4cuc2ir68ulGgEs" target="_blank" rel="noreferrer">ADD 资产驱动开发：让 AI Coding 懂业务、守规范、稳架构、实现端到端交付｜AICon北京</a>
+              <div class="meta">InfoQ 中国 · 企业落地与行业应用</div>
+            </div>
+            <div class="score">
+              <strong>51</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">AI Coding 工具能力持续迭代，但存在三大天然局限：缺乏企业私域认知（工程规范、业务上下文、共享依赖关系）、上下文窗口容量有限、生成结果具有概率性误差。</p>
+          <p class="recommended"><strong>推荐选题：</strong>ADD 资产驱动开发：让 AI Coding 懂业务、守规范、稳架构、实现端到端交付｜AICon北京值得关注的三个信号（行业场景、落地成本与业务价值）</p>
+          <p>适合作为观察项：适合从行业场景、落地成本和业务价值角度切入，来源：InfoQ 中国。</p>
+          <div class="tags"><span>infoq-cn</span><span>大会快讯</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：InfoQ 中国</li><li>发布时间：+058828-05</li><li>关键词：infoq-cn, 大会快讯</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.infoq.cn/article/YZx670AAiudsqZjx3UNo" target="_blank" rel="noreferrer">Agent 越用越多，企业为何仍不够 AI Native？</a>
+              <div class="meta">InfoQ 中国 · 企业落地与行业应用</div>
+            </div>
+            <div class="score">
+              <strong>51</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">工具解决局部，瓶颈落在价值</p>
+          <p class="recommended"><strong>推荐选题：</strong>Agent 越用越多，企业为何仍不够 AI Native？值得关注的三个信号（行业场景、落地成本与业务价值）</p>
+          <p>适合作为观察项：适合从行业场景、落地成本和业务价值角度切入，来源：InfoQ 中国。</p>
+          <div class="tags"><span>infoq-cn</span><span>管理/文化</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：InfoQ 中国</li><li>发布时间：+058824-06</li><li>关键词：infoq-cn, 管理/文化</li></ul>
+          </details>
+        </article>
+      
+      </section>
+    
+
+      <section>
+        <h3>标杆企业动向、商业格局与投融资</h3>
+        
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://openai.com/index/control-room/" target="_blank" rel="noreferrer">Control Room</a>
+              <div class="meta">OpenAI · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>98</strong>
+              <span>深挖</span>
+            </div>
+          </div>
+          <p class="summary"></p>
+          <p class="recommended"><strong>推荐选题：</strong>Control Room 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>值得优先深挖：适合从大厂动作、商业化路径和竞争格局角度切入，来源：OpenAI。</p>
+          <div class="tags"><span>openai</span><span>index</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：OpenAI</li><li>发布时间：2026-11-10</li><li>关键词：openai, index</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://github.com/open-webui/open-webui" target="_blank" rel="noreferrer">open-webui/open-webui</a>
+              <div class="meta">GitHub Search:llm · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>74</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">User-friendly AI Interface (Supports Ollama, OpenAI API, ...)</p>
+          <p class="recommended"><strong>推荐选题：</strong>open-webui/open-webui 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合进入今日选题池：适合从大厂动作、商业化路径和竞争格局角度切入，来源：GitHub Search:llm。</p>
+          <div class="tags"><span>Svelte</span><span>llm</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：GitHub Search:llm</li><li>热度信号：158261</li><li>发布时间：2026-11-10</li><li>关键词：Svelte, llm</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://dev.to/thebitforge/everyone-is-building-ai-to-replace-developers-nobody-is-building-the-plan-for-what-comes-after-4a5o" target="_blank" rel="noreferrer">Everyone Is Building AI to Replace Developers. Nobody Is Building the Plan for What Comes After.</a>
+              <div class="meta">Dev.to · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>67</strong>
+              <span>入池</span>
+            </div>
+          </div>
+          <p class="summary">Quick game. Open the launch post for any AI coding tool and count the verbs.  Generates. Refactors....</p>
+          <p class="recommended"><strong>推荐选题：</strong>Everyone Is Building AI to Replace Developers. Nobody Is Building the Plan for What Comes After. 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合进入今日选题池：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Dev.to。</p>
+          <div class="tags"><span>devto</span><span>discuss</span><span>ai</span><span>programming</span><span>career</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Dev.to</li><li>热度信号：69 / 17</li><li>发布时间：2026-11-09</li><li>关键词：devto, discuss, ai, programming, career</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://dev.to/esproc_spl/what-we-learned-from-n-developers-testing-the-zero-hallucination-sql-compiler-1dpb" target="_blank" rel="noreferrer">What We Learned from N Developers Testing the Zero-Hallucination SQL Compiler</a>
+              <div class="meta">Dev.to · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>62</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">Shortly after SQLazy was launched, we offer it to a group of developers to test using their own...</p>
+          <p class="recommended"><strong>推荐选题：</strong>What We Learned from N Developers Testing the Zero-Hallucination SQL Compiler 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合作为观察项：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Dev.to。</p>
+          <div class="tags"><span>devto</span><span>ai</span><span>programming</span><span>devops</span><span>discuss</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Dev.to</li><li>热度信号：6 / 0</li><li>发布时间：2026-11-10</li><li>关键词：devto, ai, programming, devops, discuss</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://support.claude.com/en/articles/17506494-claude-fable-5-2-launch-offers" target="_blank" rel="noreferrer">Claude Fable 5.2 launch offers</a>
+              <div class="meta">Hacker News · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>61</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by danc2050</p>
+          <p class="recommended"><strong>推荐选题：</strong>Claude Fable 5.2 launch offers 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合作为观察项：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：25 / 5</li><li>发布时间：2026-11-09</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+      </section>
+    </div>
+    </section>
+
+    <section id="watch">
+      <h2>观察项</h2>
+      <div class="topic-grid">
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/LiquidAI/LFM3-1.7B" target="_blank" rel="noreferrer">LiquidAI/LFM3-1.7B</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>64</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">text-generation model by LiquidAI</p>
+          <p class="recommended"><strong>推荐选题：</strong>LiquidAI/LFM3-1.7B 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>text-generation</span><span>transformers</span><span>safetensors</span><span>lfm3</span><span>text-generation</span><span>liquid</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：1576 / 78750</li><li>发布时间：2026-11-09</li><li>关键词：text-generation, transformers, safetensors, lfm3, text-generation</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/mradermacher/DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic-i1-GGUF" target="_blank" rel="noreferrer">mradermacher/DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic-i1-GGUF</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>64</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary"> model by mradermacher</p>
+          <p class="recommended"><strong>推荐选题：</strong>mradermacher/DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic-i1-GGUF 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>transformers</span><span>gguf</span><span>text-generation-inference</span><span>unsloth</span><span>qwen3_5</span><span>reasoning</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：217 / 217408</li><li>发布时间：2026-11-09</li><li>关键词：transformers, gguf, text-generation-inference, unsloth, qwen3_5</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/tencent/Qwen3.8-27B-DSpine-b16" target="_blank" rel="noreferrer">tencent/Qwen3.8-27B-DSpine-b16</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>64</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">text-generation model by tencent</p>
+          <p class="recommended"><strong>推荐选题：</strong>tencent/Qwen3.8-27B-DSpine-b16 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>text-generation</span><span>safetensors</span><span>qwen3</span><span>dspine</span><span>speculative-decoding</span><span>draft-model</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：154 / 1464</li><li>发布时间：2026-11-09</li><li>关键词：text-generation, safetensors, qwen3, dspine, speculative-decoding</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/VideoRebirthAI/hyperflow-h3-flash" target="_blank" rel="noreferrer">VideoRebirthAI/hyperflow-h3-flash</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>64</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">image-text-to-video model by VideoRebirthAI</p>
+          <p class="recommended"><strong>推荐选题：</strong>VideoRebirthAI/hyperflow-h3-flash 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>image-text-to-video</span><span>minimax-h3</span><span>diffusers</span><span>safetensors</span><span>gguf</span><span>hyperflow-h3</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：139 / 64221</li><li>发布时间：2026-11-09</li><li>关键词：image-text-to-video, minimax-h3, diffusers, safetensors, gguf</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/SO7EMFRAKO7TPP?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">outages.live</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>63</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">A free live outage feed for your agents</p>
+          <p class="recommended"><strong>推荐选题：</strong>outages.live 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合作为观察项：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>API</span><span>Developer Tools</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：104 / 8</li><li>发布时间：2026-11-08</li><li>关键词：API, Developer Tools, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.reddit.com/r/ClaudeCode/comments/1xq2n3t/a_year_after_the_100_ai_mandate_nobody/" target="_blank" rel="noreferrer">A year after the 100% AI mandate nobody understands our code</a>
+              <div class="meta">Hacker News · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>62</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by thelifeline</p>
+          <p class="recommended"><strong>推荐选题：</strong>A year after the 100% AI mandate nobody understands our code 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合作为观察项：适合从用户入口、使用场景和产品体验角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：120 / 152</li><li>发布时间：2026-11-09</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/FM5JX2VIU22Z3M?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">Agent Clan</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>62</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">Command your Claude Code and Codex agents with gestures</p>
+          <p class="recommended"><strong>推荐选题：</strong>Agent Clan 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合作为观察项：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Productivity</span><span>Developer Tools</span><span>Artificial Intelligence</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：98 / 13</li><li>发布时间：2026-11-08</li><li>关键词：Productivity, Developer Tools, Artificial Intelligence</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://dev.to/esproc_spl/what-we-learned-from-n-developers-testing-the-zero-hallucination-sql-compiler-1dpb" target="_blank" rel="noreferrer">What We Learned from N Developers Testing the Zero-Hallucination SQL Compiler</a>
+              <div class="meta">Dev.to · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>62</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">Shortly after SQLazy was launched, we offer it to a group of developers to test using their own...</p>
+          <p class="recommended"><strong>推荐选题：</strong>What We Learned from N Developers Testing the Zero-Hallucination SQL Compiler 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合作为观察项：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Dev.to。</p>
+          <div class="tags"><span>devto</span><span>ai</span><span>programming</span><span>devops</span><span>discuss</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Dev.to</li><li>热度信号：6 / 0</li><li>发布时间：2026-11-10</li><li>关键词：devto, ai, programming, devops, discuss</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://support.claude.com/en/articles/17506494-claude-fable-5-2-launch-offers" target="_blank" rel="noreferrer">Claude Fable 5.2 launch offers</a>
+              <div class="meta">Hacker News · 标杆企业动向、商业格局与投融资</div>
+            </div>
+            <div class="score">
+              <strong>61</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">HN discussion by danc2050</p>
+          <p class="recommended"><strong>推荐选题：</strong>Claude Fable 5.2 launch offers 为什么值得关注？（大厂动作、商业化路径与竞争格局）</p>
+          <p>适合作为观察项：适合从大厂动作、商业化路径和竞争格局角度切入，来源：Hacker News。</p>
+          <div class="tags"><span>community</span><span>discussion</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hacker News</li><li>热度信号：25 / 5</li><li>发布时间：2026-11-09</li><li>关键词：community, discussion</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://www.producthunt.com/r/YYUJDCIEYXK6IE?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Trend+Radar+%28ID%3A+285539%29" target="_blank" rel="noreferrer">NotchIsland</a>
+              <div class="meta">Product Hunt · AI 产品与用户入口</div>
+            </div>
+            <div class="score">
+              <strong>61</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">Free, open-source Dynamic Island for the MacBook notch</p>
+          <p class="recommended"><strong>推荐选题：</strong>NotchIsland 为什么值得关注？（用户入口、使用场景与产品体验）</p>
+          <p>适合作为观察项：适合从用户入口、使用场景和产品体验角度切入，来源：Product Hunt。</p>
+          <div class="tags"><span>Mac</span><span>Open Source</span><span>GitHub</span><span>Menu Bar Apps</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Product Hunt</li><li>热度信号：90 / 3</li><li>发布时间：2026-11-08</li><li>关键词：Mac, Open Source, GitHub, Menu Bar Apps</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF" target="_blank" rel="noreferrer">DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>60</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">image-text-to-text model by DavidAU</p>
+          <p class="recommended"><strong>推荐选题：</strong>DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>image-text-to-text</span><span>gguf</span><span>unsloth</span><span>fine tune</span><span>heretic</span><span>uncensored</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：2789 / 1530688</li><li>发布时间：2026-11-09</li><li>关键词：image-text-to-text, gguf, unsloth, fine tune, heretic</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/webAI-Official/TwIL-8B" target="_blank" rel="noreferrer">webAI-Official/TwIL-8B</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>60</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">text-generation model by webAI-Official</p>
+          <p class="recommended"><strong>推荐选题：</strong>webAI-Official/TwIL-8B 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>text-generation</span><span>transformers</span><span>safetensors</span><span>gguf</span><span>granite</span><span>text-generation</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：262 / 34546</li><li>发布时间：2026-11-08</li><li>关键词：text-generation, transformers, safetensors, gguf, granite</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="https://huggingface.co/autotrust/Qwen3.8-Flash-Next-E384-FP4-V2" target="_blank" rel="noreferrer">autotrust/Qwen3.8-Flash-Next-E384-FP4-V2</a>
+              <div class="meta">Hugging Face · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>60</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">image-text-to-text model by autotrust</p>
+          <p class="recommended"><strong>推荐选题：</strong>autotrust/Qwen3.8-Flash-Next-E384-FP4-V2 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：Hugging Face。</p>
+          <div class="tags"><span>image-text-to-text</span><span>vllm</span><span>safetensors</span><span>qwen4_exp</span><span>qwen3.8</span><span>moe</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：Hugging Face</li><li>热度信号：2374 / 46017</li><li>发布时间：2026-11-08</li><li>关键词：image-text-to-text, vllm, safetensors, qwen4_exp, qwen3.8</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="http://arxiv.org/abs/2611.12446v1" target="_blank" rel="noreferrer">Pricing Symbolic Rules by What GNNs Leave Unlearned</a>
+              <div class="meta">ArXiv · 模型与技术突破</div>
+            </div>
+            <div class="score">
+              <strong>59</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">Symbolic knowledge (motif counts, ring counts, label constraints) is routinely added to graph neural networks (GNNs) and justified by their limited expressivity. We replace this yardstick with an exact one. The largest log-loss reduction a rule $S$ can give a model family is $I(Y;S\midσ)$ given what the family computes; every realised gain splits exactly into this term plus repaid neural debt; and for a trained network with representation $T$ the value is $I(Y;S\mid T)$, the label information training failed to extract. Rule design thus becomes rule discovery: we score candidates on the network's out-of-fold residual against calibrated permutation nulls with family-wise error control. On ZINC, discovery recovers the hidden ring term $\max(0,\ell_{\max}-6)$ of the target in three independent runs ($p_{\mathrm{adj}}=0.001$) and beats expert cycle counts; frozen and applied to five unseen datasets it is never significantly worse than the plain network or the expert rule, and on BBBP it significantly beats both.</p>
+          <p class="recommended"><strong>推荐选题：</strong>Pricing Symbolic Rules by What GNNs Leave Unlearned 为什么值得关注？（模型能力变化与技术路线）</p>
+          <p>适合作为观察项：适合从模型能力变化、技术路线和产品化可能性角度切入，来源：ArXiv。</p>
+          <div class="tags"><span>cs.NE</span><span>cs.AI</span><span>cs.LG</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：ArXiv</li><li>发布时间：2026-11-09</li><li>关键词：cs.NE, cs.AI, cs.LG</li></ul>
+          </details>
+        </article>
+      
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div>
+              <a class="topic-title" href="http://arxiv.org/abs/2611.12377v1" target="_blank" rel="noreferrer">Detecting Shadow AI: Unsanctioned LLM Agents on Enterprise Endpoints: A Taxonomy, an Open Detector and a Controlled Evaluation</a>
+              <div class="meta">ArXiv · 政策监管、社会影响与 AI 安全</div>
+            </div>
+            <div class="score">
+              <strong>59</strong>
+              <span>观察</span>
+            </div>
+          </div>
+          <p class="summary">Shadow IT, the use of technology that the IT organisation has not approved, is a long-standing governance problem. We argue that autonomous AI agents can make it grow much faster: agents make building tools nearly free, act with their user's privileges, and leave behind scripts, automations and MCP servers that are themselves unsanctioned. A simple compounding model shows that, under its assumptions, shadow IT grows exponentially once agentic artifacts reproduce faster than the organisation retires them; retiring them starts with detecting them. We then ask whether unsanctioned agents can be detected on Windows endpoints. We propose a taxonomy of nine classes of agents and six layers of endpoint footprint, and argue that rules based only on the structure of processes and connections cannot separate an agent from its behavioural twin, the same program talking to a non-AI service. We present Agent Detector, an open-source Windows detector that anchors behaviour to the identity of the remote service and correlates it with configuration, installation and execution history, using a catalog of 39 tools and 184 LLM endpoint entries; it informs users through a notice they must acknowledge instead of blocking. On a controlled bench of 12 synthetic agents, 3 AI components and 9 benign workloads, repeated 5 times on one workstation, two behavioural rules flagged every behavioural twin, while Agent Detector flagged none and detected every agent in the majority of runs. Its limits are temporal: a connection to a provider behind a shared content-delivery network is attributable only while the DNS cache holds the provider's name, one to five minutes, and an intermittent agent was seen by about one scan in three. A scan costs about 154 ms. The bench is too small to rank detectors; it maps what each kind of evidence can see: unsanctioned agents can be partly detected, and not by behaviour alone.</p>
+          <p class="recommended"><strong>推荐选题：</strong>Detecting Shadow AI: Unsanctioned LLM Agents on Enterprise Endpoints: A Taxonomy, an Open Detector and a Controlled Evaluation 为什么值得关注？（政策变化、信任风险与安全治理）</p>
+          <p>适合作为观察项：适合从政策变化、信任风险和安全治理角度切入，来源：ArXiv。</p>
+          <div class="tags"><span>cs.AI</span><span>cs.CR</span></div>
+          <details>
+            <summary>关键证据</summary>
+            <ul><li>来源：ArXiv</li><li>发布时间：2026-11-09</li><li>关键词：cs.AI, cs.CR</li></ul>
+          </details>
+        </article>
+      </div>
+    </section>
+
+    <section id="notices">
+      <h2>数据源普通状态提示</h2>
+      <p class="empty">暂无普通状态提示。</p>
+    </section>
+
+    <section id="warnings">
+      <h2>数据源修复提示</h2>
+      <ul><li>36kr 获取失败；可检查网络或 RSS 源是否可用。</li><li>Gitee 获取失败；可检查 gitee.com API 是否可访问。</li></ul>
+    </section>
+
+    <footer>AI Topic Radar · 单文件报告 · 不包含私有资料或 API key</footer>
+  </main>
+</body>
+</html>
